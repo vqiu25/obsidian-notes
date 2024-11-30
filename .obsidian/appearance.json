@@ -1,0 +1,10 @@
+{
+  "cssTheme": "AnuPpuccin",
+  "nativeMenus": true,
+  "interfaceFontFamily": "Geist Mono",
+  "enabledCssSnippets": [
+    "images",
+    "flash-cards",
+    "mermaid"
+  ]
+}
