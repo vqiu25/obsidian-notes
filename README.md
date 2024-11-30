@@ -1,7 +1,7 @@
 # Obsidian Notes
 
 <p align="center">
-  <img width="350" alt="obsidian" src="https://github.com/user-attachments/assets/858dfc29-1c62-4786-ad9f-9b2ea9ff3a59">
+  <img width="300" alt="obsidian" src="https://github.com/user-attachments/assets/858dfc29-1c62-4786-ad9f-9b2ea9ff3a59">
 </p>
 
 ## About
