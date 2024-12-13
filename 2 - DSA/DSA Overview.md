@@ -1,59 +1,95 @@
 # Dashboard
 
-##### Algorithms
-* 
-##### Data Structures
-
-##### Maths
-* [[Analysis]]
-* [[Number Theory]]
-* [[Combinatorics]]
-##### Patterns
-
+## Patterns
 ```mermaid
 graph TD
-  A[Arrays & Hashing]
-  B[Two Pointers]
-  C[Stack]
+  A[Two Pointers]
+  B[Hash Maps and Sets]
+  C[Linked Lists]
   D[Binary Search]
   E[Sliding Window]
-  F[Linked List]
-  G[Trees]
-  H[Tries]
-  I[Heap / Priority Queue]
-  J[Intervals]
-  K[Greedy]
-  L[Advanced Graphs]
-  M[Backtracking]
+  F[Prefix Sums]
+  G[Fast and Slow Pointers]
+  H[Stacks]
+  I[Heaps]
+  J[Trees]
+  K[Intervals]
+  L[Sort and Search]
+  M[Tries]
   N[Graphs]
-  O[1-D DP]
-  P[2-D DP]
+  O[Backtracking]
+  P[Dynamic Programming]
   Q[Bit Manipulation]
-  R[Math & Geometry]
+  R[Greedy]
+  S[Math & Geometry]
 
   A --> B
-  A --> C
+  B --> C
   B --> D
   B --> E
   B --> F
-  D --> G
-  F --> G
-  G --> H
-  G --> I
-  G --> M
+  C --> G
+  C --> I
+  D --> H
+  E --> H
+  H --> I
   I --> J
   I --> K
   I --> L
-  M --> N
-  M --> O
-  N --> L
-  N --> P
-  N --> R
+  J --> M
+  J --> N
+  J --> O
   O --> P
-  O --> Q
-  Q --> R
+  P --> Q
+  P --> R
+  P --> S
 
   %% Attach the internal-link class to nodes
-  class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R internal-link;
+  class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S internal-link;
 ```
 
+## Data Structures
+
+![[Drawing 2024-12-14 11.48.16.excalidraw | center | 900]]
+
+````col
+```col-md
+**Sequence Containers**
+* [[Array]]
+* [[Vector]]
+* [[Forward List]]
+```
+```col-md
+**Container Adapters**
+* [[Stack]]
+* [[Queue]]
+* [[Priority Queue]]
+```
+````
+````col
+```col-md
+**Associative Containers
+(Binary Search Tree)**
+* [[Set]]
+* [[Map]]
+* [[Multiset]]
+* [[Multimap]]
+```
+```col-md
+**Unordered Associative Containers (Hash Table)**
+* [[Unordered Set]]
+* [[Unordered Map]]
+* [[Unordered Multiset]]
+* [[Unordered Multimap]]
+```
+````
+## Algorithms
+
+* [[DFS]]
+* [[BFS]]
+
+## Maths
+
+* [[Analysis]]
+* [[Number Theory]]
+* [[Combinatorics]]

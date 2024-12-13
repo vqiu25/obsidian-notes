@@ -1,7 +1,7 @@
 {
   "cssTheme": "AnuPpuccin",
   "nativeMenus": true,
-  "interfaceFontFamily": "Geist Mono",
+  "interfaceFontFamily": "JetBrainsMono Nerd Font,Atkinson Hyperlegible",
   "enabledCssSnippets": [
     "images",
     "flash-cards",
