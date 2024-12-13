@@ -27,5 +27,6 @@
   "anuppuccin-theme-settings@@anp-h3-color-custom": "none",
   "anuppuccin-theme-settings@@anp-h4-color-custom": "none",
   "anuppuccin-theme-settings@@anp-h5-color-custom": "none",
-  "anuppuccin-theme-settings@@anp-h6-color-custom": "none"
+  "anuppuccin-theme-settings@@anp-h6-color-custom": "none",
+  "anuppuccin-theme-settings@@anp-codeblock-numbers": true
 }

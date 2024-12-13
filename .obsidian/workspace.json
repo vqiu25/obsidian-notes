@@ -4,22 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "4509724f8bf84da7",
+        "id": "1062cc2f8fbe4a0e",
         "type": "tabs",
         "children": [
           {
-            "id": "e7a7b303c61786dc",
+            "id": "03822081a537aa4e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5 - Resources/Home.md",
+                "file": "2 - DSA/DSA Overview.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "DSA Overview"
+            }
+          },
+          {
+            "id": "f303ea2669a0bfd1",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "5 - Resources/Excalidraw/Drawing 2024-12-14 11.48.16.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2024-12-14 11.48.16.excalidraw"
             }
           }
         ]
@@ -88,7 +100,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 240
+    "width": 259
   },
   "right": {
     "id": "02846ad98d88f8ae",
@@ -132,38 +144,15 @@
             }
           },
           {
-            "id": "b8058530ff0e71af",
-            "type": "leaf",
-            "state": {
-              "type": "review-queue-list-view",
-              "state": {},
-              "icon": "SpacedRepIcon",
-              "title": "Notes Review Queue"
-            }
-          },
-          {
-            "id": "0fb3f0d4ac07a0bf",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
-            }
-          },
-          {
             "id": "adbb6b560fa92f28",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "5 - Resources/Home.md"
+                "file": "2 - DSA/DSA Overview.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Home"
+              "title": "Outline of DSA Overview"
             }
           }
         ],
@@ -179,9 +168,9 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "5 - Resources/Home.md",
+                "file": "2 - DSA/DSA Overview.md",
                 "options": {
-                  "collapse-filter": true,
+                  "collapse-filter": false,
                   "search": "",
                   "localJumps": 1,
                   "localBacklinks": true,
@@ -207,14 +196,14 @@
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of Home"
+              "title": "Graph of DSA Overview"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 232
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -230,29 +219,40 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "03822081a537aa4e",
   "lastOpenFiles": [
-    "untitled",
-    "5 - Resources/Repository",
+    "2 - DSA/Data Structures/DS Map.canvas",
     "2 - DSA/DSA Overview.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-14 11.48.16.excalidraw.md",
+    "2 - DSA/Data Structures/Unordered Map.md",
+    "2 - DSA/Data Structures/Unordered Set.md",
+    "2 - DSA/Data Structures/Priority Queue.md",
+    "2 - DSA/Data Structures/Queue.md",
+    "2 - DSA/Data Structures/Forward List.md",
+    "2 - DSA/Data Structures/Set.md",
+    "2 - DSA/Data Structures/Array.md",
+    "2 - DSA/Data Structures/Vector.md",
+    "5 - Resources/Templates/Concept.md",
+    "5 - Resources/Excalidraw/Template.md",
+    "2 - DSA/Patterns/Prefix Sums.md",
+    "2 - DSA/Patterns/Sliding Window.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-10 08.17.02.excalidraw.md",
+    "2 - DSA/Patterns/Two Pointers.md",
     "5 - Resources/Home.md",
-    "5 - Resources/Repository",
+    "1 - Languages/Languages Overview.md",
+    "2 - DSA/Patterns/Arrays & Hashing.md",
     "3 - OS/OS Overview.md",
     "4 - System Design/System Design Overview.md",
-    "2 - DSA/Data Structures/DS Map.canvas",
-    "2 - DSA/Patterns/Two Pointers.md",
-    "5 - Resources/Templates/Concept.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-11 08.29.17.excalidraw.md",
+    "2 - DSA/Patterns/Patterns.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-11 07.59.22.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-10 08.06.54.excalidraw.md",
+    "untitled",
+    "5 - Resources/Repository",
+    "5 - Resources/Repository",
     "5 - Resources/Templates",
-    "2 - DSA/Patterns/Arrays & Hashing.md",
-    "5 - Resources/Excalidraw/Template.md",
     "Untitled.canvas",
-    "5 - Resources/Excalidraw/Drawing 2024-11-28 23.21.41.excalidraw.md",
-    "1 - Languages/Languages Overview.md",
-    "Stack.md",
     "2 - DSA/Maths",
-    "C+.md",
-    "Languages.md",
-    "Language.md",
     "3 - OS/Memory",
     "4 - System Design/Concepts",
     "4 - System Design/Problems",
@@ -262,23 +262,11 @@
     "5 - Resources/Attachements/Pasted image 20241124205936.png",
     "5 - Resources/Attachements/Pasted image 20241124172830.png",
     "5 - Resources/Attachements/Pasted image 20241124171806.png",
-    "5 - Resources/Excalidraw/Drawing 2024-11-24 16.46.15.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2024-11-24 16.45.39.excalidraw.md",
-    "1 - Languages/C++",
-    "5 - Resources/Excalidraw/Drawing 2024-11-24 15.01.30.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2024-11-24 14.39.44.excalidraw.md",
-    "Resources/Excalidraw/Drawing 2024-11-24 15.01.15.excalidraw.md",
-    "Excalidraw/Drawing 2024-11-24 14.59.45.excalidraw.md",
     "5 - Resources/Attachements/Pasted image 20241124144928.png",
     "5 - Resources/Attachements/rectangle.portrait.and.arrow.right.fill.png",
     "5 - Resources/Attachements/rectangle.portrait.and.arrow.right.fill.svg",
     "5 - Resources/Attachements/Pasted image 20241124141949.png",
     "5 - Resources/Attachements/Pasted image 20241124113442.png",
-    "Pasted image 20241124113222.png",
-    "Excalidraw/Drawing 2024-11-24 11.03.29.excalidraw.md",
-    "Drawing 2024-11-24 11.01.24.excalidraw.md",
-    "5 - Resources/Drawing 2024-11-24 11.01.24.excalidraw.md",
-    "2024-11-24.md",
-    "Welcome.md"
+    "Pasted image 20241124113222.png"
   ]
 }
