@@ -7,7 +7,7 @@ graph TD
   B[Hash Maps and Sets]
   C[Linked Lists]
   D[Binary Search]
-  E[Sliding Window]
+  E[Sliding Windows]
   F[Prefix Sums]
   G[Fast and Slow Pointers]
   H[Stacks]
@@ -50,7 +50,7 @@ graph TD
 
 ## Data Structures
 
-![[Drawing 2024-12-14 11.48.16.excalidraw | center | 900]]
+![[Drawing 2024-12-14 11.48.16.excalidraw | center | 1000]]
 
 ````col
 ```col-md
@@ -93,3 +93,5 @@ graph TD
 * [[Analysis]]
 * [[Number Theory]]
 * [[Combinatorics]]
+
+## Problem Solving Strategies

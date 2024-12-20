@@ -3,7 +3,7 @@
     "flashcardTags": [
       "#flashcards"
     ],
-    "convertFoldersToDecks": true,
+    "convertFoldersToDecks": false,
     "burySiblingCards": false,
     "randomizeCardOrder": null,
     "flashcardCardOrder": "DueFirstRandom",
