@@ -2,7 +2,7 @@
 > <!-- Multiline -->
 >````col 
 >```col-md 
-> ![[list.gif]]
+> ![[bst.gif]]
 >``` 
 >```col-md 
 >[Insert]
