@@ -1,5 +1,4 @@
 > [!quote]+ Overview
-> <!-- Multiline -->
 >````col 
 >```col-md 
 > ![[vector.png]]
@@ -218,3 +217,4 @@
 > [!info]- Add & Remove
 > <!-- Multiline -->
 
+#flashcards/dsa/ds/vector

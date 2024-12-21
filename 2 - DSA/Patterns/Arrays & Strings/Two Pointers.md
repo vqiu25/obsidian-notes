@@ -70,6 +70,12 @@
 >
 > ![[Drawing 2024-12-14 22.02.48.excalidraw | 600 | center]]
 
+>[!Note]- Unidirectional Traversal, how to traverse 2 arrays?
+> <!-- Multiline -->
+>Given the following situation in the **~={red}Two Sum=~** problem:
+>
+> ![[Drawing 2024-12-14 22.02.48.excalidraw | 600 | center]]
+
 # Templates
 
 >[!Info]- Inward Traversal
@@ -237,9 +243,41 @@
 >     return result;
 > }
 >```
-## Unidirectional Traversal
- 
-> [!Question]- Problem One
+
+> [!Question]- Reverse Words in a String III (For -> While)
 > <!-- Multiline -->
+> **~={red}Question=~**
+> 
+> Given a string `s`, reverse the string according to the following rules:
+> * All the characters that are not English letters remain in the same position.
+> * All the English letters (lowercase or uppercase) should be reversed.
+> 
+> Return `s` _after reversing it_.
+>
+>**~={red}Solution=~**
+>
+>1. **~={purple}Pointer Shifting Logic=~**: Iterate through the input array. Establish $left$ to be at index 0. When we locate a space character, record where it is, and treat it as $right$. Now using a while loop between $left$ and $right$ to swap this segment around. 
+>
+>```cpp
+> string reverseWords(string s) {
+>     int front{0};
+>     for (int i{0}; i <= s.size(); ++i) {
+> 	    if (s[i] == ' ' || i == s.size()) {
+> 		    // Set left to be where "front" is
+> 		    int left{front};
+> 		    // Set right to be 1 before the space character
+> 		    int right{i - 1};
+> 		    
+> 			while (left < right) {
+> 				swap(s[left], s[right]);
+> 				left++;
+> 				right--;
+> 			}
+> 			// Set the new front to be 1 after the space character
+> 			front = i + 1;
+> 	    }
+> 	}
+> }
+>```
 
 #flashcards/dsa/patterns/twopointers
