@@ -16,6 +16,8 @@
 >		* **~={pink}Window Invalid Logic=~**: After the window has been expanded, it may invalid. Use a `while` loop on when the condition is invalid.
 >		* **~={pink}Shrinking Window Condition=~**: When the window is invalid, increment `left` to shrink the window, adjusting `curr` until the window is valid.
 >		* **~={pink}Process Current Window=~**: Compute some kind of property, such as the number of valid subarrays for the current window.
+>		
+> ![[Drawing 2024-12-21 09.13.06.excalidraw | center | 500]]
 >* **~={blue}Fixed=~**:
 >	* **~={red}When to Use=~**: When asked to find a subcomponent of a certain length.
 >	* **~={red}What to Note=~**: 
@@ -261,74 +263,71 @@
 > [!Question]- Minimum Size Subarray Sum
 > <!-- Multiline -->
 > **~={red}Question=~**:
->* You are given a binary string `s` (a string containing only `"0"` and `"1"`). You may choose up to one `"0"` and flip it to a `"1"`. What is the length of the longest substring achievable that contains only `"1"`?
->* For example, given `s = "1101100111"`, the answer is `5`. If you perform the flip at index `2`, the string becomes `1111100111`.
+>* Given an array of positive integers `nums` and a positive integer `target`, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
 >
 >**~={red}Solution=~**:
->Let us keep track of the number of zeros we have in our current window (`curr`). Because we can flip `k=1` zero's, our string can at most contain `1` zero.
-> ![[Drawing 2024-12-17 22.39.22.excalidraw | 300 | center]]
 >
->* **~={purple}Expanding Window Condition=~**: Always expand, but if the added element is a zero, `curr++`.
->* **~={purple}Window Invalid Logic=~**: If `curr > 1`, our window is now invalid.
->* **~={purple}Shrinking Window Condition=~**: Always shrink, but if the element being removed is a zero, `cur--`.
->* ~={purple}**Process Current Window**=~: At the given $right$ index position, the number of subarrays between $left$ and $right$ are all valid strings.
+>* **~={purple}Expanding Window Condition=~**: Always expand, and add to the `currentSum`.
+>* **~={purple}Valid Invalid Logic=~**: Because we are looking for smallest valid window. This occurs when $currentSum >= target$
+>* ~={purple}**Process Current Window**=~: Compute the current window length, and compare with the current know minimum.
+>* **~={purple}Shrinking Window Condition=~**: Always shrink, and subtract from `currentSum`.
 >
 >```cpp
->int findLength(string s) {
->	int left{0}, curr{0}, result{0};
+>int minSubArrayLen(int target, vector<int​>& nums) {
+>	int left{0}, currentSum{0}, minLength{INT_MAX};
 >	for (int right{0}; right < s.size(); ++right) {
 >		// (1) Expanding Window Condition
->		if (s[right] == '0') {
->			curr++;
+>		currentSum += nums[right];
+>		// (2) Window Valid Logic
+>		while (currentSum >= target) {
+>			// (3) Process Current Window
+>			minLength = min(minLength, left - right + 1)
+>			// (4) Shrinking Window Condition
+>			currentSum -= nums[left];
+>			left++;
 >		}
->		// (2) Window Invalid Logic
->		while (curr > 1) {
->			// (3) Shrinking Window Condition
->			if (s[left] == '0') {
->				curr--;
->			}
->			left--;
->		}
->		// (4) Process Current Window
->		result = max(result, right - left + 1)
 >	}
->	return result;
+>	// (5) If minLength never changed, return 0, as there was never
+>	// a valid window
+>	return minLength == INT_MAX ? 0 : minLength;
 >}
 >```
 
 > [!Question]- Maximum Number of Vowels in a Substring of Given Length
 > <!-- Multiline -->
 > **~={red}Question=~**:
->* You are given a binary string `s` (a string containing only `"0"` and `"1"`). You may choose up to one `"0"` and flip it to a `"1"`. What is the length of the longest substring achievable that contains only `"1"`?
->* For example, given `s = "1101100111"`, the answer is `5`. If you perform the flip at index `2`, the string becomes `1111100111`.
+>* Given a string s and an integer k, return the maximum number of vowel letters in any substring of s with length k.
+>* Vowel letters in English are 'a', 'e', 'i', 'o', and 'u'.
+>
+> ![[Drawing 2024-12-21 08.53.35.excalidraw | 300 | center]]
 >
 >**~={red}Solution=~**:
->Let us keep track of the number of zeros we have in our current window (`curr`). Because we can flip `k=1` zero's, our string can at most contain `1` zero.
-> ![[Drawing 2024-12-17 22.39.22.excalidraw | 300 | center]]
+>Let us keep track of the number of vowels we have in our current window (`curr`).
 >
->* **~={purple}Expanding Window Condition=~**: Always expand, but if the added element is a zero, `curr++`.
->* **~={purple}Window Invalid Logic=~**: If `curr > 1`, our window is now invalid.
->* **~={purple}Shrinking Window Condition=~**: Always shrink, but if the element being removed is a zero, `cur--`.
->* ~={purple}**Process Current Window**=~: At the given $right$ index position, the number of subarrays between $left$ and $right$ are all valid strings.
+>* **~={purple}Expanding Window Condition=~**: Always expand, but if the added element is a vowel, `curr++`.
+>* **~={purple}Window Invalid Logic=~**: If the current window exceeds k `left - right + 1 > k`
+>* **~={purple}Shrinking Window Condition=~**: Always shrink when invalid, but if the element being removed is a vowel, `cur--`.
+>* ~={purple}**Process Current Window**=~: For this iteration, once the window is valid (will contain the most number of vowels), compare against the current max number of vowels found in a prior window. 
 >
 >```cpp
->int findLength(string s) {
->	int left{0}, curr{0}, result{0};
+>int maxVowels(string s, int k) {
+>	int left{0}, curr{0}, maxNumVowels{0};
+>	unordered_set<char​> vowels{'a', 'e', 'i', 'o', 'u'};
 >	for (int right{0}; right < s.size(); ++right) {
 >		// (1) Expanding Window Condition
->		if (s[right] == '0') {
+>		if (vowels.find(s[right]) != s.end()) {
 >			curr++;
 >		}
 >		// (2) Window Invalid Logic
->		while (curr > 1) {
+>		while (left - right + 1 > k) {
 >			// (3) Shrinking Window Condition
->			if (s[left] == '0') {
+>			if (vowels.find(s[left] != s.end())) {
 >				curr--;
 >			}
->			left--;
+>			left++;
 >		}
 >		// (4) Process Current Window
->		result = max(result, right - left + 1)
+>		maxNumVowels = max(maxNumVowels, curr);
 >	}
 >	return result;
 >}
@@ -337,33 +336,35 @@
 > [!Question]- Get Equal Substrings Within Budget
 > <!-- Multiline -->
 > **~={red}Question=~**:
->* You are given a binary string `s` (a string containing only `"0"` and `"1"`). You may choose up to one `"0"` and flip it to a `"1"`. What is the length of the longest substring achievable that contains only `"1"`?
->* For example, given `s = "1101100111"`, the answer is `5`. If you perform the flip at index `2`, the string becomes `1111100111`.
+>* You are given two strings `s` and `t` of the same length and an integer `maxCost`.
+>* You want to change `s` to `t`. Changing the `ith` character of `s` to `ith` character of `t` costs `|s[i] - t[i]|` (i.e., the absolute difference between the ASCII values of the characters).
+>* Return _the maximum length of a substring of_ `s` _that can be changed to be the same as the corresponding substring of_ `t` _with a cost less than or equal to_ `maxCost`. If there is no substring from `s` that can be changed to its corresponding substring from `t`, return `0`.
+> 
+> ![[Drawing 2024-12-21 15.10.01.excalidraw | 500 | center]]
 >
 >**~={red}Solution=~**:
->Let us keep track of the number of zeros we have in our current window (`curr`). Because we can flip `k=1` zero's, our string can at most contain `1` zero.
-> ![[Drawing 2024-12-17 22.39.22.excalidraw | 300 | center]]
+>Let us keep track of the cost to convert the current window from `s` to `t` (`currCost`).
 >
->* **~={purple}Expanding Window Condition=~**: Always expand, but if the added element is a zero, `curr++`.
->* **~={purple}Window Invalid Logic=~**: If `curr > 1`, our window is now invalid.
->* **~={purple}Shrinking Window Condition=~**: Always shrink, but if the element being removed is a zero, `cur--`.
->* ~={purple}**Process Current Window**=~: At the given $right$ index position, the number of subarrays between $left$ and $right$ are all valid strings.
+>* **~={purple}Expanding Window Condition=~**: Always expand, but if the added element is a different between `s` and `t`, `currCost += abs(s[i] - t[i])`. Note that both if conditions can be removed, as if they were the same, we would be adding 0.
+>* **~={purple}Window Invalid Logic=~**: If the `currCost > maxCost`.
+>* **~={purple}Shrinking Window Condition=~**: Always shrink, and reduce the cost of converting from `s` to `t` if they differ at this index.
+>* ~={purple}**Process Current Window**=~: After a valid state has been reached, (where substring of `s` = substring of `t`), compare the length of the substring with the current largest.
 >
 >```cpp
->int findLength(string s) {
->	int left{0}, curr{0}, result{0};
+>int equalSubstring(string s, string t, int maxCost) {
+>	int left{0}, currCost{0}, maxLength{0};
 >	for (int right{0}; right < s.size(); ++right) {
 >		// (1) Expanding Window Condition
->		if (s[right] == '0') {
->			curr++;
+>		if (s[right] != t[right]) {
+>			currCost += abs(s[right] - t[right]);
 >		}
 >		// (2) Window Invalid Logic
->		while (curr > 1) {
+>		while (currCost > maxCost) {
 >			// (3) Shrinking Window Condition
->			if (s[left] == '0') {
->				curr--;
+>			if (s[left] != t[left]) {
+>				currCost -= abs(s[right] - t[right]);
 >			}
->			left--;
+>			left++;
 >		}
 >		// (4) Process Current Window
 >		result = max(result, right - left + 1)

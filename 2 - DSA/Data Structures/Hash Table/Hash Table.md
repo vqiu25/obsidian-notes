@@ -1,5 +1,4 @@
 > [!quote]+ Overview
-> <!-- Multiline -->
 >````col 
 >```col-md 
 > ![[hashtable.gif]]
@@ -10,3 +9,5 @@
 >``` 
 >```` 
 >
+
+#flashcards/dsa/ds/hashtable
