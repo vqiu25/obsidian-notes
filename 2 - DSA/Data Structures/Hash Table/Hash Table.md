@@ -4,7 +4,7 @@
 > ![[hashtable.gif]]
 >``` 
 >```col-md 
->* A hash table stores key value pairs
+>* A hash table stores key value pairs (unordered map) or just values (unordered set)
 >* It is an unordered data structure where insertion order is not "remembered"
 >``` 
 >```` 
@@ -22,11 +22,13 @@
 > In code, this would look like:
 > ```cpp
 > int hashFunction(string s) {
+> 	// Note that int is a signed integer, -2^32 to 2^32 -1
 > 	int h{0};
 > 	int length = s.size();
 > 	for (int i{0}; i < length; ++i) {
-> 		// Overflow wraps automatically
-> 		h = 31 * h + s[i];
+> 		// Overflow wraps automatically, but to be explicit:
+> 		// Bit shift of 2^5=32 = 2^32
+> 		h = (31 * h + s[i]) % (1 << 32);
 > 	}
 > 	return h
 > }
@@ -52,22 +54,26 @@
 > ![[Drawing 2024-12-22 10.26.02.excalidraw | center | 600]]
 
 > [!info]- What makes a good hash function?
+> 
 > <!-- Multiline -->
 > ````col
 >```col-md
 >**~={green}Good=~**
+>Primes such as 31 are good. They help distribute hash values more uniformly and reduces systematic collisions. They combine bit‑shifting and addition/subtraction in a way that better preserves—or at least _mixes_—the high bits. This reduces the chance of an entire leading character’s contribution vanishing from the final hash.
 >```
 >```col-md
 >**~={red}Bad=~**
+>Powers of 2 are generally bad. This is because they cause large shifts that can wipe out high‐order bits once you $2^{32}$, leading to collisions where the first character “falls off.”
+>
+>**~={red}Note that powers of 2 are just bit shifts=~** So every time you multiply by the chosen value (i.e. 32 instead of 31), it may be lossy if enough bits have been used.
 >```
 >````
-> 31 is good because you don't lose data, whereas something like $32 = 2^5 = (i << 5)$, which is a bit shift of 5, means we would be crushing our old data, causing bits of $h_i$ to be discarded.
 
 > [!info]- What is load factor?
 > <!-- Multiline -->
-> * The more elements you have in a table, the more likely you'll have a collision
+> * The more elements you have in a table, the higher the load factor, the more likely you'll have a collision.
 > * If table is size = m, we add m + 1 elements, there will be a collision (pigeon hole principle)
-> $$Load Factor = \frac{Number of Elements in Table}{Size of Table}$$
+> $$Load \space Factor = \frac{Number \space of \space Elements \space in \space Table}{Size \space of \space Table}$$
 >
 
 # Preventing Collisions
@@ -75,6 +81,9 @@
 
 > [!info]- What is chaining?
 > <!-- Multiline -->
+> **~={purple}Idea=~**: For keys that have the same hash value, at each position in the hash table, we store a Linked List or Dynamic Array of keys that have the same has value.
+> 
+> **~={purple}Complexity=~**: $O(n)$, where $n$ = size of hash table (all elements in 1 bucket)
 
 ## Open Addressing
 
@@ -82,11 +91,41 @@
 
 > [!info]- What is linear probing?
 > <!-- Multiline -->
+> **~={purple}Idea=~**: If we add 2 elements with the same hash value, we go down the hash table until there is an empty space, and we place the value there instead.
+> 
+> **~={purple}Terminology=~**:
+> * **~={green}"Always Empty"=~**: Initially all buckets in the table are marked as this. This goes away when something is added into this bucket.
+> * **~={red}"Been Deleted"=~**: When a bucket had a value, and it was removed, it is marked this.
+>
+>**~={purple}Complexity=~**: $O(n)$, where $n$ is the size of the table. $O(1)$ if low load factor.
+>
+> ![[Drawing 2024-12-22 11.51.30.excalidraw | center | 700]]
 
 ### Quadratic Probing
 
 > [!info]- What is quadratic probing?
 > <!-- Multiline -->
+> **~={purple}Idea=~**: If an element collides at its hash position, instead of moving **linearly** (i.e., +1, +2, …) to find an open slot, we move according to the squares of the step count. In other words, from the hash position $h$ we check:
+>
+>$$h+1^2,\space h+2^2,\space h+3^2,...$$
+>
+> **~={purple}Terminology=~**:
+> * **~={green}"Always Empty"=~**: Initially all buckets in the table are marked as this. This goes away when something is added into this bucket.
+> * **~={red}"Been Deleted"=~**: When a bucket had a value, and it was removed, it is marked this.
+>
+>**~={purple}Complexity=~**: $O(n)$, where $n$ is the size of the table. $O(1)$ if low load factor.
+
+> [!info]- Chaining vs Linear vs Quadratic Probing
+> <!-- Multiline -->
+> * **~={purple}Chaining=~**:
+> 	* **~={green}Pros=~**: Easy to handle collisions. Doesn't suffer from clustering as much, as clustering is localised to buckets with many collisions, but it doesn't affect unrelated buckets.
+> 	* **~={red}Cons=~**: More memory heavy.
+> * **~={purple}Linear=~**:
+> 	* **~={green}Pros=~**: More cache friendly as it accesses memory sequentially. This means adjacent slots are likely to be loaded into the CPU cache together.
+> 	* **~={red}Cons=~**: Suffers from clustering. Searches sequentially for the next slot, causing collisions to form contiguous clusters that grow, impacting unrelated insertions.
+> * **~={purple}Quadratic=~**:
+> 	* **~={green}Pros=~**: Reduces some clustering by jumping around.
+> 	* **~={red}Cons=~**: More computationally intensive compared to Linear. Not as cache friendly. Keys with the same value still cause clustering.
 
 # Hash Table Complexity
 ## Chaining
@@ -97,226 +136,220 @@
 > ````col
 >```col-md
 > ```cpp
-> class Vector {
+> class HashTable {
 > private:
-> 	int* data;
+> 	struct Node {
+> 		int key;
+> 		int value;
+> 		Node(int k, int v) :
+> 			key{k},
+> 			value{v} {}
+> 	}
 > 	size_t cap;
 > 	size_t size;
+> 	vector<list<Node​>​> table;
+> 	const double loadFac{0.75};
 > }
 >```
 >```col-md
->* **~={purple}data=~**: Pointer to the dynamic array
->* ~={purple}**cap**=~: Total capacity of the array (max)
->* **~={purple}size=~**: Amount of elements in the array
+>* ~={purple}**cap**=~: Total capacity of the hash table
+>* **~={purple}size=~**: How many elements exist in the has table
+>* **~={purple}table=~**: A vector of linked lists. This is the hash table.
+>* **~={purple}loadFac=~**: What the load factor needs to be for the table to resize
 >```
 >````
+>**~={purple}<u>Methods</u>=~**
+>
+>**~={blue}Resize Method=~**
+>1. Update capacity to be 2x the current capacity
+>2. Create a brand new vector of linked lists
+>3. Copy all exisiting values over
+>```cpp
+>private:
+>	int hashFunction(int key) const {
+>		return key % (this->cap);
+>	}
+>	
+>	void resize() {
+>		int newCap = 2 * this->cap;
+>		vector<list<Node​>​> newTable(newCap);
+>		
+> 		// Within every linked list, iterate through its nodes
+> 		for (const auto& bucket : table) {
+> 			for (const auto& node : bucket) {
+> 				// Apply hash function with updated capacity for
+> 				// new index position
+> 				int newIndex = node.key % newCap;
+> 				// Add to end of linked list
+> 				newTable[newIndex].push_back(Node(node.key, node.value));
+> 			}
+> 		}
+> 		// Copy the new table over (using move is more efficient)
+> 		this->table = move(newTable);
+> 		this->cap = newCap;
+> 	}
+>	
+>```
+>
 > **~={green}<u>Constructor</u>=~**
-> * Note that you cannot use an initialiser list to initialise dynamically allocated memory
-> * To be explicit, we can use `this->`
 > ````col
 >```col-md
 > ```cpp
 > public:
-> Vector(size_t initialCap) :
+> HashTable(int initialCap) :
 > 	cap{initialCap},
 > 	size{0} {
-> 	this->data = new int[cap];
+> 	this->table.resize(initialCap);
 > }
 >```
 >```col-md
->* **~={purple}initialCap=~**: User passes in the initial capacity of the vector
+>* **~={purple}initialCap=~**: User passes in the initial capacity of the hash table
 >1. Set the initial size to be 0
->2. Initialise an array to be the of size `cap`
+>2. Resize the hash table to the initial capacity (well double)
 >```
 >````
 > **~={red}<u>Destructor</u>=~**
-> ````col
->```col-md
-> ```cpp
-> public:
->~Vector() {
->	delete[] data;
->}
->```
->```col-md
->1. When you allocate memory using `new[]`, you must deallocate using `delete[]`. This frees up the memory where data was pointing.
->```
->````
+> 
+>Not necessary here as the `vector` and `list` already handles it.
 
-> [!note]- Add `(v.push_back(x))`
+> [!note]- Add `(h.insert(key, value))`
 > <!-- Multiline -->
 > **~={purple}<u>Description</u>=~**
 > 
-> Inserting element at the end of the vector. If the array does not have enough space:
-> 1. We will create an array 2x the size 
-> 2. Copy the existing values over
-> 3. Reallocate memory
-> 4. Insert new value, and update `size`
+> Inserting element in a hash table:
+> 1. If the key already exists, return (we can't store duplicates)
+> 2. Find the index of where to insert the key (hash function)
+> 3. Check load factor and resize the table if exceeded
 >
+> ![[Drawing 2024-12-22 14.53.20.excalidraw | center | 350]]
 >**~={purple}<u>Code</u>=~**
 >
 >```cpp
->void push_back(int value) {
->	if (size == this->cap) {
->		// (1) Double the Capacity
->		int newCap = 2 * this->cap;
->		int* newData = new int[newCap];
->		
->		// (2) Copy Exisiting Elements to new Array
->		for (size_t i{0}; i < size; ++i) {
->			newData[i] = this->data[i];
->		}
->		
->		// (3) Clean up Old Memory and Reallocate
->		delete[] this->data;
->		this->data = newData;
->		this->cap = newCap;
->		
->		// (4) Insert new Value
->		this->data[size++] = value;
+>void insert(int key, int value) {
+>	// (1) If the key already exists
+>	if (contains(key)) return;
+>	
+>	// (2) Find which bucket to place key
+>	int index = this->hashFunction(key);
+>	this->table[index].push_back(Node(key, value);
+>	this->size++;
+>	// (3) If we have breached our load factor, resize the table
+>	if ((float) this->size / this->cap > this->loadFac) {
+>		this->resize();
 >	}
 >}
 >```
 >
 > **~={purple}<u>Complexity</u>: $O(n)$=~**
 > 
-> We have an array of $n$ length. If it's full and we add an element, we create a new array that is double the length, and copy the $n$ elements over.
+> We have to copy over the entire hash table.
 >
 > ~={purple}<u>**Amortised Complexity**</u>: $O(1)^A$=~
 > 
->On average, the cost of resizing gets distributed over multiple append operations, resulting in an average time complexity of $O(1)$.
+>Happens infrequently, which averages out to constant time.
 >
 
-> [!note]- Remove `(v.push_back(x))`
+> [!note]- Remove `(h.erase(key))`
 > <!-- Multiline -->
 > **~={purple}<u>Description</u>=~**
 > 
-> Inserting element at the end of the vector. If the array does not have enough space:
-> 1. We will create an array 2x the size 
-> 2. Copy the existing values over
-> 3. Reallocate memory
-> 4. Insert new value, and update `size`
+> Remove the key value pair from the hash map. 
+> 1. Find the index position/bucket the key value pair object is stored
+> 2. Create a brand new bucket to replace the exisiting bucket
+> 3. Iterate through the bucket, and if the key is not found, add it to the new bucket
+> 4. Copy over the new bucket to existing table
 >
 >**~={purple}<u>Code</u>=~**
 >
 >```cpp
->void push_back(int value) {
->	if (size == this->cap) {
->		// (1) Double the Capacity
->		int newCap = 2 * this->cap;
->		int* newData = new int[newCap];
->		
->		// (2) Copy Exisiting Elements to new Array
->		for (size_t i{0}; i < size; ++i) {
->			newData[i] = this->data[i];
+>void remove(int key) {
+>	// (1) Find index position/bucket where the key value pair object
+>	// is stored
+>	int index = this->hashFunction(key);
+>	// (2) Create a new bucket to replace the existing bucket
+>	list<Node​> newBucket;
+>	// (3) Iterate through the linked list add to the new bucket
+>	for (const Node& node : table[index]) {
+>		if (node.key != key) {
+>			newBucket.push_back(node);
 >		}
->		
->		// (3) Clean up Old Memory and Reallocate
->		delete[] this->data;
->		this->data = newData;
->		this->cap = newCap;
->		
->		// (4) Insert new Value
->		this->data[size++] = value;
+>	}
+>	// (4) Copy over the new bucket to existing table
+>	this->table[index] = move(newBucket);
+>	this->size--;
+>}
+>```
+>
+> **~={purple}<u>Complexity</u>: $O(n)$=~**
+> 
+> If all the elements are in the same bucket, we may have to iterate through every element.
+>
+> ~={purple}<u>**Amortised Complexity**</u>: $O(1)^A$=~
+> 
+>Generally elements are well spread out.
+>
+
+> [!note]- Get `(h.a(key) / h[key])`
+> <!-- Multiline -->
+> **~={purple}<u>Description</u>=~**
+> 
+> Retrieve value at key.
+> 1. Find the index position/bucket the key value pair object is stored
+> 2. Iterate through the bucket, and return what is found
+>
+>**~={purple}<u>Code</u>=~**
+>
+>```cpp
+>int get(int key) const {
+>	// (1) Find the bucket where the key is stored
+>	int index = this->hashFunction(key);
+>	// (2) Iterate through every element in the bucket
+>	for (const Node& node : this->table[index]) {
+>		if (node.key == key) {
+>			return node.value;
+>		}
 >	}
 >}
 >```
 >
 > **~={purple}<u>Complexity</u>: $O(n)$=~**
 > 
-> We have an array of $n$ length. If it's full and we add an element, we create a new array that is double the length, and copy the $n$ elements over.
+> If all the elements are in the same bucket, we may have to iterate through every element.
 >
 > ~={purple}<u>**Amortised Complexity**</u>: $O(1)^A$=~
 > 
->On average, the cost of resizing gets distributed over multiple append operations, resulting in an average time complexity of $O(1)$.
->
+>Generally elements are well spread out.
 
-> [!note]- Get/Access `(v.push_back(x))`
+> [!note]- Contains `(h.find(key))`
 > <!-- Multiline -->
 > **~={purple}<u>Description</u>=~**
 > 
-> Inserting element at the end of the vector. If the array does not have enough space:
-> 1. We will create an array 2x the size 
-> 2. Copy the existing values over
-> 3. Reallocate memory
-> 4. Insert new value, and update `size`
+> Retrieve value at key.
+> 1. Find the index position/bucket the key value pair object is stored
+> 2. Iterate through the bucket, and return true if found
 >
 >**~={purple}<u>Code</u>=~**
 >
 >```cpp
->void push_back(int value) {
->	if (size == this->cap) {
->		// (1) Double the Capacity
->		int newCap = 2 * this->cap;
->		int* newData = new int[newCap];
->		
->		// (2) Copy Exisiting Elements to new Array
->		for (size_t i{0}; i < size; ++i) {
->			newData[i] = this->data[i];
+>bool find(int key) const {
+>	// (1) Find the bucket where the key is stored
+>	int index = this->hashFunction(key);
+>	// (2) Iterate through every element in the bucket
+>	for (const Node& node : this->table[index]) {
+>		if (node.key == key) {
+>			return true;
 >		}
->		
->		// (3) Clean up Old Memory and Reallocate
->		delete[] this->data;
->		this->data = newData;
->		this->cap = newCap;
->		
->		// (4) Insert new Value
->		this->data[size++] = value;
 >	}
+>	return false
 >}
 >```
 >
 > **~={purple}<u>Complexity</u>: $O(n)$=~**
 > 
-> We have an array of $n$ length. If it's full and we add an element, we create a new array that is double the length, and copy the $n$ elements over.
+> If all the elements are in the same bucket, we may have to iterate through every element.
 >
 > ~={purple}<u>**Amortised Complexity**</u>: $O(1)^A$=~
 > 
->On average, the cost of resizing gets distributed over multiple append operations, resulting in an average time complexity of $O(1)$.
->
-
-> [!note]- Contains `(v.push_back(x))`
-> <!-- Multiline -->
-> **~={purple}<u>Description</u>=~**
-> 
-> Inserting element at the end of the vector. If the array does not have enough space:
-> 1. We will create an array 2x the size 
-> 2. Copy the existing values over
-> 3. Reallocate memory
-> 4. Insert new value, and update `size`
->
->**~={purple}<u>Code</u>=~**
->
->```cpp
->void push_back(int value) {
->	if (size == this->cap) {
->		// (1) Double the Capacity
->		int newCap = 2 * this->cap;
->		int* newData = new int[newCap];
->		
->		// (2) Copy Exisiting Elements to new Array
->		for (size_t i{0}; i < size; ++i) {
->			newData[i] = this->data[i];
->		}
->		
->		// (3) Clean up Old Memory and Reallocate
->		delete[] this->data;
->		this->data = newData;
->		this->cap = newCap;
->		
->		// (4) Insert new Value
->		this->data[size++] = value;
->	}
->}
->```
->
-> **~={purple}<u>Complexity</u>: $O(n)$=~**
-> 
-> We have an array of $n$ length. If it's full and we add an element, we create a new array that is double the length, and copy the $n$ elements over.
->
-> ~={purple}<u>**Amortised Complexity**</u>: $O(1)^A$=~
-> 
->On average, the cost of resizing gets distributed over multiple append operations, resulting in an average time complexity of $O(1)$.
->
+>Generally elements are well spread out.
 
 #flashcards/dsa/ds/hashtable
