@@ -1,20 +1,36 @@
 {
   "recentFiles": [
     {
-      "basename": "Hash Table",
-      "path": "2 - DSA/Data Structures/Hash Table/Hash Table.md"
+      "basename": "Prefix Sums",
+      "path": "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md"
     },
     {
-      "basename": "Drawing 2024-12-22 10.26.02.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-22 10.26.02.excalidraw.md"
+      "basename": "Counting",
+      "path": "2 - DSA/Patterns/Hashing/Counting.md"
+    },
+    {
+      "basename": "DS C++ Syntax",
+      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
+    },
+    {
+      "basename": "Hash Table",
+      "path": "2 - DSA/Data Structures/Hash Table/Hash Table.md"
     },
     {
       "basename": "Vector",
       "path": "2 - DSA/Data Structures/Vector.md"
     },
     {
-      "basename": "C++ Syntax",
-      "path": "2 - DSA/Data Structures/C++ Syntax.md"
+      "basename": "Drawing 2024-12-22 14.53.20.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2024-12-22 14.53.20.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2024-12-22 11.51.30.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2024-12-22 11.51.30.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2024-12-22 10.26.02.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2024-12-22 10.26.02.excalidraw.md"
     },
     {
       "basename": "DSA Overview",
@@ -27,10 +43,6 @@
     {
       "basename": "Two Pointers",
       "path": "2 - DSA/Patterns/Arrays & Strings/Two Pointers.md"
-    },
-    {
-      "basename": "Prefix Sums",
-      "path": "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md"
     },
     {
       "basename": "Sliding Windows",
@@ -59,10 +71,6 @@
     {
       "basename": "Array",
       "path": "2 - DSA/Data Structures/Array.md"
-    },
-    {
-      "basename": "Counting",
-      "path": "2 - DSA/Patterns/Hashing/Counting.md"
     },
     {
       "basename": "Drawing 2024-12-20 08.27.14.excalidraw",
@@ -191,14 +199,6 @@
     {
       "basename": "Drawing 2024-12-10 08.17.02.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2024-12-10 08.17.02.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-15 23.22.53.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-15 23.22.53.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-14 21.34.08.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-14 21.34.08.excalidraw.md"
     }
   ],
   "omittedPaths": [],

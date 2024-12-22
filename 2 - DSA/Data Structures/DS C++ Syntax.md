@@ -36,12 +36,48 @@
 
 # Maps
 ## Initialisation
+### Unordered Map
+
+| Operation              | Syntax                                        | Comments         |
+| ---------------------- | --------------------------------------------- | ---------------- |
+| Declaration            | `unordered_map<DT1, DT2> m`                   |                  |
+| Uniform Initialisation | `unordered_map<DT1, DT2> m{{1,'a'}, {2, 'b}}` | 1 -> a<br>2 -> b |
 
 ## Methods
+
+* **~={purple}Unordered Map=~**:
+	* **~={green}Average Case=~**: $O(1)$
+	* **~={red}Worst Case=~**: $O(n)$
+
+|                     Operation                      | Syntax                      | Comments |
+| :------------------------------------------------: | --------------------------- | -------- |
+|              Access Value<br>from Key              | `m.at[key]`<br><br>`m[key]` |          |
+|                        Find                        | `m.find[key]`               |          |
+|                       Insert                       | `m.insert({key, value})`    |          |
+|                    Erase a Pair                    | `m.erase(key)`              |          |
+| Count Number of Elements<br>Associated with<br>Key | `m.count(key)`              |          |
 
 # Sets
 ## Initialisation
 
+### Unordered Set
+
+| Operation              | Syntax                      | Comments |
+| ---------------------- | --------------------------- | -------- |
+| Declaration            | `unordered_set<DT> s`       |          |
+| Uniform Initialisation | `unordered_set<DT> s{1, 2}` |          |
+
 ## Methods
+
+* **~={purple}Unordered Map=~**:
+	* **~={green}Average Case=~**: $O(1)$
+	* **~={red}Worst Case=~**: $O(n)$
+
+|                     Operation                      | Syntax            | Comments |
+| :------------------------------------------------: | ----------------- | -------- |
+|                        Find                        | `s.find[value]`   |          |
+|                       Insert                       | `s.insert(value)` |          |
+|                    Erase a Pair                    | `s.erase(value)`  |          |
+| Count Number of Elements<br>Associated with<br>Key | `s.count(value)`  |          |
 
 
