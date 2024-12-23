@@ -244,7 +244,7 @@
 > 
 > We have to copy over the entire hash table.
 >
-> ~={purple}<u>**Amortised Complexity**</u>: $O(1)^A$=~
+> ~={purple}<u>**Average Complexity**</u>: $O(1)$=~
 > 
 >Happens infrequently, which averages out to constant time.
 >
@@ -284,7 +284,7 @@
 > 
 > If all the elements are in the same bucket, we may have to iterate through every element.
 >
-> ~={purple}<u>**Amortised Complexity**</u>: $O(1)^A$=~
+> ~={purple}<u>**Average Complexity**</u>: $O(1)$=~
 > 
 >Generally elements are well spread out.
 >
@@ -316,7 +316,7 @@
 > 
 > If all the elements are in the same bucket, we may have to iterate through every element.
 >
-> ~={purple}<u>**Amortised Complexity**</u>: $O(1)^A$=~
+> ~={purple}<u>**Average Complexity**</u>: $O(1)$
 > 
 >Generally elements are well spread out.
 
@@ -348,7 +348,7 @@
 > 
 > If all the elements are in the same bucket, we may have to iterate through every element.
 >
-> ~={purple}<u>**Amortised Complexity**</u>: $O(1)^A$=~
+> ~={purple}<u>**Average Complexity**</u>: $O(1)$=~
 > 
 >Generally elements are well spread out.
 
