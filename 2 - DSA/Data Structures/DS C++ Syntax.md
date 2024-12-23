@@ -52,7 +52,7 @@
 |                     Operation                      | Syntax                      | Comments |
 | :------------------------------------------------: | --------------------------- | -------- |
 |              Access Value<br>from Key              | `m.at[key]`<br><br>`m[key]` |          |
-|                        Find                        | `m.find[key]`               |          |
+|                        Find                        | `m.find(key)`               |          |
 |                       Insert                       | `m.insert({key, value})`    |          |
 |                    Erase a Pair                    | `m.erase(key)`              |          |
 | Count Number of Elements<br>Associated with<br>Key | `m.count(key)`              |          |
@@ -73,11 +73,11 @@
 	* **~={green}Average Case=~**: $O(1)$
 	* **~={red}Worst Case=~**: $O(n)$
 
-|                     Operation                      | Syntax            | Comments |
-| :------------------------------------------------: | ----------------- | -------- |
-|                        Find                        | `s.find[value]`   |          |
-|                       Insert                       | `s.insert(value)` |          |
-|                    Erase a Pair                    | `s.erase(value)`  |          |
-| Count Number of Elements<br>Associated with<br>Key | `s.count(value)`  |          |
+|                     Operation                      | Syntax            | Comments                    |
+| :------------------------------------------------: | ----------------- | --------------------------- |
+|                        Find                        | `s.find(value)`   | if(s.find(x) != s.end()) {} |
+|                       Insert                       | `s.insert(value)` |                             |
+|                    Erase a Pair                    | `s.erase(value)`  |                             |
+| Count Number of Elements<br>Associated with<br>Key | `s.count(value)`  |                             |
 
 

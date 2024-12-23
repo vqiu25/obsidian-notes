@@ -1,16 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "Prefix Sums",
-      "path": "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md"
-    },
-    {
       "basename": "Counting",
       "path": "2 - DSA/Patterns/Hashing/Counting.md"
     },
     {
       "basename": "DS C++ Syntax",
       "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
+    },
+    {
+      "basename": "Sliding Windows",
+      "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
+    },
+    {
+      "basename": "Checking for Existence",
+      "path": "2 - DSA/Patterns/Hashing/Checking for Existence.md"
+    },
+    {
+      "basename": "Prefix Sums",
+      "path": "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md"
+    },
+    {
+      "basename": "Drawing 2024-12-22 23.06.16.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2024-12-22 23.06.16.excalidraw.md"
     },
     {
       "basename": "Hash Table",
@@ -43,10 +55,6 @@
     {
       "basename": "Two Pointers",
       "path": "2 - DSA/Patterns/Arrays & Strings/Two Pointers.md"
-    },
-    {
-      "basename": "Sliding Windows",
-      "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
     },
     {
       "basename": "Drawing 2024-12-21 09.13.06.excalidraw",
@@ -191,14 +199,6 @@
     {
       "basename": "Drawing 2024-12-16 08.22.39.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2024-12-16 08.22.39.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-16 08.12.50.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-16 08.12.50.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-10 08.17.02.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-10 08.17.02.excalidraw.md"
     }
   ],
   "omittedPaths": [],
