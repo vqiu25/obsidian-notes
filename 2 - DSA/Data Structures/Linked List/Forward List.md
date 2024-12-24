@@ -5,7 +5,7 @@
 > ![[list.gif]]
 >``` 
 >```col-md 
->[Insert]
+>* Singly Linked List
 >``` 
 >```` 
 >
