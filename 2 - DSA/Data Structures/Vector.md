@@ -152,7 +152,7 @@
 > **~={purple}<u>Description</u>=~**
 > 
 > Retrieve element at index $i$:
-> 1. Note that we use `int&` as our return type, meaning we are returning a reference rather than a copy of the value. This allows for efficient access and modification.
+> 1. Note that we use `int&` as our return type, meaning we are returning a reference rather than a copy of the value. This allows us modify a stored value in the array by `v[i] = x`
 > 2. We use operator[] to provide a concise and intuitive way to access elements of the array, mimicking the behaviour of standard arrays
 > 3. Check if the index is valid or not.
 >

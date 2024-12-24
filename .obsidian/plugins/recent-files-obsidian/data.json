@@ -1,8 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "Fast and Slow Pointers",
+      "path": "2 - DSA/Patterns/Linked List/Fast and Slow Pointers.md"
+    },
+    {
+      "basename": "Drawing 2024-12-24 21.28.01.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2024-12-24 21.28.01.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2024-12-24 21.08.54.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2024-12-24 21.08.54.excalidraw.md"
+    },
+    {
       "basename": "List",
       "path": "2 - DSA/Data Structures/Linked List/List.md"
+    },
+    {
+      "basename": "Vector",
+      "path": "2 - DSA/Data Structures/Vector.md"
+    },
+    {
+      "basename": "Drawing 2024-12-24 15.02.48.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2024-12-24 15.02.48.excalidraw.md"
     },
     {
       "basename": "Drawing 2024-12-24 14.33.06.excalidraw",
@@ -25,10 +45,6 @@
       "path": "1 - Languages/Languages Overview.md"
     },
     {
-      "basename": "Vector",
-      "path": "2 - DSA/Data Structures/Vector.md"
-    },
-    {
       "basename": "Forward List",
       "path": "2 - DSA/Data Structures/Linked List/Forward List.md"
     },
@@ -43,10 +59,6 @@
     {
       "basename": "Checking for Existence",
       "path": "2 - DSA/Patterns/Hashing/Checking for Existence.md"
-    },
-    {
-      "basename": "Fast and Slow Pointers",
-      "path": "2 - DSA/Patterns/Linked List/Fast and Slow Pointers.md"
     },
     {
       "basename": "Two Pointers",
@@ -187,18 +199,6 @@
     {
       "basename": "Drawing 2024-12-18 22.21.01.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2024-12-18 22.21.01.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-18 21.59.35.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-18 21.59.35.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-16 08.09.39.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-16 08.09.39.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-18 08.14.05.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-18 08.14.05.excalidraw.md"
     }
   ],
   "omittedPaths": [],
