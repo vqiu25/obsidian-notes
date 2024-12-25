@@ -80,4 +80,29 @@
 |                    Erase a Pair                    | `s.erase(value)`  |                             |
 | Count Number of Elements<br>Associated with<br>Key | `s.count(value)`  |                             |
 
+# Stacks
+## Initialisation
+
+### Unordered Set
+
+| Operation              | Syntax              | Comments |
+| ---------------------- | ------------------- | -------- |
+| Declaration            | `stack<DT> s`       |          |
+| Uniform Initialisation | `stack<DT> s{1, 2}` |          |
+
+## Methods
+
+| Operation  | Syntax          | Complexity | Comments |
+| :--------: | --------------- | ---------- | -------- |
+|  Find Top  | `s.top()`       | $O(1)$     |          |
+| Add to Top | `s.push(value)` | $O(1)$     |          |
+| Remove Top | `s.pop(value)`  | $O(1)$     |          |
+
+# Universal STL Methods
+
+|      Operation      | Syntax      | Complexity | Comments                          |
+| :-----------------: | ----------- | ---------- | --------------------------------- |
+| Remove all Elements | `v.clear()` | $O(n)$     | Calls destructor on every element |
+|        Size         | `v.size()`  | $O(1)$     | Stored variable                   |
+|       Empty?        | `v.empty()` | $O(1)$     | Check stored variable             |
 
