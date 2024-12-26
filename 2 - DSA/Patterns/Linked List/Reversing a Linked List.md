@@ -5,17 +5,6 @@
 >3. Move both `prev` and and `curr` forward by one
 
 # Overview
-## Recipe
-
->[!Note]- Reversing Linked List Recipe
-> <!-- Multiline -->
->1. ~={purple}**Why Prefix Sums=~**: Whenever we have to determine the sum or product of subarrays efficiently.
->2. **~={purple}Prefix Sum Strategies=~**:
->* **~={blue}Subarray Sums=~**:
->	* **~={red}When to Use=~**: Need to find the sum of subarrays.
->	* **~={red}What to Note=~**:
->		* **~={pink}Define prefix[i]=~**: Define to contain everything before or, instead inclusive.
->		* **~={pink}Subquery Logic=~**: How to query the prefix sum. Usually is a range between index `i` and `j` from the original array.
 
 ## Time Complexity
 

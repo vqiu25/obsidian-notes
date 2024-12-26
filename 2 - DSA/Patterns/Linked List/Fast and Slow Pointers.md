@@ -1,19 +1,12 @@
 > [!QUOTE] Quick Notes
->* We have 2 pointers, that move at different speeds
->* When the pointers move at different speeds, usually the "fast" pointer moves two nodes per iteration, whereas the "slow" pointer moves one node per iteration (although this is not always the case).
+>When problems involve cycles, middle elements, or "meeting points" in linked lists
 
 # Overview
 ## Recipe
 
 >[!Note]- Fast and Slower Pointers Recipe
 > <!-- Multiline -->
->1. ~={purple}**Why Prefix Sums=~**: Whenever we have to determine the sum or product of subarrays efficiently.
->2. **~={purple}Prefix Sum Strategies=~**:
->* **~={blue}Subarray Sums=~**:
->	* **~={red}When to Use=~**: Need to find the sum of subarrays.
->	* **~={red}What to Note=~**:
->		* **~={pink}Define prefix[i]=~**: Define to contain everything before or, instead inclusive.
->		* **~={pink}Subquery Logic=~**: How to query the prefix sum. Usually is a range between index `i` and `j` from the original array.
+>1. ~={purple}**Why Fast & Slow Pointers=~**: Whenever problems involve cycles, middle elements, or "meeting points" in linked lists.
 
 ## Time Complexity
 
@@ -247,43 +240,6 @@
 >}
 >```
 
-> [!Question]- Remove Duplicates from Sorted List
-> <!-- Multiline -->
-> **~={red}Question=~**:
-> * Given the `head` of a sorted linked list, _delete all duplicates such that each element appears only once_. Return _the linked list **sorted** as well_.
->
-> ![[Drawing 2024-12-24 22.27.10.excalidraw | 250 | center]]
->
->**~={red}Solution=~**:
->1. **~={purple}While Loop Condition=~**: We use `while (current != nullptr && current->next != nullptr)` to ensure `current` and `current->next` both exist before comparing values. This way, we don't go out of bounds, and we can safely move through every node in the list.
->2. **~={purple}If Duplicate Detected=~**: If `current->val == current->next->val`, we remove the duplicate by skipping the next node (`current->next = current->next->next`).
->* We'd want to deallocate `current->next` if found
->	* Node* duplicate = current->next;
->	* current->next = current->next->next;
->	* delete duplicate;
->1. **~={purple}Otherwise Go Subsequent Node=~**: If the next node isn’t a duplicate, we simply advance to the next node (`current = current->next`).
->
->```cpp
->Node* deleteDuplicates(Node* head) {
->	Node* current = head;
->	
->	// (1) While Loop Condition
->	while (current != nullptr && current->next != nullptr) {
->		// (2) If duplicate detected
->		if (current->val == current->next->val) {
->			current->next = current->next->next;
->		} else {
->			// (3) Otherwise, go to subsequent node
->			current = current->next;
->		}
->	}
->	return head;
->}
->```
-> **~={purple}If Duplicate Found Visual=~**
-> 
->  ![[Drawing 2024-12-24 22.45.05.excalidraw | center | 350]]
-
 ## Dummy Pointers
 
 > [!Question]- Remove Linked List Elements
@@ -324,5 +280,43 @@
 >* The fast pointer moves 2 steps, and the slow pointers moves 1 step. Thus in every iteration, the fast pointer will gain a distance of 1 node at every iteration.
 >* Hence, the max number of steps required for the fast pointer to catch up with the slower pointer is $k$ steps, where $k$ is the length of the cycle. The worst case happens when:
 >
+
+> [!Question]- Remove Duplicates from Sorted List
+> <!-- Multiline -->
+> **~={red}Question=~**:
+> * Given the `head` of a sorted linked list, _delete all duplicates such that each element appears only once_. Return _the linked list **sorted** as well_.
+>
+> ![[Drawing 2024-12-24 22.27.10.excalidraw | 250 | center]]
+>
+>**~={red}Solution=~**:
+>1. **~={purple}While Loop Condition=~**: We use `while (current != nullptr && current->next != nullptr)` to ensure `current` and `current->next` both exist before comparing values. This way, we don't go out of bounds, and we can safely move through every node in the list.
+>2. **~={purple}If Duplicate Detected=~**: If `current->val == current->next->val`, we remove the duplicate by skipping the next node (`current->next = current->next->next`).
+>* We'd want to deallocate `current->next` if found
+>	* Node* duplicate = current->next;
+>	* current->next = current->next->next;
+>	* delete duplicate;
+>1. **~={purple}Otherwise Go Subsequent Node=~**: If the next node isn’t a duplicate, we simply advance to the next node (`current = current->next`).
+>
+>```cpp
+>Node* deleteDuplicates(Node* head) {
+>	Node* current = head;
+>	
+>	// (1) While Loop Condition
+>	while (current != nullptr && current->next != nullptr) {
+>		// (2) If duplicate detected
+>		if (current->val == current->next->val) {
+>			current->next = current->next->next;
+>		} else {
+>			// (3) Otherwise, go to subsequent node
+>			current = current->next;
+>		}
+>	}
+>	return head;
+>}
+>```
+> **~={purple}If Duplicate Found Visual=~**
+> 
+>  ![[Drawing 2024-12-24 22.45.05.excalidraw | center | 350]]
+
 
 #flashcards/dsa/patterns/fastandslowpointers

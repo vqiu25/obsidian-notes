@@ -80,10 +80,8 @@
 |                    Erase a Pair                    | `s.erase(value)`  |                             |
 | Count Number of Elements<br>Associated with<br>Key | `s.count(value)`  |                             |
 
-# Stacks
+# Stack
 ## Initialisation
-
-### Unordered Set
 
 | Operation              | Syntax              | Comments |
 | ---------------------- | ------------------- | -------- |
@@ -97,6 +95,42 @@
 |  Find Top  | `s.top()`       | $O(1)$     |          |
 | Add to Top | `s.push(value)` | $O(1)$     |          |
 | Remove Top | `s.pop(value)`  | $O(1)$     |          |
+# Queue
+## Initialisation
+
+| Operation              | Syntax              | Comments |
+| ---------------------- | ------------------- | -------- |
+| Declaration            | `queue<DT> q`       |          |
+| Uniform Initialisation | `queue<DT> q{1, 2}` |          |
+
+## Methods
+
+|  Operation   | Syntax          | Complexity | Comments |
+| :----------: | --------------- | ---------- | -------- |
+|  Find Front  | `q.front()`     | $O(1)$     |          |
+|  Find Back   | `q.back()`      | $O(1)$     |          |
+| Add to Back  | `q.push(value)` | $O(1)$     |          |
+| Remove Front | `q.pop()`       | $O(1)$     |          |
+# Deque
+
+## Initialisation
+
+| Operation              | Syntax              | Comments |
+| ---------------------- | ------------------- | -------- |
+| Declaration            | `deque<DT> d`       |          |
+| Uniform Initialisation | `deque<DT> q{1, 2}` |          |
+
+## Methods
+
+|  Operation   | Syntax                | Complexity | Comments |
+| :----------: | --------------------- | ---------- | -------- |
+|  Find Front  | `d.front()`           | $O(1)$     |          |
+|  Find Back   | `d.back()`            | $O(1)$     |          |
+| Add to Front | `d.push_front(value)` | $O(1)$     |          |
+| Add to Back  | `d.push_back(value)`  | $O(1)$     |          |
+| Remove Front | `d.pop_front()`       | $O(1)$     |          |
+| Remove Back  | `d.pop_back()`        | $O(1)$     |          |
+|    Access    | `d[index]`            | $O(1)$     |          |
 
 # Universal STL Methods
 

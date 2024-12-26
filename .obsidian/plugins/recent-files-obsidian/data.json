@@ -1,16 +1,72 @@
 {
   "recentFiles": [
     {
+      "basename": "Monotonic",
+      "path": "2 - DSA/Patterns/Stacks and Queues/Monotonic.md"
+    },
+    {
+      "basename": "Queue",
+      "path": "2 - DSA/Data Structures/Queue.md"
+    },
+    {
+      "basename": "Drawing 2024-12-27 11.56.51.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2024-12-27 11.56.51.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2024-12-27 11.16.26.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2024-12-27 11.16.26.excalidraw.md"
+    },
+    {
       "basename": "DS C++ Syntax",
       "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
+    },
+    {
+      "basename": "Drawing 2024-12-26 22.41.35.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2024-12-26 22.41.35.excalidraw.md"
+    },
+    {
+      "basename": "Sliding Windows",
+      "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
+    },
+    {
+      "basename": "Counting",
+      "path": "2 - DSA/Patterns/Hashing/Counting.md"
+    },
+    {
+      "basename": "DSA Overview",
+      "path": "2 - DSA/DSA Overview.md"
+    },
+    {
+      "basename": "Reversing a Linked List",
+      "path": "2 - DSA/Patterns/Linked List/Reversing a Linked List.md"
     },
     {
       "basename": "Fast and Slow Pointers",
       "path": "2 - DSA/Patterns/Linked List/Fast and Slow Pointers.md"
     },
     {
-      "basename": "Reversing a Linked List",
-      "path": "2 - DSA/Patterns/Linked List/Reversing a Linked List.md"
+      "basename": "String Problems",
+      "path": "2 - DSA/Patterns/Stacks and Queues/String Problems.md"
+    },
+    {
+      "basename": "ALG C++ Synatx",
+      "path": "2 - DSA/Algorithms/ALG C++ Synatx.md"
+    },
+    {
+      "basename": "Queues",
+      "path": "2 - DSA/Patterns/Stacks and Queues/Queues.md"
+    },
+    {
+      "basename": "Drawing 2024-12-26 16.34.34.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2024-12-26 16.34.34.excalidraw.md"
+    },
+    {
+      "basename": "List",
+      "path": "2 - DSA/Data Structures/Linked List/List.md"
+    },
+    {
+      "basename": "Forward List",
+      "path": "2 - DSA/Data Structures/Linked List/Forward List.md"
     },
     {
       "basename": "Drawing 2024-12-26 08.29.30.excalidraw",
@@ -23,10 +79,6 @@
     {
       "basename": "Drawing 2024-12-26 10.25.40.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2024-12-26 10.25.40.excalidraw.md"
-    },
-    {
-      "basename": "DSA Overview",
-      "path": "2 - DSA/DSA Overview.md"
     },
     {
       "basename": "Drawing 2024-12-25 21.11.38.excalidraw",
@@ -47,10 +99,6 @@
     {
       "basename": "Drawing 2024-12-25 13.12.25.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2024-12-25 13.12.25.excalidraw.md"
-    },
-    {
-      "basename": "List",
-      "path": "2 - DSA/Data Structures/Linked List/List.md"
     },
     {
       "basename": "Drawing 2024-12-25 11.26.53.excalidraw",
@@ -113,16 +161,8 @@
       "path": "1 - Languages/Languages Overview.md"
     },
     {
-      "basename": "Forward List",
-      "path": "2 - DSA/Data Structures/Linked List/Forward List.md"
-    },
-    {
       "basename": "Stack",
       "path": "2 - DSA/Data Structures/Stack.md"
-    },
-    {
-      "basename": "Counting",
-      "path": "2 - DSA/Patterns/Hashing/Counting.md"
     },
     {
       "basename": "Two Pointers",
@@ -135,10 +175,6 @@
     {
       "basename": "Drawing 2024-12-24 11.17.31.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2024-12-24 11.17.31.excalidraw.md"
-    },
-    {
-      "basename": "Sliding Windows",
-      "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
     },
     {
       "basename": "Drawing 2024-12-23 21.36.48.excalidraw",
@@ -163,42 +199,6 @@
     {
       "basename": "Drawing 2024-12-22 14.53.20.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2024-12-22 14.53.20.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-22 11.51.30.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-22 11.51.30.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-22 10.26.02.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-22 10.26.02.excalidraw.md"
-    },
-    {
-      "basename": "Home",
-      "path": "5 - Resources/Home.md"
-    },
-    {
-      "basename": "Drawing 2024-12-21 09.13.06.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-21 09.13.06.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-21 15.10.01.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-21 15.10.01.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-21 08.53.35.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-21 08.53.35.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-17 22.39.22.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-17 22.39.22.excalidraw.md"
-    },
-    {
-      "basename": "C++ Synatx",
-      "path": "2 - DSA/Data Structures/C++ Synatx.md"
-    },
-    {
-      "basename": "Drawing 2024-12-20 08.27.14.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-20 08.27.14.excalidraw.md"
     }
   ],
   "omittedPaths": [],
