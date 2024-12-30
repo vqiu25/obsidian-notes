@@ -1,83 +1,120 @@
-> [!QUOTE] Quick Notes
->When we recognise a FIFO pattern
+# Array Implementation
 
-# Overview
-## Recipe
-
->[!Note]- Queue Recipe
+> [!info]- Queue Parameters
 > <!-- Multiline -->
->1. ~={purple}**Why Queue=~**: Whenever we recognise a FIFO pattern.
-
-# Example Problems
-
-> [!Question]- Number of Recent Calls (Data Stream)
-> <!-- Multiline -->
-> **~={red}Question=~**:
-> * You have a `RecentCounter` class which counts the number of recent requests within a certain time frame.
-> 	* `RecentCounter()` Initialises the counter with zero recent requests.
-> 	* `int ping (int t)` Adds a new time request where `t` represents some time in milliseconds, and returns the number of requests that has happened in the past `3000` milliseconds (including the new request). **~={red}(Basically, return the number of requests within 3000 ms from t)=~**
->
->**~={red}Solution=~**:
->1. **~={purple}Queue Logic=~**:
-> * **~={green}Add to Queue=~**: Always add to the queue
-> * **~={red}Check the front of the queue=~**: if the element is not within 3000ms from the current time, pop() from the front, until the front is within 3000ms (Because of FIFO, all subsequent timestamps in the queue will be valid)
->
-> ![[Drawing 2024-12-27 11.16.26.excalidraw | 700 | center]]
->```cpp
->class RecentCounter {
->private:
->	queue<int​> q;
->	
->public:
->	RecentCounter() :
->		q{} {}
->	
->	int ping(int t) {
->		q.push(t);
->		while (!q.empty() && q.front < t - 3000) {
->			q.pop();
->		}
->		return q.size();
->	}
+> **~={purple}<u>Parameters</u>=~**
+> ````col
+>```col-md
+> ```cpp
+> class Queue {
+> private:
+> 	int* data;
+> 	int front;
+> 	int rear;
+> 	int cap;
+> 	int size;
+> }
+>```
+>```col-md
+>* **~={purple}data=~**: Pointer to the queue
+>* **~={purple}front=~**: Indicates where the front of the queue is
+>* **~={purple}rear=~**: Indicates where the end of the queue is
+>* ~={purple}**cap**=~: Total capacity of the array (max)
+>* **~={purple}size=~**: Amount of elements in the array
+>```
+>````
+> **~={green}<u>Constructor</u>=~**
+> * Note that you cannot use an initialiser list to initialise dynamically allocated memory
+> ````col
+>```col-md
+> ```cpp
+> public:
+> Queue(int initialCap) :
+> 	front{0};
+> 	rear{-11};
+> 	cap{initialCap},
+> 	size{0} {
+> 	this->data = new int[cap];
+> }
+>```
+>```col-md
+>* **~={purple}initialCap=~**: User passes in the initial capacity of the queue
+>1. Set the front to be at index 0
+>2. Given there are no elements yet, set rear to -1
+>3. Set the initial size to be 0
+>4. Initialise an array to be the of size `cap`
+>```
+>````
+> **~={red}<u>Destructor</u>=~**
+> ````col
+>```col-md
+> ```cpp
+> public:
+>~Queue() {
+>	delete[] data;
 >}
 >```
+>```col-md
+>1. When you allocate memory using `new[]`, you must deallocate using `delete[]`. This frees up the memory where data was pointing.
+>```
+>````
 
-> [!Question]- Moving Average from Data Stream (Data Stream)
+> [!note]- Add to Back `(q.push(value))`
 > <!-- Multiline -->
-> **~={red}Question=~**:
-> * Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.
+> **~={purple}<u>Description</u>=~**
+> 
+> Adding a value to the end of the queue:
+> 1. Increment `rear`
+> 2. Add the value to the data array, `data[rear] = val`
 >
->**~={red}Solution=~**:
->1. **~={purple}Queue Logic=~**:
-> * **~={green}Add to Queue=~**: Always add to the queue. Utilise a variable to keep track of the current sum in the queue.
-> * **~={red}Check the size of the queue=~**: If the queue size exceeds the specified `size`, immediately pop.
+>**~={purple}<u>Code</u>=~**
 >
-> ![[Drawing 2024-12-27 11.56.51.excalidraw | 500 | center]]
 >```cpp
->class MovingAverage {
->private:
->	queue<int​> q;
->	int size;
->	double sum;
->	
->public:
->	MovingAverage(int size) :
->		q{},
->		size{size},
->		sum{0} {}
->	
->	double next(int val) {
->		q.push(val);
->		sum += val;
->		
->		// If we exceed the "average window" size, pop from front
->		if (q.size() > size) {
->			sum -= q.front();
->			q.pop();
->		}
->		return sum / q.size();
+>void push(int val) {
+>	if (this->size == this->capacity) {
+>		throw std::overflow_error("Queue is full");
 >	}
+>	this->rear = (this->rear + 1) % this->capacity;
+>	this->data[rear] = val;
+>	++size;
 >}
 >```
+>
+> **~={purple}<u>Complexity</u>: $O(n)$=~**
+> 
+> We are incrementing one value, so $O(1)$.
+>
 
-#flashcards/dsa/patterns/queue
+> [!note]- Remove Front `(q.pop())`
+> <!-- Multiline -->
+> **~={purple}<u>Description</u>=~**
+> 
+> We are removing the front of the queue, by shifting where the "front" variable is.
+>
+>**~={purple}<u>Code</u>=~**
+>
+>```cpp
+>void pop_back() {
+>	if (size == 0) {
+>		throw std::underflow_error("Queue is empty");
+>	}
+>	this->front = (this->front + 1) % this->capacity;
+>	--size;
+>}
+>```
+>
+> **~={purple}<u>Complexity</u>: $O(1)$=~**
+> 
+> We are incrementing one value, so $O(1)$
+
+> [!info]- Circular Queue
+> <!-- Multiline -->
+> When we pushed elements, then popped them, those elements remain in our array, as we have only superficially "removed" them. Thus, by ensuring:
+> * (front + 1) % capacity
+> * (rear + 1) % capacity
+>
+> We will always have variable pointers that support "overlap"
+> 
+> ![[Drawing 2024-12-27 17.23.20.excalidraw | center | 700]]
+
+#flashcards/dsa/ds/queue
