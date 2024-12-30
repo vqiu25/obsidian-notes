@@ -4,56 +4,49 @@
     "type": "split",
     "children": [
       {
-        "id": "4509724f8bf84da7",
+        "id": "0f034c81779ac932",
         "type": "tabs",
         "children": [
           {
-            "id": "e77677eff106382c",
+            "id": "3ff3add46cecdb7a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2 - DSA/Patterns/Stacks and Queues/Monotonic.md",
+                "file": "2 - DSA/Patterns/Trees & Graphs/BT DFS.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Monotonic"
+              "title": "BT DFS"
             }
           },
           {
-            "id": "d49414e238d3ea84",
+            "id": "294d4d96de66030e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "2 - DSA/Data Structures/Queue.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
+                "file": "5 - Resources/Excalidraw/Drawing 2024-12-30 14.32.16.excalidraw.md"
               },
-              "icon": "lucide-file",
-              "title": "Queue"
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2024-12-30 14.32.16.excalidraw"
             }
           },
           {
-            "id": "24fe342081cc065f",
+            "id": "8371ec8b8e661559",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "2 - DSA/Patterns/Stacks and Queues/Monotonic.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
+                "file": "5 - Resources/Excalidraw/Drawing 2024-12-30 14.25.17.excalidraw.md"
               },
-              "icon": "lucide-file",
-              "title": "Monotonic"
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2024-12-30 14.25.17.excalidraw"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -154,12 +147,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "5 - Resources/Home.md",
+                "file": "2 - DSA/Patterns/Trees & Graphs/BT DFS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Home"
+              "title": "Outgoing links from BT DFS"
             }
           },
           {
@@ -168,33 +161,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2 - DSA/Patterns/Stacks and Queues/Monotonic.md"
+                "file": "2 - DSA/Patterns/Trees & Graphs/BT DFS.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Monotonic"
-            }
-          },
-          {
-            "id": "b8e124576305ff53",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
-            }
-          },
-          {
-            "id": "82aa782daa4b65a4",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+              "title": "Outline of BT DFS"
             }
           },
           {
@@ -216,6 +186,16 @@
               "icon": "spreadsheet",
               "title": "Advanced Tables"
             }
+          },
+          {
+            "id": "94406a8b62ed72bb",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
         "currentTab": 2
@@ -230,7 +210,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "2 - DSA/Patterns/Stacks and Queues/Monotonic.md",
+                "file": "2 - DSA/Patterns/Trees & Graphs/BT DFS.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -258,7 +238,7 @@
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of Monotonic"
+              "title": "Graph of BT DFS"
             }
           }
         ]
@@ -282,46 +262,47 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "24fe342081cc065f",
+  "active": "3ff3add46cecdb7a",
   "lastOpenFiles": [
-    "2 - DSA/Data Structures/Queue.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-27 11.56.51.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-27 11.16.26.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-30 14.32.16.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-30 14.25.17.excalidraw.md",
+    "2 - DSA/Patterns/Trees & Graphs/BT DFS.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-30 12.36.33.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-30 12.37.01.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-29 21.09.19.excalidraw.md",
+    "5 - Resources/Attachements/Pasted image 20241230120855.png",
+    "5 - Resources/Excalidraw/Drawing 2024-12-28 12.57.25.excalidraw.md",
     "2 - DSA/Data Structures/DS C++ Syntax.md",
-    "2 - DSA/Patterns/Stacks and Queues/Monotonic.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-26 22.41.35.excalidraw.md",
+    "2 - DSA/Patterns/Recursion/Beginner Recursion.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-28 23.45.49.excalidraw.md",
+    "2 - DSA/Patterns/Recursion",
+    "5 - Resources/Excalidraw/Drawing 2024-12-28 08.59.14.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-28 08.41.56.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-28 00.08.32.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-27 23.51.59.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-27 23.30.18.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-27 23.28.01.excalidraw.md",
     "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
-    "2 - DSA/Patterns/Hashing/Counting.md",
+    "2 - DSA/DSA Overview.md",
+    "5 - Resources/Home.md",
+    "4 - System Design/System Design Overview.md",
+    "2 - DSA/Data Structures/Array.md",
+    "2 - DSA/Data Structures/Queue.md",
+    "2 - DSA/Patterns/Stacks and Queues/Queues.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-27 17.23.20.excalidraw.md",
+    "2 - DSA/Data Structures/Vector.md",
+    "2 - DSA/Data Structures/Stack.md",
     "2 - DSA/Patterns/Trees & Graphs/Graphs",
     "2 - DSA/Patterns/Trees & Graphs/Trees",
-    "2 - DSA/DSA Overview.md",
     "2 - DSA/Patterns/Heap",
-    "2 - DSA/Patterns/Linked List/Reversing a Linked List.md",
-    "2 - DSA/Patterns/Linked List/Fast and Slow Pointers.md",
-    "2 - DSA/Patterns/Stacks and Queues/String Problems.md",
-    "2 - DSA/Algorithms/ALG C++ Synatx.md",
     "2 - DSA/Patterns/Trees & Graphs",
-    "2 - DSA/Patterns/Stacks and Queues/Queues.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-26 16.34.34.excalidraw.md",
-    "2 - DSA/Data Structures/Linked List/List.md",
-    "2 - DSA/Data Structures/Linked List/Forward List.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-26 08.29.30.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-26 10.26.18.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-26 10.25.40.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-25 21.11.38.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-25 21.15.39.excalidraw.md",
-    "2 - DSA/Patterns/Hashing/Checking for Existence.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-25 18.04.08.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-25 13.12.25.excalidraw.md",
     "2 - DSA/Patterns/Stacks and Queues",
-    "5 - Resources/Excalidraw/Drawing 2024-12-25 11.26.53.excalidraw.md",
     "5 - Resources/Attachements/Pasted image 20241224140647.png",
     "2 - DSA/Data Structures/Linked List",
     "2 - DSA/Patterns/Linked List",
     "5 - Resources/Attachements/Pasted image 20241220080331.png",
     "2 - DSA/Data Structures/Hash Table",
     "2 - DSA/Data Structures/Binary Search Tree",
-    "2 - DSA/Data Structures/Heap",
     "5 - Resources/Attachements/heap.gif",
     "5 - Resources/Attachements/bst.gif",
     "5 - Resources/Attachements/hashtable.gif",
@@ -330,7 +311,6 @@
     "5 - Resources/Attachements/vector.png",
     "Untitled.canvas",
     "2 - DSA/Data Structures/DS Map.canvas",
-    "5 - Resources/Attachements/Pasted image 20241124213338.png",
-    "5 - Resources/Attachements/Pasted image 20241124205936.png"
+    "5 - Resources/Attachements/Pasted image 20241124213338.png"
   ]
 }
