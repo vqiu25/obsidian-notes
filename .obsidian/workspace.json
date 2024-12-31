@@ -21,30 +21,6 @@
               "icon": "lucide-file",
               "title": "BT DFS"
             }
-          },
-          {
-            "id": "294d4d96de66030e",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "5 - Resources/Excalidraw/Drawing 2024-12-30 14.32.16.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2024-12-30 14.32.16.excalidraw"
-            }
-          },
-          {
-            "id": "8371ec8b8e661559",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "5 - Resources/Excalidraw/Drawing 2024-12-30 14.25.17.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2024-12-30 14.25.17.excalidraw"
-            }
           }
         ]
       }
@@ -264,34 +240,41 @@
   },
   "active": "3ff3add46cecdb7a",
   "lastOpenFiles": [
-    "5 - Resources/Excalidraw/Drawing 2024-12-30 14.32.16.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-30 14.25.17.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-31 12.33.23.excalidraw.md",
     "2 - DSA/Patterns/Trees & Graphs/BT DFS.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-30 12.36.33.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-30 12.37.01.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-31 11.47.11.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-30 22.12.32.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-30 21.35.40.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-31 10.30.54.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-31 11.46.03.excalidraw.md",
+    "5 - Resources/Attachements/Pasted Image 20241231114643_167.png",
+    "5 - Resources/Excalidraw/Drawing 2024-12-31 10.22.35.excalidraw.md",
+    "5 - Resources/Attachements/Pasted Image 20241231102255_328.png",
+    "5 - Resources/Attachements/Pasted image 20241230221148.png",
     "5 - Resources/Excalidraw/Drawing 2024-12-29 21.09.19.excalidraw.md",
-    "5 - Resources/Attachements/Pasted image 20241230120855.png",
-    "5 - Resources/Excalidraw/Drawing 2024-12-28 12.57.25.excalidraw.md",
-    "2 - DSA/Data Structures/DS C++ Syntax.md",
-    "2 - DSA/Patterns/Recursion/Beginner Recursion.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-28 23.45.49.excalidraw.md",
-    "2 - DSA/Patterns/Recursion",
-    "5 - Resources/Excalidraw/Drawing 2024-12-28 08.59.14.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-30 21.28.53.excalidraw.md",
+    "5 - Resources/Attachements/Pasted image 20241230174656.png",
+    "5 - Resources/Attachements/Pasted image 20241230174653.png",
+    "5 - Resources/Attachements/Pasted image 20241230174629.png",
+    "5 - Resources/Excalidraw/Drawing 2024-12-30 17.04.17.excalidraw.md",
     "5 - Resources/Excalidraw/Drawing 2024-12-28 08.41.56.excalidraw.md",
     "5 - Resources/Excalidraw/Drawing 2024-12-28 00.08.32.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-28 12.57.25.excalidraw.md",
     "5 - Resources/Excalidraw/Drawing 2024-12-27 23.51.59.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-27 23.30.18.excalidraw.md",
     "5 - Resources/Excalidraw/Drawing 2024-12-27 23.28.01.excalidraw.md",
-    "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
-    "2 - DSA/DSA Overview.md",
-    "5 - Resources/Home.md",
-    "4 - System Design/System Design Overview.md",
-    "2 - DSA/Data Structures/Array.md",
-    "2 - DSA/Data Structures/Queue.md",
-    "2 - DSA/Patterns/Stacks and Queues/Queues.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-27 17.23.20.excalidraw.md",
-    "2 - DSA/Data Structures/Vector.md",
-    "2 - DSA/Data Structures/Stack.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-30 14.25.17.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-30 14.32.16.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-30 12.37.01.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-28 23.45.49.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-14 15.03.46.excalidraw.md",
+    "5 - Resources/Attachements/Pasted image 20241230162044.png",
+    "5 - Resources/Excalidraw/Drawing 2024-12-30 12.36.33.excalidraw.md",
+    "5 - Resources/Attachements/Pasted image 20241230120855.png",
+    "2 - DSA/Data Structures/DS C++ Syntax.md",
+    "2 - DSA/Patterns/Recursion/Beginner Recursion.md",
+    "2 - DSA/Patterns/Recursion",
+    "5 - Resources/Excalidraw/Drawing 2024-12-28 08.59.14.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2024-12-27 23.30.18.excalidraw.md",
     "2 - DSA/Patterns/Trees & Graphs/Graphs",
     "2 - DSA/Patterns/Trees & Graphs/Trees",
     "2 - DSA/Patterns/Heap",
@@ -303,14 +286,7 @@
     "5 - Resources/Attachements/Pasted image 20241220080331.png",
     "2 - DSA/Data Structures/Hash Table",
     "2 - DSA/Data Structures/Binary Search Tree",
-    "5 - Resources/Attachements/heap.gif",
-    "5 - Resources/Attachements/bst.gif",
-    "5 - Resources/Attachements/hashtable.gif",
-    "5 - Resources/Attachements/list.gif",
-    "5 - Resources/Attachements/array.png",
-    "5 - Resources/Attachements/vector.png",
     "Untitled.canvas",
-    "2 - DSA/Data Structures/DS Map.canvas",
-    "5 - Resources/Attachements/Pasted image 20241124213338.png"
+    "2 - DSA/Data Structures/DS Map.canvas"
   ]
 }
