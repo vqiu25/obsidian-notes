@@ -1,8 +1,32 @@
 {
   "recentFiles": [
     {
+      "basename": "Binary Search Tree",
+      "path": "2 - DSA/Data Structures/Binary Search Tree/Binary Search Tree.md"
+    },
+    {
+      "basename": "Set",
+      "path": "2 - DSA/Data Structures/Binary Search Tree/Set.md"
+    },
+    {
+      "basename": "Map",
+      "path": "2 - DSA/Data Structures/Binary Search Tree/Map.md"
+    },
+    {
+      "basename": "BT BFS",
+      "path": "2 - DSA/Patterns/Trees & Graphs/BT BFS.md"
+    },
+    {
+      "basename": "DS C++ Syntax",
+      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
+    },
+    {
       "basename": "BT DFS",
       "path": "2 - DSA/Patterns/Trees & Graphs/BT DFS.md"
+    },
+    {
+      "basename": "Drawing 2024-12-31 15.38.46.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2024-12-31 15.38.46.excalidraw.md"
     },
     {
       "basename": "Drawing 2024-12-31 12.33.23.excalidraw",
@@ -87,10 +111,6 @@
     {
       "basename": "Drawing 2024-12-30 12.36.33.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2024-12-30 12.36.33.excalidraw.md"
-    },
-    {
-      "basename": "DS C++ Syntax",
-      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
     },
     {
       "basename": "Beginner Recursion",
@@ -179,26 +199,6 @@
     {
       "basename": "Drawing 2024-12-26 22.41.35.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2024-12-26 22.41.35.excalidraw.md"
-    },
-    {
-      "basename": "Counting",
-      "path": "2 - DSA/Patterns/Hashing/Counting.md"
-    },
-    {
-      "basename": "Reversing a Linked List",
-      "path": "2 - DSA/Patterns/Linked List/Reversing a Linked List.md"
-    },
-    {
-      "basename": "Fast and Slow Pointers",
-      "path": "2 - DSA/Patterns/Linked List/Fast and Slow Pointers.md"
-    },
-    {
-      "basename": "String Problems",
-      "path": "2 - DSA/Patterns/Stacks and Queues/String Problems.md"
-    },
-    {
-      "basename": "ALG C++ Synatx",
-      "path": "2 - DSA/Algorithms/ALG C++ Synatx.md"
     }
   ],
   "omittedPaths": [],
