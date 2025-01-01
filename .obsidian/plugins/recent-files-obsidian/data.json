@@ -5,6 +5,22 @@
       "path": "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md"
     },
     {
+      "basename": "Hash Table",
+      "path": "2 - DSA/Data Structures/Hash Table/Hash Table.md"
+    },
+    {
+      "basename": "Drawing 2025-01-01 22.43.47.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-01 22.43.47.excalidraw.md"
+    },
+    {
+      "basename": "DSA Overview",
+      "path": "2 - DSA/DSA Overview.md"
+    },
+    {
+      "basename": "Drawing 2025-01-01 20.57.25.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-01 20.57.25.excalidraw.md"
+    },
+    {
       "basename": "Drawing 2025-01-01 16.57.53.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-01-01 16.57.53.excalidraw.md"
     },
@@ -39,10 +55,6 @@
     {
       "basename": "BT BFS",
       "path": "2 - DSA/Patterns/Trees & Graphs/BT BFS.md"
-    },
-    {
-      "basename": "Hash Table",
-      "path": "2 - DSA/Data Structures/Hash Table/Hash Table.md"
     },
     {
       "basename": "List",
@@ -177,10 +189,6 @@
       "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
     },
     {
-      "basename": "DSA Overview",
-      "path": "2 - DSA/DSA Overview.md"
-    },
-    {
       "basename": "Home",
       "path": "5 - Resources/Home.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "Array",
       "path": "2 - DSA/Data Structures/Array.md"
-    },
-    {
-      "basename": "Queues",
-      "path": "2 - DSA/Patterns/Stacks and Queues/Queues.md"
-    },
-    {
-      "basename": "Drawing 2024-12-27 17.23.20.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-27 17.23.20.excalidraw.md"
     }
   ],
   "omittedPaths": [],
