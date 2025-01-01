@@ -119,31 +119,46 @@
 >
 >**~={red}Solution=~**:
 >* **~={purple}Intuition=~**:
->	* We traverse level by level using BFS
->	* Hence, the last value in our queue, in every iteration, will be on the very right. Hence we store these values, and return it,
+>
+> ![[Drawing 2024-12-31 20.20.18.excalidraw | center | 600]]
 >
 >```cpp
->vector<int​> rightSideView(TreeNode* root) {
+>vector<vector<int​>> zigzagLevelOrder(TreeNode* root) {
 >	// (1) If we pass in an empty tree, then return an empty array
->	vector<int​> result{};
+>	vector<vector<int​>> result{};
 >	if (root == nullptr) return result;
 >	
 >	// (2) Perform BFS
->	queue<TreeNode*​> queue;
->	queue.push(root);
+>	deque<TreeNode*> deque;
+>	bool parity = true;
+>	deque.push_back(root);
 >	
->	while (!queue.empty()) {
->		int queueSize = queue.size();
->		// If we are at the end of the queue, push it to result
->		result.push_back(queue.back()->val);
+>	while (!deque.empty()) {
+>		int dequeSize = deque.size();
+>		vector<int​> levelResult;
 >		
->		for (int i{0}; i < queueSize; ++i) {
->			TreeNode* node = queue.front();
->			queue.pop();
->			
->			if (node->left) queue.push(node->left);
->			if (node->right) queue.push(node->right);
+>		for (int i = 0; i < dequeSize; ++i) {
+>			TreeNode* node;
+>			if (parity) {
+>				// Process from the front (left-to-right)
+>				node = deque.front();
+>				deque.pop_front();
+>				levelResult.push_back(node->val);
+>				if (node->left) deque.push_back(node->left);
+>				if (node->right) deque.push_back(node->right);
+>			} else {
+>				// Process from the back (right-to-left)
+>				node = deque.back();
+>				deque.pop_back();
+>				levelResult.push_back(node->val);
+>				if (node->right) deque.push_front(node->right);
+>				if (node->left) deque.push_front(node->left);
+>			}
 >		}
+>		result.push_back(levelResult);
+>		// Flip the parity so we cycle between processing from
+>		// front and back
+>		parity = !parity;
 >	}
 >	return result;
 >}

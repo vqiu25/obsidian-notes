@@ -235,7 +235,7 @@
 ><!-- Multiline -->
 ><u>**Explanation**</u>
 >
->Left priority DFS.
+>Left priority pre-order DFS.
 >
 ><u>**C++ Code**</u>
 >```cpp
