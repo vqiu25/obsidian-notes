@@ -12,7 +12,9 @@
 
 >[!Note]- Time Complexity of DFS on Graph
 > <!-- Multiline -->
-> * **~={purple}Time Complexity=~**: We will visit every node on the tree once, hence, $O(n)$, where $n$ is the number of nodes in the tree
+> * **~={purple}Time Complexity=~**: The time complexity is $O(n+e)$, where $n$ is the number of nodes and $e$ is the number of edges in the graph. Every node and every edge is visited once during the traversal.
+> 	* However, for dense graphs, $e=n(n-1)/2$, as every node, is connected to every other node, i.e. for every n nodes, they have n-1 neighbours, all with edges, resulting in $O(n^2)$. An adjacency matrix will always be $O(n^2)$ though.
+> * **~={purple}Space Complexity=~**: $O(n+e)$ for storing nodes and edges
 
 ## Points of Interest
 
@@ -54,9 +56,69 @@
 > }
 >```
 
+>[!Note]- Are nodes "given" to us in graph problems?
+> <!-- Multiline -->
+> The nodes aren't exactly given to us. We are simply told that there exists some nodes numbered from 0 to n - 1, and we are given information regarding the edges. Thus, we treat the integers from $$[0, n - 1]$$ as the nodes. 
+
+> [!Note]- Finding the Number of Connected Components in Undirected Graph from Adjacency List
+> <!-- Multiline -->
+> **~={red}Question=~**:
+>* Given an **undirected graph** represented as an adjacency list, find the number of connected components in the graph.
+>
+>**~={red}Solution=~**:
+>* **~={purple}Intuition=~**:
+>	* Each connected component in the graph can be identified by performing a **DFS** (or BFS) starting from an unvisited node.
+>	* Each DFS will mark all nodes in the same connected component as visited.
+>	* The total number of DFS calls corresponds to the number of connected components.
+>
+>* **Steps**:
+>	1. Iterate through all nodes in the adjacency list.
+>	2. For each unvisited node, perform a DFS and mark all reachable nodes as visited.
+>	3. Increment a counter for every DFS call, as it identifies a new connected component.
+>
+> ![[Drawing 2025-01-01 20.57.25.excalidraw | center | 600]]
+>
+>**~={red}Code=~**:
+>```cpp
+>int findCircleNum(unordered_map<int, vector<int​>>& adjList) {
+>    set<int​> visited;
+>    int connectedComponents{0};
+>
+>    for (const auto& [node, _] : adjList) {
+> 	   // Perform DFS on only unvisited nodes to find
+> 	   // connected components
+>        if (visited.find(node) == visited.end()) {
+>            dfsConnectedComponent(adjList, visited, node);
+>            connectedComponents++;
+>        }
+>    }
+>
+>    return connectedComponents;
+>}
+>
+>// (2) Standard DFS: We are passing by reference a visited set
+>void dfsConnectedComponent(unordered_map<int, vector<int​>>& adjList, set<int​>& visited, int startingNode) {
+>    deque<int​> stack;
+>    stack.push_back(startingNode);
+>    visited.insert(startingNode);
+>
+>    while (!stack.empty()) {
+>        int node = stack.back();
+>        stack.pop_back();
+>
+>        for (int neighbour : adjList[node]) {
+>            if (visited.find(neighbour) == visited.end()) {
+>                visited.insert(neighbour);
+>                stack.push_back(neighbour);
+>            }
+>        }
+>    }
+>}
+>```
+
 # Templates
 
->[!Info]- BT DFS Template (Iterative)
+>[!Info]- Graph DFS Template (Iterative)
 ><!-- Multiline -->
 ><u>**Explanation**</u>
 >
@@ -104,7 +166,7 @@
 >}
 >```
 
->[!Info]- BT DFS Template (Recursive)
+>[!Info]- Graph DFS Template (Recursive)
 ><!-- Multiline -->
 ><u>**Explanation**</u>
 >
@@ -139,38 +201,92 @@
 
 # Example Problems
 
-> [!Question]- Root to Leaf Path Min Sum (Increment in Return)
+> [!Question]- Number of Islands (Traversing a Grid)
 > <!-- Multiline -->
 > **~={red}Question=~**:
->* Given the **root** of a binary tree, explore all possible **root-to-leaf paths**, compute the sum of values along each path, and return the **minimum sum.**
->* A **leaf node** is a node with no children.
+>* Given an `m x n` 2D binary grid `grid` which represents a map of `'1'`s (land) and `'0'`s (water), return _the number of islands_.
+>* An **island** is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
 >
 >**~={red}Solution=~**:
 >
-> ![[Drawing 2024-12-30 21.35.40.excalidraw | center | 700]]
+> ![[Drawing 2025-01-01 22.43.47.excalidraw | center | 500]]
 >
+>**~={green}<u>Global Variables</u>=~**
+>* `rows`: Number of rows in the grid
+>* `cols`: Number of columns in the grid
+>* `directions`: {change in row, change in col}
+>	* **~={blue}{0, 1}=~**: Move right **~={blue}(row, col) -> (row, col + 1)=~**
+>	* **~={blue}{1, 0}=~**: Move down **~={blue}(row, col) -> (row + 1, col)=~**
+>	* **~={blue}{0, -1}=~**: Move left ~={blue}(row, col) -> (row, col - 1)=~
+>	* **~={blue}{-1, 0}=~**: Move up **~={blue}(row, col) -> (row - 1, col + 1)=~**
 >```cpp
->int minRootToLeafSum(TreeNode* root) {
->	// Base Case: If we end up at a parent, where it has 1 child, and
->	// 1 null child, if we traverse to the null child, we return
->	// INT_MAX, such that it gets ignored
->	if (root == nullptr) return INT_MAX;
->		
->	// Base Case: If we reach a leaf node, we return that node's
->	// value. This allows us to effectively, never visit the 
->	// leaf child's null children
->	if (root->left == nullptr && root->right ==nullptr) {
->		return root.val;
->	}
->	
->	int leftMinSum = minRootToLeafSum(root->left);
->	int rightMinSum = minRootToLeafSum(root->right);
->	
->	// Recursive Case: From the perspective of the parent node,
->	// we return the sum of the parent + the sum of it's smallest
->	// child subtree, propagating it up
->	return root->val + min(leftMinSum, rightMinSum)l
+>class Solution {
+>private:
+>	int rows;
+>	int cols;
+>	vector<vector<int​>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+>```
+>* `valid()`: Helper function for DFS to check if the next node being visited is a valid square or not.
+>```cpp
+>	bool valid(vector<vector<char​>>& grid, vector<vector<bool​>>& seen, int nextRow, int nextCol) {
+>		bool inRowBound = (0 <= nextRow) && (nextRow <= this->rows);
+>		bool inColBound = (0 <= nextCol) && (nextCol <= this->cols);
+>		bool containsOne = (grid[nextRow][nextCol] == '1');
+>		bool notSeen = !seen[nextRow][nextCol];
+>		return inRowBound && inColBound && containsOne && notSeen;
 >}
+>```
+>
+>**~={green}<u>Iterating Through Every Square (Entry)</u>=~**
+>* `seen`: A "set" which keeps track of what squares have already been visited such that we don't repeat traversals
+>```cpp
+>int numIslands(vector<vector<char​>>& grid) {
+>	this->rows = grid.size();
+>	this->cols = grid[0].size();
+>	vector<vector<bool​>> seen(rows, vector<bool​>(cols, false));
+>```
+>Iterate through the entire grid, and if it an island ('1') square, and it hasn't been visited before, perform a DFS traversal.
+>```cpp
+>	int result{0};
+>	
+>	for (int i{0}; i < rows; ++i) {
+>		for (int j{0}; j < cols; ++j) {
+>			if (grid[i][j] == '1' && !seen[i][j]) {
+>				result++;
+>				dfs(grid, seen, row, col);
+>			}
+>		}
+>	}
+>	return result
+>}
+>```
+>**~={green}<u>DFS</u>=~**
+>* Rather than a `set<int> visited`, we will update our boolean 2d array
+>```cpp
+>void iterativeDFS(vector<vector<char​>>& grid, vector<vector<bool​>>& seen, int startRow, int startCol) {
+>	deque<pair<int, int​>> stack;
+>	stack.push_back({startRow, startCol});
+>	seen[startRow][startCol] = true;
+>```
+>1. For every square/node we visit
+>2. **~={blue}Check Up/Down/Left/Right=~**: Iterate through the directions global variable to see what square the current node will land on
+>3. **~={green}If Valid=~**: Update our seen 2d array, and push it to the stack so it's neighbours can be xplored
+>```cpp
+>	while (!stack.empty()) {
+>		pair<int, int​> square = stack.back();
+>		row = square.first;
+>		col = square.second;
+>		stack.pop_back();
+>	
+>		for (vector<int​> direction : this->directions) {
+>			int nextRow = row + direction[0];
+>			int nextCol = col + direction[1];
+>			if (valid(grid, seen, nextRow, nextCol)) {
+>				seen[nextRow][nextCol] = true;
+>				stack.push_back({nextRow, nextCol});
+>			}
+>		}
+>	}
 >```
 
 #flashcards/dsa/patterns/graphdfs

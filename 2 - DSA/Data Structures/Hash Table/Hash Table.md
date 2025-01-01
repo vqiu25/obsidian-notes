@@ -6,6 +6,7 @@
 >```col-md 
 >* A hash table stores key value pairs (unordered map) or just values (unordered set)
 >* It is an unordered data structure where insertion order is not "remembered"
+>* An unordered set or map can only store hashable stuff
 >``` 
 >```` 
 >
