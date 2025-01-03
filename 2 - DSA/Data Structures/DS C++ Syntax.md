@@ -33,7 +33,40 @@
 |                 Reverse                  | `reverse(v.begin(), v.end())`                                                       | $O(n/2)$   |          |
 |                 Min/Max                  | `*min_element(v.begin(), v.end())`                                                  | $O(n)$     |          |
 |                   Swap                   | `swap(v[i], v[j])`                                                                  | $O(1)$     |          |
+# Strings
+## Initialisation
 
+| Operation              | Syntax              | Comments        |
+| ---------------------- | ------------------- | --------------- |
+| Declaration            | `string s`          |                 |
+| Uniform Initialisation | `string s{"test"};` |                 |
+| Direct Initialisation  | `string s(n, 'a')`  | n values of 'a' |
+
+## Methods
+
+|                Operation                 | Syntax                                                                                                              | Complexity | Comments                                         |
+| :--------------------------------------: | ------------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------------------ |
+|                Access/Set                | = `s[x]`<br>`s[x]` =                                                                                                | $O(1)$     |                                                  |
+|                   Add                    | `s += "x"`                                                                                                          | $O(m)$     | $m$ = length of string being appended            |
+|                  Insert                  | `s.insert(pos, str)`                                                                                                | $O(n)$     |                                                  |
+| Erase an Element or<br>Range of Elements | `s.erase(x, y)`                                                                                                     | <br>$O(n)$ | Erase $y$ characters from index $x$              |
+|            Extract Substring             | `string sub = s.substr(6, 5)`<br><br>// (Start Index, Length)                                                       | $O(m)$     | $m$ = substring length                           |
+|              Find Substring              | `size_t pos = s.find("word")`<br><br>`if (pos != string::npos) { // "word found" }`                                 | $O(nm)$    | Check $n$ positions for $m$ length               |
+|            Replace Substring             | `s.replace(7, 5, "C++")`<br><br>// (Start Index, Length of What is Being Removed, "String that is being put there") | $O(n + m)$ | Shifting $n$ elements and inserting $m$ elements |
+|            String to Integer             | `stoi("x")`                                                                                                         | $O(1)$     |                                                  |
+|            Integer to String             | `to_string(5)`                                                                                                      | $O(1)$     |                                                  |
+|            Lexicographic Sort            | `sort(s.begin(), s.end())`                                                                                          | $O(nlogn)$ |                                                  |
+# Characters
+
+## Techniques and Methods
+
+|            Operation             | Syntax                                   | Complexity | Comments                                               |
+| :------------------------------: | ---------------------------------------- | ---------- | ------------------------------------------------------ |
+|       Convert Char to Int        | '5' - '0' -> 5                           | $O(1)$     |                                                        |
+|       Convert Int to Char        | 5 + '0' -> '5'                           | $O(1)$     |                                                        |
+| Wrap an Integer Between (0 - 9)  | (x + 10) % 10<br><br>// X = integer      | $O(1)$     | The + 10, helps with wrapping -1 to 9                  |
+| Convert Char to Lower/Upper Case | `to_upper(char)`<br><br>`to_lower(char)` | $O(1)$     |                                                        |
+|    If a Char is Alphanumeric     | `isalpha(char`                           | $O(1)$     | Checks if char is a number or a letter of the alphabet |
 # Maps
 ## Initialisation
 ### Unordered Map

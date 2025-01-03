@@ -1,8 +1,72 @@
 {
   "recentFiles": [
     {
+      "basename": "Graphs BFS",
+      "path": "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md"
+    },
+    {
+      "basename": "DSA Overview",
+      "path": "2 - DSA/DSA Overview.md"
+    },
+    {
+      "basename": "Home",
+      "path": "5 - Resources/Home.md"
+    },
+    {
+      "basename": "DS C++ Syntax",
+      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
+    },
+    {
+      "basename": "Drawing 2025-01-03 13.21.26.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-03 13.21.26.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-01-03 13.03.46.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-03 13.03.46.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-01-03 13.10.54.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-03 13.10.54.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-01-02 21.17.08.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-02 21.17.08.excalidraw.md"
+    },
+    {
+      "basename": "BT BFS",
+      "path": "2 - DSA/Patterns/Trees & Graphs/BT BFS.md"
+    },
+    {
+      "basename": "Drawing 2025-01-02 23.36.35.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-02 23.36.35.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-01-02 12.46.28.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-02 12.46.28.excalidraw.md"
+    },
+    {
       "basename": "Graphs DFS",
       "path": "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md"
+    },
+    {
+      "basename": "Drawing 2025-01-02 14.52.47.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-02 14.52.47.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-01-02 17.57.45.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-02 17.57.45.excalidraw.md"
+    },
+    {
+      "basename": "Vector",
+      "path": "2 - DSA/Data Structures/Vector.md"
+    },
+    {
+      "basename": "Queue",
+      "path": "2 - DSA/Data Structures/Queue.md"
+    },
+    {
+      "basename": "Stack",
+      "path": "2 - DSA/Data Structures/Stack.md"
     },
     {
       "basename": "Hash Table",
@@ -11,10 +75,6 @@
     {
       "basename": "Drawing 2025-01-01 22.43.47.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-01-01 22.43.47.excalidraw.md"
-    },
-    {
-      "basename": "DSA Overview",
-      "path": "2 - DSA/DSA Overview.md"
     },
     {
       "basename": "Drawing 2025-01-01 20.57.25.excalidraw",
@@ -45,16 +105,8 @@
       "path": "2 - DSA/Patterns/Trees & Graphs/BT DFS.md"
     },
     {
-      "basename": "Stack",
-      "path": "2 - DSA/Data Structures/Stack.md"
-    },
-    {
       "basename": "Binary Search Tree",
       "path": "2 - DSA/Data Structures/Binary Search Tree/Binary Search Tree.md"
-    },
-    {
-      "basename": "BT BFS",
-      "path": "2 - DSA/Patterns/Trees & Graphs/BT BFS.md"
     },
     {
       "basename": "List",
@@ -65,20 +117,12 @@
       "path": "2 - DSA/Data Structures/Linked List/Forward List.md"
     },
     {
-      "basename": "Queue",
-      "path": "2 - DSA/Data Structures/Queue.md"
-    },
-    {
       "basename": "Drawing 2024-12-31 20.20.18.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2024-12-31 20.20.18.excalidraw.md"
     },
     {
       "basename": "Drawing 2024-12-31 15.38.46.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2024-12-31 15.38.46.excalidraw.md"
-    },
-    {
-      "basename": "DS C++ Syntax",
-      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
     },
     {
       "basename": "Set",
@@ -155,50 +199,6 @@
     {
       "basename": "Drawing 2024-12-30 14.32.16.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2024-12-30 14.32.16.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-30 12.37.01.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-30 12.37.01.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-28 23.45.49.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-28 23.45.49.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-14 15.03.46.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-14 15.03.46.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-30 12.36.33.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-30 12.36.33.excalidraw.md"
-    },
-    {
-      "basename": "Beginner Recursion",
-      "path": "2 - DSA/Patterns/Recursion/Beginner Recursion.md"
-    },
-    {
-      "basename": "Drawing 2024-12-28 08.59.14.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-28 08.59.14.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2024-12-27 23.30.18.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2024-12-27 23.30.18.excalidraw.md"
-    },
-    {
-      "basename": "Sliding Windows",
-      "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
-    },
-    {
-      "basename": "Home",
-      "path": "5 - Resources/Home.md"
-    },
-    {
-      "basename": "System Design Overview",
-      "path": "4 - System Design/System Design Overview.md"
-    },
-    {
-      "basename": "Array",
-      "path": "2 - DSA/Data Structures/Array.md"
     }
   ],
   "omittedPaths": [],
