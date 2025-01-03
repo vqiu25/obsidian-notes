@@ -1,5 +1,5 @@
 > [!QUOTE] Quick Notes
-> Traverse a graph
+> Traverse a graph (visit everything associated with a node)
 
 # Overview
 ## Recipe
