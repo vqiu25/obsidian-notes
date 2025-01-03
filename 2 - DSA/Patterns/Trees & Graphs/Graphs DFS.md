@@ -42,7 +42,7 @@
 >[!Note]- Adjacency Matrix
 > <!-- Multiline -->
 > * An adjacency matrix is read from the Left -> Top. (i.e. Read the y axis, then the x axis first. If there is a 1 in that square, there means there is an edge from y->x)
-> * Use adjacency matrix for **~={green}small=~**, **~={red}dense=~** (di)graphs for which we wish to test for the existence of arcs, find the lin-degree of vertices, and/or delete arcs.
+> * Use adjacency matrix for **~={green}small=~**, **~={red}dense=~** (di)graphs for which we wish to test for the existence of arcs, find the in-degree of vertices, and/or delete arcs.
 > * To convert a matrix `vector<vector<int>> matrix` to an adjacency list for traversal:
 > ```cpp
 > unordered_map<int, vector<int​>> adjList;
@@ -55,6 +55,11 @@
 > 	}
 > }
 >```
+
+>[!Note]- How to use an Adjacency Matrix for in-degree and out-degree
+> <!-- Multiline -->
+> * **~={green}Indegree=~**: Sum of column $x$, = indegree of node $x$
+> * **~={green}Outdegree=~**: Sum of row $x$, = outdegree of node $x$
 
 >[!Note]- Are nodes "given" to us in graph problems?
 > <!-- Multiline -->
@@ -84,11 +89,11 @@
 >    set<int​> visited;
 >    int connectedComponents{0};
 >
->    for (const auto& [node, _] : adjList) {
+>    for (const auto& pair : adjList) {
 > 	   // Perform DFS on only unvisited nodes to find
 > 	   // connected components
->        if (visited.find(node) == visited.end()) {
->            dfsConnectedComponent(adjList, visited, node);
+>        if (visited.find(pair.first) == visited.end()) {
+>            dfsConnectedComponent(adjList, visited, pair.first);
 >            connectedComponents++;
 >        }
 >    }
@@ -130,7 +135,7 @@
 >
 >Add the starting node to both.
 >
->3.**~={blue}DFS=~**: While the stack is not empty:
+>3. **~={blue}DFS=~**: While the stack is not empty:
 >* We find the top node in the stack, and remove it
 >* For every one of its **~={red}unvisited neighbours=~**, mark them as visited (set), and add them to the stack so their neighbours can be explored.
 >
@@ -227,10 +232,11 @@
 >	vector<vector<int​>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 >```
 >* `valid()`: Helper function for DFS to check if the next node being visited is a valid square or not.
+>	* We have to do it all at once, as doing it like this means we don't short circuit
 >```cpp
 >	bool valid(vector<vector<char​>>& grid, vector<vector<bool​>>& seen, int nextRow, int nextCol) {
->		bool inRowBound = (0 <= nextRow) && (nextRow <= this->rows);
->		bool inColBound = (0 <= nextCol) && (nextCol <= this->cols);
+>		bool inRowBound = (0 <= nextRow) && (nextRow < this->rows);
+>		bool inColBound = (0 <= nextCol) && (nextCol < this->cols);
 >		bool containsOne = (grid[nextRow][nextCol] == '1');
 >		bool notSeen = !seen[nextRow][nextCol];
 >		return inRowBound && inColBound && containsOne && notSeen;
@@ -253,7 +259,7 @@
 >		for (int j{0}; j < cols; ++j) {
 >			if (grid[i][j] == '1' && !seen[i][j]) {
 >				result++;
->				dfs(grid, seen, row, col);
+>				dfs(grid, seen, i, j);
 >			}
 >		}
 >	}
@@ -287,6 +293,97 @@
 >			}
 >		}
 >	}
+>```
+
+> [!Question]- Minimum Number of Vertices to Reach All Nodes
+> <!-- Multiline -->
+> **~={red}Question=~**:
+>* Given a **directed acyclic graph**, with `n` vertices numbered from `0` to `n-1`, and an array `edges` where `edges[i] = [fromi, toi]` represents a directed edge from node `fromi` to node `toi`.
+>* Find _the smallest set of vertices from which all nodes in the graph are reachable_. It's guaranteed that a unique solution exists.
+>
+>**~={red}Solution=~**:
+>* **~={purple}Intuition=~**: Return the number of source nodes / nodes with in-degree of zero
+>
+> ![[Drawing 2025-01-02 12.46.28.excalidraw | center | 200]]
+>
+>```cpp
+>vector<int​> findSmallestSetOfVertices(int n, vector<vector<int​>>& edges) {
+>	vector<int​> result;
+>	// Create a vector to store the indegree count of each node
+>	vector<int​> inDegree;
+>	
+>	// An edge [a, b] is a->b. Thus everytime b appears, we increment
+>	// to count it's indegree
+>	for (const vector<int​>& edge : edges) {
+>		inDegree[edge[1]]++;
+>	}
+>	
+>	for (int i{0}; i < n; ++i) {
+>		if (inDegree[i] == 0) {
+>			result.push_back(i);
+>		}
+>	}
+>	return result;
+>```
+
+> [!Question]- Number of Reachable Nodes in a Restricted Graph
+> <!-- Multiline -->
+> **~={red}Question=~**:
+>* Given a graph with `n` nodes (0 to `n-1`), edges represented as `edges`, and a list of restricted nodes, find the number of nodes that can be reached starting from node `0` while avoiding restricted nodes.
+>
+>**~={red}Solution=~**:
+>* **~={purple}Intuition=~**:
+>	* We perform a **DFS** starting from node `0`.
+>	* During traversal, skip nodes that are either:
+>		* In the `restricted` list.
+>		* Already visited.
+>	* Use an adjacency list to represent the graph for efficient traversal.
+>
+>* **Steps**:
+>	1. Create an adjacency list for the graph from the given `edges`.
+>	2. Convert the `restricted` list into a set for quick lookup.
+>	3. Use a **DFS** to traverse the graph:
+>		* Keep track of visited nodes.
+>		* Skip restricted or already visited nodes.
+>	4. The size of the `visited` set gives the count of reachable nodes.
+>
+>**~={red}Code=~**:
+>```cpp
+>int reachableNodes(int n, vector<int​>& edges, vector<int​>& restricted) {
+>    unordered_set<int​> restrictedSet{restricted.begin(), restricted.end()};
+>
+>    // Create an adjacency list
+>    unordered_map<int​, vector<int​>> adjList;
+>
+>    for (vector<int​> edge : edges) {
+>        adjList[edge[0]].push_back(edge[1]);
+>        adjList[edge[1]].push_back(edge[0]);
+>    }
+>
+>    // Perform DFS on node 0
+>    return dfs(adjList, restrictedSet, 0);
+>}
+>
+>int dfs(unordered_map<int​, vector<int​>> adjList, unordered_set<int​> restrictedSet, int startingNode) {
+>    deque<int​> stack;
+>    unordered_set<int​> visited;
+>    stack.push_back(startingNode);
+>    visited.insert(startingNode);
+>
+>    while (!stack.empty()) {
+>        int node = stack.back();
+>        stack.pop_back();
+>
+>        for (int neighbour : adjList[node]) {
+> 	       // Do not visit restricted nodes, or priorly visited nodes
+>            if (restrictedSet.find(neighbour) == restrictedSet.end() && visited.find(neighbour) == visited.end()) {
+>                visited.insert(neighbour);
+>                stack.push_back(neighbour);
+>            }
+>        }
+>    }
+>    return visited.size();
+>}
 >```
 
 #flashcards/dsa/patterns/graphdfs
