@@ -106,4 +106,4 @@
 >}
 >```
 
-#flashcards/dsa/patterns/reversinglinkedlist
+#flashcards/dsa/patterns/linkedlist/reversinglinkedlist

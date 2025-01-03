@@ -31,4 +31,4 @@
 >}
 >```
 
-#flashcards/dsa/patterns/checkingforexistence
+#flashcards/dsa/patterns/hashing/checkingforexistence

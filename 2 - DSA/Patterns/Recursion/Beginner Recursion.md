@@ -1,46 +1,6 @@
 > [!QUOTE] Quick Notes
 > Once you call a function, the function gets executed and if the program calls another function before the previous function is able to finish, then you basically pause the previous function at the point where it stopped and when the times comes you resume it back.
 
-# Overview
-## Recipe
-
->[!Note]- Recursion Recipe
-> <!-- Multiline -->
->1. ~={purple}**Why Recursion**=~:
-
-## Points of Interest
-
-# Templates
-
->[!Info]- Basic Recursion Template
-><!-- Multiline -->
-><u>**Explanation**</u>
->
->Left priority DFS:
->1. **~={blue}Base Case=~**: If the current node is a leaf (no children), return.
->2. **~={blue}Recursive Case=~**:
->* **~={red}dfs(node->left)=~**: First, traverse the left subtree. If a leaf node is reached, backtrack.
->* **~={green}dfs(node->right)=~**: Next, traverse the right subtree after completing the left.
->
-><u>**C++ Code**</u>
->```cpp
->void dfs(TreeNode* node) {
->	if (node == nullptr) {
->		return;
->	}
->	
->	dfs(node->left);
->	dfs(node->right);
->	return;
->}
->```
-><u>**Visual Explanation**</u>
->* **~={blue}Blue=~** = First Function Call (Traverse Left)
->* **~={green}Green=~** = Second Function Call (Traverse Right)
->* **~={red}Red=~** = Return
->
-> ![[Drawing 2024-12-28 00.08.32.excalidraw | center | 600]]
-
 # Example Problems
 
 > [!Question]- Sum of First $n$ Natural Numbers

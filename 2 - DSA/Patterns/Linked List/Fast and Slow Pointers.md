@@ -319,4 +319,4 @@
 >  ![[Drawing 2024-12-24 22.45.05.excalidraw | center | 350]]
 
 
-#flashcards/dsa/patterns/fastandslowpointers
+#flashcards/dsa/patterns/linkedlist/fastandslowpointers

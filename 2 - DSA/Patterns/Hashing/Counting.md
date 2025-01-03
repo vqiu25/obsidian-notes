@@ -362,4 +362,4 @@
 >}
 >```
 
-#flashcards/dsa/patterns/counting
+#flashcards/dsa/patterns/hashing/counting

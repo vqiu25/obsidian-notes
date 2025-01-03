@@ -164,6 +164,24 @@
 | Remove Front | `d.pop_front()`       | $O(1)$     |          |
 | Remove Back  | `d.pop_back()`        | $O(1)$     |          |
 |    Access    | `d[index]`            | $O(1)$     |          |
+# Priority Queue
+
+## Initialisation
+
+| Operation              | Syntax                                          | Comments |
+| ---------------------- | ----------------------------------------------- | -------- |
+| Declaration (Max Heap) | `priority_queue<DT> h`                          |          |
+| Declaration (Min Heap) | `priority_queue<DT, vector<DT>, greater<DT>> h` |          |
+| Uniform Initialisation | `priority_queue<DT> h{1, 2}`                    |          |
+
+## Methods
+
+|   Operation    | Syntax      | Complexity  | Comments      |
+| :------------: | ----------- | ----------- | ------------- |
+|  Find Max/Min  | `h.top()`   | $O(1)$      |               |
+|     Insert     | `h.push(x)` | $O(log(n))$ | Calls Heapify |
+| Remove Max/Min | `h.pop()`   | $O(log(n))$ | Calls Heapify |
+
 
 # Universal STL Methods
 
