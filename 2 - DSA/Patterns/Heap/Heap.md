@@ -16,7 +16,7 @@
 
 ## Points of Interest
 
-> [!Note]- Find Median from Data Stream (2 Heaps)
+> [!info]- Find Median from Data Stream (2 Heaps)
 > <!-- Multiline -->
 > **~={red}Question=~**:
 >* Design a data structure that supports adding numbers from a data stream and finding the median efficiently at any point.

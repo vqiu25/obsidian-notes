@@ -1,5 +1,5 @@
 > [!QUOTE] Quick Notes
-> You need to find the largest, smallest, or most frequent K elements in a dataset.
+> You need to find the largest, smallest, or most frequent K elements
 
 # Overview
 ## Recipe
@@ -19,54 +19,88 @@
 
 # Templates
 
+> [!Info]- Top K Elements Using Min-Heap Template
+> <!-- Multiline -->
+> **<u>Explanation</u>**
+> 1. **~={purple}Building the Heap=~**: Iterate through the array and add each element to a min-heap.
+> * **~={purple}Maintain Size K=~**: After adding an element, check if the heap size exceeds `k`. If it does, remove the smallest element (top of the heap).
+> 2. **~={purple}Extract K Largest=~**: Once all elements are processed, the heap will contain the `k` largest elements. Extract them and return the result.
+>
+> **<u>C++ Code</u>**
+> ```cpp
+> vector<int​> fn(vector<int​>& arr, int k) {
+> 	// Min-Heap to track k largest elements
+>     priority_queue<int​, vector<int​>, greater<int​>> heap;
+>     
+>     for (int num : arr) {
+>         heap.push(num); // Add element to the heap
+>         if (heap.size() > k) {
+>             heap.pop(); // Remove smallest element if heap size exceeds k
+>         }
+>     }
+>
+>     vector<int​> ans;
+>     while (heap.size() > 0) {
+>         ans.push_back(heap.top()); // Extract elements from the heap
+>         heap.pop();
+>     }
+>     
+>     return ans; // Return k largest elements
+> }
+> ```
+>
 
 # Example Problems
 
-> [!Question]- Halve Array Sum
+> [!Question]- Find K Closest Elements
 > <!-- Multiline -->
-> **~={red}Question=~**:
->* You are given an array `nums`. In one operation, you can halve the value of any element.
->* Return the minimum number of operations required to reduce the sum of the array by at least half.
+> **<u>Explanation</u>**
+> 1. **~={purple}Calculate Distances=~**: For each element in the array, calculate its distance from `x` and store it as a pair of `(element, distance)`.
+> 	* **~={purple}Maintain Size K=~**: Use a max-heap to track the `k` closest elements to `x`. If the heap size exceeds `k`, remove the farthest element (largest distance). We achieve this by storing the pair in the opposite direction `(distance, element)` so the furthest elements will be popped first
+> 2. **~={purple}Return Sorted Result=~**: Extract elements from the heap, sort them, and return the result.
 >
->**~={red}Solution=~**:
->1.  Compute the `totalSum` of the array and add all elements to a max-heap.
->2. While `currentSum > totalSum / 2`:
->	- Remove the largest element from the heap.
->	- Halve its value and add it back to the heap.
->	- Update `currentSum` and increment the operation counter.
->3. Return the number of operations performed.
+> **<u>C++ Code</u>**
+> ```cpp
+> vector<int​> findClosestElements(vector<int​>& arr, int k, int x) {
+>    // Create a map that maps how close element a is to x
+>    // !Warning: Don't use a map if duplicate inputs exist
+>    vector<pair<int​, int​>> distanceToX;
 >
->**~={green}<u>Code</u>=~**:
->```cpp
->class Solution {
->public:
->    int halveArray(vector<int​>& nums) {
->        priority_queue<double​> h;
->        double totalSum{0};
+>    for (int element : arr) {
+>         int distance = abs(x - element);
+>         distanceToX.push_back({element, distance});
+>     }  
 >
->        for (int num : nums) {
->            h.push(num);
->            totalSum += num;
->        }
+>     priority_queue<pair<int​, int​>> maxHeap; // Max-Heap based on distance
 >
->        double currentSum = totalSum;
->        int numOps{0};
+>     for (const auto& pair : distanceToX) {
+>         int element = pair.first;
+>         int distanceAway = pair.second;
+>         maxHeap.push({distanceAway, element});
+>         if (maxHeap.size() > k) {
+>             maxHeap.pop(); // Remove farthest element if heap exceeds size k
+>         }
+>     }
 >
->        while (currentSum > (totalSum / 2)) {
->            double largest = h.top();
->            double readded = largest / 2;
->            h.pop(); 
->            h.push(readded);
->            currentSum = currentSum - largest + readded;
->            numOps++;
->        }
->        return numOps;
->    }
->};
->```
+>     vector<int​> result;
+>     while (!maxHeap.empty()) {
+>         int closest = maxHeap.top().second;
+>         maxHeap.pop();
+>         result.push_back(closest);
+>     }
+>     
+>     sort(result.begin(), result.end()); // Sort the k closest elements
+>     return result;
+> }
+> ```
 >
->**~={green}<u>Key Points</u>=~**:
->* **~={purple}Time Complexity:=~** The worst approach would be to half each element in the array, so that would be $O(nlogn)$, where heapify is called $n$ times
->* **~={purple}Space Complexity:=~** $O(n)$ for the heap.
+> **<u>**Key Points**</u>**
+> * ~={purple}**Heap Usage**=~: The max-heap ensures that the `k` closest elements are efficiently tracked.
+> * ~={purple}**Sorting**=~: Sorting the result is necessary for the output to be in ascending order.
+> * ~={purple}**Time Complexity**=~:
+>   - Building the heap: $O(n \log k)$, where $n$ is the size of the array.
+>   - Sorting the result: $O(k \log k)$.
+>   - Total: $O(n \log k + k \log k)$.
+> * ~={purple}**Space Complexity**=~: $O(k)$ for the heap.
 
 #flashcards/dsa/patterns/heap/topk
