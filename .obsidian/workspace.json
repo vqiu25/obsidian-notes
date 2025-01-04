@@ -8,21 +8,37 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e7a7b303c61786dc",
+            "id": "663a47cf5052c4a2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2 - DSA/Patterns/Heap/Top K.md",
+                "file": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Top K"
+              "title": "Binary Search on Arrays"
+            }
+          },
+          {
+            "id": "b2999fa5ce8860c2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Binary Search on Solution Spaces"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -53,7 +69,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#flashcards/dsa/patterns/binarytreebfs",
+                "query": "split array",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -199,7 +215,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "2 - DSA/Patterns/Heap/Top K.md",
+                "file": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -222,12 +238,12 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.8699598253224341,
+                  "scale": 0.05907818969905079,
                   "close": true
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of Top K"
+              "title": "Graph of Binary Search on Solution Spaces"
             }
           }
         ]
@@ -251,8 +267,27 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "9398b2e2097c8282",
   "lastOpenFiles": [
+    "2 - DSA/Patterns/Dynamic Programming",
+    "2 - DSA/Patterns/Backtracking",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 22.16.44.excalidraw.md",
+    "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 22.05.23.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 22.10.14.excalidraw.md",
+    "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
+    "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 17.35.41.excalidraw.md",
+    "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
+    "2 - DSA/Algorithms/ALG C++ Synatx.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 16.10.40.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 15.47.38.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 15.30.31.excalidraw.md",
+    "2 - DSA/Patterns/Heap/Heap.md",
+    "2 - DSA/Patterns/Greedy/Greedy.md",
+    "2 - DSA/Patterns/Binary Search",
+    "2 - DSA/Patterns/Heap/Top K.md",
+    "2 - DSA/Data Structures/DS C++ Syntax.md",
     "2 - DSA/Patterns/Stacks and Queues/String Problems.md",
     "2 - DSA/Patterns/Stacks and Queues/Queues.md",
     "2 - DSA/Patterns/Stacks and Queues/Monotonic.md",
@@ -260,26 +295,9 @@
     "2 - DSA/Patterns/Hashing/Counting.md",
     "2 - DSA/Patterns/Linked List/Fast and Slow Pointers.md",
     "2 - DSA/Patterns/Linked List/Reversing a Linked List.md",
-    "2 - DSA/Patterns/Heap/Heap.md",
-    "2 - DSA/Patterns/Heap/Top K.md",
     "2 - DSA/Patterns/Greedy",
-    "2 - DSA/Data Structures/DS C++ Syntax.md",
     "5 - Resources/Excalidraw/Drawing 2025-01-03 20.59.15.excalidraw.md",
     "5 - Resources/Excalidraw/Drawing 2025-01-03 20.55.39.excalidraw.md",
-    "2 - DSA/Patterns/Arrays & Strings/Two Pointers.md",
-    "2 - DSA/Data Structures/Heap/Binary Heap.md",
-    "2 - DSA/Patterns/Recursion/Beginner Recursion.md",
-    "2 - DSA/Data Structures/Heap/Priority Queue.md",
-    "2 - DSA/Data Structures/Hash Table/Hash Table.md",
-    "2 - DSA/Data Structures/Hash Table/Unordered Map.md",
-    "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md",
-    "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md",
-    "2 - DSA/DSA Overview.md",
-    "5 - Resources/Home.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-03 13.21.26.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-03 13.03.46.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-03 13.10.54.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-02 21.17.08.excalidraw.md",
     "5 - Resources/Attachements/Pasted image 20241231204138.png",
     "5 - Resources/Attachements/Pasted image 20241231183528.png",
     "5 - Resources/Attachements/Pasted image 20241231183009.png",
@@ -297,8 +315,6 @@
     "2 - DSA/Patterns/Trees & Graphs",
     "2 - DSA/Patterns/Stacks and Queues",
     "2 - DSA/Data Structures/Linked List",
-    "2 - DSA/Patterns/Linked List",
-    "2 - DSA/Data Structures/Hash Table",
     "Untitled.canvas",
     "2 - DSA/Data Structures/DS Map.canvas"
   ]
