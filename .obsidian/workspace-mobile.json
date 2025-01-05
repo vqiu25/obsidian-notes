@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2 - DSA/DSA Overview.md",
-                "mode": "source",
+                "file": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
+                "mode": "preview",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DSA Overview"
+              "title": "Binary Search on Solution Spaces"
             }
           }
         ]
@@ -183,10 +183,26 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6d54ae65f16014ab",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
+    "2 - DSA/Data Structures/Heap/Priority Queue.md",
+    "2 - DSA/Patterns/Dynamic Programming",
+    "2 - DSA/Patterns/Greedy/Greedy.md",
+    "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
+    "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
+    "2 - DSA/Patterns/Binary Search",
+    "2 - DSA/Patterns/Backtracking",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 15.47.38.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 22.16.44.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 16.10.40.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 17.35.41.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 22.05.23.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 15.30.31.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-04 22.10.14.excalidraw.md",
+    "3 - OS/CPU Scheduling",
+    "3 - OS/Process & Threads",
     "2 - DSA/DSA Overview.md",
+    "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
     "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md",
     "5 - Resources/Home.md",
     "5 - Resources/Excalidraw/Drawing 2024-12-14 22.51.47.excalidraw.md",
@@ -200,11 +216,6 @@
     "2 - DSA/Data Structures/Unordered Set.md",
     "2 - DSA/Data Structures/Priority Queue.md",
     "2 - DSA/Data Structures/Array.md",
-    "1 - Languages/Languages Overview.md",
-    "4 - System Design/System Design Overview.md",
-    "3 - OS/OS Overview.md",
-    "2 - DSA/Patterns/Arrays & Hashing.md",
-    "5 - Resources/Excalidraw/Drawing 2024-11-28 23.21.41.excalidraw.md",
-    "5 - Resources/Excalidraw/Template.md"
+    "1 - Languages/Languages Overview.md"
   ]
 }
