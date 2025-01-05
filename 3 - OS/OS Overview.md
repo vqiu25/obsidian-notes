@@ -1,8 +1,11 @@
 # Dashboard
 
-##### Concurrency
-* 
-##### Memory
-* 
-##### Networks
-* 
+## Process and Threads
+
+## CPU Scheduling
+
+## Concurrency
+
+## Memory
+
+## Networks

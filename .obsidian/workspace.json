@@ -21,24 +21,8 @@
               "icon": "lucide-file",
               "title": "Binary Search on Arrays"
             }
-          },
-          {
-            "id": "b2999fa5ce8860c2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Binary Search on Solution Spaces"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -153,10 +137,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md"
+                "file": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Graphs BFS"
+              "title": "Outline of Binary Search on Arrays"
             }
           },
           {
@@ -203,7 +187,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       },
       {
         "id": "686bb5f7aab381ca",
@@ -215,7 +199,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
+                "file": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -243,7 +227,7 @@
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of Binary Search on Solution Spaces"
+              "title": "Graph of Binary Search on Arrays"
             }
           }
         ]
@@ -267,15 +251,38 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "9398b2e2097c8282",
+  "active": "663a47cf5052c4a2",
   "lastOpenFiles": [
+    "5 - Resources/Excalidraw/Drawing 2025-01-05 12.09.33.excalidraw.md",
+    "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-05 10.56.03.excalidraw.md",
+    "3 - OS/Networks.md",
+    "3 - OS/Concurrency.md",
+    "3 - OS/CPU Scheduling.md",
+    "3 - OS/Memory.md",
+    "3 - OS/Process & Threads.md",
+    "5 - Resources/Attachements/Pasted image 20250105123715.png",
+    "5 - Resources/Excalidraw/Drawing 2025-01-05 12.21.09.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-05 11.15.14.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-05 09.16.43.excalidraw.md",
+    "5 - Resources/Attachements/computer-cpu-hardware-2-svgrepo-com.svg",
+    "5 - Resources/Attachements/cpu-svgrepo-com(2).svg",
+    "5 - Resources/Attachements/cpu-svgrepo-com(1).svg",
+    "5 - Resources/Attachements/tech-ram-svgrepo-com.svg",
+    "5 - Resources/Attachements/cpu-svgrepo-com.svg",
+    "5 - Resources/Attachements/disk-svgrepo-com.png",
+    "5 - Resources/Attachements/linux-alt-svgrepo-com(2).png",
+    "5 - Resources/Attachements/linux-alt-svgrepo-com(1).png",
+    "5 - Resources/Attachements/linux-alt-svgrepo-com.png",
+    "3 - OS/OS Overview.md",
+    "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
+    "3 - OS/CPU Scheduling",
+    "3 - OS/Process & Threads",
     "2 - DSA/Patterns/Dynamic Programming",
     "2 - DSA/Patterns/Backtracking",
     "5 - Resources/Excalidraw/Drawing 2025-01-04 22.16.44.excalidraw.md",
-    "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
     "5 - Resources/Excalidraw/Drawing 2025-01-04 22.05.23.excalidraw.md",
     "5 - Resources/Excalidraw/Drawing 2025-01-04 22.10.14.excalidraw.md",
-    "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
     "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md",
     "5 - Resources/Excalidraw/Drawing 2025-01-04 17.35.41.excalidraw.md",
     "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
@@ -287,34 +294,11 @@
     "2 - DSA/Patterns/Greedy/Greedy.md",
     "2 - DSA/Patterns/Binary Search",
     "2 - DSA/Patterns/Heap/Top K.md",
-    "2 - DSA/Data Structures/DS C++ Syntax.md",
-    "2 - DSA/Patterns/Stacks and Queues/String Problems.md",
-    "2 - DSA/Patterns/Stacks and Queues/Queues.md",
-    "2 - DSA/Patterns/Stacks and Queues/Monotonic.md",
-    "2 - DSA/Patterns/Hashing/Checking for Existence.md",
-    "2 - DSA/Patterns/Hashing/Counting.md",
-    "2 - DSA/Patterns/Linked List/Fast and Slow Pointers.md",
-    "2 - DSA/Patterns/Linked List/Reversing a Linked List.md",
     "2 - DSA/Patterns/Greedy",
-    "5 - Resources/Excalidraw/Drawing 2025-01-03 20.59.15.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-03 20.55.39.excalidraw.md",
-    "5 - Resources/Attachements/Pasted image 20241231204138.png",
-    "5 - Resources/Attachements/Pasted image 20241231183528.png",
-    "5 - Resources/Attachements/Pasted image 20241231183009.png",
-    "5 - Resources/Attachements/Pasted Image 20241231114643_167.png",
-    "5 - Resources/Attachements/Pasted Image 20241231102255_328.png",
-    "5 - Resources/Attachements/Pasted image 20241230221148.png",
-    "5 - Resources/Attachements/Pasted image 20241230174656.png",
-    "5 - Resources/Attachements/Pasted image 20241230174653.png",
-    "5 - Resources/Attachements/Pasted image 20241230174629.png",
-    "5 - Resources/Attachements/Pasted image 20241230162044.png",
     "2 - DSA/Patterns/Recursion",
     "2 - DSA/Patterns/Trees & Graphs/Graphs",
     "2 - DSA/Patterns/Trees & Graphs/Trees",
     "2 - DSA/Patterns/Heap",
-    "2 - DSA/Patterns/Trees & Graphs",
-    "2 - DSA/Patterns/Stacks and Queues",
-    "2 - DSA/Data Structures/Linked List",
     "Untitled.canvas",
     "2 - DSA/Data Structures/DS Map.canvas"
   ]

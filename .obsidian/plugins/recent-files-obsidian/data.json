@@ -1,6 +1,54 @@
 {
   "recentFiles": [
     {
+      "basename": "Binary Search on Arrays",
+      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
+    },
+    {
+      "basename": "Drawing 2025-01-05 12.09.33.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-05 12.09.33.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-01-05 10.56.03.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-05 10.56.03.excalidraw.md"
+    },
+    {
+      "basename": "Networks",
+      "path": "3 - OS/Networks.md"
+    },
+    {
+      "basename": "Concurrency",
+      "path": "3 - OS/Concurrency.md"
+    },
+    {
+      "basename": "CPU Scheduling",
+      "path": "3 - OS/CPU Scheduling.md"
+    },
+    {
+      "basename": "Memory",
+      "path": "3 - OS/Memory.md"
+    },
+    {
+      "basename": "Process & Threads",
+      "path": "3 - OS/Process & Threads.md"
+    },
+    {
+      "basename": "Drawing 2025-01-05 12.21.09.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-05 12.21.09.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-01-05 11.15.14.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-05 11.15.14.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-01-05 09.16.43.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-05 09.16.43.excalidraw.md"
+    },
+    {
+      "basename": "OS Overview",
+      "path": "3 - OS/OS Overview.md"
+    },
+    {
       "basename": "Binary Search on Solution Spaces",
       "path": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md"
     },
@@ -15,10 +63,6 @@
     {
       "basename": "Drawing 2025-01-04 22.10.14.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-01-04 22.10.14.excalidraw.md"
-    },
-    {
-      "basename": "Binary Search on Arrays",
-      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
     },
     {
       "basename": "Prefix Sums",
@@ -155,50 +199,6 @@
     {
       "basename": "Drawing 2025-01-02 21.17.08.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-01-02 21.17.08.excalidraw.md"
-    },
-    {
-      "basename": "BT BFS",
-      "path": "2 - DSA/Patterns/Trees & Graphs/BT BFS.md"
-    },
-    {
-      "basename": "Drawing 2025-01-02 23.36.35.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-01-02 23.36.35.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-01-02 12.46.28.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-01-02 12.46.28.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-01-02 14.52.47.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-01-02 14.52.47.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-01-02 17.57.45.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-01-02 17.57.45.excalidraw.md"
-    },
-    {
-      "basename": "Vector",
-      "path": "2 - DSA/Data Structures/Vector.md"
-    },
-    {
-      "basename": "Queue",
-      "path": "2 - DSA/Data Structures/Queue.md"
-    },
-    {
-      "basename": "Stack",
-      "path": "2 - DSA/Data Structures/Stack.md"
-    },
-    {
-      "basename": "Drawing 2025-01-01 22.43.47.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-01-01 22.43.47.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-01-01 20.57.25.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-01-01 20.57.25.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-01-01 16.57.53.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-01-01 16.57.53.excalidraw.md"
     }
   ],
   "omittedPaths": [],
