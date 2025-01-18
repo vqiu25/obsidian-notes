@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
+                "file": "2 - DSA/Patterns/Backtracking/Backtracking.md",
                 "mode": "preview",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Binary Search on Solution Spaces"
+              "title": "Backtracking"
             }
           }
         ]
@@ -183,13 +183,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "360821be9b292a3c",
   "lastOpenFiles": [
+    "5 - Resources/Excalidraw/Drawing 2025-01-11 20.41.56.excalidraw.md",
+    "2 - DSA/Patterns/Backtracking/Backtracking.md",
+    "2 - DSA/DSA Overview.md",
+    "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
     "2 - DSA/Data Structures/Heap/Priority Queue.md",
     "2 - DSA/Patterns/Dynamic Programming",
     "2 - DSA/Patterns/Greedy/Greedy.md",
     "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
-    "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
     "2 - DSA/Patterns/Binary Search",
     "2 - DSA/Patterns/Backtracking",
     "5 - Resources/Excalidraw/Drawing 2025-01-04 15.47.38.excalidraw.md",
@@ -201,7 +204,6 @@
     "5 - Resources/Excalidraw/Drawing 2025-01-04 22.10.14.excalidraw.md",
     "3 - OS/CPU Scheduling",
     "3 - OS/Process & Threads",
-    "2 - DSA/DSA Overview.md",
     "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
     "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md",
     "5 - Resources/Home.md",
@@ -214,8 +216,6 @@
     "2 - DSA/Patterns/Sliding Window.md",
     "2 - DSA/Data Structures/Unordered Map.md",
     "2 - DSA/Data Structures/Unordered Set.md",
-    "2 - DSA/Data Structures/Priority Queue.md",
-    "2 - DSA/Data Structures/Array.md",
-    "1 - Languages/Languages Overview.md"
+    "2 - DSA/Data Structures/Priority Queue.md"
   ]
 }
