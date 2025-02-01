@@ -1,3 +1,58 @@
+# Structs
+## Initialisation
+
+* By default, all attributes and methods are **~={green}public=~**
+
+```cpp
+struct N {
+	int x, y;
+	
+	// Comparison Functions
+	// (Sort by X, then Y)
+	bool operator<(const N &n) {
+		if (x != n.x) return x < n.x;
+		else return y < n.y;
+	}
+}
+```
+
+If we were sorting a `vector` of structs of type `N`. If we had the two `structs`:
+
+**<font color="#b4befe">Primary Condition</font>**
+
+- If `x` values are not equal (`x != n.x`), the comparison is based on `x` values:
+    - `return x < n.x` ensures sorting by the `x` attribute in **ascending order**.
+        - <font color="#86b0f9">Explanation</font>
+            - `x` refers to the `x` value of the <font color="#a6e3a1">first</font> struct (`this` instance).
+            - `n.x` refers to the `x` value of the <font color="#f38ba8">second</font> struct (the one being compared).
+            - If `x < n.x` is `true`, the first struct (`this`) comes before the second struct (`n`) in the sorted order.
+    - **Why `<` gives ascending order**: Using `<` means smaller values are placed earlier in the sequence, resulting in an order from smallest to largest (ascending).
+    - 
+
+**<font color="#b4befe">Secondary Condition</font>
+
+- If `x` values are equal, the comparison moves to `y`:
+    - `return y < n.y` ensures sorting by the `y` attribute when `x` values are identical.
+        - **<font color="#86b0f9">Explanation</font>**:
+            - `y` refers to the `y` value of the <font color="#a6e3a1">first</font> struct (`this` instance).
+            - `n.y` refers to the `y` value of the <font color="#f38ba8">second</font> struct.
+            - If `y (first struct) < n.y (second struct)` is `true`, the first struct comes before the second struct in the sorted order.
+
+## Custom Sorting of Strings and Vectors
+
+```cpp
+bool comp (string a, string b) {
+	// Primary Sort: Length
+	if (a.size() != b.size()) return a.size() < b.size();
+	// Secondary Sort: Lexicographic
+	return a < b;
+}
+
+int main() {
+	sort(v. begin(), v.end(), comp);
+}
+```
+
 # Array
 ## Initialisation
 ## Methods
@@ -33,6 +88,7 @@
 |                 Reverse                  | `reverse(v.begin(), v.end())`                                                       | $O(n/2)$   |          |
 |                 Min/Max                  | `*min_element(v.begin(), v.end())`                                                  | $O(n)$     |          |
 |                   Swap                   | `swap(v[i], v[j])`                                                                  | $O(1)$     |          |
+
 # Strings
 ## Initialisation
 
@@ -44,18 +100,20 @@
 
 ## Methods
 
-|                Operation                 | Syntax                                                                                                              | Complexity | Comments                                         |
-| :--------------------------------------: | ------------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------------------ |
-|                Access/Set                | = `s[x]`<br>`s[x]` =                                                                                                | $O(1)$     |                                                  |
-|                   Add                    | `s += "x"`                                                                                                          | $O(m)$     | $m$ = length of string being appended            |
-|                  Insert                  | `s.insert(pos, str)`                                                                                                | $O(n)$     |                                                  |
-| Erase an Element or<br>Range of Elements | `s.erase(x, y)`                                                                                                     | <br>$O(n)$ | Erase $y$ characters from index $x$              |
-|            Extract Substring             | `string sub = s.substr(6, 5)`<br><br>// (Start Index, Length)                                                       | $O(m)$     | $m$ = substring length                           |
-|              Find Substring              | `size_t pos = s.find("word")`<br><br>`if (pos != string::npos) { // "word found" }`                                 | $O(nm)$    | Check $n$ positions for $m$ length               |
-|            Replace Substring             | `s.replace(7, 5, "C++")`<br><br>// (Start Index, Length of What is Being Removed, "String that is being put there") | $O(n + m)$ | Shifting $n$ elements and inserting $m$ elements |
-|            String to Integer             | `stoi("x")`                                                                                                         | $O(1)$     |                                                  |
-|            Integer to String             | `to_string(5)`                                                                                                      | $O(1)$     |                                                  |
-|            Lexicographic Sort            | `sort(s.begin(), s.end())`                                                                                          | $O(nlogn)$ |                                                  |
+|                     Operation                      | Syntax                                                                                                                           | Complexity | Comments                                                                                  |
+| :------------------------------------------------: | -------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------- |
+|                     Access/Set                     | = `s[x]`<br>`s[x]` =                                                                                                             | $O(1)$     |                                                                                           |
+|                        Add                         | `s += "x"`                                                                                                                       | $O(m)$     | $m$ = length of string being appended                                                     |
+|                       Insert                       | `s.insert(pos, str)`                                                                                                             | $O(n)$     |                                                                                           |
+|      Erase an Element or<br>Range of Elements      | `s.erase(x, y)`                                                                                                                  | <br>$O(n)$ | Erase $y$ characters from index $x$                                                       |
+| Move all of one character to the end of the String | `remove(s.begin(), s.end(), '0');`<br><br>// Moves all 0s to end of the string and returns an iterator pointing to the first '0' |            | We can erase all 0's by doing<br><br>`s.erase(remove(s.begin(), s.end(), '0'), s.end());` |
+|                 Extract Substring                  | `string sub = s.substr(6, 5)`<br><br>// (Start Index, Length)                                                                    | $O(m)$     | $m$ = substring length                                                                    |
+|                   Find Substring                   | `size_t pos = s.find("word")`<br><br>`if (pos != string::npos) { // "word found" }`                                              | $O(nm)$    | Check $n$ positions for $m$ length                                                        |
+|                 Replace Substring                  | `s.replace(7, 5, "C++")`<br><br>// (Start Index, Length of What is Being Removed, "String that is being put there")              | $O(n + m)$ | Shifting $n$ elements and inserting $m$ elements                                          |
+|            String to Integer/Long Long             | `stoi("x")`<br><br>`stoll("2342342")`                                                                                            | $O(1)$     |                                                                                           |
+|                 Integer to String                  | `to_string(5)`                                                                                                                   | $O(1)$     |                                                                                           |
+|                 Lexicographic Sort                 | `sort(s.begin(), s.end())`                                                                                                       | $O(nlogn)$ |                                                                                           |
+
 # Characters
 
 ## Techniques and Methods
@@ -63,7 +121,7 @@
 |            Operation             | Syntax                                   | Complexity | Comments                                               |
 | :------------------------------: | ---------------------------------------- | ---------- | ------------------------------------------------------ |
 |       Convert Char to Int        | '5' - '0' -> 5                           | $O(1)$     |                                                        |
-|       Convert Int to Char        | 5 + '0' -> '5'                           | $O(1)$     |                                                        |
+|       Convert Int to Char        | 5 + '0' -> '5'                           | $O(1)$     | `to_string('c')`                                       |
 | Wrap an Integer Between (0 - 9)  | (x + 10) % 10<br><br>// X = integer      | $O(1)$     | The + 10, helps with wrapping -1 to 9                  |
 | Convert Char to Lower/Upper Case | `to_upper(char)`<br><br>`to_lower(char)` | $O(1)$     |                                                        |
 |    If a Char is Alphanumeric     | `isalpha(char`                           | $O(1)$     | Checks if char is a number or a letter of the alphabet |

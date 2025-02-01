@@ -183,7 +183,6 @@
 >	int minCount = min({bCount, aCount, lCount, oCount, nCount});
 >	return minCount;
 >```
-\### Maps with DS
 
 ### Maps with DS
 

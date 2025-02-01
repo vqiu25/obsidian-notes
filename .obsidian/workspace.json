@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "4509724f8bf84da7",
+        "id": "f1f20e90e3b8f710",
         "type": "tabs",
         "children": [
           {
-            "id": "e7a7b303c61786dc",
+            "id": "c9817905a3163297",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2 - DSA/Patterns/Dynamic Programming/Dynamic Programming.md",
+                "file": "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md",
                 "mode": "source",
-                "backlinks": false,
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Dynamic Programming"
+              "title": "1.3 - Databases (SQL & NoSQL)"
             }
           }
         ]
@@ -41,7 +41,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -88,7 +89,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 262
+    "width": 271
   },
   "right": {
     "id": "02846ad98d88f8ae",
@@ -187,7 +188,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       },
       {
         "id": "686bb5f7aab381ca",
@@ -199,7 +200,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "2 - DSA/Patterns/Dynamic Programming/Dynamic Programming.md",
+                "file": "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -227,7 +228,7 @@
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of Dynamic Programming"
+              "title": "Graph of 1.3 - Databases (SQL & NoSQL)"
             }
           }
         ]
@@ -251,54 +252,53 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "9398b2e2097c8282",
+  "active": "c9817905a3163297",
   "lastOpenFiles": [
-    "2 - DSA/Data Structures/DS C++ Syntax.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-18 08.54.15.excalidraw.md",
-    "2 - DSA/Algorithms/ALG C++ Synatx.md",
-    "2 - DSA/Patterns/Arrays & Strings/Two Pointers.md",
-    "5 - Resources/Home.md",
-    "2 - DSA/Patterns/Dynamic Programming/Dynamic Programming.md",
-    "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md",
-    "2 - DSA/Patterns/Backtracking/Backtracking.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-14 21.34.18.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-12 14.38.51.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-11 18.24.13.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-11 22.11.20.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-11 20.41.56.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-11 15.17.22.excalidraw.md",
+    "4 - System Design/Concepts/1 - Building Blocks.md",
+    "5 - Resources/Attachements/Pasted image 20250201221002.png",
+    "5 - Resources/Attachements/Pasted image 20250201215542.png",
+    "3 - OS/Concurrency.md",
+    "3 - OS/Memory.md",
+    "3 - OS/CPU Scheduling.md",
     "3 - OS/Process & Threads.md",
-    "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-12 14.34.41.excalidraw.md",
-    "2 - DSA/Patterns/Trees & Graphs/BT DFS.md",
-    "2 - DSA/Patterns/Trees & Graphs/BT BFS.md",
+    "3 - OS/Networks.md",
+    "4 - System Design/Component Problems/3 - Key Value Store.md",
+    "4 - System Design/Component Problems/2 - Consistent Hashing.md",
+    "4 - System Design/Component Problems/1 - Rate Limiter.md",
+    "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md",
+    "4 - System Design/Concepts/1.1 - Design Requirements & CAP Theorem.md",
+    "4 - System Design/Concepts/3 - Interview Framework.md",
+    "4 - System Design/Concepts/2 - Back of the Envelope Calculations.md",
+    "4 - System Design/System Design Overview.md",
+    "5 - Resources/Home.md",
+    "2 - DSA/Data Structures/DS C++ Syntax.md",
+    "4 - System Design/Concepts/1.2 - API Paradigms.md",
+    "5 - Resources/Attachements/sys_design_initial.png",
+    "1 - Languages/MERN",
+    "4 - System Design/Complete Problems",
     "2 - DSA/Patterns/Trees & Graphs/BST.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-10 07.59.45.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-07 23.08.13.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-06 00.04.59.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-06 17.44.48.excalidraw.md",
-    "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
-    "5 - Resources/Attachements/perms.png",
-    "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
-    "5 - Resources/Attachements/SCR-20250106-bgeu.png",
-    "5 - Resources/Attachements/Pasted image 20250105123715.png",
-    "5 - Resources/Attachements/computer-cpu-hardware-2-svgrepo-com.svg",
-    "5 - Resources/Attachements/cpu-svgrepo-com(2).svg",
-    "5 - Resources/Attachements/cpu-svgrepo-com(1).svg",
-    "5 - Resources/Attachements/tech-ram-svgrepo-com.svg",
-    "5 - Resources/Attachements/cpu-svgrepo-com.svg",
-    "5 - Resources/Attachements/disk-svgrepo-com.png",
-    "5 - Resources/Attachements/linux-alt-svgrepo-com(2).png",
+    "2 - DSA/Patterns/Trees & Graphs/BT BFS.md",
+    "5 - Resources/Attachements/Untitled.png",
+    "2 - DSA/Patterns/Greedy/Voting.md",
+    "2 - DSA/Patterns/Greedy/Greedy.md",
+    "2 - DSA/Patterns/Hashing/Counting.md",
+    "2 - DSA/Patterns/Hashing/Checking for Existence.md",
+    "2 - DSA/Patterns/Hashing/Ad Hoc.md",
+    "5 - Resources/Excalidraw/Drawing 2025-01-28 22.48.00.excalidraw.md",
+    "2 - DSA/Patterns/Bit Manipulation",
+    "5 - Resources/Attachements/Pasted image 20250122204814.png",
+    "5 - Resources/Attachements/Pasted image 20250120173045.png",
+    "5 - Resources/Attachements/Pasted image 20250120172624.png",
+    "5 - Resources/Attachements/Pasted image 20250120172500.png",
+    "5 - Resources/Attachements/Pasted image 20250120171957.png",
+    "5 - Resources/Attachements/Pasted image 20250120171801.png",
+    "1 - Languages/Swift",
+    "1 - Languages/HTML & CSS & JS",
     "3 - OS/CPU Scheduling",
     "3 - OS/Process & Threads",
     "2 - DSA/Patterns/Dynamic Programming",
     "2 - DSA/Patterns/Backtracking",
     "2 - DSA/Patterns/Binary Search",
-    "2 - DSA/Patterns/Greedy",
-    "2 - DSA/Patterns/Recursion",
-    "2 - DSA/Patterns/Trees & Graphs/Graphs",
-    "2 - DSA/Patterns/Trees & Graphs/Trees",
-    "2 - DSA/Patterns/Heap",
     "Untitled.canvas",
     "2 - DSA/Data Structures/DS Map.canvas"
   ]

@@ -2,6 +2,8 @@
 
 ## Looping Through an Array to Find a Value ->
 
+* Start at position X, and arrive back at position X 
+
 ```cpp
 int n = arr.size();
 for (int i = start; i != destination; i = (i + 1) % n) {}
