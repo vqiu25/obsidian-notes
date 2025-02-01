@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2 - DSA/Patterns/Backtracking/Backtracking.md",
-                "mode": "preview",
-                "backlinks": false,
-                "source": false
+                "file": "2 - DSA/DSA Overview.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Backtracking"
+              "title": "DSA Overview"
             }
           }
         ]
@@ -37,7 +37,8 @@
         "state": {
           "type": "file-explorer",
           "state": {
-            "sortOrder": "alphabetical"
+            "sortOrder": "alphabetical",
+            "autoReveal": false
           },
           "icon": "lucide-folder-closed",
           "title": "Files"
@@ -183,11 +184,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "360821be9b292a3c",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "4 - System Design/Concepts/3 - Interview Framework.md",
+    "4 - System Design/Concepts/1.1 - Design Requirements & CAP Theorem.md",
+    "4 - System Design/Concepts/1 - Building Blocks.md",
+    "4 - System Design/Concepts/1.2 - API Paradigms.md",
+    "4 - System Design/Concepts/2 - Back of the Envelope Calculations.md",
+    "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md",
+    "4 - System Design/Component Problems/1 - Rate Limiter.md",
+    "4 - System Design/Component Problems/3 - Key Value Store.md",
+    "4 - System Design/Component Problems/2 - Consistent Hashing.md",
+    "5 - Resources/Home.md",
+    "2 - DSA/DSA Overview.md",
     "5 - Resources/Excalidraw/Drawing 2025-01-11 20.41.56.excalidraw.md",
     "2 - DSA/Patterns/Backtracking/Backtracking.md",
-    "2 - DSA/DSA Overview.md",
     "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
     "2 - DSA/Data Structures/Heap/Priority Queue.md",
     "2 - DSA/Patterns/Dynamic Programming",
@@ -206,16 +217,6 @@
     "3 - OS/Process & Threads",
     "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
     "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md",
-    "5 - Resources/Home.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-14 22.51.47.excalidraw.md",
-    "Untitled.canvas",
-    "5 - Resources/Excalidraw/Drawing 2024-12-14 22.02.48.excalidraw.md",
-    "2 - DSA/Patterns/Two Pointers.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-14 21.34.08.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2024-12-14 11.48.16.excalidraw.md",
-    "2 - DSA/Patterns/Sliding Window.md",
-    "2 - DSA/Data Structures/Unordered Map.md",
-    "2 - DSA/Data Structures/Unordered Set.md",
-    "2 - DSA/Data Structures/Priority Queue.md"
+    "Untitled.canvas"
   ]
 }

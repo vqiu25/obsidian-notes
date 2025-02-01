@@ -121,6 +121,66 @@
 >}
 >```
 
+> [!Note]- Bipartite Graph Check (Multiple Components)
+> 
+> ~={purple}Explanation=~
+> 
+> 1. **~={red}Purpose=~**: To determine if an **entire graph** is bipartite, including all connected components.
+> 2. **~={green}Methodology=~**:
+>     - Use a helper function (`getColouring`) to perform **iterative DFS** and check the bipartiteness of a single component.
+>     - Iterate over all nodes and handle **disconnected components**.
+> 3. **~={green}Approach=~**:
+>     - Maintain a `colour` vector initialized to `-1` to track the colour (or unvisited status) of each node.
+>     - For each unvisited node, invoke the `getColouring` function.
+>     - If any component is not bipartite, the graph is not bipartite.
+> 
+> ~={purple}**Code: Helper Function for 2-Colouring**=~
+> 
+> ```cpp
+> bool getColouring(int start, vector<vector<int​>>& adj, vector<int​>& colour) {
+>     deque<int​> s;
+>     s.push_back(start);
+>     colour[start] = 0; // Start with colour 0
+> 
+>     while (!s.empty()) {
+>         int node = s.back();
+>         s.pop_back();
+> 
+>         // Iterate through all neighbours
+>         for (int neighbour : adj[node]) {
+>             if (colour[neighbour] == -1) {
+>                 // Assign the opposite colour to the neighbour
+>                 colour[neighbour] = 1 - colour[node];
+>                 s.push_back(neighbour);
+>             } else if (colour[neighbour] == colour[node]) {
+>                 // If the neighbour has the same colour, 
+>                 // the graph is not bipartite
+>                 return false;
+>             }
+>         }
+>     }
+> 
+>     return true; // The component is bipartite
+> }
+> ```
+> 
+> ~={purple}**Code: Handling Multiple Components**=~
+> 
+> ```cpp
+> vector<int​> colour(n, -1); // Initialise the colour vector with -1 (unvisited)
+> 
+> bool isBipartite = true;
+> for (int i = 0; i < n; ++i) {
+>     if (colour[i] == -1) {
+>         // Perform 2-colouring for each connected component
+>         if (!getColouring(i, adj, colour)) {
+>             isBipartite = false;
+>             break;
+>         }
+>     }
+> }
+> ```
+
 # Templates
 
 >[!Info]- Graph DFS Template (Iterative)

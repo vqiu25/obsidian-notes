@@ -69,6 +69,79 @@ We go through our **~={blue}input array=~** exactly once, thus for a size $n=4$ 
 >To find the sum of the subarray in-between index $i$ and $j$ of the original array (inclusive), we perform:
 >* `prefix[j + 1] - prefix[i]`
 
+>[!Note]- How to query a prefix sum / split the prefix sum at every point in the original array?
+> <!-- Multiline -->
+>* If we built a prefix sum of length $n$
+>* We construct a prefix sum of length $n + 1$, as it includes 0 at index 0
+>* If we want to compute every possible split:
+>```cpp
+>for (int i{1}; i < prefix.size(); ++i) {
+>	int leftHalfSum = prefix[i] - prefix[0];
+>	int rightHalfSum = prefix[prefix.size() - 1] - leftHalf;
+>}
+>```
+> ![[Drawing 2025-01-26 16.54.56.excalidraw | center | 400]]
+
+>[!Note]- Range Minimum Query (Sparse Table Technique)
+> <!-- Multiline -->
+>**~={purple}Information=~**
+>* Allows us to efficiently find the smallest, largest, GDC, LCM of a subarray efficiently
+>* **~={green}Preprocessing Complexity=~**: $O(nlog(n))$
+>* **~={green}Query Complexity=~**: $O(1)$
+>
+>**~={purple}Construct Sparse Table=~**
+>
+>* **~={blue}Sparse Table Format=~**: The $ith$ row represents subarrays of lengths $2^i$
+>* **~={green}Base Case=~**: The first row (`st[0][j]`) is initialised directly from the input array, as we are dealing with subarrays of length $2^0$
+>* **~={red}Recursive Relation=~**:
+>1. **~={purple}Specify Subarray Range=~**: This is decided by row $i$
+>2. **~={purple}Compute Min of Each Subarray Starting at $j$=~**: We start at index $j$
+>* Compute the result for two overlapping ranges from the row above
+>* Min value from **~={blue}first=~** subrange: `st[i - 1][j]`
+>* Min value from **~={blue}second=~** subrange: `st[i - 1][j + 2^(i - 1)]`
+>* Result = `min(st[i - 1][j], st[i - 1][j + 1 << (i - 1)])`
+>
+> ![[Drawing 2025-01-26 12.29.56.excalidraw | center | 700]]
+>
+>```cpp
+>int smallestSubarray(vector<int​> nums) {
+>	int n = nums.size();
+>	int log = log2(n) + 1;
+>	
+>	// Log rows, n columns
+>	vector<vector<int​>> st(log, vector<int​>(n));
+>
+>	// (2) First row is the same as nums array
+>	for (int i{0}; i < n; ++i) st[0][i] = nums[i];
+>	
+>	// (3) Build sparse table
+>	for (int i{1}; i < log; ++i) {
+>		for (int j{0}; j + (1 << i) < n; ++j) {
+>			st[i][j] = min(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);
+>		}
+>	}
+>}
+>```
+>
+>**~={purple}Query Sparse Table=~**
+>
+>* **~={blue}Key Idea=~**: 
+>	* For a given range `[L, R]`, find the largest power of 2 such that $2^k<=(R - L + 1)$
+>	* Break the range [L, R] into two overlapping subranges of size $2^k$
+>		* Min value from **~={blue}first=~** subrange: st[k][L]
+>		* Min value from **~={blue}second=~** subrange: st[k][R - 2^k + 1]
+>		* Result = min of the 2 above
+>
+> ![[Drawing 2025-01-26 21.13.23.excalidraw | center | 300]]
+>
+>```cpp
+>int query(const vector<vector<int​>>& st, int L, int R) {
+>	// Compute the largest power of 2 within the range
+>	int k = log2(R - L + 1);
+>	return min(st[k][L], st[k][R - (1 << k) + 1]);
+>}
+>```
+
 # Templates
 
 >[!Info]- Building Subarray Sums
