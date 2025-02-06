@@ -53,6 +53,19 @@ int main() {
 }
 ```
 
+## Lambda Sorting
+
+```cpp
+// If connections was vector<vector<int>> type
+// Sort in desending order depending on index 2 values
+
+sort(connections.begin(), connections.end(), [](auto &a, auto &b) {
+
+return a[2] < b[2];
+
+});
+```
+
 # Array
 ## Initialisation
 ## Methods
