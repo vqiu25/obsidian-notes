@@ -137,4 +137,58 @@
 >* **~={purple}Time Complexity:=~** The worst approach would be to half each element in the array, so that would be $O(nlogn)$, where heapify is called $n$ times
 >* **~={purple}Space Complexity:=~** $O(n)$ for the heap.
 
+> [!Question]- Maximum Product After K Increments  
+> <!-- Multiline -->  
+> **~={red}Question=~**
+> * Given an array `nums`, you can perform at most `k` operations where you increment the smallest element by `1` in each operation.  
+> * Return the **maximum possible product** of the elements in `nums` after performing `k` operations.  
+> * The final product should be computed **modulo $10^9 + 7$**.  
+>  
+> **~={red}Solution=~**
+> The key insight to this problem is that given a list of numbers $x,y,z$, if we wanted to maximise the product $x \cdot y \cdot z$,we need to increase the smallest value first. **~={green}The rationale behind this is that increasing the smaller values, amplify the multiplication result with larger values.=~** Whilst increasing larger values, would just have it be brought down by the smaller existing values.
+> 
+> 1. **Use a Min-Heap (Priority Queue)**:  
+>    - Since we always increment the **smallest** element, use a **min-heap** to efficiently retrieve and update it.  
+> 2. **Perform K Increments**:  
+>    - For `k` iterations:  
+>      - Extract the smallest element from the heap.  
+>      - Increment it by `1` and push it back into the heap.  
+> 3. **Compute the Product Modulo $10^9 + 7$**:  
+>    - Multiply all elements in the heap while applying modulo at each step to prevent overflow.  
+>  
+> **<u>~={green}Code=~</u>**:  
+> ```cpp  
+> class Solution {  
+> private:  
+>     const int MOD = 1e9 + 7;  
+>  
+> public:  
+>     int maximumProduct(vector<int​>& nums, int k) {  
+>         priority_queue<int, vector<int​>, greater<int​>> minHeap(nums.begin(), nums.end());  
+>  
+>         for (int i{0}; i < k; ++i) {  
+>             int topValue = minHeap.top();  
+>             minHeap.pop();  
+>             minHeap.push(topValue + 1);  
+>         }  
+>  
+>         long long maxProduct{1};  
+>         while (!minHeap.empty()) {  
+>             maxProduct = (maxProduct % MOD) 
+> 			            * (minHeap.top() % MOD) % MOD;  
+>             minHeap.pop();  
+>         }  
+>         return maxProduct;  
+>     }  
+> };  
+> ```  
+>  
+> **<u>**~={green}Key Points=~**</u>**:  
+> * **Time Complexity**:  
+>   - **Heap Operations**: Inserting/removing from a heap takes **$O(\log n)$**.  
+>   - **Incrementing `k` times**: **$O(k \log n)$**.  
+>   - **Final Product Calculation**: **$O(n)$**.  
+>   - **Overall Complexity**: **$O(k \log n + n)$**.  
+> * **Space Complexity**: **$O(n)$** (for the heap).  
+
 #flashcards/dsa/patterns/heap/heap

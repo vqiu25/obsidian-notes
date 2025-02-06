@@ -81,4 +81,53 @@
 >}
 >```
 
+> [!Question]- Remove Stars from a String  
+> <!-- Multiline -->  
+> ~={red}**Question**=~:  
+> * You are given a string `s`, which contains stars `*`.
+> * In one operation, you can:
+> 	* Choose a star in `s`.
+> 	* Remove the closest **non-star** character to its **left**, as well as remove the star itself.
+> * Return _the string after **all** stars have been removed_.
+>  
+> **~={red}Solution=~**:  
+> 1. ~={blue}**Recognise LIFO (Last-In-First-Out) Structure**=~:  
+>    - The last added character is the first to be removed when encountering a `'*'`.  
+>    - A **stack** is ideal for this problem.  
+> 2. ~={blue}**Handle '*' Removal**=~:  
+>    - If the current character is `'*'`, remove the last added character using `stack.pop_back()`.  
+> 3. ~={blue}**Push Non-'*' Characters**=~:  
+>    - If the character is not `'*'`, push it to the stack.  
+> 4. ~={blue}**Reconstruct the Final String**=~:  
+>    - Convert the stack back into a string and return it.  
+>  
+> **~={green}Code=~**:  
+> ```cpp  
+> class Solution {  
+> public:  
+>     string removeStars(string s) {  
+>         deque<char​> stack;  
+>  
+>         for (char c : s) {  
+>             if (c == '*') {  
+> 	            // (2) Remove the last added character  
+>                 stack.pop_back();
+>             } else {  
+> 	            // (3) Add character to stack 
+>                 stack.push_back(c); 
+>             }  
+>         }  
+>  
+>         // (4) Convert stack to string  
+>         return string(stack.begin(), stack.end());
+>     }  
+> };  
+> ```  
+>  
+> ~={green}**Key Points**=~:  
+> * **Time Complexity**:  
+>   - **O(n)**: We iterate through `s` once, performing `push_back()` and `pop_back()` operations.  
+> * **Space Complexity**:  
+>   - **O(n)**: In the worst case, the entire string (without stars) is stored in the stack.  
+
 #flashcards/dsa/patterns/stringproblems

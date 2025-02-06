@@ -49,6 +49,68 @@ For example, the number of factors of 5 in 30!, come from:
 * 25 } $30 / 25 = 1$
 * Hence total is 7
 
+# Bit Manipulation
+
+## Binary Numbers
+
+
+## Common Bitwise Operations
+
+| Operation   | Symbol | Description                                                                                                                                              | Example (A = 5, B = 3)                           |
+| ----------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| AND         | `&`    | Sets each bit to 1 if both bits are 1                                                                                                                    | `5 & 3` → `0101 & 0011 = 0001 (1)`               |
+| OR          | `\|`   | Sets each bit to 1 if either bit is 1                                                                                                                    | `5 \| 3` → `0101 \| 0011 = 0111 (7)`             |
+| XOR         | `^`    | 1 if the 2 bits are different. 0 if the same.<br>~={red}(If the number of `1` bits is odd, then the result will be `1`. Otherwise, the result is `0`.)=~ | `5 ^ 3` → `0101 ^ 0011 = 0110 (6)`               |
+| NOT         | `~`    | Inverts all bits                                                                                                                                         | `~5` → `~(0101) = 1010 (-6 in two's complement)` |
+| Left Shift  | `<<`   | Shifts bits left, filling with 0s (x 2)                                                                                                                  | `5 << 1` → `0101 << 1 = 1010 (10)`               |
+| Right Shift | `>>`   | Shifts bits right, preserving sign for signed numbers (/ 2)                                                                                              | `5 >> 1` → `0101 >> 1 = 0010 (2)`                |
+
+## Truth Tables
+
+### Common Bitwise Operations and Truth Table
+
+| A | B | A & B (AND) | A \| B (OR) | A ^ B (XOR) |
+|---|---|-----------|-----------|-----------|
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 1 | 0 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 |
+| 1 | 1 | 1 | 1 | 0 |
+
+---
+
+### Bitwise NOT (`~`)
+
+| A | ~A (Flipped) |
+|---|------------|
+| 0 | 1 |
+| 1 | 0 |
+
+(Note: In C++, `~A = -A - 1` due to two’s complement representation.)
+
+---
+
+### Left and Right Shift Examples
+
+| A (Decimal) | A (Binary) | A << 1 (Left Shift) | A >> 1 (Right Shift) |
+| ----------- | ---------- | ------------------- | -------------------- |
+| 1           | 0001       | 0010 (2)            | N/A                  |
+| 2           | 0010       | 0100 (4)            | 0001 (1)             |
+| 4           | 0100       | 1000 (8)            | 0010 (2)             |
+| 8           | 1000       | 0001 0000 (16)      | 0100 (4)             |
+#### Why a Left Shift is Equivalent to Multiplying by 2
+
+When you shift left, **~={red}every bit=~** moves **one position to the left**, meaning for i.e. ABC -> ABC0 
+
+* What was in the **2⁰ (ones place)** moves to the **2¹ (twos place)** **~={green}} C moved to where B was=~**
+* What was in the **2¹ (twos place)** moves to the **2² (fours place)** **~={green}} B moved to where A was=~**
+* What was in the **2² (fours place)** moves to the **2³ (eights place)** **~={green}} A up by a new place value=~**
+
+Since every bit now represents **twice its previous value**, the number effectively doubles. (In base 10, if we doubled each "bit", 123 -> 246, which is double)
+
+## Check if a number is a power of 2
+
+![[Pasted image 20250204214635.png]]
+
 # Geometry
 
 ## Number of A x B Rectangles in a Grid
