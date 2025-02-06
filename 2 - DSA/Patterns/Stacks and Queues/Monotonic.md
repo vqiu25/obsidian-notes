@@ -149,6 +149,87 @@
 >}
 >```
 
+> [!Question]- Asteroid Collision  
+> <!-- Multiline -->  
+> **~={red}Question=~**:  
+> * You are given an array `asteroids` where:  
+>   - **Positive values** move **right**.  
+>   - **Negative values** move **left**.  
+> * When two asteroids **collide**, the larger one remains.  
+> * If they are equal in size, both are destroyed.  
+> * Return the state of the asteroids **after all collisions**.  
+>  
+> **~={red}Solution=~**:  
+> 1. **~={blue}Recognise LIFO (Last-In-First-Out) Nature=~**:  
+>    - We process asteroids in order, but collisions depend on the **last added** asteroid.  
+>    - When adding to the stack, an asteroid and propogate through, destroying multiple other asteroids. This is monotonocity.  
+> 2. **~={blue}Iterate through Asteroids=~**:  
+>    - We will check the last 2 elements of the stack repeatedly until we enter a steady state
+>    - In particular, the stack must have:
+> 	   - At least 2 items in it
+> 	   - The second to last asteroid must be going ->, and the top asteroids must be going <-, we enter a while loop until neither of these conditions are the case anymore
+> 3. **~={blue}Handle Collisions=~**:  
+>      - **Smaller one is destroyed**: The one with a **smaller absolute value** is removed.  
+>      - **Equal sizes destroy each other**.  
+>      - **Larger one survives**.  
+> 4. ~={blue}**Convert Stack to Output**=~:  
+>    - The stack holds the remaining asteroids after all collisions.  
+>  
+> ~={green}**Code**=~:  
+> ```cpp  
+> class Solution {  
+> public:  
+>     vector<int​> asteroidCollision(vector<int​>& asteroids) {  
+>         deque<int​> stack;  
+>         stack.push_back(asteroids[0]);  
+>  
+>         for (int i{1}; i < asteroids.size(); ++i) {  
+>             stack.push_back(asteroids[i]);  
+> 			
+>             // (*) Because we want to pop twice next,
+>             // we need to make sure the size is at least 2
+>             if(stack.size() <= 1) continue;  
+>  
+>             int topValue = stack.back();  
+>             stack.pop_back();  
+>             int secondTopValue = stack.back();  
+>             stack.push_back(topValue);  
+>  
+>             while (stack.size() >= 2 && topValue < 0 
+>             && secondTopValue >= 0) {  
+>                 if (abs(topValue) == abs(secondTopValue)) {  
+>                     stack.pop_back();  
+>                     stack.pop_back();  // Both are destroyed  
+>                 } else if (abs(topValue) > abs(secondTopValue)) {  
+>                     stack.pop_back();  
+>                     stack.pop_back();  
+>                     stack.push_back(topValue);  // Larger asteroid remains  
+>                 } else if (abs(topValue) < abs(secondTopValue)) {  
+>                     stack.pop_back();  // Top asteroid is destroyed  
+>                 }  
+> 					 
+>                 // (*)
+>                 if (stack.size() <= 1) break;  
+>                 else {  
+>                     topValue = stack.back();  
+>                     stack.pop_back();  
+>                     secondTopValue = stack.back();  
+>                     stack.push_back(topValue);  
+>                 }  
+>             }  
+>         }  
+>  
+>         return vector<int​>{stack.begin(), stack.end()};  
+>     }  
+> };  
+> ```  
+>  
+> ~={green}**Key Points**=~:  
+> * ~={blue}**Time Complexity**=~:  
+>   - **O(n)**: Each asteroid is processed once, and we pop from the stack at most `n` times.  
+> * **~={blue}Space Complexity=~**:  
+>   - **O(n)**: The worst case is no collisions, and all asteroids remain in the stack.  
+
 # Good Problems
 
 * leetcode.com/problems/online-stock-span/description/

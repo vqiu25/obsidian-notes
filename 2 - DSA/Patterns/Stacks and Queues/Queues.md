@@ -80,4 +80,72 @@
 >}
 >```
 
+> [!Question]- Double Queue (Monotonic): Dota2 Senate  
+> <!-- Multiline -->  
+> **~={red}Question=~**:  
+> * You are given a string `senate`, where each character is:  
+>   - **'R'** (Radiant senator).  
+>   - **'D'** (Dire senator).  
+> * Each senator can **ban** another senator from the opposite party.  
+> * The **order** of banning is based on their positions in the string.  
+> * The process continues until only one party remains.  
+> * Return the **winning party** as `"Radiant"` or `"Dire"`.  
+>  
+> ~={red}**Solution**=~:  
+>  ![[Drawing 2025-02-06 11.12.09.excalidraw | center | 500]]
+> 1. ~={blue}**Store Senator Positions in Queues**=~:  
+>    - Use two queues (`rQueue` for Radiant, `dQueue` for Dire).  
+>    - Store the **index** of each senator.  
+> 2. ~={blue}**Simulate the Voting Process**=~:  
+>    - Pop the **earliest senator** from both queues.  
+>    - The senator with the **earlier index bans the later one**.  
+>    - The surviving senator is added **back to their queue**, but their new index is **shifted forward** by `n` (cycle continuation).  
+> 3. ~={blue}**Continue Until One Party Remains**=~:  
+>    - The process repeats until one queue is empty.  
+> 4. ~={blue}**Return the Winner**=~:  
+>    - If the `rQueue` is empty, `"Dire"` wins; otherwise, `"Radiant"` wins.  
+>  
+> **~={green}Code=~**:  
+> ```cpp  
+> class Solution {  
+> public:  
+>     string predictPartyVictory(string senate) {  
+>         int n = senate.size();  
+>         deque<int​> rQueue, dQueue;  
+>  
+>         // (1) Store senator indices in queues  
+>         for (int i{0}; i < senate.size(); ++i) {  
+>             if (senate[i] == 'R') rQueue.push_back(i);  
+>             else dQueue.push_back(i);  
+>         }  
+>  
+>         // (2) Process eliminations  
+>         while (!rQueue.empty() && !dQueue.empty()) {  
+>             int earliestR = rQueue.front();  
+>             int earliestD = dQueue.front();  
+>             rQueue.pop_front();  
+>             dQueue.pop_front();  
+>  
+>             // (3) The earlier senator bans the later one  
+>             if (earliestR < earliestD) {  
+>                 earliestR += n;  // Move to next round  
+>                 rQueue.push_back(earliestR);  
+>             } else {  
+>                 earliestD += n;  
+>                 dQueue.push_back(earliestD);  
+>             }  
+>         }  
+>  
+>         return rQueue.empty() ? "Dire" : "Radiant";  
+>     }  
+> };  
+> ```  
+>  
+> ~={green}**Key Points**=~:  
+> * ~={blue}**Time Complexity**=~:  
+>   - **O(n)**: Each senator is processed once per round.  
+>   - **Worst case**: It runs `O(n)` rounds, leading to **O(n²)**.  
+> * ~={blue}**Space Complexity**=~:  
+>   - **O(n)**: Two queues store senator indices.  
+
 #flashcards/dsa/patterns/queue

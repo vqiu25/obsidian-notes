@@ -118,13 +118,13 @@ int main() {
 
 ## Techniques and Methods
 
-|            Operation             | Syntax                                   | Complexity | Comments                                               |
-| :------------------------------: | ---------------------------------------- | ---------- | ------------------------------------------------------ |
-|       Convert Char to Int        | '5' - '0' -> 5                           | $O(1)$     |                                                        |
-|       Convert Int to Char        | 5 + '0' -> '5'                           | $O(1)$     | `to_string('c')`                                       |
-| Wrap an Integer Between (0 - 9)  | (x + 10) % 10<br><br>// X = integer      | $O(1)$     | The + 10, helps with wrapping -1 to 9                  |
-| Convert Char to Lower/Upper Case | `to_upper(char)`<br><br>`to_lower(char)` | $O(1)$     |                                                        |
-|    If a Char is Alphanumeric     | `isalpha(char`                           | $O(1)$     | Checks if char is a number or a letter of the alphabet |
+|            Operation             | Syntax                                                        | Complexity | Comments                                               |
+| :------------------------------: | ------------------------------------------------------------- | ---------- | ------------------------------------------------------ |
+|       Convert Char to Int        | '5' - '0' -> 5                                                | $O(1)$     |                                                        |
+|       Convert Int to Char        | 5 + '0' -> '5'                                                | $O(1)$     | `to_string('c')`                                       |
+| Wrap an Integer Between (0 - 9)  | (x + 10) % 10<br><br>// X = integer                           | $O(1)$     | The + 10, helps with wrapping -1 to 9                  |
+| Convert Char to Lower/Upper Case | `toupper(char)`<br><br>`tolower(char)`<br><br>`isupper(char)` | $O(1)$     |                                                        |
+|    If a Char is Alphanumeric     | `isalpha(char`                                                | $O(1)$     | Checks if char is a number or a letter of the alphabet |
 # Maps
 ## Initialisation
 ### Unordered Map
@@ -164,12 +164,13 @@ int main() {
 	* **~={green}Average Case=~**: $O(1)$
 	* **~={red}Worst Case=~**: $O(n)$
 
-|                     Operation                      | Syntax            | Comments                    |
-| :------------------------------------------------: | ----------------- | --------------------------- |
-|                        Find                        | `s.find(value)`   | if(s.find(x) != s.end()) {} |
-|                       Insert                       | `s.insert(value)` |                             |
-|                    Erase a Pair                    | `s.erase(value)`  |                             |
-| Count Number of Elements<br>Associated with<br>Key | `s.count(value)`  |                             |
+|                     Operation                      | Syntax                                | Comments                    |
+| :------------------------------------------------: | ------------------------------------- | --------------------------- |
+|                        Find                        | `s.find(value)`                       | if(s.find(x) != s.end()) {} |
+|                       Insert                       | `s.insert(value)`                     |                             |
+|                    Erase a Pair                    | `s.erase(value)`                      |                             |
+| Count Number of Elements<br>Associated with<br>Key | `s.count(value)`                      |                             |
+|                 Convert to Vector                  | `vector<int>(set.begin(), set.end())` | $O(n)$                      |
 
 # Stack
 ## Initialisation
@@ -213,15 +214,16 @@ int main() {
 
 ## Methods
 
-|  Operation   | Syntax                | Complexity | Comments |
-| :----------: | --------------------- | ---------- | -------- |
-|  Find Front  | `d.front()`           | $O(1)$     |          |
-|  Find Back   | `d.back()`            | $O(1)$     |          |
-| Add to Front | `d.push_front(value)` | $O(1)$     |          |
-| Add to Back  | `d.push_back(value)`  | $O(1)$     |          |
-| Remove Front | `d.pop_front()`       | $O(1)$     |          |
-| Remove Back  | `d.pop_back()`        | $O(1)$     |          |
-|    Access    | `d[index]`            | $O(1)$     |          |
+|     Operation     | Syntax                                    | Complexity | Comments |
+| :---------------: | ----------------------------------------- | ---------- | -------- |
+|    Find Front     | `d.front()`                               | $O(1)$     |          |
+|     Find Back     | `d.back()`                                | $O(1)$     |          |
+|   Add to Front    | `d.push_front(value)`                     | $O(1)$     |          |
+|    Add to Back    | `d.push_back(value)`                      | $O(1)$     |          |
+|   Remove Front    | `d.pop_front()`                           | $O(1)$     |          |
+|    Remove Back    | `d.pop_back()`                            | $O(1)$     |          |
+|      Access       | `d[index]`                                | $O(1)$     |          |
+| Convert to Vector | `vector<int>(deque.begin(), deque.end())` | $O(n)$     |          |
 # Priority Queue
 
 ## Initialisation

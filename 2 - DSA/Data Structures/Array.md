@@ -32,6 +32,7 @@ int arr[3] = {10, 20, 30};
 # Where Does the Array Reside?
 
 The location of an array depends on how it is allocated:
+
 ````col
 ```col-md
 **~={blue}Stack=~**

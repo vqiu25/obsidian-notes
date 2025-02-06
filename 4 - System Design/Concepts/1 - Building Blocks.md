@@ -30,7 +30,7 @@
 >[!Info]- (5.1) Data Centres
 > <!-- Multiline -->
 > ![[Pasted image 20250201221002.png | center | 650]]
-> * **~={purple}Description=~**: We may have data centres across the globe. Users are geo route to the closest data centre as dictated by the DNS, which is determined by the location of a user.
+> * **~={purple}Description=~**: We may have data centres across the globe. Users are geo routed to the closest data centre as dictated by the DNS, which is determined by the location of a user.
 > * **~={red}Data Synchronisation=~**: In the event any data centres encounter outage, traffic can be directed to other data centres. However, users from different regions could use different local databases, thus a common strategy is to **~={green}replicate data across multiple data centres=~**.
 
 >[!Info]- (5.2) Database
@@ -59,7 +59,7 @@
 >```col-md
 >**~={red}Disadvantage=~**
 >* **~={red}Limit=~**: Has a hard limit, there is only so much CPU and RAM you can add to a single server
->* **~={red}Redundancy=~**: Does not have redundancy, and thus if a single server fails, the entire applications falls with it 
+>* **~={red}Lack of Redundancy=~**: Does not have redundancy, and thus if a single server fails, the entire applications falls with it 
 >```
 >````
 > 
@@ -68,10 +68,11 @@
 > ````col
 >```col-md
 >**~={green}Advantage=~**
->
+>* Redundancy & Fault Tolerant & Scalable
 >```
 >```col-md
 >**~={red}Disadvantage=~**
+>* ~={red}**Complexity**=~: Requires load balancing, distributed databases, and synchronisation between servers, and data consistency.
 >
 >```
 >````
@@ -92,6 +93,11 @@
 > 
 
 >[!Info]- (7.1) Server <-> Database
+> <!-- Multiline -->
+> {Add Image}
+> 
+
+>[!Note]- (7.2) Database Replication
 > <!-- Multiline -->
 > {Add Image}
 > 
