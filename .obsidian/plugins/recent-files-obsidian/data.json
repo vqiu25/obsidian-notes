@@ -1,24 +1,84 @@
 {
   "recentFiles": [
     {
-      "basename": "1.1 - Design Requirements & CAP Theorem",
-      "path": "4 - System Design/Concepts/1.1 - Design Requirements & CAP Theorem.md"
+      "basename": "1 - Process & Threads",
+      "path": "3 - OS/1 - Process & Threads.md"
+    },
+    {
+      "basename": "2 - CPU Scheduling",
+      "path": "3 - OS/2 - CPU Scheduling.md"
+    },
+    {
+      "basename": "4 - Memory",
+      "path": "3 - OS/4 - Memory.md"
+    },
+    {
+      "basename": "3 - Concurrency",
+      "path": "3 - OS/3 - Concurrency.md"
+    },
+    {
+      "basename": "OS Overview",
+      "path": "3 - OS/OS Overview.md"
     },
     {
       "basename": "Minimum Spanning Tree",
       "path": "2 - DSA/Patterns/Union Find/Minimum Spanning Tree.md"
     },
     {
-      "basename": "Union Find",
-      "path": "2 - DSA/Patterns/Union Find/Union Find.md"
+      "basename": "1.2 - API Paradigms & Design",
+      "path": "4 - System Design/Concepts/1.2 - API Paradigms & Design.md"
+    },
+    {
+      "basename": "1.4 - Networks",
+      "path": "4 - System Design/Concepts/1.4 - Networks.md"
+    },
+    {
+      "basename": "Array",
+      "path": "2 - DSA/Data Structures/Array.md"
+    },
+    {
+      "basename": "Queue",
+      "path": "2 - DSA/Data Structures/Queue.md"
+    },
+    {
+      "basename": "1 - Building Blocks",
+      "path": "4 - System Design/Concepts/1 - Building Blocks.md"
+    },
+    {
+      "basename": "Drawing 2025-02-08 20.56.25.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-08 20.56.25.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-02-08 16.45.29.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-08 16.45.29.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-02-08 18.08.20.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-08 18.08.20.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-02-08 17.31.43.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-08 17.31.43.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-02-08 15.56.31.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-08 15.56.31.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-02-08 15.44.44.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-08 15.44.44.excalidraw.md"
     },
     {
       "basename": "1.3 - Databases (SQL & NoSQL)",
       "path": "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md"
     },
     {
-      "basename": "1.2 - API Paradigms & Design",
-      "path": "4 - System Design/Concepts/1.2 - API Paradigms & Design.md"
+      "basename": "Union Find",
+      "path": "2 - DSA/Patterns/Union Find/Union Find.md"
+    },
+    {
+      "basename": "1.1 - Design Requirements & CAP Theorem",
+      "path": "4 - System Design/Concepts/1.1 - Design Requirements & CAP Theorem.md"
     },
     {
       "basename": "Hotel Reservation System",
@@ -27,10 +87,6 @@
     {
       "basename": "Stock Exchange",
       "path": "4 - System Design/Complete Problems/Stock Exchange.md"
-    },
-    {
-      "basename": "1 - Building Blocks",
-      "path": "4 - System Design/Concepts/1 - Building Blocks.md"
     },
     {
       "basename": "2 - Back of the Envelope Calculations",
@@ -47,18 +103,6 @@
     {
       "basename": "Home",
       "path": "5 - Resources/Home.md"
-    },
-    {
-      "basename": "Memory",
-      "path": "3 - OS/Memory.md"
-    },
-    {
-      "basename": "CPU Scheduling",
-      "path": "3 - OS/CPU Scheduling.md"
-    },
-    {
-      "basename": "Concurrency",
-      "path": "3 - OS/Concurrency.md"
     },
     {
       "basename": "Hash Table",
@@ -81,16 +125,8 @@
       "path": "5 - Resources/Excalidraw/Drawing 2025-02-06 21.55.01.excalidraw.md"
     },
     {
-      "basename": "1.4 - Networks",
-      "path": "4 - System Design/Concepts/1.4 - Networks.md"
-    },
-    {
       "basename": "Drawing 2025-02-06 20.41.24.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-02-06 20.41.24.excalidraw.md"
-    },
-    {
-      "basename": "OS Overview",
-      "path": "3 - OS/OS Overview.md"
     },
     {
       "basename": "Drawing 2025-02-06 20.32.32.excalidraw",
@@ -153,14 +189,6 @@
       "path": "2 - DSA/Data Structures/Vector.md"
     },
     {
-      "basename": "Array",
-      "path": "2 - DSA/Data Structures/Array.md"
-    },
-    {
-      "basename": "Queue",
-      "path": "2 - DSA/Data Structures/Queue.md"
-    },
-    {
       "basename": "Stack",
       "path": "2 - DSA/Data Structures/Stack.md"
     },
@@ -171,34 +199,6 @@
     {
       "basename": "Combinatorics",
       "path": "2 - DSA/Maths/Combinatorics.md"
-    },
-    {
-      "basename": "Heap",
-      "path": "2 - DSA/Patterns/Heap/Heap.md"
-    },
-    {
-      "basename": "Voting",
-      "path": "2 - DSA/Patterns/Greedy/Voting.md"
-    },
-    {
-      "basename": "Greedy",
-      "path": "2 - DSA/Patterns/Greedy/Greedy.md"
-    },
-    {
-      "basename": "Queues",
-      "path": "2 - DSA/Patterns/Stacks and Queues/Queues.md"
-    },
-    {
-      "basename": "Bit Manipulation",
-      "path": "2 - DSA/Patterns/Bit Manipulation/Bit Manipulation.md"
-    },
-    {
-      "basename": "Drawing 2025-02-06 11.12.09.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-06 11.12.09.excalidraw.md"
-    },
-    {
-      "basename": "Monotonic",
-      "path": "2 - DSA/Patterns/Stacks and Queues/Monotonic.md"
     }
   ],
   "omittedPaths": [],
