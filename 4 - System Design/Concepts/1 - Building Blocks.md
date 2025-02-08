@@ -12,9 +12,9 @@
 >[!Info]- (1, 2) DNS and IP Address
 > <!-- Multiline -->
 > ![[Pasted image 20250201215542.png | center | 500]]
-> 7. **~={green}DNS=~**: Translating domain names to IP addresses.
+> 1. **~={green}DNS=~**: Translating domain names to IP addresses.
 > 	* **~={red}Example=~**: website.com -> 192.168.1111
-> 8. **~={green}IP Address=~**: Unique identifier for each device on a network. 
+> 2. **~={green}IP Address=~**: Unique identifier for each device on a network. 
 > 	* **~={red}Types=~**: IPv4 = 32 bit, IPv6 = 128 bit
 > 	* ~={red}Public vs Private=~: Public are unique across the entire internet. Private is unique within a local network, and only accessible by devices within the same network.
 >

@@ -5,3 +5,5 @@
 # Deadlock & Livelock
 
 # Parallelism vs Concurrency
+
+Dining Philosophers

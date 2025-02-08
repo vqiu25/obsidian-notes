@@ -28,32 +28,32 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2 - DSA/Patterns/Union Find/Minimum Spanning Tree.md",
+                "file": "3 - OS/1 - Process & Threads.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Minimum Spanning Tree"
+              "title": "1 - Process & Threads"
             }
           },
           {
-            "id": "9f7091f656a917ae",
+            "id": "dd8a82e2bf2a5d7c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4 - System Design/Concepts/1.1 - Design Requirements & CAP Theorem.md",
+                "file": "4 - System Design/Concepts/1.2 - API Paradigms & Design.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "1.1 - Design Requirements & CAP Theorem"
+              "title": "1.2 - API Paradigms & Design"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -231,7 +231,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "4 - System Design/Concepts/1.1 - Design Requirements & CAP Theorem.md",
+                "file": "3 - OS/1 - Process & Threads.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -259,7 +259,7 @@
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of 1.1 - Design Requirements & CAP Theorem"
+              "title": "Graph of 1 - Process & Threads"
             }
           }
         ]
@@ -283,16 +283,32 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "9f7091f656a917ae",
+  "active": "b56a8579e36644df",
   "lastOpenFiles": [
+    "3 - OS/2 - CPU Scheduling.md",
+    "3 - OS/4 - Memory.md",
+    "3 - OS/3 - Concurrency.md",
+    "3 - OS/OS Overview.md",
+    "3 - OS/1 - Process & Threads.md",
     "2 - DSA/Patterns/Union Find/Minimum Spanning Tree.md",
+    "4 - System Design/Concepts/1.2 - API Paradigms & Design.md",
+    "4 - System Design/Concepts/1.4 - Networks.md",
+    "2 - DSA/Data Structures/Array.md",
+    "2 - DSA/Data Structures/Queue.md",
+    "4 - System Design/Concepts/1 - Building Blocks.md",
+    "5 - Resources/Attachements/Pasted image 20250208211523.png",
+    "5 - Resources/Attachements/Pasted image 20250208211209.png",
+    "5 - Resources/Excalidraw/Drawing 2025-02-08 20.56.25.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-08 16.45.29.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-08 18.08.20.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-08 17.31.43.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-08 15.56.31.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-08 15.44.44.excalidraw.md",
+    "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md",
     "2 - DSA/Patterns/Union Find/Union Find.md",
     "4 - System Design/Concepts/1.1 - Design Requirements & CAP Theorem.md",
-    "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md",
-    "4 - System Design/Concepts/1.2 - API Paradigms & Design.md",
     "4 - System Design/Complete Problems/Hotel Reservation System.md",
     "4 - System Design/Complete Problems/Stock Exchange.md",
-    "4 - System Design/Concepts/1 - Building Blocks.md",
     "4 - System Design/Concepts/2 - Back of the Envelope Calculations.md",
     "5 - Resources/Attachements/Pasted image 20250208104930.png",
     "5 - Resources/Attachements/Pasted image 20250208104536.png",
@@ -302,25 +318,9 @@
     "5 - Resources/Attachements/Pasted image 20250208085858.png",
     "5 - Resources/Attachements/Pasted image 20250208085838.png",
     "5 - Resources/Attachements/Pasted image 20250208083227.png",
-    "5 - Resources/Attachements/Pasted image 20250208082639.png",
     "5 - Resources/Excalidraw/Drawing 2025-02-08 08.22.17.excalidraw.md",
-    "5 - Resources/Attachements/Pasted image 20250207090603.png",
     "4 - System Design/System Design Overview.md",
     "5 - Resources/Home.md",
-    "3 - OS/Memory.md",
-    "3 - OS/CPU Scheduling.md",
-    "3 - OS/Concurrency.md",
-    "2 - DSA/Data Structures/Hash Table/Hash Table.md",
-    "4 - System Design/Component Problems/3 - Key Value Store.md",
-    "4 - System Design/Component Problems/2 - Consistent Hashing.md",
-    "4 - System Design/Component Problems/1 - Rate Limiter.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-06 21.55.01.excalidraw.md",
-    "4 - System Design/Concepts/1.4 - Networks.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-06 20.41.24.excalidraw.md",
-    "3 - OS/OS Overview.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-06 20.32.32.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-06 17.09.27.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-06 17.05.42.excalidraw.md",
     "2 - DSA/Patterns/Other Trees",
     "2 - DSA/Patterns/Union Find",
     "2 - DSA/Patterns/Tries",
