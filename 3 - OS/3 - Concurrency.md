@@ -7,3 +7,5 @@
 # Parallelism vs Concurrency
 
 Dining Philosophers
+
+Bankers Algo

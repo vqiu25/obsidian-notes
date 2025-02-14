@@ -126,7 +126,19 @@ return a[2] < b[2];
 |            String to Integer/Long Long             | `stoi("x")`<br><br>`stoll("2342342")`                                                                                            | $O(1)$     |                                                                                           |
 |                 Integer to String                  | `to_string(5)`                                                                                                                   | $O(1)$     |                                                                                           |
 |                 Lexicographic Sort                 | `sort(s.begin(), s.end())`                                                                                                       | $O(nlogn)$ |                                                                                           |
+## URI
 
+Finds:
+* http://<font color="#f38ba8">news.yahoo.com</font>/news
+
+```cpp
+string getHostname(const string& url) {
+	int start = url.find("http://") + 7; // Start after "http://"
+	int end = url.find("/", start); // Find first '/' after "http://"
+	return url.substr(start, end - start);
+
+}
+```
 # Characters
 
 ## Techniques and Methods
@@ -153,13 +165,13 @@ return a[2] < b[2];
 	* **~={green}Average Case=~**: $O(1)$
 	* **~={red}Worst Case=~**: $O(n)$
 
-|                     Operation                      | Syntax                      | Comments |
-| :------------------------------------------------: | --------------------------- | -------- |
-|              Access Value<br>from Key              | `m.at[key]`<br><br>`m[key]` |          |
-|                        Find                        | `m.find(key)`               |          |
-|                       Insert                       | `m.insert({key, value})`    |          |
-|                    Erase a Pair                    | `m.erase(key)`              |          |
-| Count Number of Elements<br>Associated with<br>Key | `m.count(key)`              |          |
+|        Operation         | Syntax                      | Comments                |
+| :----------------------: | --------------------------- | ----------------------- |
+| Access Value<br>from Key | `m.at[key]`<br><br>`m[key]` |                         |
+|           Find           | `m.find(key)`               |                         |
+|          Insert          | `m.insert({key, value})`    |                         |
+|       Erase a Pair       | `m.erase(key)`              |                         |
+|   Check if key exists    | `m.count(key)`              | Returns a bool to check |
 
 # Sets
 ## Initialisation
@@ -264,3 +276,17 @@ return a[2] < b[2];
 |        Size         | `v.size()`  | $O(1)$     | Stored variable                   |
 |       Empty?        | `v.empty()` | $O(1)$     | Check stored variable             |
 
+~={purple}**Vectors, Strings and Deque**=~
+
+```cpp
+// Vector Usage
+vector<int> vec = {1, 2, 3, 4, 5};
+vector<int> newVec;
+newVec.assign(vec.begin(), vec.begin() + 3); // Copies {1, 2, 3}
+
+// Stack Usage
+string s;
+deque<char> stack;
+s.assign(stack.begin(), stack.end()) // Copies the Stack to the String
+
+```

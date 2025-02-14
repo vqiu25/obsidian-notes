@@ -39,6 +39,19 @@ for (int i{3}; i <= 5; ++i) {
 }
 ```
 
+## Subtraction Property
+
+If for example, using 7, **~={red}x % 7 = y % 7=~**, then **~={red}(x - y) % 7 = 0=~**
+
+For example:
+* 17 % 7 = 3
+* 10 % 7 = 3
+
+= 17 - 10                
+= (14 + 3) - (7 + 3) = **~={green}(14 - 7)=~** + **~={red}(3 - 3)=~** = 7
+
+The offset is cancelled out, leaving the factors of 7 present. Hence doing mod on the result is just 0
+
 ## Number of Factors of X in n!
 
 If we wanted to find out how many of factors of X in n!:
@@ -48,6 +61,24 @@ For example, the number of factors of 5 in 30!, come from:
 * 5, 10, 15, 20, 25, 30 } $30 / 5 = 6$
 * 25 } $30 / 25 = 1$
 * Hence total is 7
+
+## List of All Divisors/Factors
+
+```cpp
+int n = 20;
+
+for (int i{1}; i <= sqrt(20); ++i) {
+	if (n % i == 0) {
+		int divisorOne = i;
+		int divisorTwo = n / i;
+		
+		// Do Something with Divisor One
+		
+		// Do Somethig with Divisor Two if Divisor One != Divisor Two
+		if (divisorOne != divisorTwo && ...)
+	}
+}
+```
 
 # Bit Manipulation
 

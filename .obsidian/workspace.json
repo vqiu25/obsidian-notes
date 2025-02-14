@@ -13,47 +13,107 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2 - DSA/Patterns/Union Find/Union Find.md",
+                "file": "5 - Resources/Home.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Union Find"
+              "title": "Home"
             }
           },
           {
-            "id": "b56a8579e36644df",
+            "id": "6b23174c90cb1a93",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3 - OS/1 - Process & Threads.md",
+                "file": "2 - DSA/Patterns/Union Find/Minimum Spanning Tree.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "1 - Process & Threads"
+              "title": "Minimum Spanning Tree"
             }
           },
           {
-            "id": "dd8a82e2bf2a5d7c",
+            "id": "1426d066c78502be",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4 - System Design/Concepts/1.2 - API Paradigms & Design.md",
+                "file": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "1.2 - API Paradigms & Design"
+              "title": "Sliding Windows"
+            }
+          },
+          {
+            "id": "dc1532719793db52",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Binary Search on Arrays"
+            }
+          },
+          {
+            "id": "901d94d264b9f546",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Binary Search on Solution Spaces"
+            }
+          },
+          {
+            "id": "73c016cbe8fa16dd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Sliding Windows"
+            }
+          },
+          {
+            "id": "42e3560c2d66e145",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2 - DSA/Patterns/Trees & Graphs/Graphs Topological Sort.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Graphs Topological Sort"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -231,7 +291,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "3 - OS/1 - Process & Threads.md",
+                "file": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -259,7 +319,7 @@
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of 1 - Process & Threads"
+              "title": "Graph of Binary Search on Arrays"
             }
           }
         ]
@@ -283,44 +343,44 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "b56a8579e36644df",
+  "active": "dc1532719793db52",
   "lastOpenFiles": [
-    "3 - OS/2 - CPU Scheduling.md",
-    "3 - OS/4 - Memory.md",
-    "3 - OS/3 - Concurrency.md",
-    "3 - OS/OS Overview.md",
-    "3 - OS/1 - Process & Threads.md",
+    "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
+    "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md",
+    "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
+    "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md",
+    "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
+    "2 - DSA/Patterns/Trees & Graphs/Graphs Topological Sort.md",
+    "2 - DSA/Data Structures/DS C++ Syntax.md",
+    "2 - DSA/Patterns/Stacks and Queues/Monotonic.md",
     "2 - DSA/Patterns/Union Find/Minimum Spanning Tree.md",
-    "4 - System Design/Concepts/1.2 - API Paradigms & Design.md",
-    "4 - System Design/Concepts/1.4 - Networks.md",
-    "2 - DSA/Data Structures/Array.md",
-    "2 - DSA/Data Structures/Queue.md",
-    "4 - System Design/Concepts/1 - Building Blocks.md",
+    "5 - Resources/Home.md",
+    "4 - System Design/Component Problems/2 - Consistent Hashing.md",
+    "4 - System Design/Component Problems/1 - Server Side Rate Limiter (Layer 7 HTTP).md",
+    "2 - DSA/Patterns/Arrays & Strings/Two Pointers.md",
+    "2 - DSA/Maths/Probability.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-13 08.18.34.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-13 08.23.58.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-13 08.02.38.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-12 17.27.54.excalidraw.md",
+    "2 - DSA/Data Structures/Hash Table/Hash Table.md",
+    "2 - DSA/Data Structures/Vector.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-12 08.04.44.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-11 17.18.10.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-11 08.17.04.excalidraw.md",
+    "5 - Resources/Attachements/Pasted Image 20250211081707_293.png",
+    "5 - Resources/Excalidraw/Drawing 2025-02-11 08.06.19.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-10 08.29.09.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-02-10 20.42.41.excalidraw.md",
+    "5 - Resources/Attachements/Pasted image 20250210203952.png",
+    "5 - Resources/Attachements/Pasted Image 20250210204357_856.png",
+    "5 - Resources/Attachements/Pasted Image 20250210204257_063.png",
+    "5 - Resources/Attachements/Pasted image 20250210203934.png",
     "5 - Resources/Attachements/Pasted image 20250208211523.png",
     "5 - Resources/Attachements/Pasted image 20250208211209.png",
-    "5 - Resources/Excalidraw/Drawing 2025-02-08 20.56.25.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-08 16.45.29.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-08 18.08.20.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-08 17.31.43.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-08 15.56.31.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-08 15.44.44.excalidraw.md",
-    "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md",
-    "2 - DSA/Patterns/Union Find/Union Find.md",
-    "4 - System Design/Concepts/1.1 - Design Requirements & CAP Theorem.md",
-    "4 - System Design/Complete Problems/Hotel Reservation System.md",
-    "4 - System Design/Complete Problems/Stock Exchange.md",
-    "4 - System Design/Concepts/2 - Back of the Envelope Calculations.md",
     "5 - Resources/Attachements/Pasted image 20250208104930.png",
     "5 - Resources/Attachements/Pasted image 20250208104536.png",
     "5 - Resources/Attachements/Pasted image 20250208101218.png",
-    "5 - Resources/Attachements/Pasted image 20250208100610.png",
-    "5 - Resources/Attachements/Pasted image 20250208090359.png",
-    "5 - Resources/Attachements/Pasted image 20250208085858.png",
-    "5 - Resources/Attachements/Pasted image 20250208085838.png",
-    "5 - Resources/Attachements/Pasted image 20250208083227.png",
-    "5 - Resources/Excalidraw/Drawing 2025-02-08 08.22.17.excalidraw.md",
-    "4 - System Design/System Design Overview.md",
-    "5 - Resources/Home.md",
     "2 - DSA/Patterns/Other Trees",
     "2 - DSA/Patterns/Union Find",
     "2 - DSA/Patterns/Tries",

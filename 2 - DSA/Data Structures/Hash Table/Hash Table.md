@@ -228,7 +228,7 @@
 >```cpp
 >void insert(int key, int value) {
 >	// (1) If the key already exists
->	if (contains(key)) return;
+>	if (find(key)) return;
 >	
 >	// (2) Find which bucket to place key
 >	int index = this->hashFunction(key);
