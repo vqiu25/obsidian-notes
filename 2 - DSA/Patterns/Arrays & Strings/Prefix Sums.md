@@ -68,6 +68,7 @@ We go through our **~={blue}input array=~** exactly once, thus for a size $n=4$ 
 > <!-- Multiline -->
 >To find the sum of the subarray in-between index $i$ and $j$ of the original array (inclusive), we perform:
 >* `prefix[j + 1] - prefix[i]`
+> ![[Drawing 2025-02-09 16.53.00.excalidraw | center | 450]]
 
 >[!Note]- How to query a prefix sum / split the prefix sum at every point in the original array?
 > <!-- Multiline -->
@@ -81,6 +82,17 @@ We go through our **~={blue}input array=~** exactly once, thus for a size $n=4$ 
 >}
 >```
 > ![[Drawing 2025-01-26 16.54.56.excalidraw | center | 400]]
+
+>[!Note]- How to query everything in a prefix sum
+> <!-- Multiline -->
+>This will make every possible query to the prefix sum
+>```cpp
+>for (int i{0}; i < prefix.size(); ++i) {
+>	for (int j{0}; j < i; ++j) {
+>		int comp = prefix[i] - prefix[j];
+>	}
+>}
+>```
 
 >[!Note]- Range Minimum Query (Sparse Table Technique)
 > <!-- Multiline -->
@@ -176,6 +188,47 @@ We go through our **~={blue}input array=~** exactly once, thus for a size $n=4$ 
 > ![[Drawing 2024-12-16 08.12.50.excalidraw | 300 | center]]
 >```
 >````
+
+>[!Info]- Building 2D Prefix Sum
+><!-- Multiline -->
+><u>**Explanation**</u>
+>1. **~={purple}Definition=~**: `prefix[i + 1][j + 1]`, represents the summation of the rectangle from nums[0][0] to nums[i][j] (inclusive)
+>2. ~={purple}**Build Prefix Sum**=~:
+>	1. **~={purple}Start at index [1][1]=~**: This is because prefix[1][1] corresponds to nums[0][0]
+>	2. **~={purple}Add the left and top values of the prefix=~**: We're adding 2 rectangles effectively
+>	3. **~={purple}Subtract top diagonal left value=~**: The 2 rectangles we add have overlap, thus we remove that overlap here
+>	4. **~={purple}Add the top diagonal left value from nums=~**: This is the current number we're on, so we add it
+> ![[Drawing 2025-02-09 21.36.16.excalidraw | center | 700]]
+>
+> **~={green}Visual Explanation of Overlap=~**
+> 
+> ![[Drawing 2025-02-09 22.36.45.excalidraw | center | 650]]
+> 
+><u>**C++ Code**</u>
+>```cpp
+>int fn(int n) {
+>	vector<vector<int​>> prefix(n + 1, vector<int​>(n + 1, 0));
+>		for (int i{1}; i < forestSize + 1; ++i) {
+>			for (int j{1}; j < forestSize + 1; ++j) {
+>				prefix[i][j] = prefix[i - 1][j] + prefix[i][j - 1] 
+>						- prefix[i - 1][j - 1] + forest[i - 1][j - 1];
+>			}
+>		}
+>}
+>```
+>**~={green}Querying=~**
+>
+>![[Drawing 2025-02-09 22.48.55.excalidraw | center | 650]]
+>
+>```cpp
+>int fn(int y2, x2, y1, x1 (index 1 based)) {
+>	int numTrees = prefix[y2][x2] - prefix[y1 - 1][x2] 
+>				   - prefix[y2][x1 - 1] + prefix[y1 - 1][x1 - 1];
+>}
+>```
+>
+> 
+
 
 # Example Problems
 
@@ -283,5 +336,145 @@ We go through our **~={blue}input array=~** exactly once, thus for a size $n=4$ 
 >	return result;
 >}
 >```
+
+# CP Problems
+
+> [!Question]- Longest Subarray with Sum Divisible by 7
+> <!-- Multiline -->
+> ~={red}Question=~:
+> * Given an integer array `nums`, find the **longest contiguous subarray** whose sum is **divisible by 7**.
+>
+> ~={red}Solution (Prefix Sum with Modulo & Hash Map)=~:
+> 1. **~={purple}Compute Prefix Sum=~**:
+>    - Construct a **prefix sum array**, where `prefix[i]` represents the sum of elements from `nums[0]` to `nums[i]`.
+>    - Compute `prefix[i] % 7` at every index.
+> 2. **~={purple}Track First Occurrence of Each Modulo=~**:
+>    - Use a **hash map (`earliestIndex`)** to store the **first index** where a given remainder appears.
+>    - If a remainder **reappears**, a subarray exists between the **earliest index** and the **current index** with a sum that is divisible by 7.
+> 3. **~={purple}Update the Longest Valid Subarray=~**:
+>    - If a remainder has been seen before, update `result` with the length of the subarray.
+>
+> ![[Drawing 2025-02-09 15.17.06.excalidraw | center | 500]]
+> 
+> ~={green}Example Walkthrough=~:
+> ```
+> nums = [3, 5, 1, 6, 2]
+> prefix = [3, 8, 9, 15, 17]
+> mod 7  = [3, 1, 2, 1,  3]   // Modulo 7
+>
+> // 1 appears at index 1 first → when it appears again at index 3, subarray (1,3) is valid
+> // 3 appears at index 0 first → when it appears again at index 4, subarray (0,4) is valid
+> ```
+>
+> ~={green}Code (Using Prefix Sum & Hash Map)=~:
+> ```cpp
+>
+> using namespace std;
+>
+> int main() {
+>     int n;
+>     cin >> n;
+>     vector<long long​> nums(n);
+>     
+>     for (int i{0}; i < n; ++i) {
+>         cin >> nums[i];
+>     }
+>
+>     vector<long long​> prefix(n + 1, 0);
+>     prefix[0] = nums[0];
+>
+>     // (1) Compute Prefix Sum
+>     for (int i{1}; i < n; ++i) {
+>         prefix[i] = prefix[i - 1] + nums[i - 1];
+>     }
+>
+>     // (2) Compute Modulo 7 for Each Prefix Sum
+>     for (int i{0}; i < n; ++i) {
+>         prefix[i] %= 7;
+>     }
+>
+>     unordered_map<int, int> earliestIndex;
+>     int result{0};
+>
+>     // (3) Track First Occurrence & Compute Maximum Subarray Length
+>     for (int i{0}; i < prefix.size(); ++i) {
+>         if (earliestIndex.find(prefix[i]) == earliestIndex.end()) {
+>             earliestIndex[prefix[i]] = i;  // Store first occurrence
+>         } else {
+>             result = max(result, i - earliestIndex[prefix[i]]);
+>         }
+>     }
+>
+>     cout << result;
+> }
+> ```
+>
+> ~={green}Key Points=~:
+> * **~={blue}Time Complexity=~**:
+>   - **$O(n)$** (prefix sum + hash map lookups).
+> * **~={blue}Space Complexity=~**:
+>   - **$O(7) = O(1)$** (since modulo 7 results in at most 7 unique keys in `earliestIndex`).
+> * ~={blue}**Why Modulo Works**=~:
+>   - If `prefix[i] % 7 == prefix[j] % 7`, then `prefix[j] - prefix[i]` is **divisible by 7**, forming a valid subarray. Refer to Alg C++ Number Theory for Proof
+
+> [!Question]- Stack Augmentation and Range Updates
+> 
+> ~={red}Question=~:
+> 
+> - You are given `numStacks` stacks and `numInstructions` range update operations.
+> - Each operation `(start, end)` increments all stacks in the given range `[start, end]`.
+> - After processing all instructions, return the **median** number of items across all stacks.
+> 
+> ~={red}Solution=~:
+> 
+> 1. **~={purple}Augmented Array for Range Updates=~**:
+>     - Instead of iterating over all stacks for each range operation (which is inefficient), use **difference array technique**.
+>     - Increment `augmented[start]` by `1` (starting the increase).
+>     - Decrement `augmented[end + 1]` by `1` (ending the increase).
+> 2. **~={purple}Convert Difference Array to Prefix Sum=~**:
+>     - Compute the **prefix sum** of `augmented[]` to get the final values of each stack.
+> 3. ~={purple}**Find the Median**=~:
+>     - Sort the `prefix[]` array and find the median index `(numStacks - 1) / 2`.
+>     - This gives the median stack height.
+> 
+> ![[Drawing 2025-02-09 18.40.21.excalidraw | center | 500]]
+> 
+> ~={green}C++ Code=~:
+> 
+> ```cpp
+> int main() {
+>     ios::sync_with_stdio(false);
+>     cin.tie(nullptr);
+>     
+>     int numStacks, numInstructions;
+>     cin >> numStacks >> numInstructions;
+>     
+>     vector<int​> augmented(numStacks, 0);
+> 
+>     // (1) Apply Range Updates
+>     for (int i{0}; i < numInstructions; ++i) {
+>         int start, end;
+>         cin >> start >> end;
+> 
+>         augmented[start]++;
+>         end++;
+>         augmented[min(end, numStacks - 1)]--;
+>     }
+> 
+>     // (2) Compute Prefix Sum
+>     vector<int​> prefix(numStacks, 0);
+>     prefix[0] = augmented[0];
+>     for (int i{0}; i < numStacks; ++i) {
+>         prefix[i + 1] = prefix[i] + augmented[i + 1];
+>     }
+> 
+>     // (3) Find Median Stack Height
+>     sort(prefix.begin(), prefix.end());
+>     int median = (numStacks - 1) / 2;
+>     int result = prefix[median];
+> 
+>     cout << result;
+> }
+> ```
 
 #flashcards/dsa/patterns/prefixsums

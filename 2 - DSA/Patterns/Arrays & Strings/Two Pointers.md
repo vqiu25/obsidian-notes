@@ -280,4 +280,64 @@
 > }
 >```
 
+## Unidirectional Traversal
+
+> [!Question]- Shortest Word Distance II
+> <!-- Multiline -->
+> **~={red}Question=~:**
+> - You are given a list of words called `wordsDict`, and you will be given multiple queries of the form (`word1`, `word2`).
+> - Return the shortest distance between `word1` and `word2` in `wordsDict`.
+> - Assume `word1` and `word2` are always present in `wordsDict`.
+> 
+> **~={red}Solution=~:**
+> 1. **~={blue}Precompute Indices:=~** 
+>    - Use an `unordered_map<string, vector<int>>` (`valToIndex`) to store all indices of each word.
+>    - This allows `O(1)` lookup time for any word in subsequent queries.
+> 2. ~={blue}**Two Pointers Approach=~:**
+>    - Use **two pointers** (`left` and `right`) to iterate over the **sorted index lists** of `word1` and `word2`.
+>    - **~={green}Compare & Update Minimum Distance=~:**  
+>      - Compute `abs(indexOne[left] - indexTwo[right])`, updating `minDistance`.
+>    - ~={green}**Move the Smaller Index Pointer=~:**  
+>      - If `indexOne[left] > indexTwo[right]`, increment `right`, else increment `left`.
+> 
+> **~={green}Code=~:**
+> ```cpp
+> class WordDistance {
+> private:
+>     unordered_map<string, vector<int​>> valToIndex;
+> public:
+>     WordDistance(vector<string​>& wordsDict) {
+>         for (int i{0}; i < wordsDict.size(); ++i) {
+>             valToIndex[wordsDict[i]].push_back(i);
+>         }
+>     }
+>     
+>     int shortest(string word1, string word2) {
+>         vector<int​> indexOne = valToIndex[word1];
+>         vector<int​> indexTwo = valToIndex[word2];
+>         int left{0};
+>         int right{0};
+>         int minDistance{INT_MAX};
+>         while (left < indexOne.size() && right < indexTwo.size()) {
+>             minDistance = min(minDistance, abs(indexOne[left] - indexTwo[right]));
+>             if (indexOne[left] > indexTwo[right]) {
+>                 right++;
+>             } else {
+>                 left++;
+>             }
+>         }
+>         return minDistance;
+>     }
+> };
+> ```
+> 
+> ~={green}**Key Points**=~:
+> - ~={red}**Time Complexity=~:**
+>   - **Preprocessing (`WordDistance` constructor)**: `O(n)`, where `n` is the size of `wordsDict`.
+>   - **Query (`shortest` method)**: `O(m + k)`, where `m` and `k` are the number of occurrences of `word1` and `word2`.
+> - ~={red}**Space Complexity=~:** `O(n)`, as we store all word indices.
+> - **~={red}Why Two Pointers?=~**
+>   - Both index lists are **sorted**, allowing for an efficient linear scan (`O(m + k)`) rather than `O(m * k)` brute force.
+>   - We also don't miss anything as we are trying to find the smallest difference between a value in these arrays as we are constantly trying to close the gap (we never increase it)
+
 #flashcards/dsa/patterns/twopointers

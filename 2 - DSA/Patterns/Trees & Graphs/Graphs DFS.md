@@ -76,7 +76,7 @@
 >	* Each DFS will mark all nodes in the same connected component as visited.
 >	* The total number of DFS calls corresponds to the number of connected components.
 >
->* **Steps**:
+>* **~={purple}Steps=~**:
 >	1. Iterate through all nodes in the adjacency list.
 >	2. For each unvisited node, perform a DFS and mark all reachable nodes as visited.
 >	3. Increment a counter for every DFS call, as it identifies a new connected component.
@@ -120,6 +120,10 @@
 >    }
 >}
 >```
+
+> [!Note]- Finding the Number of Connected Components in Directed Graph from Adjacency List
+> <!-- Multiline -->
+> Kosuraju's Algorithm
 
 > [!Note]- Bipartite Graph Check (Multiple Components)
 > 
@@ -165,6 +169,65 @@
 > ```
 > 
 > ~={purple}**Code: Handling Multiple Components**=~
+> 
+> ```cpp
+> vector<int​> colour(n, -1); // Initialise the colour vector with -1 (unvisited)
+> 
+> bool isBipartite = true;
+> for (int i = 0; i < n; ++i) {
+>     if (colour[i] == -1) {
+>         // Perform 2-colouring for each connected component
+>         if (!getColouring(i, adj, colour)) {
+>             isBipartite = false;
+>             break;
+>         }
+>     }
+> }
+> ```
+
+> [!Note]- Cycle Detection: Undirected and Directed
+> 
+> ~={purple}Undirected=~
+> 
+> 1. **~={red}Purpose=~**: To determine if an **entire graph** is bipartite, including all connected components.
+> 2. **~={green}Methodology=~**:
+>     - Use a helper function (`getColouring`) to perform **iterative DFS** and check the bipartiteness of a single component.
+>     - Iterate over all nodes and handle **disconnected components**.
+> 3. **~={green}Approach=~**:
+>     - Maintain a `colour` vector initialized to `-1` to track the colour (or unvisited status) of each node.
+>     - For each unvisited node, invoke the `getColouring` function.
+>     - If any component is not bipartite, the graph is not bipartite.
+> 
+> 
+> ```cpp
+> bool getColouring(int start, vector<vector<int​>>& adj, vector<int​>& colour) {
+>     deque<int​> s;
+>     s.push_back(start);
+>     colour[start] = 0; // Start with colour 0
+> 
+>     while (!s.empty()) {
+>         int node = s.back();
+>         s.pop_back();
+> 
+>         // Iterate through all neighbours
+>         for (int neighbour : adj[node]) {
+>             if (colour[neighbour] == -1) {
+>                 // Assign the opposite colour to the neighbour
+>                 colour[neighbour] = 1 - colour[node];
+>                 s.push_back(neighbour);
+>             } else if (colour[neighbour] == colour[node]) {
+>                 // If the neighbour has the same colour, 
+>                 // the graph is not bipartite
+>                 return false;
+>             }
+>         }
+>     }
+> 
+>     return true; // The component is bipartite
+> }
+> ```
+> 
+> ~={purple}**Directed**=~
 > 
 > ```cpp
 > vector<int​> colour(n, -1); // Initialise the colour vector with -1 (unvisited)
@@ -263,6 +326,111 @@
 >    dfs(graph, startNode, visited);
 >}
 >```
+
+>[!Info]- Graph DFS With Cycle Detection Template (Directed Graph)
+><!-- Multiline -->
+><u>**Explanation**</u>
+>
+>```cpp
+>enum class Colour { WHITE, GREY, BLACK };
+>int dfs(unordered_map<int, vector<int​>>& graph, int startNode) {
+>	// (1) Stack and Colour Vector
+>	deque<int​> stack; // To keep track of nodes to visit
+>	// 0 = Not Visited, 1 = Visited, 2 = Finished
+>	vector<Colour​> colour(graph.size(), Colour::WHITE);
+>	
+>	stack.push_back(startNode); // Add the starting node to the stack
+>	
+>	// (2) DFS Loop
+>	while (!stack.empty()) {
+>		int topNode = stack.back();
+>		if (colour[topNode] == Colour::White) {
+>			colour[topNode] = Colour::GREY;
+>
+>			for (int neighbour : adjList[topNode]) {
+>				if (colour[neighbour] == Colour::White) {
+> 				   stack.push_back(neighbour);
+> 			   } else if (colour[w] == Colour::GREY) {
+> 				   // Neighbour is grey, hence we have visited before
+> 				   return false;
+> 			   }
+> 			   // If w is BLACK, it is already fully explored, 
+> 			   // so ignore it.
+>			}
+>		} else if (colour[topNode] == Colour::GREY) {
+>			stack.pop_back();
+>			// No more neighbours of the topNode left to explore
+>			colour[topNode] = Colour::BLACK;
+>		}
+>	}
+>	return true;
+>}
+>```
+
+> [!Info]- Cycle Detection in a Directed Graph (Iterative DFS)
+> 
+> ~={red}Question=~:
+> 
+> - Given a **directed graph**, determine if it contains a **cycle** using **Iterative DFS**.
+> 
+> ~={red}Solution=~:
+> 
+> 1. **~={purple}Tracking Node States (White, Grey, Black)=~**:
+>     - **WHITE (Unvisited)** → The node has not been visited yet.
+>     - **GREY (In Progress)** → The node is currently being processed (part of an active DFS call).
+>     - **BLACK (Processed)** → The node and all its neighbors have been fully explored.
+> 2. ~={purple}**Iterative DFS with Stack**=~:
+>     - Start from a node, mark it **GREY** and push it onto the stack.
+>     - Explore its neighbors:
+>         - **WHITE** → Push it onto the stack (continue DFS).
+>         - **GREY** → A back edge is found (cycle detected).
+>     - Once a node is fully explored (no more WHITE neighbors), pop it and mark it **BLACK**.
+> 
+> ~={green}**C++ Code**=~:
+> 
+> ```cpp
+> enum Colour { WHITE, GREY, BLACK };
+> 
+> bool hasCycle(int start, vector<vector<int​>>& adjList) {
+>     vector<Colour​> colour(adjList.size(), WHITE);
+>     deque<int​> stack;
+> 
+>     stack.push_back(start);
+>     colour[start] = GREY;
+> 
+>     while (!stack.empty()) {
+>         int topNode = stack.back();
+>         bool pushed = false;
+> 
+>         for (int neighbour : adjList[topNode]) {
+>             if (colour[neighbour] == WHITE) {
+>                 stack.push_back(neighbour);
+>                 colour[neighbour] = GREY;
+>                 pushed = true;
+>                 break;  // Explore only one neighbor at a time
+>             } else if (colour[neighbour] == GREY) {
+>                 return true; // Cycle detected
+>             }
+>         }
+> 
+>         if (!pushed) {
+>             stack.pop_back();
+>             colour[topNode] = BLACK;
+>         }
+>     }
+> 
+>     return false; // No cycle detected
+> }
+> ```
+> 
+> ~={green}**Key Points**=~:
+> 
+> - **Time Complexity**:
+>     - **$O(V + E)$**: Every node and edge is processed once.
+> - **Space Complexity**:
+>     - **$O(V)$**: For color tracking and stack storage.
+> - **Why GREY means a cycle?**
+>     - If we revisit a **GREY** node, it means we encountered a **back edge**, indicating a cycle.
 
 # Example Problems
 
