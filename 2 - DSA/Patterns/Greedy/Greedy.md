@@ -196,4 +196,103 @@
 > - **~={purple}Space Complexity=~**:
 >   - $O(n)$ for the heap.
 
+> [!Question]- Minimum Total Time to Complete Book Reading
+> <!-- Multiline -->
+> **~={red}Question=~**:
+> - Given `numBooks` and an array `times` representing the time required to read each book, determine the minimum total time needed to finish all books when:
+>   - Books can be read in parallel.
+>   - A book cannot be interrupted once started.
+> 
+> **~={red}Solution=~**:
+> 1. **~={purple}Key Insight=~**:  
+>    - If the largest reading time (`maxElement`) exceeds the combined reading time of all other books (`totalSum - maxElement`), it means there will be idle time while waiting for the longest book to finish.  
+>    - In such a case, the total time is `maxElement * 2`.
+>    - Otherwise, all books can be scheduled without gaps, so the total time is simply `totalSum`.
+> 
+> 
+> **~={green}<u>Code</u>=~**:
+> ```cpp
+>
+> using namespace std;
+>
+> int main() {
+>     ios::sync_with_stdio(false);
+>     cin.tie(nullptr);
+>
+>     long long numBooks;
+>     cin >> numBooks;
+>
+>     vector<long long​> times(numBooks);
+>     for (int i{0}; i < numBooks; ++i) cin >> times[i];
+>
+>     long long maxElement = *max_element(times.begin(), times.end());
+>     long long totalSum = accumulate(times.begin(), times.end(), 0LL);
+>
+>     if (maxElement > totalSum - maxElement) cout << maxElement * 2;
+>     else cout << totalSum;
+> }
+> ```
+> 
+> **~={green}Key Points=~**:
+> - **~={purple}Time Complexity=~**:  
+>   - $O(n)$: Single pass for reading input and computing sum and max element.
+> - **~={purple}Space Complexity=~**:  
+>   - $O(1)$: Only a vector for storing times and a few scalar variables are used.
+> 
+> **~={purple}Why the Logic Works=~**:
+> - If the longest task (book) exceeds the total time of the others combined, the minimum total time equals twice the longest reading time (since the rest cannot fully parallelise the longest one).
+> - Otherwise, the reading can be scheduled such that all books finish exactly when the total reading time ends.
+
+> [!Question]- Increasing Triplet Subsequence
+> <!-- Multiline -->
+> **~={red}Question=~**:
+> - Given an integer array `nums`, determine whether there exists a subsequence of three increasing elements (i.e., `nums[i] < nums[j] < nums[k]` with `i < j < k`).
+> - Return `true` if such a triplet exists, otherwise return `false`.
+>
+> **~={green}Solution=~**:
+> 1. **~={purple}Key Idea=~**:
+>    - We want to track two values while iterating:
+>      - `currMin`: The smallest number encountered so far.
+>      - `currSecMin`: The smallest number greater than `currMin` encountered so far.
+>    - If we find a number greater than `currSecMin`, we have identified an increasing triplet.
+>
+> 1. **~={purple}Approach=~**:
+>    - **~={blue}Step 1=~**: Initialize `currMin` and `currSecMin` to `INT_MAX`.
+>    - ~={blue}**Step 2**=~: Iterate through the array:
+>       - Update `currMin` if a smaller element is found.
+>       - Otherwise, if the current element is greater than `currMin`, attempt to update `currSecMin`.
+>       - If the current element is greater than `currSecMin`, return `true`.
+>    - **Step 3**: Return `false` if no valid triplet is found.
+>
+> **~={purple}Code=~**:
+> ```cpp
+> class Solution {
+> public:
+>     bool increasingTriplet(vector<int​>& nums) {
+>         int currMin = INT_MAX;
+>         int currSecMin = INT_MAX;
+>
+>         for (int num : nums) {
+>             if (num <= currMin) {
+>                 currMin = num; // Update smallest value
+>             } else if (num <= currSecMin) {
+>                 currSecMin = num; // Update second smallest value
+>             } else {
+>                 return true; // Found a number greater than currSecMin
+>             }
+>         }
+>         return false;
+>     }
+> };
+> ```
+>
+> ~={green}**Key Points**=~:
+> - ~={purple}**Time Complexity**=~:  
+>   - $O(n)$: Single pass through the array.
+> - ~={purple}**Space Complexity**=~:  
+>   - $O(1)$: Only constant extra space used.
+>
+> ~={purple}**Why the Logic Works**=~:
+> - The algorithm ensures that if a valid increasing triplet exists, we will encounter it by continuously narrowing down the smallest (`currMin`) and second smallest (`currSecMin`) candidates. Once a third number greater than `currSecMin` appears, the condition is satisfied immediately.
+
 #flashcards/dsa/patterns/greedy/greedy

@@ -80,6 +80,13 @@ for (int i{1}; i <= sqrt(20); ++i) {
 }
 ```
 
+## GCD and LCM
+
+**When One is Involved**
+
+* GCD(1, b) = 1
+* LCM(a, b) = b
+
 # Bit Manipulation
 
 ## Binary Numbers

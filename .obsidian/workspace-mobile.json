@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2 - DSA/DSA Overview.md",
+                "file": "5 - Resources/Home.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "DSA Overview"
+              "title": "Home"
             }
           }
         ]
@@ -184,8 +184,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6d54ae65f16014ab",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "2 - DSA/DSA Overview.md",
     "4 - System Design/Concepts/3 - Interview Framework.md",
     "4 - System Design/Concepts/1.1 - Design Requirements & CAP Theorem.md",
     "4 - System Design/Concepts/1 - Building Blocks.md",
@@ -196,7 +197,6 @@
     "4 - System Design/Component Problems/3 - Key Value Store.md",
     "4 - System Design/Component Problems/2 - Consistent Hashing.md",
     "5 - Resources/Home.md",
-    "2 - DSA/DSA Overview.md",
     "5 - Resources/Excalidraw/Drawing 2025-01-11 20.41.56.excalidraw.md",
     "2 - DSA/Patterns/Backtracking/Backtracking.md",
     "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
