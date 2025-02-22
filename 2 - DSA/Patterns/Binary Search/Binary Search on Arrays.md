@@ -127,6 +127,7 @@
 >		// return mid }, then else if (arr[mid] >= target)...
 >		
 >		// (3) Narrow Search Space Based on a Condition
+>		// If descending order array, then adjust to < target
 >		if (arr[mid] >= target) {
 >			right = mid;
 >		} else {
@@ -226,5 +227,69 @@
 >   - Total: $O(m \log m + n \log m)$.
 > - **~={purple}Space Complexity=~**:
 >   - $O(1)$ (in-place sorting and calculations).
+
+> [!Question]- Kth Missing Positive Number
+> <!-- Multiline -->
+> **~={red}Question=~:**
+> - Given a sorted array `arr` of distinct positive integers and an integer `k`, return the kth positive integer that is missing from this array.
+> 
+> **~={red}Solution=~:**
+> 1. ~={blue}**Key Insight=~:**
+>    - The number of missing integers before `arr[i]` can be computed as `arr[i] - (i + 1)`.
+>    - This represents how many positive integers are missing up to the `i`-th position.
+> 
+> 1. ~={blue}**Binary Search Approach=~:**
+>    - **Search Space:** The range of indices from `0` to `arr.size()`.
+>    - **Condition:** Find the **leftmost index** where the missing count is **greater than or equal to** `k`.
+>    - **Process:**
+>      - Compute `mid = left + (right - left) / 2`.
+>      - If `arr[mid] - (mid + 1) >= k`, shrink the right boundary (`right = mid`).
+>      - Otherwise, move the left boundary up (`left = mid + 1`).
+> 
+> 1. ~={blue}**Post-Search Analysis=~:**
+>    - **Case 1:** If `left == arr.size()`, the kth missing number is **beyond the last element**.  
+>      - Return: `arr.back() + (k - (arr.back() - arr.size()))`.
+>    - **Case 2:** The kth missing number occurs **before** `arr[left]`.  
+>      - Return: `left + k`.
+> 
+>  ![[Drawing 2025-02-20 15.18.41.excalidraw | center | 700]]
+> 
+> **~={green}Code=~:**
+> ```cpp
+> class Solution {
+> public:
+>     int findKthPositive(vector<int​>& arr, int k) {
+>         int left{0};
+>         int right = arr.size();
+>
+>         while (left < right) {
+>             int mid = left + (right - left) / 2;
+>             if (arr[mid] - (mid + 1) >= k) {
+>                 right = mid;
+>             } else {
+>                 left = mid + 1;
+>             }
+>         }
+>
+>         if (left == arr.size()) {
+>             return arr.back() + (k - (arr.back() - arr.size()));
+>         } else {
+>             return left + k;
+>         }
+>     }
+> };
+> ```
+> 
+> ~={green}**Key Points=~:**
+> - **Time Complexity:** $O(\log n)$ due to binary search.
+> - **Space Complexity:** $O(1)$ as no extra space is used.
+> - **Why `arr[mid] - (mid + 1)`?**  
+>   - It measures how many numbers are missing before `arr[mid]`. For a perfectly continuous sequence `[1, 2, 3, ...]`, `arr[mid]` should equal `mid + 1`. Any difference indicates missing values.
+> 
+> **Example Walkthrough:**
+> - Input: `arr = [2, 3, 4, 7, 11]`, `k = 5`
+> - Missing numbers sequence: `[1, 5, 6, 8, 9, 10, ...]`
+> - The 5th missing number is `9`.
+
 
 #flashcards/dsa/patterns/binarysearch/array
