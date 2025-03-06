@@ -93,7 +93,10 @@
 
 >[!Note]- While the window is valid...
 > <!-- Multiline -->
-> A question may benefit from having the while condition be, `WINDOW_IS_VALID` instead. This could be helpful when each incremental shrink also represents a valid window scenario that you need to record or process. In that case, we would:
+> * A question may benefit from having the while condition be, `WINDOW_IS_VALID` instead. This could be helpful when each incremental shrink also represents a valid window scenario that you need to record or process. 
+> * If this is the case, and we need to count the number of valid subarrays, we would be inclined to calculate the number of valid subarrays starting from `right` (If a question asks for subarrays that are at least a particular sum). If a subarray at `left` is considered valid, then every subarray that includes values beyond `right` is also valid.
+> 
+> ![[Pasted image 20250225110709.png | center | 250]]
 > ```cpp
 >int fn(arr) {
 >	int left{0};

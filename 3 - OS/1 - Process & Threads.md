@@ -27,7 +27,7 @@
 >````col
 >```col-md
 >**~={purple}Process Control Block PCB=~**
-> Is a data structure maintained by the operating system to store all the information about a particular process. Both PCB and TCB are stored in the kernel space.
+> Is a data structure maintained by the operating system to store all the information about a particular process. Both PCB and TCB are stored in the kernel space, in a data structure called a process list.
 > 
 > ![[Drawing 2025-01-05 12.21.09.excalidraw | center | 150]]
 >```
@@ -86,29 +86,66 @@
 >2. **~={green}Memory Allocation=~**: The child is assigned its own virtual address space.
 >3. **~={green}CPU Register Setup=~**: The kernel sets up the child’s registers (including the program counter) so it can begin execution right after `fork()` returns in the child.
 >4. **~={green}Mark as Runnable=~**: The child’s process state is then set to **~={red}runnable=~** so that it can be scheduled for the CPU to act on.
+>
+>![[Drawing 2025-02-22 20.52.55.excalidraw | center | 450]]
 >``` 
 >```col-md 
 >**~={purple}Exec=~**
 >
 >1. **~={green}Replace=~**: Once it has ran, the old program will run `exec()`, replacing the old code with the code of the new program. The stack and heap are reinitalised to start from the beginning for the new program.
+>
+> ![[Drawing 2025-02-22 21.05.14.excalidraw | center | 700]]
 >``` 
 >```` 
->
 
 > [!note]+ How is a Thread Created in Unix
 > <!-- Multiline -->
+>1. ~={green}Create new TCB=~: Create brand new TCB and store it in kernel space
+>2. ~={green}Thread Register Values=~: Program Counter, Stack Pointer, etc are initialised in TCB
+>3. ~={green}Mark as Runnable=~: Set thread’s state to runnable, making it eligible for scheduling.
 >
-
->[!Note]- Difference between Forking and Creating new Threads?
-> <!-- Multiline -->
+>Additionally, the thread inherits the process’s resources (code, data, heap, and open files). This isn't making a copy, it simply share's the resource.
 
 >[!Note]- What is a Context Switch?
 > <!-- Multiline -->
-
-# Thread Lifecycle
-
+> ![[Drawing 2025-02-22 22.10.40.excalidraw | center | 500]]
+> 
+> **~={purple}Context Switch=~**
+> * **~={green}Definition=~**: A context switch is the process where the CPU saves the current process's state and loads the state of another process or thread, allowing multitasking.
+> * We load the values of the PCB into a VCPU (a data structure), where the virtual CPU is mapped to an actual core
+> * **~={green}Steps=~**:
+> 	1. **~={blue}Save Current State=~**: CPU registers (program counter, stack pointer, general-purpose registers) are saved to the current process's PCB/TCB. (So that if we go back to this program, we can reload this info)
+> 	2. ~={blue}**Update Schedular**=~: The current process's state is updated (e.g., marked as ready or waiting) in the scheduler.
+> 	3. **~={blue}Select New Process=~**: The scheduler picks the next process or thread from the ready queue.
+> 	4. **~={blue}Restore New State=~**: The saved register values from the selected process’s PCB/TCB are loaded into the CPU. This is enough to switch to a different program.
+> 	5. **~={blue}Resume Execution=~**: The CPU continues running from the new process’s instruction pointer.
 
 # Inter-Process Communication
 
+>[!Note]- Common IPC Methods
+> <!-- Multiline -->
+> **~={purple}What is IPC?=~**
+> Processes are independent. If we want 2 processes to communicate with each other, we do this via IPC.
+> 
+> **~={blue}Shared Memory (Fastest)=~**
+> * **~={purple}What it is=~**: A region of memory both processes have access to. Processes directly read/write to the same physical memory. Synchronisation/locks are necessary.
+> * **~={purple}How it works=~**: The PCB's for both processes have access to the same pages
+> * **~={green}Speed=~**: Fastest—minimal overhead since no copying or kernel mediation is required.
+> ![[Drawing 2025-02-22 22.45.29.excalidraw | center | 250]]
+> 
+> **~={blue}Pipes (Second)=~**
+> * **~={purple}What it is=~**: A unidirectional channel for inter-process communication that allows one process to write data and another to read it. There are no boundaries, we are writing bytes, not discrete units. Thus the application must define what parts of the file to read.
+> * **~={purple}How it works=~**: Through `Fork()`, parent and child have access to the same file, so they can communicate via that.
+> * **~={orange}Speed=~**: Fast, though slightly slower than shared memory due to the overhead of copying data into and out of the kernel buffer.
+> 
+>  ![[Drawing 2025-02-22 22.59.08.excalidraw | center | 250]]
+>  
+> **~={blue}Message Queues (Third)=~**
+> * **~={purple}What it is=~**: A kernel-managed mechanism for exchanging discrete messages between processes, where each message is kept as a distinct unit.
+> * **~={purple}How it works=~**: The kernel maintains a message queue in kernel space where processes can post messages using system calls (such as `mq_send()` or `msgsnd()`). Other processes then retrieve these complete messages with corresponding system calls (like `mq_receive()` or `msgrcv()`). The kernel manages the queue—maintaining message boundaries and order (or priority)—so that each message remains a distinct unit that other processes can access when needed.
+> * **~={red}Speed=~**: Moderately fast, but generally slower than pipes and shared memory because of additional overhead from copying messages and managing the message queue.
+> 
+> ![[Drawing 2025-02-22 22.48.23.excalidraw | center | 250]]
+> 
 
 #flashcards/os/processandthreads

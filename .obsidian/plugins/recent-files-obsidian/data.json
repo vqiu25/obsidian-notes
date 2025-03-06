@@ -1,207 +1,208 @@
 {
   "recentFiles": [
     {
-      "basename": "4 - Memory",
-      "path": "3 - OS/4 - Memory.md"
-    },
-    {
-      "basename": "1 - Process & Threads",
-      "path": "3 - OS/1 - Process & Threads.md"
-    },
-    {
-      "basename": "3 - Concurrency",
-      "path": "3 - OS/3 - Concurrency.md"
-    },
-    {
-      "basename": "2 - CPU Scheduling",
-      "path": "3 - OS/2 - CPU Scheduling.md"
-    },
-    {
-      "basename": "1.4 - Networks",
-      "path": "4 - System Design/Concepts/1.4 - Networks.md"
-    },
-    {
-      "basename": "Drawing 2025-02-22 16.27.03.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-22 16.27.03.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-02-22 16.35.20.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-22 16.35.20.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-02-22 16.26.28.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-22 16.26.28.excalidraw.md"
-    },
-    {
-      "basename": "DS C++ Syntax",
-      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
-    },
-    {
-      "basename": "ALG C++ Synatx",
-      "path": "2 - DSA/Algorithms/ALG C++ Synatx.md"
-    },
-    {
-      "basename": "Greedy",
-      "path": "2 - DSA/Patterns/Greedy/Greedy.md"
-    },
-    {
-      "basename": "Binary Search on Solution Spaces",
-      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md"
-    },
-    {
-      "basename": "Binary Search on Arrays",
-      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
-    },
-    {
-      "basename": "Drawing 2025-02-20 15.18.41.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-20 15.18.41.excalidraw.md"
-    },
-    {
-      "basename": "Multidimensional DP",
-      "path": "2 - DSA/Patterns/Dynamic Programming/Multidimensional DP.md"
-    },
-    {
-      "basename": "BT DFS",
-      "path": "2 - DSA/Patterns/Trees & Graphs/BT DFS.md"
-    },
-    {
-      "basename": "Home",
-      "path": "5 - Resources/Home.md"
-    },
-    {
-      "basename": "BST",
-      "path": "2 - DSA/Patterns/Trees & Graphs/BST.md"
-    },
-    {
-      "basename": "BT BFS",
-      "path": "2 - DSA/Patterns/Trees & Graphs/BT BFS.md"
+      "basename": "Prefix Sums",
+      "path": "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md"
     },
     {
       "basename": "Graphs DFS",
       "path": "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md"
     },
     {
-      "basename": "DSA Overview",
-      "path": "2 - DSA/DSA Overview.md"
-    },
-    {
-      "basename": "3 - Key Value Store",
-      "path": "4 - System Design/Component Problems/3 - Key Value Store.md"
-    },
-    {
-      "basename": "1.3 - Databases (SQL & NoSQL)",
-      "path": "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md"
-    },
-    {
-      "basename": "Sliding Windows",
-      "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
+      "basename": "BT DFS",
+      "path": "2 - DSA/Patterns/Trees & Graphs/BT DFS.md"
     },
     {
       "basename": "Graphs BFS",
       "path": "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md"
     },
     {
-      "basename": "Graphs Topological Sort",
-      "path": "2 - DSA/Patterns/Trees & Graphs/Graphs Topological Sort.md"
+      "basename": "DS C++ Syntax",
+      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
     },
     {
-      "basename": "Monotonic",
-      "path": "2 - DSA/Patterns/Stacks and Queues/Monotonic.md"
+      "basename": "Multidimensional DP",
+      "path": "2 - DSA/Patterns/Dynamic Programming/Multidimensional DP.md"
     },
     {
-      "basename": "Minimum Spanning Tree",
-      "path": "2 - DSA/Patterns/Union Find/Minimum Spanning Tree.md"
+      "basename": "1D Dynamic Programming",
+      "path": "2 - DSA/Patterns/Dynamic Programming/1D Dynamic Programming.md"
+    },
+    {
+      "basename": "DSA Overview",
+      "path": "2 - DSA/DSA Overview.md"
+    },
+    {
+      "basename": "Home",
+      "path": "5 - Resources/Home.md"
+    },
+    {
+      "basename": "ALG C++ Synatx",
+      "path": "2 - DSA/Algorithms/ALG C++ Synatx.md"
+    },
+    {
+      "basename": "5 - High Performance Computing",
+      "path": "3 - OS/5 - High Performance Computing.md"
+    },
+    {
+      "basename": "3 - Concurrency",
+      "path": "3 - OS/3 - Concurrency.md"
+    },
+    {
+      "basename": "Drawing 2025-03-01 16.15.13.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-01 16.15.13.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-03-01 07.37.10.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-01 07.37.10.excalidraw.md"
+    },
+    {
+      "basename": "4 - Memory",
+      "path": "3 - OS/4 - Memory.md"
+    },
+    {
+      "basename": "1 - Building Blocks",
+      "path": "4 - System Design/Concepts/1 - Building Blocks.md"
+    },
+    {
+      "basename": "Drawing 2025-03-01 01.17.16.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-01 01.17.16.excalidraw.md"
+    },
+    {
+      "basename": "Sliding Windows",
+      "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
+    },
+    {
+      "basename": "Drawing 2025-03-01 07.52.52.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-01 07.52.52.excalidraw.md"
+    },
+    {
+      "basename": "2 - CPU Scheduling",
+      "path": "3 - OS/2 - CPU Scheduling.md"
+    },
+    {
+      "basename": "Builder 🔨",
+      "path": "1 - Languages/C++/Design Patterns/Creational/Builder 🔨.md"
+    },
+    {
+      "basename": "Factory 🏭",
+      "path": "1 - Languages/C++/Design Patterns/Creational/Factory 🏭.md"
+    },
+    {
+      "basename": "Singleton 🖨️",
+      "path": "1 - Languages/C++/Design Patterns/Creational/Singleton 🖨️.md"
+    },
+    {
+      "basename": "1.3 - Databases (SQL & NoSQL)",
+      "path": "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md"
+    },
+    {
+      "basename": "Binary Search on Arrays",
+      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
+    },
+    {
+      "basename": "Fenwick Trees",
+      "path": "2 - DSA/Patterns/Fenwick Trees/Fenwick Trees.md"
+    },
+    {
+      "basename": "1 - Process & Threads",
+      "path": "3 - OS/1 - Process & Threads.md"
     },
     {
       "basename": "2 - Consistent Hashing",
       "path": "4 - System Design/Component Problems/2 - Consistent Hashing.md"
     },
     {
-      "basename": "1 - Server Side Rate Limiter (Layer 7 HTTP)",
-      "path": "4 - System Design/Component Problems/1 - Server Side Rate Limiter (Layer 7 HTTP).md"
+      "basename": "Drawing 2025-02-26 10.28.49.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-26 10.28.49.excalidraw.md"
     },
     {
-      "basename": "Two Pointers",
-      "path": "2 - DSA/Patterns/Arrays & Strings/Two Pointers.md"
+      "basename": "Drawing 2025-02-25 22.48.48.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-25 22.48.48.excalidraw.md"
     },
     {
-      "basename": "Probability",
-      "path": "2 - DSA/Maths/Probability.md"
+      "basename": "Drawing 2025-02-26 09.29.12.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-26 09.29.12.excalidraw.md"
     },
     {
-      "basename": "Drawing 2025-02-13 08.18.34.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-13 08.18.34.excalidraw.md"
+      "basename": "Drawing 2025-02-25 21.11.59.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-25 21.11.59.excalidraw.md"
     },
     {
-      "basename": "Drawing 2025-02-13 08.23.58.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-13 08.23.58.excalidraw.md"
+      "basename": "3 - Key Value Store",
+      "path": "4 - System Design/Component Problems/3 - Key Value Store.md"
     },
     {
-      "basename": "Drawing 2025-02-13 08.02.38.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-13 08.02.38.excalidraw.md"
+      "basename": "Strategy",
+      "path": "1 - Languages/C++/Design Patterns/Behavioural/Strategy.md"
     },
     {
-      "basename": "Drawing 2025-02-12 17.27.54.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-12 17.27.54.excalidraw.md"
+      "basename": "Observer",
+      "path": "1 - Languages/C++/Design Patterns/Behavioural/Observer.md"
     },
     {
-      "basename": "Hash Table",
-      "path": "2 - DSA/Data Structures/Hash Table/Hash Table.md"
+      "basename": "Facade",
+      "path": "1 - Languages/C++/Design Patterns/Structural/Facade.md"
+    },
+    {
+      "basename": "Decorator",
+      "path": "1 - Languages/C++/Design Patterns/Structural/Decorator.md"
+    },
+    {
+      "basename": "Adapter",
+      "path": "1 - Languages/C++/Design Patterns/Structural/Adapter.md"
+    },
+    {
+      "basename": "Union Find",
+      "path": "2 - DSA/Data Structures/Union Find.md"
+    },
+    {
+      "basename": "Drawing 2025-02-25 16.42.33.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-25 16.42.33.excalidraw.md"
+    },
+    {
+      "basename": "1.4 - Networks",
+      "path": "4 - System Design/Concepts/1.4 - Networks.md"
+    },
+    {
+      "basename": "Stack",
+      "path": "2 - DSA/Data Structures/Stack.md"
+    },
+    {
+      "basename": "Binary Search Tree",
+      "path": "2 - DSA/Data Structures/Binary Search Tree/Binary Search Tree.md"
+    },
+    {
+      "basename": "Map",
+      "path": "2 - DSA/Data Structures/Binary Search Tree/Map.md"
+    },
+    {
+      "basename": "Tries",
+      "path": "2 - DSA/Patterns/Tries/Tries.md"
+    },
+    {
+      "basename": "BT BFS",
+      "path": "2 - DSA/Patterns/Trees & Graphs/BT BFS.md"
     },
     {
       "basename": "Vector",
       "path": "2 - DSA/Data Structures/Vector.md"
     },
     {
-      "basename": "Drawing 2025-02-12 08.04.44.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-12 08.04.44.excalidraw.md"
+      "basename": "BST",
+      "path": "2 - DSA/Patterns/Trees & Graphs/BST.md"
     },
     {
-      "basename": "Drawing 2025-02-11 17.18.10.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-11 17.18.10.excalidraw.md"
+      "basename": "Priority Queue",
+      "path": "2 - DSA/Data Structures/Heap/Priority Queue.md"
     },
     {
-      "basename": "Drawing 2025-02-11 08.17.04.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-11 08.17.04.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-02-11 08.06.19.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-11 08.06.19.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-02-10 08.29.09.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-10 08.29.09.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-02-10 20.42.41.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-10 20.42.41.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-02-10 20.43.21.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-10 20.43.21.excalidraw.md"
-    },
-    {
-      "basename": "Pasted image 20250210203952",
-      "path": "5 - Resources/Attachements/Pasted image 20250210203952.png"
-    },
-    {
-      "basename": "Drawing 2025-02-10 18.56.50.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-10 18.56.50.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-02-10 08.23.58.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-10 08.23.58.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-02-10 08.13.39.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-10 08.13.39.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-02-10 08.05.35.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-10 08.05.35.excalidraw.md"
+      "basename": "Binary Heap",
+      "path": "2 - DSA/Data Structures/Heap/Binary Heap.md"
     }
   ],
   "omittedPaths": [],
   "omittedTags": [],
+  "updateOn": "file-open",
   "omitBookmarks": false
 }
