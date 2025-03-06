@@ -1,6 +1,10 @@
 # Memory Hierarchy
 
+
+
 # Memory Types
+
+
 
 # Virtual Memory
 
@@ -9,6 +13,11 @@ MMU and TLB
 
 Paging vs Segmentation
 
+# Allocating Memory & Smart Pointers
+
+
 # Cache and Memory Locality
 
-TLB
+
+
+#flashcards/os/memory

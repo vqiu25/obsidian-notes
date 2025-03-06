@@ -340,4 +340,8 @@
 >   - Both index lists are **sorted**, allowing for an efficient linear scan (`O(m + k)`) rather than `O(m * k)` brute force.
 >   - We also don't miss anything as we are trying to find the smallest difference between a value in these arrays as we are constantly trying to close the gap (we never increase it)
 
+> [!Question]- Remove Duplicates from Sorted Array II - Slow/Fast Pointers
+> <!-- Multiline -->
+> ![[Drawing 2025-02-24 08.27.19.excalidraw | center | 500]]
+
 #flashcards/dsa/patterns/twopointers

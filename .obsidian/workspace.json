@@ -4,56 +4,41 @@
     "type": "split",
     "children": [
       {
-        "id": "80376847ec3be8c0",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "0dbebeb772e84f2a",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3 - OS/1 - Process & Threads.md",
+                "file": "2 - DSA/Patterns/Dynamic Programming/Multidimensional DP.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "1 - Process & Threads"
+              "title": "Multidimensional DP"
             }
           },
           {
-            "id": "ffee07b183492201",
+            "id": "e2832ad14ac08e08",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3 - OS/3 - Concurrency.md",
+                "file": "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "3 - Concurrency"
-            }
-          },
-          {
-            "id": "1b02a83834dc1e07",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "3 - OS/4 - Memory.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "4 - Memory"
+              "title": "Prefix Sums"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -231,7 +216,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "3 - OS/4 - Memory.md",
+                "file": "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md",
                 "options": {
                   "collapse-filter": false,
                   "search": "",
@@ -254,12 +239,12 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.046634494965862805,
+                  "scale": 0.615458357665233,
                   "close": true
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of 4 - Memory"
+              "title": "Graph of Prefix Sums"
             }
           }
         ]
@@ -279,58 +264,58 @@
       "omnisearch:Omnisearch": false,
       "homepage:Open homepage": false,
       "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1b02a83834dc1e07",
+  "active": "e2832ad14ac08e08",
   "lastOpenFiles": [
-    "3 - OS/1 - Process & Threads.md",
+    "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md",
+    "2 - DSA/Patterns/Trees & Graphs/BT DFS.md",
+    "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md",
+    "2 - DSA/Data Structures/DS C++ Syntax.md",
+    "2 - DSA/Patterns/Dynamic Programming/Multidimensional DP.md",
+    "2 - DSA/Patterns/Dynamic Programming/1D Dynamic Programming.md",
+    "2 - DSA/DSA Overview.md",
+    "Binary Search.md",
+    "5 - Resources/Home.md",
+    "2 - DSA/Algorithms/ALG C++ Synatx.md",
+    "3 - OS/5 - High Performance Computing.md",
     "3 - OS/3 - Concurrency.md",
+    "5 - Resources/Excalidraw/Drawing 2025-03-01 16.15.13.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-03-01 07.37.10.excalidraw.md",
     "3 - OS/4 - Memory.md",
+    "4 - System Design/Concepts/1 - Building Blocks.md",
+    "5 - Resources/Excalidraw/Drawing 2025-03-01 01.17.16.excalidraw.md",
+    "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
+    "5 - Resources/Excalidraw/Drawing 2025-03-01 07.52.52.excalidraw.md",
     "3 - OS/2 - CPU Scheduling.md",
-    "4 - System Design/Concepts/1.4 - Networks.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-22 16.27.03.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-22 16.35.20.excalidraw.md",
+    "1 - Languages/C++/Design Patterns/Creational/Builder 🔨.md",
+    "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md",
+    "1 - Languages/C++/Design Patterns/Creational/Factory 🏭.md",
+    "1 - Languages/C++/Design Patterns/Creational/Singleton 🖨️.md",
+    "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md",
+    "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
+    "5 - Resources/Attachements/Pasted image 20250226094602.png",
+    "5 - Resources/Attachements/Pasted Image 20250226093004_257.png",
+    "5 - Resources/Attachements/Pasted Image 20250226092921_721.png",
+    "5 - Resources/Attachements/Pasted image 20250226081315.png",
+    "1 - Languages/C++/Design Patterns/Behavioural",
+    "1 - Languages/C++/Design Patterns/Structural",
+    "1 - Languages/C++/Design Patterns/Creational",
+    "1 - Languages/C++/Design Patterns",
+    "5 - Resources/Attachements/fenwicktree.gif",
+    "5 - Resources/Attachements/Pasted image 20250225110709.png",
+    "2 - DSA/Patterns/Fenwick Trees",
+    "2 - DSA/Patterns/Tries",
     "5 - Resources/Attachements/Pasted Image 20250222163528_068.png",
     "5 - Resources/Attachements/Pasted image 20250222163455.png",
-    "5 - Resources/Excalidraw/Drawing 2025-02-22 16.26.28.excalidraw.md",
     "5 - Resources/Attachements/Pasted Image 20250222162737_640.png",
     "5 - Resources/Attachements/Pasted Image 20250222162703_008.png",
-    "5 - Resources/Attachements/Pasted Image 20250222162644_728.png",
-    "2 - DSA/Data Structures/DS C++ Syntax.md",
-    "2 - DSA/Algorithms/ALG C++ Synatx.md",
-    "2 - DSA/Patterns/Greedy/Greedy.md",
-    "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
-    "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
-    "5 - Resources/Excalidraw/Drawing 2025-02-20 15.18.41.excalidraw.md",
-    "2 - DSA/Patterns/Dynamic Programming/Multidimensional DP.md",
-    "2 - DSA/Patterns/Trees & Graphs/BT DFS.md",
-    "5 - Resources/Home.md",
-    "2 - DSA/Patterns/Trees & Graphs/BST.md",
-    "2 - DSA/Patterns/Trees & Graphs/BT BFS.md",
-    "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md",
-    "4 - System Design/Component Problems/3 - Key Value Store.md",
-    "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md",
-    "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
-    "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md",
-    "2 - DSA/Patterns/Trees & Graphs/Graphs Topological Sort.md",
-    "2 - DSA/Patterns/Stacks and Queues/Monotonic.md",
-    "5 - Resources/Attachements/Pasted Image 20250211081707_293.png",
-    "5 - Resources/Attachements/Pasted image 20250210203952.png",
-    "5 - Resources/Attachements/Pasted Image 20250210204357_856.png",
-    "5 - Resources/Attachements/Pasted Image 20250210204257_063.png",
-    "5 - Resources/Attachements/Pasted image 20250210203934.png",
     "2 - DSA/Patterns/Other Trees",
     "2 - DSA/Patterns/Union Find",
     "2 - DSA/Patterns/Tries",
     "2 - DSA/Patterns/Modular Artihmetic",
-    "1 - Languages/MERN",
-    "4 - System Design/Complete Problems",
-    "2 - DSA/Patterns/Bit Manipulation",
-    "1 - Languages/Swift",
-    "1 - Languages/HTML & CSS & JS",
-    "3 - OS/CPU Scheduling",
     "Untitled.canvas",
     "2 - DSA/Data Structures/DS Map.canvas"
   ]

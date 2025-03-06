@@ -82,6 +82,8 @@
 
 # Unbounded Knapsack
 
+# General Matrix
+
 # Longest Common Subsequence
 
 > [!Info]- Bottom-Up DP: Longest Common Subsequence

@@ -89,18 +89,19 @@ return a[2] < b[2];
 
 ## Methods
 
-|                Operation                 | Syntax                                                                              | Complexity | Comments |
-| :--------------------------------------: | ----------------------------------------------------------------------------------- | ---------- | -------- |
-|                1D Access                 | `v.at(index) / v[index]`<br><br>`v.front() / v.back()`                              | $O(1)$     |          |
-|                2D Access                 | `v.at(rowIndex).at(colIndex) /`<br><br>`v[rowIndex][colIndex]`                      | $O(1)$     |          |
-|                  Insert                  | `v.insert(v.begin() + index, value)`                                                | $O(n)$     |          |
-|              Insert at End               | `v.push_back(value)`                                                                | $O(1)^A$   |          |
-| Erase an Element or<br>Range of Elements | `v.erase(v.begin() + index)` <br><br>`v.erase(v.begin() + index, v.begin() + index` | <br>$O(n)$ |          |
-|          Remove and Return End           | `v.pop_back()`                                                                      | $O(1)^A$   |          |
-|                   Sort                   | `sort(v.begin(), v.end())`                                                          | $O(nlogn)$ |          |
-|                 Reverse                  | `reverse(v.begin(), v.end())`                                                       | $O(n/2)$   |          |
-|                 Min/Max                  | `*min_element(v.begin(), v.end())`                                                  | $O(n)$     |          |
-|                   Swap                   | `swap(v[i], v[j])`                                                                  | $O(1)$     |          |
+|                Operation                 | Syntax                                                                              | Complexity | Comments     |
+| :--------------------------------------: | ----------------------------------------------------------------------------------- | ---------- | ------------ |
+|                1D Access                 | `v.at(index) / v[index]`<br><br>`v.front() / v.back()`                              | $O(1)$     |              |
+|                2D Access                 | `v.at(rowIndex).at(colIndex) /`<br><br>`v[rowIndex][colIndex]`                      | $O(1)$     |              |
+|                  Insert                  | `v.insert(v.begin() + index, value)`                                                | $O(n)$     |              |
+|              Insert at End               | `v.push_back(value)`                                                                | $O(1)^A$   |              |
+| Erase an Element or<br>Range of Elements | `v.erase(v.begin() + index)` <br><br>`v.erase(v.begin() + index, v.begin() + index` | <br>$O(n)$ |              |
+|          Remove and Return End           | `v.pop_back()`                                                                      | $O(1)^A$   |              |
+|                   Sort                   | `sort(v.begin(), v.end())`                                                          | $O(nlogn)$ |              |
+|                 Reverse                  | `reverse(v.begin(), v.end())`                                                       | $O(n/2)$   |              |
+|                 Min/Max                  | `*min_element(v.begin(), v.end())`                                                  | $O(n)$     |              |
+|                   Swap                   | `swap(v[i], v[j])`                                                                  | $O(1)$     |              |
+|             Check if Sorted              | `is_sorted(v.begin(), v.end())`                                                     | $O(n)$     | Returns bool |
 
 # Strings
 ## Initialisation
@@ -236,6 +237,7 @@ string getHostname(const string& url) {
 | ---------------------- | ------------------- | -------- |
 | Declaration            | `deque<DT> d`       |          |
 | Uniform Initialisation | `deque<DT> q{1, 2}` |          |
+|                        |                     |          |
 
 ## Methods
 

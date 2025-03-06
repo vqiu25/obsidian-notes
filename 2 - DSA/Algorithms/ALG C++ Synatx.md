@@ -87,6 +87,25 @@ for (int i{1}; i <= sqrt(20); ++i) {
 * GCD(1, b) = 1
 * LCM(a, b) = b
 
+## Convert Decimal to Base X
+
+Note that i.e. base 3:
+* Decimal Number 19 = $201_3 = 2 \cdot 3^2 + 0 \cdot 3^1 + 1 \cdot 3^0$
+From this we can infer if more than 1 power of 3 has been used to construct a number.
+
+```cpp
+int n{10};
+
+string ternaryRep{};
+
+while (n > 0) {
+	// Remainder when dividng by 3
+	// Keep adding to the front of the existing string
+	ternaryRep = to_string(n % 3) + ternaryRep;
+	n /= 3;
+}
+```
+
 # Bit Manipulation
 
 ## Binary Numbers
