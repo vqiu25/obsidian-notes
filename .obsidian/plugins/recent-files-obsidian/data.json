@@ -1,12 +1,36 @@
 {
   "recentFiles": [
     {
+      "basename": "Graphs Dijkstra's",
+      "path": "2 - DSA/Patterns/Trees & Graphs/Graphs Dijkstra's.md"
+    },
+    {
+      "basename": "Binary Search on Solution Spaces",
+      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md"
+    },
+    {
+      "basename": "Drawing 2025-03-07 11.49.30.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-07 11.49.30.excalidraw.md"
+    },
+    {
+      "basename": "Home",
+      "path": "5 - Resources/Home.md"
+    },
+    {
+      "basename": "ALG C++ Synatx",
+      "path": "2 - DSA/Algorithms/ALG C++ Synatx.md"
+    },
+    {
+      "basename": "Graphs Topological Sort",
+      "path": "2 - DSA/Patterns/Trees & Graphs/Graphs Topological Sort.md"
+    },
+    {
       "basename": "Prefix Sums",
       "path": "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md"
     },
     {
-      "basename": "Graphs DFS",
-      "path": "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md"
+      "basename": "Minimum Spanning Tree",
+      "path": "2 - DSA/Patterns/Union Find/Minimum Spanning Tree.md"
     },
     {
       "basename": "BT DFS",
@@ -15,6 +39,26 @@
     {
       "basename": "Graphs BFS",
       "path": "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md"
+    },
+    {
+      "basename": "Graphs DFS",
+      "path": "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md"
+    },
+    {
+      "basename": "Drawing 2025-02-09 22.48.55.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-09 22.48.55.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-02-09 22.36.45.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-09 22.36.45.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-02-09 21.36.16.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-02-09 21.36.16.excalidraw.md"
+    },
+    {
+      "basename": "Binary Search on Arrays",
+      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
     },
     {
       "basename": "DS C++ Syntax",
@@ -31,14 +75,6 @@
     {
       "basename": "DSA Overview",
       "path": "2 - DSA/DSA Overview.md"
-    },
-    {
-      "basename": "Home",
-      "path": "5 - Resources/Home.md"
-    },
-    {
-      "basename": "ALG C++ Synatx",
-      "path": "2 - DSA/Algorithms/ALG C++ Synatx.md"
     },
     {
       "basename": "5 - High Performance Computing",
@@ -95,10 +131,6 @@
     {
       "basename": "1.3 - Databases (SQL & NoSQL)",
       "path": "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md"
-    },
-    {
-      "basename": "Binary Search on Arrays",
-      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
     },
     {
       "basename": "Fenwick Trees",
@@ -167,38 +199,6 @@
     {
       "basename": "Stack",
       "path": "2 - DSA/Data Structures/Stack.md"
-    },
-    {
-      "basename": "Binary Search Tree",
-      "path": "2 - DSA/Data Structures/Binary Search Tree/Binary Search Tree.md"
-    },
-    {
-      "basename": "Map",
-      "path": "2 - DSA/Data Structures/Binary Search Tree/Map.md"
-    },
-    {
-      "basename": "Tries",
-      "path": "2 - DSA/Patterns/Tries/Tries.md"
-    },
-    {
-      "basename": "BT BFS",
-      "path": "2 - DSA/Patterns/Trees & Graphs/BT BFS.md"
-    },
-    {
-      "basename": "Vector",
-      "path": "2 - DSA/Data Structures/Vector.md"
-    },
-    {
-      "basename": "BST",
-      "path": "2 - DSA/Patterns/Trees & Graphs/BST.md"
-    },
-    {
-      "basename": "Priority Queue",
-      "path": "2 - DSA/Data Structures/Heap/Priority Queue.md"
-    },
-    {
-      "basename": "Binary Heap",
-      "path": "2 - DSA/Data Structures/Heap/Binary Heap.md"
     }
   ],
   "omittedPaths": [],
