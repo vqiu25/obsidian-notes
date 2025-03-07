@@ -208,8 +208,8 @@ We go through our **~={blue}input array=~** exactly once, thus for a size $n=4$ 
 >```cpp
 >int fn(int n) {
 >	vector<vector<int​>> prefix(n + 1, vector<int​>(n + 1, 0));
->		for (int i{1}; i < forestSize + 1; ++i) {
->			for (int j{1}; j < forestSize + 1; ++j) {
+>		for (int i{1}; i < n + 1; ++i) {
+>			for (int j{1}; j < n + 1; ++j) {
 >				prefix[i][j] = prefix[i - 1][j] + prefix[i][j - 1] 
 >						- prefix[i - 1][j - 1] + forest[i - 1][j - 1];
 >			}
@@ -228,7 +228,7 @@ We go through our **~={blue}input array=~** exactly once, thus for a size $n=4$ 
 >```
 >
 > 
-
+y
 
 # Example Problems
 
@@ -336,6 +336,98 @@ We go through our **~={blue}input array=~** exactly once, thus for a size $n=4$ 
 >	return result;
 >}
 >```
+
+> [!Question]- Maximum Side Length of Square with Sum Constraint (2D Prefix Sum + Maximal Binary Search)
+> <!-- Multiline -->
+> **~={red}Question=~**:
+> - Given a `mat` (2D matrix) and an integer `threshold`, find the **largest side length** of a square such that **the sum of elements inside it does not exceed** `threshold`.
+>
+> ~={green}**Solution Overview**=~:
+> 1. **~={purple}Precompute 2D Prefix Sum=~**:
+>    - Construct a **prefix sum matrix** to allow $O(1)$ sum retrievals for any submatrix.
+> 2. **~={purple}Binary Search on Side Length=~**:
+>    - Use **binary search** to determine the largest valid square size.
+>    - The `isValid()` function checks if a square of a given size **exists** within the threshold.
+>
+> ~={green}**Key Observations**=~:
+> - **~={purple}2D Prefix Sum Query=~**:
+>   - To find the sum of any square from `(x1, y1)` to `(x2, y2)`, use:
+>     ```
+>     sum = prefix[y2][x2] - prefix[y1-1][x2] - prefix[y2][x1-1] + prefix[y1-1][x1-1]
+>     ```
+>   - This allows us to efficiently query sums in **constant time**.
+> - ~={purple}**Binary Search on Side Length**=~:
+>   - Instead of checking **every** square size, use **binary search** to quickly find the **maximum possible** side length.
+>
+> ~={red}**Code Implementation**=~:
+> ```cpp
+> class Solution {
+> public:
+>     int maxSideLength(vector<vector<int​>>& mat, int threshold) {
+>         // (1) Compute 2D Prefix Sum
+>         int rows = mat.size();
+>         int cols = mat[0].size();
+> 
+>         vector<vector<int​>> prefix(rows + 1, vector<int​>(cols + 1, 0));
+> 
+>         for (int i{1}; i < rows + 1; ++i) {
+>             for (int j{1}; j < cols + 1; ++j) {
+>                 prefix[i][j] = prefix[i - 1][j] + prefix[i][j - 1] -
+>                                prefix[i - 1][j - 1] + mat[i - 1][j - 1];
+>             }
+>         }
+> 
+>         // (2) Binary Search on Side Length
+>         int left{1};
+>         int right = min(rows, cols);
+> 
+>         while (left <= right) {
+>             int mid = left + (right - left) / 2;
+> 
+>             if (isValid(mid, threshold, prefix)) {
+>                 left = mid + 1; // Try a larger square
+>             } else {
+>                 right = mid - 1; // Reduce the square size
+>             }
+>         }
+> 
+>         return right;
+>     }
+> 
+>     bool isValid(int mid, int threshold, vector<vector<int​>>& prefix) {
+>         int rows = prefix.size();
+>         int cols = prefix[0].size();
+> 
+>         // 1 Based Indexing in Prefix Sum
+>         for (int i{1}; i <= rows - mid; ++i) {
+>             for (int j{1}; j <= cols - mid; ++j) {
+>                 int x1 = j;
+>                 int y1 = i;
+>                 int x2 = x1 + mid - 1;
+>                 int y2 = y1 + mid - 1;
+> 
+>                 int sum = prefix[y2][x2] - prefix[y1 - 1][x2] - 
+>                           prefix[y2][x1 - 1] + prefix[y1 - 1][x1 - 1];
+> 
+>                 if (sum <= threshold) return true;
+>             }
+>         }
+> 
+>         return false;
+>     }
+> };
+> ```
+>
+> ~={blue}**Complexity Analysis**=~:
+> - ~={green}**Time Complexity**=~:
+>   - **Prefix Sum Construction**: $O(mn)$
+>   - **Binary Search**: $O(\log \min(m, n))$
+>   - **Validation Check per Side Length**: $O(mn)$ (in worst case)
+>   - **Total Complexity**: $O(mn \log \min(m, n))$
+>
+> - ~={green}**Space Complexity**=~:
+>   - $O(mn)$ for storing the 2D prefix sum.
+>
 
 # CP Problems
 

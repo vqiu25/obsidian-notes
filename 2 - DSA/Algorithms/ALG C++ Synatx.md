@@ -106,6 +106,32 @@ while (n > 0) {
 }
 ```
 
+## All Primes Between 0 and Limit
+
+We can use something called the **~={blue}Sieve of Eratosthenes=~**.
+
+![[Agb5mPVOVZ-sieve_of_eratosthenes_animation.gif | center | 350]]
+
+```cpp
+vector<bool> isPrime(limit + 1, true);
+isPrime[0] = false;
+isPrime[1] = false;
+
+for (int i{2}; i * i <= limit; ++i) {
+	if (isPrime[i] == true) {
+		for (int j{i * i}; j <= limit; j += i) {
+			isPrime[j] = false;
+		}
+	}
+}
+
+vector<int> primes;
+
+for (int i{0}; i < isPrime.size(); ++i) {
+	if(isPrime[i] == true) primes.push_back(i);
+}
+```
+
 # Bit Manipulation
 
 ## Binary Numbers
