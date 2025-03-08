@@ -46,14 +46,16 @@
 >         // Optimisation: If we found a shorter distance before, skip this one
 >         if (currDist > distances[node]) continue;
 >         
->         // Iterate over neighbors
->         for (auto& [neighbor, weight] : adj[node]) {
+>         // Iterate over neighbours
+>         for (pair<int, int>& neighbour : adj[node]) {
+> 	        int nextNode = neighbour.first;
+> 	        int weight = neighbour.second;
 >             int newDist = currDist + weight;
 >             
 >             // If a shorter path is found, update and push to heap
->             if (newDist < distances[neighbor]) {
->                 distances[neighbor] = newDist;
->                 minHeap.push({newDist, neighbor});
+>             if (newDist < distances[nextNode]) {
+>                 distances[nextNode] = newDist;
+>                 minHeap.push({newDist, nextNode});
 >             }
 >         }
 >     }
