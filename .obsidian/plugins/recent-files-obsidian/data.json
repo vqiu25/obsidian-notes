@@ -1,20 +1,76 @@
 {
   "recentFiles": [
     {
-      "basename": "Graphs Dijkstra's",
-      "path": "2 - DSA/Patterns/Trees & Graphs/Graphs Dijkstra's.md"
+      "basename": "5 - High Performance Computing",
+      "path": "3 - OS/5 - High Performance Computing.md"
+    },
+    {
+      "basename": "Drawing 2025-03-08 21.53.27.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-08 21.53.27.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-03-08 21.45.00.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-08 21.45.00.excalidraw.md"
+    },
+    {
+      "basename": "Home",
+      "path": "5 - Resources/Home.md"
+    },
+    {
+      "basename": "Drawing 2025-03-08 21.48.49.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-08 21.48.49.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-03-08 21.04.42.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-08 21.04.42.excalidraw.md"
+    },
+    {
+      "basename": "2 - CPU Scheduling",
+      "path": "3 - OS/2 - CPU Scheduling.md"
+    },
+    {
+      "basename": "Graphs DFS",
+      "path": "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md"
+    },
+    {
+      "basename": "Drawing 2025-03-08 21.17.08.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-08 21.17.08.excalidraw.md"
+    },
+    {
+      "basename": "Sliding Windows",
+      "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
     },
     {
       "basename": "Binary Search on Solution Spaces",
       "path": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md"
     },
     {
-      "basename": "Drawing 2025-03-07 11.49.30.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-03-07 11.49.30.excalidraw.md"
+      "basename": "Drawing 2025-01-01 22.43.47.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-01-01 22.43.47.excalidraw.md"
     },
     {
-      "basename": "Home",
-      "path": "5 - Resources/Home.md"
+      "basename": "Graphs BFS",
+      "path": "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md"
+    },
+    {
+      "basename": "3 - Concurrency",
+      "path": "3 - OS/3 - Concurrency.md"
+    },
+    {
+      "basename": "4 - Memory",
+      "path": "3 - OS/4 - Memory.md"
+    },
+    {
+      "basename": "Drawing 2025-03-07 20.30.11.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-07 20.30.11.excalidraw.md"
+    },
+    {
+      "basename": "Graphs Dijkstra's",
+      "path": "2 - DSA/Patterns/Trees & Graphs/Graphs Dijkstra's.md"
+    },
+    {
+      "basename": "Drawing 2025-03-07 11.49.30.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-07 11.49.30.excalidraw.md"
     },
     {
       "basename": "ALG C++ Synatx",
@@ -35,14 +91,6 @@
     {
       "basename": "BT DFS",
       "path": "2 - DSA/Patterns/Trees & Graphs/BT DFS.md"
-    },
-    {
-      "basename": "Graphs BFS",
-      "path": "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md"
-    },
-    {
-      "basename": "Graphs DFS",
-      "path": "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md"
     },
     {
       "basename": "Drawing 2025-02-09 22.48.55.excalidraw",
@@ -77,24 +125,12 @@
       "path": "2 - DSA/DSA Overview.md"
     },
     {
-      "basename": "5 - High Performance Computing",
-      "path": "3 - OS/5 - High Performance Computing.md"
-    },
-    {
-      "basename": "3 - Concurrency",
-      "path": "3 - OS/3 - Concurrency.md"
-    },
-    {
       "basename": "Drawing 2025-03-01 16.15.13.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-01 16.15.13.excalidraw.md"
     },
     {
       "basename": "Drawing 2025-03-01 07.37.10.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-01 07.37.10.excalidraw.md"
-    },
-    {
-      "basename": "4 - Memory",
-      "path": "3 - OS/4 - Memory.md"
     },
     {
       "basename": "1 - Building Blocks",
@@ -105,16 +141,8 @@
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-01 01.17.16.excalidraw.md"
     },
     {
-      "basename": "Sliding Windows",
-      "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
-    },
-    {
       "basename": "Drawing 2025-03-01 07.52.52.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-01 07.52.52.excalidraw.md"
-    },
-    {
-      "basename": "2 - CPU Scheduling",
-      "path": "3 - OS/2 - CPU Scheduling.md"
     },
     {
       "basename": "Builder 🔨",
@@ -171,34 +199,6 @@
     {
       "basename": "Observer",
       "path": "1 - Languages/C++/Design Patterns/Behavioural/Observer.md"
-    },
-    {
-      "basename": "Facade",
-      "path": "1 - Languages/C++/Design Patterns/Structural/Facade.md"
-    },
-    {
-      "basename": "Decorator",
-      "path": "1 - Languages/C++/Design Patterns/Structural/Decorator.md"
-    },
-    {
-      "basename": "Adapter",
-      "path": "1 - Languages/C++/Design Patterns/Structural/Adapter.md"
-    },
-    {
-      "basename": "Union Find",
-      "path": "2 - DSA/Data Structures/Union Find.md"
-    },
-    {
-      "basename": "Drawing 2025-02-25 16.42.33.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-25 16.42.33.excalidraw.md"
-    },
-    {
-      "basename": "1.4 - Networks",
-      "path": "4 - System Design/Concepts/1.4 - Networks.md"
-    },
-    {
-      "basename": "Stack",
-      "path": "2 - DSA/Data Structures/Stack.md"
     }
   ],
   "omittedPaths": [],

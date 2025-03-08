@@ -159,6 +159,77 @@
 >}
 >```
 
+> [!Info]- Multi-Source BFS (Iterative)
+> <!-- Multiline -->
+> **<u>~={purple}Explanation=~</u>**:
+> 
+> Multi-source BFS extends the standard BFS by allowing multiple starting nodes. Instead of a **single source**, we push **all starting points** into the queue initially. This ensures that BFS propagates outward from multiple locations simultaneously. Given a grid of 0's and 1's, what is the shortest distance from 0 to 1's. We will store these values in the original grid.
+>
+> ![[Drawing 2025-03-07 20.30.11.excalidraw | center | 550]]
+> 
+> **~={purple}Steps=~**:
+> 1. ~={green}**Identify All Starting Points**=~:
+>    - Iterate through the grid or input data to collect **all sources**.
+>    - Push these sources into the queue **with an initial step count of 0**.
+> 2. ~={green}**Perform BFS**=~:
+>    - Process all nodes in the queue **level by level**.
+>    - Expand to **valid, unvisited** neighbours, updating their state.
+> 3. ~={green}**Update the Grid / Distance Matrix**=~:
+>    - The BFS modifies an auxiliary grid/matrix to store the **shortest distance** from any source.
+>
+> ~={red}**Key Differences from Standard BFS=~**:
+> - ~={purple}**Standard BFS**=~: Starts from **one** node.
+> - ~={purple}**Multi-Source BFS**=~: Starts from **many** nodes, treating them as a single level in the BFS queue.
+>
+> ~={blue}**C++ Code**=~:
+> * Change all 1's to 0 
+> * Change all 0's to INT_MAX
+> * When expanding from a cell during BFS, `nextStep` represents the number of steps taken from the source to reach the neighbour cell `(nextRow, nextCol)`. The condition: `grid[nextRow][nextCol] > nextStep` ensures that we update the neighbour cell **only if** the new path offers a smaller (or shorter) number of steps than what was previously recorded in `grid[nextRow][nextCol]`.
+> 
+> ```cpp
+> deque<pair<pair<int, int>, int>> queue; // Stores {row, col, steps}
+> 
+> // Push all starting points into queue
+> for (int i{0}; i < rows; ++i) {
+>     for (int j{0}; j < cols; ++j) {
+>         if (grid[i][j] == 1) { // This cell is a source
+>             queue.push_back({{i, j}, 0}); 
+>             grid[i][j] = 0; // Mark as visited with step 0
+>         } else {
+>             grid[i][j] = INT_MAX; // Mark all other cells as "unvisited"
+>         }
+>     }
+> }
+> 
+> // BFS traversal
+> while (!queue.empty()) {
+>     auto [pos, currSteps] = queue.front();
+>     queue.pop_front();
+>     int currRow = pos.first, currCol = pos.second;
+>     
+>     for (auto& dir : directions) {
+>         int nextRow = currRow + dir[0];
+>         int nextCol = currCol + dir[1];
+>         int nextStep = currSteps + 1; // Explicit step tracking
+>         
+>         if (nextRow >= 0 && nextCol >= 0 && 
+>             nextRow < rows && nextCol < cols &&
+>             grid[nextRow][nextCol] > nextStep) { 
+>             // Only update if we found a shorter path
+>             grid[nextRow][nextCol] = nextStep;
+>             queue.push_back({{nextRow, nextCol}, nextStep});
+>         }
+>     }
+> }
+> ```
+>
+> ~={blue}**Key Points**=~:
+> - ~={green}**Time Complexity**=~: $O(n \times m)$ (Each cell is processed once).
+> - ~={green}**Space Complexity**=~: $O(n \times m)$ (For the queue in the worst case).
+> - ~={green}**Use Cases**=~:
+>   - Finding the shortest distance **from multiple sources** (e.g., shortest distance to land from all water cells).
+>   - Propagation problems (e.g., spreading fire, infection, or signal in a grid).
+
 # Example Problems
 
 > [!Question]- Shortest Path in Binary Matrix
@@ -707,3 +778,4 @@
 >
 
 #flashcards/dsa/patterns/graphdfs
+
