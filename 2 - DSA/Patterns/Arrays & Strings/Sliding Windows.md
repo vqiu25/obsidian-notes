@@ -376,6 +376,75 @@
 >}
 >```
 
+>[!Question]- Count of Substrings Containing Every Vowel and K Consonants
+> <!-- Multiline -->
+> **~={red}Question=~**:
+> * You are given a string `word` and an integer `k`.
+> * Return the total number of substrings that contain:
+>   * **All vowels** (`a, e, i, o, u`) at least once.
+>   * **Exactly `k` consonants**.
+>
+> **~={green}Solution=~**:
+> 1. ~={purple}**Sliding Window Strategy**=~:
+>    - Instead of counting substrings directly, count:
+>      * Substrings with **at least `k` consonants**. `(k, k + 1, k + 2, ...)`
+>      * Substrings with **at least `k+1` consonants**. `(k + 1, k + 2, ...)`
+>    - Subtract these two to obtain substrings with **exactly `k` consonants**. When you subtract the stuff in between the brackets, you're left with substrings of length `k`
+>
+> 1. ~={purple}**Sliding Window Helper Function**=~:
+>    - **Expanding Window**:
+>      * Move `right` pointer and update:
+>        * `letterToCount` → Tracks occurrences of vowels.
+>        * `nonVowelCount` → Tracks consonants.
+>    - **Shrinking Window**:
+>      * If window contains **all vowels** and **at least `k` consonants**, count valid substrings.
+>      * Adjust `left` pointer accordingly.
+>
+> **~={blue}Code=~**:
+> ```cpp
+> class Solution {
+> public:
+>     long long countOfSubstrings(string word, int k) {
+>         return slidingWindowHelper(word, k) - slidingWindowHelper(word, k + 1);
+>     }
+>
+>     long long slidingWindowHelper(string word, int k) {
+>         unordered_map<char, int> letterToCount;
+>         unordered_set<char​> vowels = {'a', 'e', 'i', 'o', 'u'};
+>         int nonVowelCount{0};
+>         long long result{0};
+>         int left{0};
+>
+>         for (int right{0}; right < word.size(); ++right) {
+>             if (vowels.find(word[right]) != vowels.end()) {
+>                 letterToCount[word[right]]++;
+>             } else {
+>                 nonVowelCount++;
+>             }
+>
+>             while (letterToCount.size() == 5 && nonVowelCount >= k) {
+>                 result += word.size() - right;
+>                 if (vowels.find(word[left]) != vowels.end()) {
+>                     letterToCount[word[left]]--;
+>                     if (letterToCount[word[left]] == 0) letterToCount.erase(word[left]);
+>                 } else {
+>                     nonVowelCount--;
+>                 }
+>                 ++left;
+>             }
+>         }
+>         return result;
+>     }
+> };
+> ```
+>
+> ~={blue}**Key Points**=~:
+> - ~={green}**Time Complexity**=~:
+>   - **Sliding Window**: $O(n)$
+>   - **Two Calls to Helper**: $O(n)$ each → **Total: $O(n)$**
+> - ~={green}**Space Complexity**=~: $O(1)$ (only tracking vowel occurrences and consonant count).
+> - **~={green}Trick=~**: Using **subtraction of two counts** to get substrings with **exactly `k` consonants**.
+
 ## Fixed Window
 
 > [!Question]- Maximum Average Subarray

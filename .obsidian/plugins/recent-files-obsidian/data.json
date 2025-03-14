@@ -1,20 +1,84 @@
 {
   "recentFiles": [
     {
+      "basename": "CSS Summary",
+      "path": "1 - Languages/HTML & CSS & JS/CSS Summary.md"
+    },
+    {
+      "basename": "HTML Summary",
+      "path": "1 - Languages/HTML & CSS & JS/HTML Summary.md"
+    },
+    {
+      "basename": "Binary Search on Solution Spaces",
+      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md"
+    },
+    {
+      "basename": "Static vs Dynamic Allocation",
+      "path": "1 - Languages/C++/Static vs Dynamic Allocation.md"
+    },
+    {
+      "basename": "JS Summary",
+      "path": "1 - Languages/HTML & CSS & JS/JS Summary.md"
+    },
+    {
+      "basename": "Binary Search on Arrays",
+      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
+    },
+    {
+      "basename": "3 - Concurrency",
+      "path": "3 - OS/3 - Concurrency.md"
+    },
+    {
+      "basename": "DS C++ Syntax",
+      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
+    },
+    {
+      "basename": "ALG C++ Synatx",
+      "path": "2 - DSA/Algorithms/ALG C++ Synatx.md"
+    },
+    {
       "basename": "5 - High Performance Computing",
       "path": "3 - OS/5 - High Performance Computing.md"
     },
     {
-      "basename": "Drawing 2025-03-08 21.53.27.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-03-08 21.53.27.excalidraw.md"
+      "basename": "Home",
+      "path": "5 - Resources/Home.md"
+    },
+    {
+      "basename": "Combinatorics",
+      "path": "2 - DSA/Maths/Combinatorics.md"
+    },
+    {
+      "basename": "DSA Overview",
+      "path": "2 - DSA/DSA Overview.md"
+    },
+    {
+      "basename": "Sliding Windows",
+      "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
+    },
+    {
+      "basename": "2 - CPU Scheduling",
+      "path": "3 - OS/2 - CPU Scheduling.md"
+    },
+    {
+      "basename": "Drawing 2025-03-09 07.59.45.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-09 07.59.45.excalidraw.md"
+    },
+    {
+      "basename": "1 - Process & Threads",
+      "path": "3 - OS/1 - Process & Threads.md"
     },
     {
       "basename": "Drawing 2025-03-08 21.45.00.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-08 21.45.00.excalidraw.md"
     },
     {
-      "basename": "Home",
-      "path": "5 - Resources/Home.md"
+      "basename": "Drawing 2025-03-09 07.26.59.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-09 07.26.59.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-03-08 21.53.27.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-08 21.53.27.excalidraw.md"
     },
     {
       "basename": "Drawing 2025-03-08 21.48.49.excalidraw",
@@ -25,10 +89,6 @@
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-08 21.04.42.excalidraw.md"
     },
     {
-      "basename": "2 - CPU Scheduling",
-      "path": "3 - OS/2 - CPU Scheduling.md"
-    },
-    {
       "basename": "Graphs DFS",
       "path": "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md"
     },
@@ -37,24 +97,12 @@
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-08 21.17.08.excalidraw.md"
     },
     {
-      "basename": "Sliding Windows",
-      "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
-    },
-    {
-      "basename": "Binary Search on Solution Spaces",
-      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md"
-    },
-    {
       "basename": "Drawing 2025-01-01 22.43.47.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-01-01 22.43.47.excalidraw.md"
     },
     {
       "basename": "Graphs BFS",
       "path": "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md"
-    },
-    {
-      "basename": "3 - Concurrency",
-      "path": "3 - OS/3 - Concurrency.md"
     },
     {
       "basename": "4 - Memory",
@@ -71,10 +119,6 @@
     {
       "basename": "Drawing 2025-03-07 11.49.30.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-07 11.49.30.excalidraw.md"
-    },
-    {
-      "basename": "ALG C++ Synatx",
-      "path": "2 - DSA/Algorithms/ALG C++ Synatx.md"
     },
     {
       "basename": "Graphs Topological Sort",
@@ -105,24 +149,12 @@
       "path": "5 - Resources/Excalidraw/Drawing 2025-02-09 21.36.16.excalidraw.md"
     },
     {
-      "basename": "Binary Search on Arrays",
-      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
-    },
-    {
-      "basename": "DS C++ Syntax",
-      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
-    },
-    {
       "basename": "Multidimensional DP",
       "path": "2 - DSA/Patterns/Dynamic Programming/Multidimensional DP.md"
     },
     {
       "basename": "1D Dynamic Programming",
       "path": "2 - DSA/Patterns/Dynamic Programming/1D Dynamic Programming.md"
-    },
-    {
-      "basename": "DSA Overview",
-      "path": "2 - DSA/DSA Overview.md"
     },
     {
       "basename": "Drawing 2025-03-01 16.15.13.excalidraw",
@@ -165,40 +197,8 @@
       "path": "2 - DSA/Patterns/Fenwick Trees/Fenwick Trees.md"
     },
     {
-      "basename": "1 - Process & Threads",
-      "path": "3 - OS/1 - Process & Threads.md"
-    },
-    {
       "basename": "2 - Consistent Hashing",
       "path": "4 - System Design/Component Problems/2 - Consistent Hashing.md"
-    },
-    {
-      "basename": "Drawing 2025-02-26 10.28.49.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-26 10.28.49.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-02-25 22.48.48.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-25 22.48.48.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-02-26 09.29.12.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-26 09.29.12.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-02-25 21.11.59.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-02-25 21.11.59.excalidraw.md"
-    },
-    {
-      "basename": "3 - Key Value Store",
-      "path": "4 - System Design/Component Problems/3 - Key Value Store.md"
-    },
-    {
-      "basename": "Strategy",
-      "path": "1 - Languages/C++/Design Patterns/Behavioural/Strategy.md"
-    },
-    {
-      "basename": "Observer",
-      "path": "1 - Languages/C++/Design Patterns/Behavioural/Observer.md"
     }
   ],
   "omittedPaths": [],

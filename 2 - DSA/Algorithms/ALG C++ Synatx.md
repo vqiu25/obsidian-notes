@@ -132,6 +132,10 @@ for (int i{0}; i < isPrime.size(); ++i) {
 }
 ```
 
+## 2 Numbers that sum up to X, where X is divisible by 60
+
+If we have numbers `a` and `b`. Should `a % 60 + b % 60 == 60` then `a + b` is divisible by 60, as their remainders sum to 60, bridging the required gap
+
 # Bit Manipulation
 
 ## Binary Numbers
