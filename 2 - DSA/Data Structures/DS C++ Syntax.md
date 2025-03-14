@@ -59,8 +59,8 @@ int main() {
 // If connections was vector<vector<int>> type
 // Sort in desending order depending on index 2 values
 
-sort(connections.begin(), connections.end(), [](auto &a, auto &b) {
-
+sort(connections.begin(), connections.end(), [&](auto &a, auto &b) {
+// Index 2 smaller value goes first
 return a[2] < b[2];
 
 });

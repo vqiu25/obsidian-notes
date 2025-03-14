@@ -53,7 +53,7 @@
 >      - **~={green}If true=~**: Narrow the search to smaller values, setting `right = mid - 1`.
 >      - **~={red}If false=~**: Narrow the search to larger values, setting `left = mid + 1`.
 > 4. **~={purple}Return Value=~**:
->    - The final value of `left` is the smallest value that satisfies the condition defined in `check(mid)`.
+>    - The final value of `left` is the smallest value that satisfies the condition defined in `check(mid)`. If nothing isValid, then it will return `right + 1`.
 >
 >**<u>C++ Code</u>**
 > ```cpp

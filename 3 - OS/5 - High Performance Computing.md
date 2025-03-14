@@ -107,7 +107,7 @@
 >[!Note]- Types of Parallelism
 > <!-- Multiline -->
 > * **~={green}Task Parallelism=~** → Different tasks running at the same time (multiple threads running, all doing different tasks (i.e. different programs running))
-> * ~={green}**Data Parallelism**=~ → The same task is applied to multiple data elements ( (multiple threads all doing the same task (i.e. each thread blurring pixels on an image))
+> * ~={green}**Data Parallelism (SIMD/SPMD)**=~ → The same task is applied to multiple data elements ( (multiple threads all doing the same task (i.e. each thread blurring pixels on an image))
 
 >[!Note]- SIMD Architecture
 > <!-- Multiline -->
@@ -135,12 +135,12 @@
 
 >[!Note]- Memory Locations (Where is the memory located)
 > <!-- Multiline -->
-> * **~={green}Centralised Memory=~**: All cores share the same memory/RAM (memory on 1 system)
-> * **~={green}Distributed Memory=~**: Each processor has it's own private memory (memory on multiple systems)
+> * **~={green}Centralised Memory=~**: All cores share the same memory/RAM (memory on 1 system). 
+> * **~={green}Distributed Memory=~**: Each processor has it's own memory (memory on multiple systems). Or, if you have a system with i.e. 4 processors, where each processor has DIMM slots to add ram, then the memory is distributed across the motherboard.
 
 >[!Note]- Memory Access Paradigms (Which processor are allowed to access which memory)
 > <!-- Multiline -->
-> * **~={green}Shared Memory=~**: Multiple processors **access the same memory/can access all memory**.
+> * **~={green}Shared Memory=~**: Multiple processors **access the same memory/can access all memory**. This is achieved via threads and communication through shared variables
 > * **~={green}Message Passing=~**: Processors **do not share memory**; instead, they **communicate via messages** (network calls, RPC).
 
 ### System Categories
@@ -159,19 +159,111 @@
 
 >[!Note]- Distributed Memory, Message Passing
 > <!-- Multiline -->
-> If a processor wants to access another a processor's memory, it needs to involve the other processor
+> * If a processor wants to access another a processor's memory, it needs to involve the other processor
+> * In distributed memory systems, a processor sends a message to request data, and the processor owning that data responds with it.
 > 
 > ![[Drawing 2025-03-08 21.53.27.excalidraw | center | 350]]
 
+### Typical Large Parallel Systems
 
-# Performance of Parallel Systems
+>[!Note]- Bottom Up Organisation of Large Parallel System
+> <!-- Multiline -->
+> **~={purple}Bottom Up Organisation=~**
+> ![[Drawing 2025-03-09 07.26.59.excalidraw | center | 700]]
 
+## Shared Memory Multiprocessors
+
+>[!Note]- Shared Address Space: Transparent vs Explicit
+> <!-- Multiline -->
+> * **~={green}Transparent=~**: Memory is accessed normally using standard load/store operations.
+> 	* **~={red}Example=~**: `x = 10` } The memory address of `x` is assigned the value `10`. The location of `x` in memory **does not matter** because all processors see the same shared address space.
+> * **~={green}Explicit=~**: Writing into memory of other processor is a explicit instruction. Hence if we want to access memory of another processor, this has to be done explicitly through `mmap()` in C++.
+
+>[!Note]- UMA vs NUMA
+> <!-- Multiline -->
+> Access times to memory locations can vary:
+> 
+> **~={purple}Uniform Memory Access UMA=~**
+> * **All processors access memory at the same speed**, regardless of the memory location.
+> * Uses a **single, centralised memory pool** shared among all processors.
+> 
+> **~={purple}Non-Uniform Memory Access NUMA=~**
+> * Memory access time depends on the processor-memory location pair.
+> * Memory is **physically distributed** across multiple processors.
+> * Each processor has **fast access to its local memory**, but **slower access to remote memory** from another processor.
+> 
+> ![[Drawing 2025-03-09 07.59.45.excalidraw | center | 700]]
+
+>[!Note]- What is Thread Pinning?
+> <!-- Multiline -->
+> **~={green}Definition=~**: is the technique of binding a thread to a specific CPU core so that it always runs on the same processor.
+> 
+> **~={red}Without Thread Pinning=~**
+> * The operating system (OS) freely moves threads between available CPU cores* when performing CPU scheduling & context switches
+> * This movement can cause NUMA performance issues because a thread might get moved to a core far from its original memory allocation. Thus, it may **lose access to its cached data**, leading to **~={red}higher memory latency=~** and more ~={red}cache misses=~.
+> 
+> **~={green}With Thread Pinning=~**
+> * A thread is locked (pinned) to a specific core, ensuring it always runs on the same processor.
+> 
 
 # Parallelisation Process
 
-## Decomposition
+## Parallelisation Challenges & Processes
+
+>[!Note]- Sequential vs Parallel Programming
+> <!-- Multiline -->
+> ![[Pasted image 20250312102116.png | center | 500]]
+
+>[!Note]- Parallelisation Process
+> <!-- Multiline -->
+> 1. **~={purple}Task Decomposition=~**: Break the problem into independent subtasks.
+> 2. **~={purple}Dependence Analysis=~**: Identify data dependencies and execution constraints. 
+> 3. **~={purple}Scheduling=~**: Assign tasks to processors efficiently.
+> 
+
+## Task Decomposition
+
+>[!Note]- Metrics for Parallelisation: Concurrency and Granularity 
+> <!-- Multiline -->
+> 1. **~={green}Degree of Concurrency=~**: The number of sub-tasks that can be executed simultaneously (Maximum Degree)
+> 2. **~={green}Granularity=~**: Relation of number of tasks to their sizes
+> 	* **~={red}Coarse Grain=~**: Few large tasks
+> 	* ~={red}**Fine Grain**=~: Many small tasks
+
+### Decomposition Techniques
+
+>[!Note]- Data Decomposition
+> <!-- Multiline -->
+> 
+
+>[!Note]- Recursive Decomposition
+> <!-- Multiline -->
+> 
+
+>[!Note]- Exploratory Decomposition
+> <!-- Multiline -->
+> 
+
+### Performance
+
+>[!Note]- Communication Costs
+> <!-- Multiline -->
+> Message Passing vs Shared Memory
+
+### Practical Parallelisation Approach
+
+
 
 ## Dependence Analysis
+
+### Data Dependence
+
+### Dependence in Loops
+
+### Loop Transformations
+
+### Control Dependence
+
 
 ## Scheduling
 
