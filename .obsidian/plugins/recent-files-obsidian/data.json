@@ -1,32 +1,36 @@
 {
   "recentFiles": [
     {
-      "basename": "CSS Summary",
-      "path": "1 - Languages/HTML & CSS & JS/CSS Summary.md"
+      "basename": "JS & TS Summary",
+      "path": "1 - Languages/HTML & CSS & JS/JS & TS Summary.md"
     },
     {
-      "basename": "HTML Summary",
-      "path": "1 - Languages/HTML & CSS & JS/HTML Summary.md"
+      "basename": "CSS Summary",
+      "path": "1 - Languages/HTML & CSS & JS/CSS Summary.md"
     },
     {
       "basename": "Binary Search on Solution Spaces",
       "path": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md"
     },
     {
-      "basename": "Static vs Dynamic Allocation",
-      "path": "1 - Languages/C++/Static vs Dynamic Allocation.md"
-    },
-    {
-      "basename": "JS Summary",
-      "path": "1 - Languages/HTML & CSS & JS/JS Summary.md"
-    },
-    {
-      "basename": "Binary Search on Arrays",
-      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
+      "basename": "HTML Summary",
+      "path": "1 - Languages/HTML & CSS & JS/HTML Summary.md"
     },
     {
       "basename": "3 - Concurrency",
       "path": "3 - OS/3 - Concurrency.md"
+    },
+    {
+      "basename": "Boost",
+      "path": "1 - Languages/C++/Boost.md"
+    },
+    {
+      "basename": "Static vs Dynamic Allocation",
+      "path": "1 - Languages/C++/Static vs Dynamic Allocation.md"
+    },
+    {
+      "basename": "Binary Search on Arrays",
+      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
     },
     {
       "basename": "DS C++ Syntax",
@@ -195,10 +199,6 @@
     {
       "basename": "Fenwick Trees",
       "path": "2 - DSA/Patterns/Fenwick Trees/Fenwick Trees.md"
-    },
-    {
-      "basename": "2 - Consistent Hashing",
-      "path": "4 - System Design/Component Problems/2 - Consistent Hashing.md"
     }
   ],
   "omittedPaths": [],
