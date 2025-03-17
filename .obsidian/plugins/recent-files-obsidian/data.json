@@ -1,24 +1,52 @@
 {
   "recentFiles": [
     {
-      "basename": "JS & TS Summary",
-      "path": "1 - Languages/HTML & CSS & JS/JS & TS Summary.md"
-    },
-    {
-      "basename": "CSS Summary",
-      "path": "1 - Languages/HTML & CSS & JS/CSS Summary.md"
+      "basename": "JS Summary",
+      "path": "1 - Languages/HTML & CSS & JS/JS Summary.md"
     },
     {
       "basename": "Binary Search on Solution Spaces",
       "path": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md"
     },
     {
+      "basename": "1.3 - Databases (SQL & NoSQL)",
+      "path": "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md"
+    },
+    {
+      "basename": "Drawing 2025-03-16 22.54.31.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-03-16 22.54.31.excalidraw.md"
+    },
+    {
+      "basename": "Home",
+      "path": "5 - Resources/Home.md"
+    },
+    {
       "basename": "HTML Summary",
       "path": "1 - Languages/HTML & CSS & JS/HTML Summary.md"
     },
     {
+      "basename": "DS C++ Syntax",
+      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
+    },
+    {
+      "basename": "1 - Building Blocks",
+      "path": "4 - System Design/Concepts/1 - Building Blocks.md"
+    },
+    {
+      "basename": "Binary Search on Arrays",
+      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
+    },
+    {
+      "basename": "2 - CPU Scheduling",
+      "path": "3 - OS/2 - CPU Scheduling.md"
+    },
+    {
       "basename": "3 - Concurrency",
       "path": "3 - OS/3 - Concurrency.md"
+    },
+    {
+      "basename": "CSS Summary",
+      "path": "1 - Languages/HTML & CSS & JS/CSS Summary.md"
     },
     {
       "basename": "Boost",
@@ -29,24 +57,12 @@
       "path": "1 - Languages/C++/Static vs Dynamic Allocation.md"
     },
     {
-      "basename": "Binary Search on Arrays",
-      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
-    },
-    {
-      "basename": "DS C++ Syntax",
-      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
-    },
-    {
       "basename": "ALG C++ Synatx",
       "path": "2 - DSA/Algorithms/ALG C++ Synatx.md"
     },
     {
       "basename": "5 - High Performance Computing",
       "path": "3 - OS/5 - High Performance Computing.md"
-    },
-    {
-      "basename": "Home",
-      "path": "5 - Resources/Home.md"
     },
     {
       "basename": "Combinatorics",
@@ -59,10 +75,6 @@
     {
       "basename": "Sliding Windows",
       "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
-    },
-    {
-      "basename": "2 - CPU Scheduling",
-      "path": "3 - OS/2 - CPU Scheduling.md"
     },
     {
       "basename": "Drawing 2025-03-09 07.59.45.excalidraw",
@@ -169,10 +181,6 @@
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-01 07.37.10.excalidraw.md"
     },
     {
-      "basename": "1 - Building Blocks",
-      "path": "4 - System Design/Concepts/1 - Building Blocks.md"
-    },
-    {
       "basename": "Drawing 2025-03-01 01.17.16.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-01 01.17.16.excalidraw.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "Singleton 🖨️",
       "path": "1 - Languages/C++/Design Patterns/Creational/Singleton 🖨️.md"
-    },
-    {
-      "basename": "1.3 - Databases (SQL & NoSQL)",
-      "path": "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md"
-    },
-    {
-      "basename": "Fenwick Trees",
-      "path": "2 - DSA/Patterns/Fenwick Trees/Fenwick Trees.md"
     }
   ],
   "omittedPaths": [],
