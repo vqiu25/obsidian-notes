@@ -284,4 +284,28 @@
 
 ## Heterogenous System Programming
 
+
+# Multithreading Thread Safety
+
+> [!QUOTE] Quick Notes
+> Task Parallelism and Shared Memory Architecture
+
+>[!Note]- Bottom Up of Hardware, Processors, Threads and Tasks
+> <!-- Multiline -->
+> ![[Drawing 2025-03-31 12.38.42.excalidraw | center | 700]] 
+
+>[!Note]- Equal Allocation Task Allocation
+> <!-- Multiline -->
+> ![[Drawing 2025-03-31 13.01.15.excalidraw | center | 500]]
+
+# Concurrent Collections
+
+
+# Tasking
+
+
+# Executor Fork Join
+
+
+
 #flashcards/os/highperformancecomputing

@@ -175,7 +175,16 @@ If we have numbers `a` and `b`. Should `a % 60 + b % 60 == 60` then `a + b` is d
 (Note: In C++, `~A = -A - 1` due to two’s complement representation.)
 
 ---
+## XOR and OR
 
+1. If we have: `0101001`
+2. We `OR` it with: `1010000`
+3. We would get: `1111001`
+
+Now we can undo the effect of the 1's added by `OR` by `XOR`'ing it with the same number we `OR`'d with:
+1. `1111001` XOR `1010000` = `0101001`. Which is what we had originally.
+
+---
 ### Left and Right Shift Examples
 
 | A (Decimal) | A (Binary) | A << 1 (Left Shift) | A >> 1 (Right Shift) |
