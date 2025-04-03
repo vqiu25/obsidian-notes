@@ -413,6 +413,18 @@ console.log(counter()); // Outputs 7 (increments from 6)
 * A concise way to write function expressions good for simple functions that you use only once 
 * **~={red}Template Example=~**: (parameters) => some code
 
+| ~={purple}Syntax=~          | ~={purple}Syntax=~                    |
+| ------------------- | ------------------------------ |
+| x => x + 1          | Single parameter, no () needed |
+| (x, y) => x + y     | Multiple params need ()        |
+| () => doSomething() | No params, need ()             |
+
+| ~={purple}**Syntax**=~         | **What it does**                                                 |
+| ------------------------------ | ---------------------------------------------------------------- |
+| onClick={someFunction}         | Passes the function itself — it will run **only when clicked** ✅ |
+| onClick={someFunction()}       | Runs the function **immediately when rendering** ❌               |
+| onClick={() => someFunction()} | Delays execution — it runs **only when clicked** ✅               |
+
 ```js
 const hello = function() {
 	console.log("Hello");
@@ -963,20 +975,229 @@ console.log(items[1].textContent); // "Item 2"
 
 The process of navigating through the structure of an HTML document using JavaScript.
 
+```html
+<ul id="list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+```
 
+### 1️⃣ firstElementChild
+
+✅ Selects the first child element.
+
+```js
+const list = document.getElementById("list");
+console.log(list.firstElementChild.textContent); // "Item 1"
+```
+
+### 2️⃣ lastElementChild
+
+✅ Selects the last child element.
+
+```js
+const list = document.getElementById("list");
+console.log(list.lastElementChild.textContent); // "Item 2"
+```
+
+### 3️⃣ nextElementSibling
+
+✅ Selects the next sibling element.
+
+```html
+<p id="para1">First</p>
+<p id="para2">Second</p>
+```
+
+```js
+const para1 = document.getElementById("para1");
+console.log(para1.nextElementSibling.textContent); // "Second"
+```
+
+### 4️⃣ previousElementSibling
+
+✅ Selects the previous sibling element.
+
+```js
+const para2 = document.getElementById("para2");
+console.log(para2.previousElementSibling.textContent); // "First"
+```
+
+### 5️⃣ parentElement
+
+✅ Selects the parent element of an element.
+
+```js
+const para1 = document.getElementById("para1");
+console.log(para1.parentElement.tagName); // "BODY"
+```
+
+### 6️⃣ children
+
+✅ Returns all child elements as an HTMLCollection.
+
+```js
+const items = list.children;
+console.log(items[0].textContent); // "Item 1"
+console.log(items.length); // 2
+```
 
 ## Add & Change HTML 🛠️
 
+JavaScript allows **adding, changing, and removing** elements dynamically in the DOM.
+
+### 1️⃣ Creating and Adding Elements
+
+✅ document.createElement(tag) → Creates a new element.
+✅ append() / prepend() → Adds elements to the DOM.
+
+```js
+const newDiv = document.createElement("div");
+newDiv.textContent = "Hello, World!";
+document.body.append(newDiv); // Adds at the end
+document.body.prepend(newDiv); // Adds at the beginning
+```
+
+### 2️⃣ Changing Existing HTML Content
+
+✅ Modify text & HTML
+
+```js
+document.getElementById("title").textContent = "New Title!";
+document.getElementById("content").innerHTML = "<strong>Bold Text</strong>";
+```
+
+✅ Modify attributes
+
+```js
+document.getElementById("image").src = "new-image.jpg";
+document.getElementById("link").href = "https://example.com";
+```
+
+✅ Modify styles
+
+```js
+document.getElementById("box").style.backgroundColor = "blue";
+```
+
+### 3️⃣ Removing Elements
+
+✅ Remove an element from the DOM
+
+```js
+document.getElementById("box").remove();
+```
+
+✅ Remove child elements
+
+```js
+const parent = document.getElementById("container");
+const child = document.getElementById("item");
+parent.removeChild(child);
+```
+
+### 4️⃣ Replacing an Element
+
+✅ Replace an element with another
+
+```js
+const newParagraph = document.createElement("p");
+newParagraph.textContent = "New Text";
+
+const oldParagraph = document.getElementById("oldText");
+oldParagraph.replaceWith(newParagraph);
+```
+
 ## Mouse Events 🖱
+
+JavaScript can detect and handle **mouse actions** like clicks, hover, and movement.
+
+```html
+<button id="clickBtn">Click Me</button>
+```
+
+```css
+const button = document.getElementById("clickBtn");
+
+button.addEventListener("click", () => console.log("Button Clicked!"));
+button.addEventListener("dblclick", () => console.log("Double Click!"));
+button.addEventListener("mouseover", () => console.log("Mouse Hovered!"));
+```
 
 ## Key Events ⌨
 
+Detects **keyboard actions** like pressing, releasing, or holding keys.
+
+```html
+<input type="text" id="textInput" placeholder="Type something...">
+```
+
+```css
+const input = document.getElementById("textInput");
+
+input.addEventListener("keydown", (event) => console.log("Key Down:", event.key));
+input.addEventListener("keyup", (event) => console.log("Key Released:", event.key));
+```
+
 ## Hide/Show HTML 🖼
+
+Toggle element visibility dynamically.
+* If the message is visible `(!= none)`, it gets hidden.
+* If the message is hidden `(= none)`, it gets shown again.*
+
+```html
+<p id="message">Hello, this is a message!</p>
+<button id="toggleBtn">Toggle Message</button>
+```
+
+```js
+const message = document.getElementById("message");
+const toggleBtn = document.getElementById("toggleBtn");
+
+toggleBtn.addEventListener("click", () => {
+    message.style.display = message.style.display === "none" ? "" : "none";
+});
+```
 
 ## NodeLists 📃
 
+A **NodeList** is a collection of DOM elements, similar to an array.
+
+```html
+<ul>
+    <li class="item">Item 1</li>
+    <li class="item">Item 2</li>
+    <li class="item">Item 3</li>
+</ul>
+```
+
+```js
+const items = document.querySelectorAll(".item");
+
+items.forEach(item => console.log(item.textContent)); // Logs all <li> items
+```
+
 ## classList 🧾
 
+classList allows **adding, removing, and toggling** CSS classes dynamically.
+
+```html
+<div id="box" class="box">This is a box</div>
+<button id="toggleClassBtn">Toggle Colour</button>
+```
+
+```css
+.red { background-color: red; color: white; }
+```
+
+```js
+const box = document.getElementById("box");
+const toggleClassBtn = document.getElementById("toggleClassBtn");
+
+toggleClassBtn.addEventListener("click", () => {
+    box.classList.toggle("red"); // Adds/removes 'red' class
+});
+```
 
 # Asynchronous JavaScript 💤
 
@@ -985,16 +1206,295 @@ The process of navigating through the structure of an HTML document using JavaSc
 
 ## Callback Hell 🔥
 
+```js
+function fetchData(callback) {
+    setTimeout(() => {
+        console.log("Fetched Data");
+        callback();
+    }, 1000);
+}
+
+function processData(callback) {
+    setTimeout(() => {
+        console.log("Processed Data");
+        callback();
+    }, 1000);
+}
+
+function saveData(callback) {
+    setTimeout(() => {
+        console.log("Saved Data");
+        callback();
+    }, 1000);
+}
+
+// Nested Callbacks (Callback Hell)
+// After fetchData, we call processData, we call saveData...
+fetchData(() => {
+    processData(() => {
+        saveData(() => {
+            console.log("All steps completed!");
+        });
+    });
+});
+```
 
 ## Promises 🤞
 
+A Promise represents a value that isn’t available yet but will be in the future. It allows you to handle the success or failure of an asynchronous task. Instead of returning a result immediately, an asynchronous function returns a Promise, which will eventually resolve with a value or reject with an error.
+
+![[Pasted image 20250318113746.png | center | 350]]
+
+```js
+function getUser() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Fetched User ✅");
+            resolve({ userId: 1, name: "Alice" });
+        }, 1000);
+    });
+}
+
+function getOrders(user) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(`Fetched Orders for ${user.name} ✅`);
+            resolve(["Order 1", "Order 2", "Order 3"]);
+        }, 1000);
+    });
+}
+
+// Promise Chaining
+getUser()
+	// Here user = { userId: 1, name: "Alice" }
+    .then(user => getOrders(user)) // Pass user data to getOrders()
+    .then(orders => console.log("Orders:", orders)) // Handle orders
+    .catch(error => console.error("Error:", error)); // Catch errors
+```
+
+1. getUser() returns a promise, resolving with user data.
+2. getOrders(user) runs next, using the fetched user data.
+3. Final .then() logs the orders when resolved.
+4. If any step fails, .catch() handles the error.
 
 ## Async/Await ⏳
 
+* **~={green}async=~** makes a function return a Promise.
+* **~={green}await=~** pauses execution until the Promise resolves. Every function that uses `await` needs to be an `async` function.
+* Lets you write asynchronous code in a synchronous style.
 
+### 1️⃣ Defining an Async Function
+
+```js
+async function fetchData() {
+    return "Data Loaded";
+}
+
+fetchData().then(console.log); // "Data Loaded"
+```
+
+### 2️⃣ Using await Inside an async Function
+
+* Execution pauses at await until the Promise resolves.
+* No need for `.then()`, making it easier to read.
+
+```js
+async function fetchData() {
+    let response = await fetch("https://jsonplaceholder.
+							    typicode.com/todos/1");
+    let data = await response.json();
+    console.log(data); // Logs the fetched data
+}
+
+fetchData();
+```
+
+* Error handeling with `try...catch`, rather than `.catch()`
+
+```js
+async function fetchData() {
+    try {
+        let response = await fetch("invalid-url");
+        let data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+}
+
+fetchData();
+```
+
+* Multiple `await` inside `async` function
+
+```js
+async function fetchAll() {
+    let user = await getUser();
+    let orders = await getOrders(user);
+    console.log("Orders:", orders);
+}
+```
 
 # Handling Data & APIs 📄
 
 ## JSON Files 📄
 
+* JSON is a **data-interchange format** used for exchanging data between a **server** and a **web application**.
+* JSON files store data as **key-value pairs** {key: value} or as an **array** [value1, value2, value3].
+
+### **1️⃣** JSON.stringify()
+
+* Convert a JS Object to a JSON String
+* Used to send data to a server or store it in local storage.
+* 📌 Note: The output is a string, not an object.
+
+```js
+const user = { name: "Alice", age: 25, city: "New York" };
+
+const jsonString = JSON.stringify(user);
+console.log(jsonString); 
+// Output: '{"name":"Alice","age":25,"city":"New York"}'
+```
+
+### 2️⃣ JSON.parse() 
+
+* Convert a JSON String to a JS Object
+* Used to retrieve and use JSON data.
+* 📌 Note: The output is now a JavaScript object.
+
+```js
+const jsonString = '{"name":"Alice","age":25,"city":"New York"}';
+
+const userObj = JSON.parse(jsonString);
+console.log(userObj.name); // Output: "Alice"
+console.log(userObj.age);  // Output: 25
+```
+
 ## Fetching Data from an API ↩️
+
+The `fetch()` function allows JavaScript to retrieve data from an API asynchronously.
+
+### 1️⃣ GET Request (Retrieve Data) 🟢
+
+✅ Fetches data from an API (default request type).
+
+```js
+async function fetchData() {
+    try {
+        let response = await fetch("http://...");
+        let data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+fetchData();
+```
+
+### 2️⃣ POST Request (Create Data) 🟡
+
+✅ Sends new data to the server.
+
+```js
+async function createData() {
+    const newPost = { title: "New Post", body: "Hello world!", userId: 1 };
+
+    try {
+        let response = await fetch("https://...", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newPost)
+        });
+
+        let data = await response.json();
+        console.log("POST Response:", data);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+createData();
+```
+
+### 3️⃣ PUT Request (Update Entire Data) 🔵
+
+✅ Replaces an existing resource entirely.
+
+```js
+async function updateData() {
+    const updatedPost = { title: "Updated Title", body: "Updated Content", userId: 1 };
+
+    try {
+        let response = await fetch("https://...", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedPost)
+        });
+
+        let data = await response.json();
+        console.log("PUT Response:", data);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+updateData();
+```
+
+### PATCH Request (Update Partially) 🟣
+
+✅ Modifies only specific fields of a resource.
+
+```js
+async function patchData() {
+    const partialUpdate = { title: "Partially Updated Title" };
+
+    try {
+        let response = await fetch("https://...", {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(partialUpdate)
+        });
+
+        let data = await response.json();
+        console.log("PATCH Response:", data);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+patchData();
+```
+
+### 5️⃣ DELETE Request (Remove Data) 🔴
+
+✅ Deletes a resource from the server.
+
+```js
+async function deleteData() {
+    try {
+        let response = await fetch("https://...", {
+            method: "DELETE"
+        });
+
+        if (response.ok) {
+            console.log("DELETE Response: Resource deleted.");
+        } else {
+            console.log("DELETE Failed");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+deleteData();
+```
+
+|**Method**|**Purpose**|**Body Required?**|
+|---|---|---|
+|GET 🟢|Retrieve data|❌ No|
+|POST 🟡|Create new data|✅ Yes|
+|PUT 🔵|Replace entire resource|✅ Yes|
+|PATCH 🟣|Modify part of a resource|✅ Yes|
+|DELETE 🔴|Remove resource|❌ No|

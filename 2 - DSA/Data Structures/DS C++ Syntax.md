@@ -38,6 +38,27 @@ If we were sorting a `vector` of structs of type `N`. If we had the two `structs
             - `n.y` refers to the `y` value of the <font color="#f38ba8">second</font> struct.
             - If `y (first struct) < n.y (second struct)` is `true`, the first struct comes before the second struct in the sorted order.
 
+## Custom Sorting of Classes (Define in Header)
+
+```cpp
+class SortObject {
+public:
+    int first;
+    int second;
+    int third;
+
+    SortObject(int first, int second, int third)
+        : first(first), second(second), third(third) {}
+
+    // Overload the less-than operator
+    bool operator<(const SortObject& other) const {
+        if (first != other.first) return first < other.first;
+        if (second != other.second) return second < other.second;
+        return third < other.third;
+    }
+};
+```
+
 ## Custom Sorting of Strings and Vectors
 
 ```cpp
@@ -64,6 +85,41 @@ sort(connections.begin(), connections.end(), [&](auto &a, auto &b) {
 return a[2] < b[2];
 
 });
+```
+
+## Custom Class Equality
+
+```cpp
+class Count {
+public:
+    int one;
+    int two;
+    int three;
+
+    Count() :
+        one{0},
+        two{0},
+        three{0} {}
+
+    // Equality operator overload
+    bool operator==(const Count& other) const {
+        return one == other.one &&
+               two == other.two &&
+               three == other.three;
+    }
+};
+```
+
+## Priority Queue Sorting
+
+```cpp
+struct CustomObjectPtrCompare {
+    bool operator()(CustomObject* a, CustomObject* b) const {
+        return a->getTotalSize() > b->getTotalSize();
+    }
+};
+
+priority_queue<CustomObject*, vector<CustomObject*>, CustomObjectPtrCompare> minHeap;
 ```
 
 # Array
@@ -127,6 +183,7 @@ return a[2] < b[2];
 |            String to Integer/Long Long             | `stoi("x")`<br><br>`stoll("2342342")`                                                                                            | $O(1)$     |                                                                                           |
 |                 Integer to String                  | `to_string(5)`                                                                                                                   | $O(1)$     |                                                                                           |
 |                 Lexicographic Sort                 | `sort(s.begin(), s.end())`                                                                                                       | $O(nlogn)$ |                                                                                           |
+|                     Upper Case                     | `transform(s.begin(), s.end(), s.begin(), ::toupper)`<br>                                                                        |            | `::tolower`                                                                               |
 ## URI
 
 Finds:
@@ -140,6 +197,29 @@ string getHostname(const string& url) {
 
 }
 ```
+
+## String Stream
+
+* Allows us to use "standard input" on a string
+
+```cpp
+string sentence = "hello my name is";
+stringstream ss{sentence};
+string word;
+
+while (ss >> word) {
+	cout << word << endl;
+}
+
+// Prints:
+/* 
+hello
+my
+name
+is
+*/
+```
+
 # Characters
 
 ## Techniques and Methods
@@ -186,7 +266,7 @@ string getHostname(const string& url) {
 
 ## Methods
 
-* **~={purple}Unordered Map=~**:
+* **~={purple}Unordered Set=~**:
 	* **~={green}Average Case=~**: $O(1)$
 	* **~={red}Worst Case=~**: $O(n)$
 
@@ -221,6 +301,7 @@ string getHostname(const string& url) {
 | Declaration            | `queue<DT> q`       |          |
 | Uniform Initialisation | `queue<DT> q{1, 2}` |          |
 
+
 ## Methods
 
 |  Operation   | Syntax          | Complexity | Comments |
@@ -237,7 +318,6 @@ string getHostname(const string& url) {
 | ---------------------- | ------------------- | -------- |
 | Declaration            | `deque<DT> d`       |          |
 | Uniform Initialisation | `deque<DT> q{1, 2}` |          |
-|                        |                     |          |
 
 ## Methods
 
@@ -251,6 +331,20 @@ string getHostname(const string& url) {
 |    Remove Back    | `d.pop_back()`                            | $O(1)$     |          |
 |      Access       | `d[index]`                                | $O(1)$     |          |
 | Convert to Vector | `vector<int>(deque.begin(), deque.end())` | $O(n)$     |          |
+## Iterators
+
+| **Operation**   | **Syntax**                                       | **Complexity** | **Comments**                                |
+| --------------- | ------------------------------------------------ | -------------- | ------------------------------------------- |
+| Begin Iterator  | d.begin()                                        | O(1)           | Points to the first element                 |
+| End Iterator    | d.end()                                          | O(1)           | Points past the last element                |
+| Reverse Begin   | d.rbegin()                                       | O(1)           | Reverse iterator to last element            |
+| Reverse End     | d.rend()                                         | O(1)           | Reverse iterator before first element       |
+| Iterate Forward | for (auto it = d.begin(); it != d.end(); ++it)   | O(n)           | Iterate from front to back                  |
+| Iterate Reverse | for (auto it = d.rbegin(); it != d.rend(); ++it) | O(n)           | Iterate from back to front                  |
+| Find Element    | find(d.begin(), d.end(), value)                  | O(n)           | Requires <algorithm>                        |
+| Erase Element   | d.erase(iterator)                                | O(n)           | Erases element at position; shifts elements |
+| Erase Range     | d.erase(startIterator, endIterator)              | O(n)           | Erases all elements in the specified range  |
+
 # Priority Queue
 
 ## Initialisation
@@ -291,4 +385,86 @@ string s;
 deque<char> stack;
 s.assign(stack.begin(), stack.end()) // Copies the Stack to the String
 
+```
+
+**~={purple}Ordered vs Unordered=~**
+
+![[Pasted image 20250318214425.png]]
+
+## Ordered Map (Red Black Tree)
+
+* Ordered maps are sorted by their keys in ascending order
+
+```cpp
+// Decreasing order via greater comparator
+map<int, string, greater<>> myMap;
+```
+
+## Methods
+
+| **Expression**                 | **Meaning**                               |
+| ------------------------------ | ----------------------------------------- |
+| map.rbegin()->first            | Get the **maximum** key                   |
+| map.begin()->first             | Get the **minimum** key                   |
+| next(map.begin(), n-1)->first  | Gets the n-th smallest key (n is 1 based) |
+| next(map.rbegin(), n-1)->first | Gets the n-th largest key (n is 1 based)  |
+## Iterators
+
+|**Operation**|**Syntax**|**Complexity**|**Comments**|
+|---|---|---|---|
+|Begin Iterator|m.begin()|O(1)|Points to the smallest key|
+|End Iterator|m.end()|O(1)|Points past the last key|
+|Reverse Begin|m.rbegin()|O(1)|Reverse iterator to largest key|
+|Reverse End|m.rend()|O(1)|Reverse iterator before smallest key|
+|Iterate Forward|for (auto it = m.begin(); it != m.end(); ++it)|O(n)|Iterates in ascending key order|
+|Iterate Reverse|for (auto it = m.rbegin(); it != m.rend(); ++it)|O(n)|Iterates in descending key order|
+|Find Element|m.find(key)|O(log n)|Returns iterator to key or m.end() if not found|
+|Erase by Key|m.erase(key)|O(log n)|Removes key if present|
+|Erase by Iterator|m.erase(iterator)|O(1) avg case|Removes element at iterator|
+|Erase Range|m.erase(startIterator, endIterator)|O(k)|Erases k elements in range|
+|Access/Insert|m[key]|O(log n)|Inserts key if not present, returns mapped value|
+|At (Access only)|m.at(key)|O(log n)|Throws exception if key not present|
+|Contains|m.contains(key) _(C++20+)_|O(log n)|Checks if key exists without modifying map|
+# List (Doubly Linked List)
+
+## Initialisation
+
+| **Operation**          | **Syntax**           | **Comments**              |
+| ---------------------- | -------------------- | ------------------------- |
+| Declaration            | list<DT> l           | DT = data type            |
+| Uniform Initialisation | list<DT> l {1, 2, 3} | Inserts elements in order |
+
+## Methods
+
+| **Operation**     | **Syntax**                  | **Complexity** | **Comments**                 |
+| ----------------- | --------------------------- | -------------- | ---------------------------- |
+| Find Front        | l.front()                   | O(1)           | Get the first element        |
+| Find Back         | l.back()                    | O(1)           | Get the last element         |
+| Add to Front      | l.push_front(value)         | O(1)           | Insert at beginning          |
+| Add to Back       | l.push_back(value)          | O(1)           | Insert at end                |
+| Remove Front      | l.pop_front()               | O(1)           | Remove from beginning        |
+| Remove Back       | l.pop_back()                | O(1)           | Remove from end              |
+| Insert            | l.insert(it, value)         | O(1)           | Insert before iterator it    |
+| Erase             | l.erase(it)                 | O(1)           | Erase element at iterator it |
+| Find / Search     | find(l.begin(), l.end(), x) | O(n)           | Requires <algorithm> header  |
+| Iterate           | for (auto x : l)            | O(n)           | Range-based loop             |
+| Clear             | l.clear()                   | O(n)           | Erases all elements          |
+| Size              | l.size()                    | O(1)           | Number of elements           |
+| Sort              | l.sort()                    | O(n log n)     | Sorts using merge sort       |
+| Reverse           | l.reverse()                 | O(n)           | Reverses the list            |
+| Remove by Value   | l.remove(x)                 | O(n)           | Removes all x values         |
+| Convert to Vector | Random access needs         |                | O(n)                         |
+
+## Using Iterators to Insert
+
+```cpp
+list<int> l = {1, 2, 4};
+
+// Step 1: Get an iterator to the desired position
+auto it = l.begin();
+advance(it, 2);  // move it 2 positions forward
+
+// Step 2: Insert before that position
+l.insert(it, 3);  // inserts 3 before position 2
+// Output: 1 2 3 4
 ```
