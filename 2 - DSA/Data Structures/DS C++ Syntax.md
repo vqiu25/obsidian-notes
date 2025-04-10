@@ -301,7 +301,6 @@ is
 | Declaration            | `queue<DT> q`       |          |
 | Uniform Initialisation | `queue<DT> q{1, 2}` |          |
 
-
 ## Methods
 
 |  Operation   | Syntax          | Complexity | Comments |
@@ -468,3 +467,7 @@ advance(it, 2);  // move it 2 positions forward
 l.insert(it, 3);  // inserts 3 before position 2
 // Output: 1 2 3 4
 ```
+
+# Additional
+
+![[Pasted image 20250404100041.png]]
