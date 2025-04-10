@@ -82,7 +82,7 @@
 >```col-md 
 >**~={purple}Fork=~**
 >
->1. **~={green}New Data Structure (PCB & TCB)=~**: When you start a new process from i.e. the shell (`./app`), the shell's PCB and TCB gets duplicated for this new process, and are stored in **~={red}kernel space=~** of the ram.
+>1. **~={green}New Data Structure (PCB & TCB)=~**: When you start a new process from i.e. the shell (`./app`), the shell's PCB and TCB gets duplicated for this new process (COW), and are stored in **~={red}kernel space=~** of the ram.
 >2. **~={green}Memory Allocation=~**: The child is assigned its own virtual address space.
 >3. **~={green}CPU Register Setup=~**: The kernel sets up the child’s registers (including the program counter) so it can begin execution right after `fork()` returns in the child.
 >4. **~={green}Mark as Runnable=~**: The child’s process state is then set to **~={red}runnable=~** so that it can be scheduled for the CPU to act on.

@@ -106,7 +106,7 @@
 
 >[!Note]- Types of Parallelism
 > <!-- Multiline -->
-> * **~={green}Task Parallelism=~** → Different tasks running at the same time (multiple threads running, all doing different tasks (i.e. different programs running))
+> * **~={green}Task Parallelism=~** → Different tasks running at the same time (multiple threads running, all doing different tasks (i.e. different programs running)). We have threads execute different tasks (functions/methods) concurrently, where both computation and I/O operations are called (which can be blocking).
 > * ~={green}**Data Parallelism (SIMD/SPMD)**=~ → The same task is applied to multiple data elements ( (multiple threads all doing the same task (i.e. each thread blurring pixels on an image))
 
 >[!Note]- SIMD Architecture
@@ -288,21 +288,220 @@
 # Multithreading Thread Safety
 
 > [!QUOTE] Quick Notes
-> Task Parallelism and Shared Memory Architecture
+> Task Parallelism and Shared Memory Architecture. Data parallelism is about doing the same thing on multiple pieces of data. Like for loops to apply for a filter on an image.
+
+>[!Note]- Why is allocating to the Heap expensive?
+> <!-- Multiline -->
+> * **~={green}Stack Allocation=~**: The heap is a large pool of memory managed manually or by a memory allocator. Allocation involves searching for a suitable free block, which adds overhead. Over time, as blocks are allocated and freed, the heap becomes fragmented, making it harder to find contiguous space. This increases the cost of allocation and deallocation.
+> * **~={green}Heap Allocation=~**: The heap is a large pool of memory managed manually or by a memory allocator. Allocation involves searching for a suitable free block, which adds overhead. Over time, as blocks are allocated and freed, the heap becomes fragmented, making it harder to find contiguous space. This increases the cost of allocation and deallocation.
 
 >[!Note]- Bottom Up of Hardware, Processors, Threads and Tasks
 > <!-- Multiline -->
 > ![[Drawing 2025-03-31 12.38.42.excalidraw | center | 700]] 
 
->[!Note]- Equal Allocation Task Allocation
+>[!Note]- Why number of processors should = number of cores
+> <!-- Multiline -->
+> ![[Drawing 2025-04-10 14.42.57.excalidraw | center]]
+
+>[!Note]- Equal Allocation Task Allocation when Tasks have no Dependencies and are Equal with no I/O Operations
 > <!-- Multiline -->
 > ![[Drawing 2025-03-31 13.01.15.excalidraw | center | 500]]
 
+>[!Note]- Forking a Process
+> <!-- Multiline -->
+> * Forking a process is relatively expensive compared to creating a thread, as it involves setting up a new process context, including a new stack and heap.
+> * Although **Copy-On-Write (COW)** is used — meaning the memory isn’t physically copied until either the parent or child modifies it — the system still needs to duplicate metadata like page tables and establish a new address space.
+> * This is in contrast to threads, which share the same memory space and only require a new stack, making them more lightweight for concurrency.
+> * As such, when a thread or process is created, reuse it rather than creating and killing it over and over!
+
+>[!Note]- Simple multithreading in C++
+> <!-- Multiline -->
+> The following is a showcase on how to create threads. All it does is create 2 threads that each run a nonsense for loop:
+> 
+>```cpp
+>void computeWork(int amount) {
+>    int sum = 0;
+>    for (int i = 0; i < amount * 1000; ++i) {
+>        sum += i;
+>    }
+>}
+>
+>class PieceOfPaper {
+>public:
+>    PieceOfPaper(int amount) : amount(amount) {}
+>	// This function automatically runs when this object
+>	// is passed to a thread
+>    void operator()() const {
+>        computeWork(amount);
+>    }
+>
+>private:
+>    int amount;
+>};
+>
+>int main() {
+>    std::cout << "C++ Threading Demo" << std::endl;
+>    std::cout << "Main thread ID: " << std::this_thread::get_id() << std::endl;
+>
+>    auto startTime = std::chrono::high_resolution_clock::now();
+>
+>    // -- do the tasks -- sequentially
+>    computeWork(5000);
+>    computeWork(5000);
+>
+>    // Now do the same using threads
+>    PieceOfPaper paper1(5000);
+>    PieceOfPaper paper2(5000);
+>
+>    std::thread worker1(paper1);
+>    std::thread worker2(paper2);
+>
+>    // Wait for threads to complete
+>    worker1.join();
+>    worker2.join();
+>
+>    auto endTime = std::chrono::high_resolution_clock::now();
+>    auto totalTime = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count();
+>
+>    std::cout << "Total time = " << totalTime << " milliseconds" << std::endl;
+>
+>    return 0;
+>}
+>```
+
 # Concurrent Collections
 
+>[!Note]- Race Condition Example in C++
+> <!-- Multiline -->
+>To prevent the race condition, we want it so that if we have 2 threads both incrementing a `counter`, 1 thread first increments it, then the second thread increments. We want it to be **~={green}serial=~**.
+>
+> ![[Drawing 2025-04-10 17.27.36.excalidraw | center | 450]]
+>
+>```cpp
+>class Counter {
+>public:
+>    void increment() {
+>        ++count; // <-- Race condition: this is not atomic!
+>    }
+>
+>    int getCount() const {
+>        return count;
+>    }
+>
+>private:
+>    int count = 0;
+>};
+>
+>class Worker {
+>public:
+>    Worker(Counter& counter, int id) : counter(counter), id(id) {}
+>
+>    void operator()() {
+>        counter.increment(); // Critical section (not synchronized)
+>    }
+>
+>private:
+>    Counter& counter;
+>    int id;
+>};
+>
+>int main() {
+>    std::cout << "C++ Threading Race Condition Example" << std::endl;
+>
+>    Counter counter;
+>
+>    Worker w1(counter, 1);
+>    Worker w2(counter, 2);
+>
+>    std::thread t1(w1);
+>    std::thread t2(w2);
+>
+>    t1.join();
+>    t2.join();
+>
+>    std::cout << "Final value of counter = " << counter.getCount() << std::endl;
+>
+>    return 0;
+>}
+>```
+
+>[!Note]- What does `synchronized` do in Java and why do we not use it everywhere?
+> <!-- Multiline -->
+> ![[Drawing 2025-04-10 18.03.14.excalidraw | center | 350]]
+> 
+> * **~={green}Synchronized=~**: Only one thread can run this block/method at a time per object (or per class, if it’s static)
+> * We could instead put all the non-shared variables in a different method (so the second thread can access these variables when the first thread is within the synchronised method), and call that method should we need to adjust it, however, that would require creating a lot more methods.
+> * The smarter solution would be to put a mutex instead, which in Java is `synchronized(this) { ++c; }`
+
+ >[!Note]- What happens to cache performance if we have more classes, methods etc?
+> <!-- Multiline -->
+> It worsens as the CPU only has finite space for **~={green}instruction cache=~** and **~={green}data cache=~**.
+> 
+> ![[Drawing 2025-04-10 20.40.35.excalidraw | center | 200]]
+> 
+> Because the cache is fixed, the more methods there are, the more unloading and reloading data into the cache will be done, resulting in more cache misses.
+
+ >[!Note]- Why does every object in Java have a monitor? What is it?
+> <!-- Multiline -->
+> * **~={purple}What is a monitor=~**: A monitor is a synchronisation construct that allows threads to have mutual exclusion and the ability to wait (block) and be notified. It's effectively a **~={purple}flag=~**.
+> * **~={green}If it is true=~**: The monitor is owned/locked by a thread, meaning another thread trying to synchronized on the object will be blocked.
+> * **~={red}If it is false=~**: The monitor is unlocked, and any thread can acquire it via a synchronized block.
+
+> [!Note]- synchronized(this) vs. Fine-Grained Locking
+> <!-- Multiline -->
+> **~={purple}Using this (Coarse-Grained Locking)=~**:
+> * ~={blue}**What it does**=~: Locks the entire object instance.
+> * **~={green}Pros=~**: Simple, ensures that _all_ synchronized methods/blocks using this are mutually exclusive. So if a thread is running a synchronised method, no other **~={purple}synchronised=~** method can run concurrently
+> * **~={red}Cons=~**: May overly restrict concurrency because it blocks threads even if they access independent parts of the object.
+>
+>~={red}**Code Example**=~:
+>```java
+>public class MyClass {
+>    public synchronized void doSomething() {
+>        // Critical section: locks the entire instance
+>    }
+>}
+>```
+>
+>**~={purple}Using a Dedicated Lock Object (Fine-Grained Locking)=~**:
+>* **~={blue}What it does=~**: Locks a specific private final object, allowing for more selective control.
+>* ~={green}Pros=~: Enables concurrent execution of independent operations if they protect different data or logic, improving performance in multi-threaded scenarios.
+>* **~={red}Cons=~**: Requires careful management to ensure that the correct lock is used consistently.
+>
+>~={red}**Code Example**=~:
+>```java
+>public class MyClass {
+>    private final Object lockA = new Object();
+>    private int a = 0;
+>    
+>    // Or we could this.a (if a is Integer) and pass it in instead
+>    public void doSomething() {
+>        synchronized (lockA) {
+>            // Critical section: only locks on the specific lock object
+>            ++a;
+>        }
+>    }
+>}
+>```
+
+> [!Note]- Atomic Variables
+> <!-- Multiline -->
+> Atomic variables in Java (from java.util.concurrent.atomic package) provide lock-free, thread-safe operations on single variables. They use low-level atomic CPU instructions to ensure correctness in concurrent environments.
+
+> [!Note]- Lock vs Monitor
+> <!-- Multiline -->
+> * **~={purple}Monitor=~**: Built into every object. Using synchronized(obj) loads object metadata (like the object header: identity hash, GC info, lock state, and monitor pointers) into CPU caches. Also includes support for wait(), notify(), notifyAll() → heavier on instruction/data cache.
+> * **~={purple}Lock=~**: ReentrantLock is a standalone object. Internally just an atomic counter and a queue. ~={green}It's just a simple counter=~ → lightweight and cache-friendly.
+> * **~={purple}Lock vs Monitor=~**: Prefer Lock for high-performance or advanced features (timeouts, try-lock, fairness). Use Monitor (synchronized) for simplicity in low-contention cases.
+
+> [!Note]- Concurrent Data Structures (TODO)
+> <!-- Multiline -->
 
 # Tasking
 
+> [!Note]- Naive vs Static vs Dynamic Task Scheduling
+> <!-- Multiline -->
+> ![[Drawing 2025-04-10 23.06.45.excalidraw | center | 700]]
 
 # Executor Fork Join
 

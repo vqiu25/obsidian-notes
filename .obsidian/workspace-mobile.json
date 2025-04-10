@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2 - DSA/Data Structures/Binary Search Tree/Binary Search Tree.md",
+                "file": "2 - DSA/Data Structures/DS C++ Syntax.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Binary Search Tree"
+              "title": "DS C++ Syntax"
             }
           }
         ]
@@ -186,8 +186,9 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "2 - DSA/DSA Overview.md",
     "5 - Resources/Home.md",
+    "2 - DSA/Data Structures/Binary Search Tree/Binary Search Tree.md",
+    "2 - DSA/DSA Overview.md",
     "2 - DSA/Patterns/Union Find/Minimum Spanning Tree.md",
     "2 - DSA/Patterns/Tries/Tries.md",
     "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md",
@@ -214,7 +215,6 @@
     "5 - Resources/Excalidraw/Drawing 2025-01-04 17.35.41.excalidraw.md",
     "5 - Resources/Excalidraw/Drawing 2025-01-04 22.05.23.excalidraw.md",
     "5 - Resources/Excalidraw/Drawing 2025-01-04 15.30.31.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-01-04 22.10.14.excalidraw.md",
     "3 - OS/CPU Scheduling",
     "3 - OS/Process & Threads",
     "Untitled.canvas"
