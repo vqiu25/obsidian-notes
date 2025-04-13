@@ -1,8 +1,60 @@
 {
   "recentFiles": [
     {
+      "basename": "Stock Exchange",
+      "path": "4 - System Design/Complete Problems/Stock Exchange.md"
+    },
+    {
+      "basename": "Drawing 2025-04-12 12.31.41.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-04-12 12.31.41.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-04-09 10.56.45.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-04-09 10.56.45.excalidraw.md"
+    },
+    {
+      "basename": "Home",
+      "path": "5 - Resources/Home.md"
+    },
+    {
       "basename": "5 - High Performance Computing",
       "path": "3 - OS/5 - High Performance Computing.md"
+    },
+    {
+      "basename": "DS C++ Syntax",
+      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
+    },
+    {
+      "basename": "Drawing 2025-04-11 20.55.36.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-04-11 20.55.36.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-04-11 21.25.31.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-04-11 21.25.31.excalidraw.md"
+    },
+    {
+      "basename": "1.1 - Design Requirements & CAP Theorem",
+      "path": "4 - System Design/Concepts/1.1 - Design Requirements & CAP Theorem.md"
+    },
+    {
+      "basename": "1 - Server Side Rate Limiter (Layer 7 HTTP)",
+      "path": "4 - System Design/Component Problems/1 - Server Side Rate Limiter (Layer 7 HTTP).md"
+    },
+    {
+      "basename": "2 - Consistent Hashing",
+      "path": "4 - System Design/Component Problems/2 - Consistent Hashing.md"
+    },
+    {
+      "basename": "3 - Key Value Store",
+      "path": "4 - System Design/Component Problems/3 - Key Value Store.md"
+    },
+    {
+      "basename": "List",
+      "path": "2 - DSA/Data Structures/Linked List/List.md"
+    },
+    {
+      "basename": "Drawing 2025-04-11 11.49.57.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-04-11 11.49.57.excalidraw.md"
     },
     {
       "basename": "Drawing 2025-04-10 23.06.45.excalidraw",
@@ -11,10 +63,6 @@
     {
       "basename": "Drawing 2025-04-10 20.40.35.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-04-10 20.40.35.excalidraw.md"
-    },
-    {
-      "basename": "Home",
-      "path": "5 - Resources/Home.md"
     },
     {
       "basename": "Drawing 2025-04-10 18.03.14.excalidraw",
@@ -41,10 +89,6 @@
       "path": "5 - Resources/Excalidraw/Drawing 2025-04-10 14.42.57.excalidraw.md"
     },
     {
-      "basename": "Stock Exchange",
-      "path": "4 - System Design/Complete Problems/Stock Exchange.md"
-    },
-    {
       "basename": "1.4 - Networks",
       "path": "4 - System Design/Concepts/1.4 - Networks.md"
     },
@@ -65,16 +109,8 @@
       "path": "5 - Resources/Excalidraw/Drawing 2025-04-08 23.07.37.excalidraw.md"
     },
     {
-      "basename": "Drawing 2025-04-09 10.56.45.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-04-09 10.56.45.excalidraw.md"
-    },
-    {
       "basename": "Drawing 2025-04-09 10.09.39.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-04-09 10.09.39.excalidraw.md"
-    },
-    {
-      "basename": "1.1 - Design Requirements & CAP Theorem",
-      "path": "4 - System Design/Concepts/1.1 - Design Requirements & CAP Theorem.md"
     },
     {
       "basename": "News Feed System",
@@ -83,10 +119,6 @@
     {
       "basename": "Fenwick Trees",
       "path": "2 - DSA/Patterns/Fenwick Trees/Fenwick Trees.md"
-    },
-    {
-      "basename": "DS C++ Syntax",
-      "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
     },
     {
       "basename": "1.2 - API Paradigms & Design",
@@ -103,18 +135,6 @@
     {
       "basename": "Hotel Reservation System",
       "path": "4 - System Design/Complete Problems/Hotel Reservation System.md"
-    },
-    {
-      "basename": "3 - Key Value Store",
-      "path": "4 - System Design/Component Problems/3 - Key Value Store.md"
-    },
-    {
-      "basename": "2 - Consistent Hashing",
-      "path": "4 - System Design/Component Problems/2 - Consistent Hashing.md"
-    },
-    {
-      "basename": "1 - Server Side Rate Limiter (Layer 7 HTTP)",
-      "path": "4 - System Design/Component Problems/1 - Server Side Rate Limiter (Layer 7 HTTP).md"
     },
     {
       "basename": "3 - Interview Framework",
@@ -173,32 +193,12 @@
       "path": "2 - DSA/Data Structures/Heap/Binary Heap.md"
     },
     {
-      "basename": "List",
-      "path": "2 - DSA/Data Structures/Linked List/List.md"
-    },
-    {
       "basename": "Drawing 2025-03-29 15.22.47.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-29 15.22.47.excalidraw.md"
     },
     {
       "basename": "Drawing 2025-03-29 12.47.36.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-29 12.47.36.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-03-29 13.30.59.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-03-29 13.30.59.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-03-29 12.18.48.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-03-29 12.18.48.excalidraw.md"
-    },
-    {
-      "basename": "Priority Queue",
-      "path": "2 - DSA/Data Structures/Heap/Priority Queue.md"
-    },
-    {
-      "basename": "Map",
-      "path": "2 - DSA/Data Structures/Binary Search Tree/Map.md"
     }
   ],
   "omittedPaths": [],

@@ -447,7 +447,7 @@
 > * **~={green}If it is true=~**: The monitor is owned/locked by a thread, meaning another thread trying to synchronized on the object will be blocked.
 > * **~={red}If it is false=~**: The monitor is unlocked, and any thread can acquire it via a synchronized block.
 
-> [!Note]- synchronized(this) vs. Fine-Grained Locking
+> [!Note]- `synchronized(this)` vs. Fine-Grained Locking
 > <!-- Multiline -->
 > **~={purple}Using this (Coarse-Grained Locking)=~**:
 > * ~={blue}**What it does**=~: Locks the entire object instance.
@@ -503,8 +503,29 @@
 > <!-- Multiline -->
 > ![[Drawing 2025-04-10 23.06.45.excalidraw | center | 700]]
 
+> [!Note]- Scheduling Compute and I/O Tasks in One Queue
+> <!-- Multiline -->
+> 1. **~={purple}Cannot bound exec time=~**: If we have I/O tasks, we now no longer know how long each thread will take, as some threads may get stuck waiting on I/O
+> 2. **~={purple}I/O does nothing in the CPU=~**: Because I/O doesn't require CPU compute, if the thread does nothing, then it leads to underutilisation of cores. Thus, though it does cost, we should create a new thread (or use an existing thread) and perform a context switch, putting the I/O thread to sleep, only waking it up when the I/O work is finished.
+> 
+> ![[Drawing 2025-04-11 11.49.57.excalidraw | center | 200]]
+
 # Executor Fork Join
 
+> [!Note]- What is Fork Join?
+> <!-- Multiline -->
+> A Fork Join graph if present, can easily be parallelised!
+> 
+> ![[Drawing 2025-04-11 21.25.31.excalidraw | center | 200]]
+
+> [!Note]- `Executors.newSingleThreadExecutor` vs `Executor.newFixedThreadPool(numProcesses)` vs `Executors.newCachedThreadPool`
+> <!-- Multiline -->
+> 
+> ![[Drawing 2025-04-11 20.55.36.excalidraw | center | 400]]
+
+> [!Note]- Parallelising Recursive Functions
+> <!-- Multiline -->
+> ![[Pasted image 20250411214700.png | center | 500]]
 
 
 #flashcards/os/highperformancecomputing
