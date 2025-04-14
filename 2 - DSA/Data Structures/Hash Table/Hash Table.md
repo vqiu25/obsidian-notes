@@ -69,6 +69,14 @@
 >**~={red}Note that powers of 2 are just bit shifts=~** So every time you multiply by the chosen value (i.e. 32 instead of 31), it may be lossy if enough bits have been used.
 >```
 >````
+>
+>To provide an example as to why a power of 2 is bad:
+>* First note that `x << 1` = $x \cdot 2$, `x << 2` = $x \cdot 4$
+>* Thus when we multiply by powers of 32, at every step, we start using a lot more bits. If we only had 32 bits, we'd only be doing the bottom 32 bits, thus contributions from the original characters become meaningless.
+>* Furthermore, the contribution of earlier characters become lost earlier, make words like "abc", producing the same hash value as "xbc"
+>
+>![[Pasted image 20250413220111.png | center | 450]]
+>
 
 > [!info]- What is load factor?
 > <!-- Multiline -->
