@@ -43,9 +43,6 @@
 
 ![[Drawing 2025-04-12 12.31.41.excalidraw | center | 700]]
 
-### API Design
-
-
 ### Data Model
 
 
