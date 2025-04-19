@@ -106,7 +106,7 @@
 
 >[!Note]- Types of Parallelism
 > <!-- Multiline -->
-> * **~={green}Task Parallelism=~** → Different tasks running at the same time (multiple threads running, all doing different tasks (i.e. different programs running)). We have threads execute different tasks (functions/methods) concurrently, where both computation and I/O operations are called (which can be blocking).
+> * **~={green}Task Parallelism (MIMID)=~** → Different tasks running at the same time (multiple threads running, all doing different tasks (i.e. different programs running)). We have threads execute different tasks (functions/methods) concurrently, where both computation and I/O operations are called (which can be blocking). **~={red}Can be modelled with graphs=~**
 > * ~={green}**Data Parallelism (SIMD/SPMD)**=~ → The same task is applied to multiple data elements ( (multiple threads all doing the same task (i.e. each thread blurring pixels on an image))
 
 >[!Note]- SIMD Architecture
@@ -232,57 +232,370 @@
 
 ### Decomposition Techniques
 
->[!Note]- Data Decomposition
-> <!-- Multiline -->
-> 
-
 >[!Note]- Recursive Decomposition
 > <!-- Multiline -->
-> 
+> Think parallelising merge sort and quick sort. The max concurrency is the number of leaves of the recursive tree.
 
 >[!Note]- Exploratory Decomposition
 > <!-- Multiline -->
-> 
+> Cousin to recursive decomposition. DFS on a tree. Often the tree is unbalanced.
 
 ### Performance
 
+>[!Note]- Overhead
+> <!-- Multiline -->
+> Parallelisation introduces overheads. This is as a result of thread management, bookkeeping, locking and synchronisation. The finer the granularity, the more threads, the more overhead.
+
+>[!Note]- Load Balancing
+> <!-- Multiline -->
+> However, good speed ups only happen with good load balancing, where the finer the granularity, the better the potential balancing. As such, note that there is a conflicting aim:
+> * **~={purple}Minimise overhead=~**: **~={red}Decrease=~** granularity
+> * **~={purple}Maximise load balancing=~**: **~={green}Increase=~** granularity
+
 >[!Note]- Communication Costs
 > <!-- Multiline -->
-> Message Passing vs Shared Memory
+> Communication between processors is slower. But higher parallelism requires more communication. As such, we want to avoid inter-processor communication as much as possible.
+> 
+> **~={purple}Message Passing vs Shared Memory=~**
+> * **~={green}Message Passing=~**
+> 	* Communication is explicit, which enforces rigorous communication planning
+> * **~={green}Shared Memory=~**
+> 	* Easier and more elegant than message passing. It's also quicker to develop, however it's often difficult to get good performance and correct correctness.
+> 	* A few reasons why shared memory is difficult:
+> 		* Data moves between caches
+> 		* Data is accessed from remote memory locations (if NUMA systems)
+> 		* False sharing of cache lines. There are caches in each processor. The caches are buffer for main memory, so processes don't always have to go back to main memory. Cache are organised in cache lines, so when 1 byte of the cache line is loaded in, the remaining bytes in the cache line are also loaded in. In multithreaded programs, 2 threads could be working on 2 items, but these items are in the same cache line. However, one processor has to have ownership of the cache line, requiring all other processors to delete what they have loaded in for consistency purposes.
+> 		* Data is concurrently modified (race condition)
 
 ### Practical Parallelisation Approach
 
+>[!Note]- Communication Costs
+> <!-- Multiline -->
+> 1. Consider target platform
+> 2. Choose parallelisable algorithm
+> 3. Choose data representation
+> 4. Parallelisation technique
 
-
-## Dependence Analysis
+# Dependence Analysis
 
 ### Data Dependence
 
+>[!Note]- Data Dependence Types
+> <!-- Multiline -->
+> * Flow Dependence
+> * Anti Dependence
+> * Output Dependence
+
+>[!Note]- Flow Dependence
+> <!-- Multiline -->
+> **~={green}Flow Dependence=~**: Read after write
+> 
+> If we have $x \cdot 7 + (a + 2)$, and it's been decomposed into 4 tasks:
+> 1. $a=2$
+> 2. $u=a+2$
+> 3. $v=a\cdot7$
+> 4. $x=u+v$
+> 
+> In order for lines 2 and 3 to read $a$, it needs to after line 1 has written to $a$. Hence **~={red}lines 2 and 3 are flow dependent on line 1=~**.
+
+>[!Note]- Antidependence
+> <!-- Multiline -->
+> **~={green}Antidependence=~**: Write after read
+> 
+> If we have $x \cdot 7 + (a \cdot 5 + 2)$:
+> 1. $a=2$
+> 2. $v=a\cdot5$
+> 3. $u=v+2$
+> 4. $v=a\cdot7$
+> 5. $x=u+v$
+> 
+> Line 4 is antidependent on line 3. This is because line 3 reads $v$, and line 4 then writes to $v$. Thus we have a read then a write on the same variable.
+
+>[!Note]- Output Dependence
+> <!-- Multiline -->
+> **~={green}Output Dependence=~**: Write after write
+> ...
+> 2. $o=10$
+> ...
+> 3. $o = 7$
+> 
+> * The order of the writes have influence on the final result.
+> * Parallel execution should produce the same result as sequential
+
+>[!Note]- How to Eliminate Dependence
+> <!-- Multiline -->
+> * **~={green}Flow Dependence=~**: Is inherent to the problem and can't be eliminated
+> * **~={red}Anti and Output=~**: Are a product of variable utilisation and can be eliminated
+> 
+> Consider:
+> 1. $a=2$
+> 2. $v=a\cdot5$
+> 3. $u=v+2$
+> 4. $v=a\cdot7$
+> 5. $x=u+v$
+> 
+> Line 4 is anti dependent on line 3. We can change the $v$ to a $w$ on lines 4 and 5. 
+
 ### Dependence in Loops
+
+>[!Note]- Under what condition does Flow and Antidependence occur?
+> <!-- Multiline -->
+> ![[Pasted image 20250418231724.png | center | 500]]
+
+>[!Note]- What is a Dependence Test?
+> <!-- Multiline -->
+> In parallel programming, a dependence test is a method used to determine whether **~={blue}two instructions=~** (or iterations of a loop) access the **~={green}same memory location=~** and whether one of those **~={red}accesses is a write=~**. 
+
+>[!Note]- What is the GCD Test?
+> <!-- Multiline -->
+> If $a_1x_1+a_2x_2=c$, where $a_1, a_2, c$ are constant integers, it shall have an integer solution for $x_1$ and $x_2$ **~={blue}if and only if=~** $gcd(a_1, a_2)$ is a factor of $c$.
+> 
+> This is used to check if 2 arrays accesses can point to the same memory location across different loop iterations.
+> 
+> ```fortran
+> for i=1 to n do
+> 	A(a * i + k) = ...
+> 	... = A(b * i + m)
+> end for
+>```
+>We want to see if the:
+>* Write to `A(a * i + k)`
+>* Read from `A(b * i + m)`
+>
+>Could access the same memory location. Thus we change one of the $i$ to a $j$ to indicate a different iteration:
+>```fortran
+>a * i + k = b * j + m
+>```
+>Which can rearrange to:
+>```fortran
+>ai + (-b)j = m - k
+>```
+>Which is in the format of the diophantine equation. Hence if 
+>* $gcd(a, b)$ is **~={red}not=~** a factor of $m-k$, there is **~={red}no dependence=~**
+>* $gcd(a, b)$ **~={green}is=~** a factor of $m-k$, there **~={green}might be a dependence=~**. There is a solution, but it might not be in the iteration range.
+
+>[!Info]- Identify Dependencies
+> <!-- Multiline -->
+> ![[Drawing 2025-04-19 12.11.12.excalidraw | center | 700]]
+
+>[!Note]- Cases when there is Flow and Antidependence in a loop
+> <!-- Multiline -->
+> * **~={purple}Flow=~**: Within or across iterations. We write to `A[x]`, and we use read from `A[x]` next. (Get's smaller)
+> * **~={purple}Antidependence=~**: Within or across iterations. We read from `A[x + 1]`, and we then write to `A[x]` next. (Get's smaller)
+> 
+> ![[Drawing 2025-04-19 12.28.58.excalidraw | center | 500]]
+
+>[!Info]- Identify Intra and Inter Dependencies in a Single Loop
+> <!-- Multiline -->
+> ![[Drawing 2025-04-19 12.25.04.excalidraw | center | 700]]
+
+>[!Info]- Identify Intra and Inter Dependencies in a Nested Loop
+> <!-- Multiline -->
+> ![[Pasted image 20250419142747.png | center | 600]]
+
+>[!Note]- When can we sap loop order
+> <!-- Multiline -->
+> When there is no flow dependence.
 
 ### Loop Transformations
 
+> [!QUOTE] Quick Notes
+> How to parallelise loops with dependencies. We can transform them!
+
+>[!Note]- Loop Fission
+> <!-- Multiline -->
+> Loop fission (also called loop distribution) is a compiler optimisation technique where a single loop that performs multiple independent operations is split into multiple loops, each performing a subset of the original operations
+> 
+> **~={purple}When can we perform Loop Fission?=~**
+> * When there are no intra dependencies (within loop), but inter dependencies exist.
+> 
+> ```cpp
+> for (int i{2}; i < n; ++i) {
+> 	b[i] = a[i] + i;
+> 	x[i] = (b[i - 2] + b[i - 1]) / 2;
+> }
+>```
+>Where we can flow inter loop flow dependencies from:
+>1. `b[i]` -> `b[i - 2]`, and
+>2. `b[i]` -> `b[i - 1]`
+>
+>But because there are no dependencies within a loop, we can split these 2 lines into their own for loop
+>
+>```cpp
+>for (int i{2}; i < n; ++i) {
+>	b[i] = a[i] + i;
+>}
+>
+>for (int i{2}; i < n; ++i) {
+>	x[i] = (b[i - 2] + b[i - 1]) / 2;
+>}
+>```
+>
+>In the second loop, even though x[i] depends on previous values of b, those values were computed in the first loop, which is already finished by the time the second loop runs.
+
+>[!Note]- Loop Shifting
+> <!-- Multiline -->
+> Loop shifting is a transformation that repositions iteration boundaries to eliminate inter-iteration dependencies — specifically to enable parallelism. This is only potentially possible if the inter dependencies are uniform.
+> 
+> **~={red}Example=~**
+> ```cpp
+> for (int i{1}; i <= n; ++i) {
+> 	A[i] = B[i - 1] + 7;
+> 	B[i] = C[i] + 6;
+> }
+>```
+>Which when unrolled, looks like:
+>
+> ![[Drawing 2025-04-19 15.41.49.excalidraw | center | 400]]
+> 
+> If we shift the bounds up by 1:
+> 
+> ```cpp
+> A[1] = B[0] + 7;
+> 
+> for (int i{1}; i < n; ++i) {
+> 	B[i] = C[i] + 6;
+> 	A[i + 1] = B[i] + 7;
+> }
+> 
+> B[n] = C[n] + 6;
+>```
+
 ### Control Dependence
 
+>[!Note]- Control Dependence
+> <!-- Multiline -->
+> ![[Pasted image 20250419160033.png | center | 300]]
 
-## Scheduling
+# Scheduling
 
+## Task Scheduling with and without Dependencies
 
-# Concurrency
+* **~={purple}Critical Path=~**: Longest path from start to finish
+* **~={purple}Bottom Level=~**: Longest path from a node (include the initial node)
+* **~={purple}Task Bottom Level Order=~**: Order tasks by non-increasing bottom level ($w_i$ and $c_{i,j}$ length)
 
-## Thready Safety & Synchronisation
+## Loop Scheduling Without Dependencies
 
+>[!Note]- What is Loop Scheduling Without Dependencies
+> <!-- Multiline -->
+> * **~={green}Chunksize=~**: Number of consecutive iterations handled together - single task. Total number of iterations $n$ is known.
+> 
+> ![[Pasted image 20250419202118.png | center | 600]]
 
-# Concurrency and GUI
+>[!Note]- How would you split the iterations across threads?
+> <!-- Multiline -->
+> Can distinguish between 2 types:
+> * **~={green}Static=~**: all decided before loop execution
+> * **~={green}Dynamic=~**: decisions taken during loop execution
+> 
+> Together with adjustment of chunk size this leads to four well known techniques:
+> * Block
+> * Cyclic
+> * Dynamic
+> * Guided
 
+### Static Scheduling Policies
 
-# Programming (Shared Memory)
+>[!Note]- Block Policy
+> <!-- Multiline -->
+> **~={purple}Properties=~**
+> * Static
+> * Chunk size = $\frac{n}{p}$ ($n$ iterations, $p$ threads)
+> * Iteration space divided into equal blocks
+> * Each thread gets one block
+> 
+> ![[Pasted image 20250419202822.png | center | 350]]
 
-## OpenMP
+>[!Note]- Cyclic Policy
+> <!-- Multiline -->
+> **~={purple}Properties=~**
+> * Static
+> * Constant chunk size $< \frac{n}{p}$
+> * Iteration space divided into (smaller) chunks
+> * Each thread gets multiple chunks, allocated in round robin
+> 
+> ![[Pasted image 20250419205643.png | center | 350]]
 
-## Object Oriented Parallelisation
+>[!Note]- Block vs Cyclic Policy
+> <!-- Multiline -->
+> ![[Pasted image 20250419210035.png | center | 500]]
 
-## Heterogenous System Programming
+### Dynamic Scheduling Policy
+
+> [!QUOTE] Quick Notes
+> Work is distributed at runtime than statically at compile time
+
+>[!Note]- Dynamic Scheduling Policy
+> <!-- Multiline -->
+> * Dynamic
+> * Constant chunk size $< \frac{n}{p}$: Each thread processes a fixed-size chunk of iterations
+> * Each thread gets chunk on demand (request nest when ready) / (threads are assigned chunks in the order they become available)
+> * **~={green}Pros=~**: Good for irregular workloads when execution times vary strongly. Also helps with load balancing among threads.
+> * **~={red}Cons=~**: Higher overhead due to locking/synchronisation for accessing the word queue
+> 
+> ![[Pasted image 20250419211016.png | center | 450]]
+
+### Guided Scheduling Policy
+
+>[!Note]- Guided Scheduling Policy
+> <!-- Multiline -->
+> * Dynamic
+> * Constant chunk decreases during execution (min can be fixed)
+> 	* Starts with large chunks to reduce overhead early once
+> 	* Gradually shifts to smaller chunks for better load balancing
+> * Each thread gets chunk on demand (request nest when ready) / (threads are assigned chunks in the order they become available)
+> * **~={green}Pros=~**: Good for irregular workloads when execution times vary strongly. Also helps with load balancing among threads.
+> * **~={red}Cons=~**: Will still have overhead compared to static policies. However, when the blocks are larger size, there's less frequent access to the queue which holds the chunks of loop iterations
+> 
+> ![[Pasted image 20250419211354.png | center | 450]]
+
+## Loop Scheduling With Dependencies
+
+>[!Note]- How to schedule with dependencies between loop iterations?
+> <!-- Multiline -->
+> * **~={green}Best=~**: Get rid of inter-iteration dependencies via loop transformations
+> * **~={yellow}Ok=~**:
+> 	* Loop body scheduling
+> 	* Unrolling
+> 	* Software pipelining
+
+>[!Note]- What is a Flow Graph
+> <!-- Multiline -->
+> A systematic way to model dependencies between statements in loops. It is a directed cyclic graph.
+> 
+> **~={purple}Properties=~**:
+> * Very similar to a task graph
+> * Can have cycles
+> * Edge weights indicate dependence distance (sometimes called delay)
+> 
+> **~={purple}How to Construct a Flow Graph=~**
+> * Only put flow dependencies
+> 
+> ![[Drawing 2025-04-19 21.49.37.excalidraw | center | 450]]
+
+### Strategies
+
+>[!Note]- Loop Body Scheduling
+> <!-- Multiline -->
+> We treat the loop body as a task graph (DAG). To do this we:
+> 1. Get the Flow Graph
+> 2. Transform it to a Task Graph by removing all edges with a delay > 0. Thus only intra-iteration dependencies are kept.
+>
+>This allows us to schedule the statements within 1 iteration using this DAG. Hence, we need to complete the entire iteration before moving to the next one. This means each iteration is sequential, but within an iteration, we can parallelise it.
+>
+>![[Pasted image 20250419221108.png | center | 550]]
+
+>[!Note]- Loop Unrolling
+> <!-- Multiline -->
+> We treat the loop body as a task graph. 
+
+>[!Note]- Loop Pipelining
+> <!-- Multiline -->
+> We treat the loop body as a task graph. 
+
+# OpenMP
+
 
 
 # Multithreading Thread Safety
