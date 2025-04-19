@@ -1,8 +1,72 @@
 {
   "recentFiles": [
     {
+      "basename": "5 - High Performance Computing",
+      "path": "3 - OS/5 - High Performance Computing.md"
+    },
+    {
+      "basename": "Drawing 2025-04-19 21.49.37.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-04-19 21.49.37.excalidraw.md"
+    },
+    {
       "basename": "Home",
       "path": "5 - Resources/Home.md"
+    },
+    {
+      "basename": "Drawing 2025-04-19 15.41.49.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-04-19 15.41.49.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-04-19 12.25.04.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-04-19 12.25.04.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-04-19 12.28.58.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-04-19 12.28.58.excalidraw.md"
+    },
+    {
+      "basename": "Drawing 2025-04-19 12.11.12.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-04-19 12.11.12.excalidraw.md"
+    },
+    {
+      "basename": "React",
+      "path": "1 - Languages/MERN/React.md"
+    },
+    {
+      "basename": "4 - Memory",
+      "path": "3 - OS/4 - Memory.md"
+    },
+    {
+      "basename": "3 - Concurrency",
+      "path": "3 - OS/3 - Concurrency.md"
+    },
+    {
+      "basename": "2 - CPU Scheduling",
+      "path": "3 - OS/2 - CPU Scheduling.md"
+    },
+    {
+      "basename": "1 - Process & Threads",
+      "path": "3 - OS/1 - Process & Threads.md"
+    },
+    {
+      "basename": "Drawing 2025-04-12 12.31.41.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-04-12 12.31.41.excalidraw.md"
+    },
+    {
+      "basename": "1.3 - Databases (SQL & NoSQL)",
+      "path": "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md"
+    },
+    {
+      "basename": "1 - Server Side Rate Limiter (Layer 7 HTTP)",
+      "path": "4 - System Design/Component Problems/1 - Server Side Rate Limiter (Layer 7 HTTP).md"
+    },
+    {
+      "basename": "1.4 - Networks",
+      "path": "4 - System Design/Concepts/1.4 - Networks.md"
+    },
+    {
+      "basename": "Stock Exchange",
+      "path": "4 - System Design/Complete Problems/Stock Exchange.md"
     },
     {
       "basename": "2 - Back of the Envelope Calculations",
@@ -11,14 +75,6 @@
     {
       "basename": "3 - Interview Framework",
       "path": "4 - System Design/Concepts/3 - Interview Framework.md"
-    },
-    {
-      "basename": "1.4 - Networks",
-      "path": "4 - System Design/Concepts/1.4 - Networks.md"
-    },
-    {
-      "basename": "1.3 - Databases (SQL & NoSQL)",
-      "path": "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md"
     },
     {
       "basename": "1 - Building Blocks",
@@ -37,24 +93,8 @@
       "path": "4 - System Design/Component Problems/2 - Consistent Hashing.md"
     },
     {
-      "basename": "Drawing 2025-04-12 12.31.41.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-04-12 12.31.41.excalidraw.md"
-    },
-    {
-      "basename": "Stock Exchange",
-      "path": "4 - System Design/Complete Problems/Stock Exchange.md"
-    },
-    {
-      "basename": "4 - Memory",
-      "path": "3 - OS/4 - Memory.md"
-    },
-    {
       "basename": "Hash Table",
       "path": "2 - DSA/Data Structures/Hash Table/Hash Table.md"
-    },
-    {
-      "basename": "2 - CPU Scheduling",
-      "path": "3 - OS/2 - CPU Scheduling.md"
     },
     {
       "basename": "Drawing 2025-04-13 17.07.53.excalidraw",
@@ -69,10 +109,6 @@
       "path": "5 - Resources/Excalidraw/Drawing 2025-04-09 10.56.45.excalidraw.md"
     },
     {
-      "basename": "5 - High Performance Computing",
-      "path": "3 - OS/5 - High Performance Computing.md"
-    },
-    {
       "basename": "DS C++ Syntax",
       "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
     },
@@ -83,10 +119,6 @@
     {
       "basename": "Drawing 2025-04-11 21.25.31.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-04-11 21.25.31.excalidraw.md"
-    },
-    {
-      "basename": "1 - Server Side Rate Limiter (Layer 7 HTTP)",
-      "path": "4 - System Design/Component Problems/1 - Server Side Rate Limiter (Layer 7 HTTP).md"
     },
     {
       "basename": "List",
@@ -119,10 +151,6 @@
     {
       "basename": "Drawing 2025-03-31 12.38.42.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-03-31 12.38.42.excalidraw.md"
-    },
-    {
-      "basename": "1 - Process & Threads",
-      "path": "3 - OS/1 - Process & Threads.md"
     },
     {
       "basename": "Drawing 2025-04-10 14.42.57.excalidraw",
@@ -171,34 +199,6 @@
     {
       "basename": "Hotel Reservation System",
       "path": "4 - System Design/Complete Problems/Hotel Reservation System.md"
-    },
-    {
-      "basename": "React",
-      "path": "1 - Languages/MERN/React.md"
-    },
-    {
-      "basename": "BT BFS",
-      "path": "2 - DSA/Patterns/Trees & Graphs/BT BFS.md"
-    },
-    {
-      "basename": "Binary Search Tree",
-      "path": "2 - DSA/Data Structures/Binary Search Tree/Binary Search Tree.md"
-    },
-    {
-      "basename": "Multidimensional DP",
-      "path": "2 - DSA/Patterns/Dynamic Programming/Multidimensional DP.md"
-    },
-    {
-      "basename": "DSA Overview",
-      "path": "2 - DSA/DSA Overview.md"
-    },
-    {
-      "basename": "Minimum Spanning Tree",
-      "path": "2 - DSA/Patterns/Union Find/Minimum Spanning Tree.md"
-    },
-    {
-      "basename": "3 - Concurrency",
-      "path": "3 - OS/3 - Concurrency.md"
     }
   ],
   "omittedPaths": [],
