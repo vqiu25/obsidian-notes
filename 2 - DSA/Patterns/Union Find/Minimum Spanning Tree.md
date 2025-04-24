@@ -9,9 +9,12 @@
 >});
 >```
 
+>[!Note]- Minimum Spanning Tree Algorithm Comparisons
+> <!-- Multiline -->
+> ![[Drawing 2025-04-21 14.42.33.excalidraw | center | 700]]
 # Templates
 
-> [!Info]- **Kruskal’s Algorithm**
+> [!Info]- Kruskal’s Algorithm
 > 
 > **~={blue}Explanation=~**
 > 

@@ -2,5 +2,12 @@
   "attachmentFolderPath": "5 - Resources/Attachements",
   "alwaysUpdateLinks": true,
   "readableLineLength": true,
-  "showLineNumber": false
+  "showLineNumber": false,
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
 }
