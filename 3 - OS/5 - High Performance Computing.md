@@ -64,6 +64,7 @@
 > [!Note]- Gustafson-Barsis' Law (Maximum Speedup) (Assume $T_P$ Constant)
 > 
 > **~={green}Definition=~**: Unlike Amdahl’s Law, which assumes a fixed problem size, Gustafson-Barsis’ Law argues that **as we increase the number of processors, we can also scale the problem size**, leading to **greater speedup** than Amdahl's prediction. Because we have $T_P$ being constant even when more processors are added - this is achieved by "increasing" the problem size.
+> * `seq` = time of the parallel portion which is sequential. `T_s` is the total sequential time if there was no parallelism.
 > 
 > **~={blue}Equation=~**:
 > 
@@ -415,7 +416,7 @@
 > 	x[i] = (b[i - 2] + b[i - 1]) / 2;
 > }
 >```
->Where we can flow inter loop flow dependencies from:
+>The flow dependencies occur across loop iterations, specifically from:
 >1. `b[i]` -> `b[i - 2]`, and
 >2. `b[i]` -> `b[i - 1]`
 >
@@ -545,7 +546,7 @@
 > 	* Starts with large chunks to reduce overhead early once
 > 	* Gradually shifts to smaller chunks for better load balancing
 > * Each thread gets chunk on demand (request nest when ready) / (threads are assigned chunks in the order they become available)
-> * **~={green}Pros=~**: Good for irregular workloads when execution times vary strongly. Also helps with load balancing among threads.
+> * **~={green}Pros=~**: Good for irregular workloads when execution times vary strongly. Also helps with load balancing among threads. Lower overhead compared to dynamic, but worse off load balancing.
 > * **~={red}Cons=~**: Will still have overhead compared to static policies. However, when the blocks are larger size, there's less frequent access to the queue which holds the chunks of loop iterations
 > 
 > ![[Pasted image 20250419211354.png | center | 450]]
@@ -588,13 +589,308 @@
 
 >[!Note]- Loop Unrolling
 > <!-- Multiline -->
-> We treat the loop body as a task graph. 
+> The idea here is we increase the size of the loop body by partially loop unrolling. This just means you do more work per iteration.
+> 
+> **~={red}Example=~**
+> * Note that in 1 iteration, we're now doing 3 iterations worth of work
+> 
+> ![[Pasted image 20250419222636.png | center | 450]]
+> 
+> * This means we have less task graphs, so less inter loop dependencies
+> 
+> ![[Pasted image 20250419222758.png | center | 450]]
 
 >[!Note]- Loop Pipelining
 > <!-- Multiline -->
-> We treat the loop body as a task graph. 
+> **~={purple}What is Pipelining=~**
+> Is a technique where multiple stages of a task are overlapped in execution, allowing the next iteration to start before the previous one finishes—similar to an assembly line.
+> 
+> ![[Drawing 2025-04-19 22.43.59.excalidraw | center | 600]]
 
 # OpenMP
+
+> [!QUOTE] Quick Notes
+> Standard for shared memory programming.
+
+>[!Note]- How to use the library
+> <!-- Multiline -->
+> First we put `#pragma omp parallel` to create a team of threads to execute a block of code in parallel. Then we do `pragma omp <directive_name>` to specify how the work should be divided or controlled among those threads.
+
+>[!Note]- What is OpenMP's Thread Concept
+> <!-- Multiline -->
+> 1. `#pragma omp parallel` forks threads. Following structured block is executed by each thread.
+> 2. At the end of the structured block, the threads join back together into a single thread
+> 
+> ![[Pasted image 20250419231513.png | center | 450]]
+
+>[!Note]- How many threads in the parallel region?
+> <!-- Multiline -->
+> You can specify it in the directive. If not specified, it defaults to the number of processors/cores in your system.
+
+## Work sharing constructs
+
+>[!Note]- Implicit Barrier
+> <!-- Multiline -->
+> There is an implicit barrier at the end of for, sections, and single, but not master. This means that all threads will wait at the end of these blocks until all threads have completed their portion of work, so they can proceed together.  You can suppress this barrier using the nowait clause (e.g. `#pragma omp for nowait` or `#pragma omp sections nowait`), allowing threads to continue without waiting.
+
+### For Construct
+
+| ~={purple}Schedule Kind=~ | ~={purple}Schedule Kind=~                                                |
+| ------------------------- | ------------------------------------------------------------------------ |
+| static                    | Entire iteration space / num_threads                                     |
+| dynamic                   | **1**                                                                    |
+| guided                    | **Implementation-defined** (usually starts large, shrinks exponentially) |
+| runtime                   | Based on OMP_SCHEDULE env variable                                       |
+
+>[!Note]- `for` construct
+> <!-- Multiline -->
+> - Used in OpenMP to parallelise `for` loops
+> - **~={blue}Syntax=~**: `#pragma omp for` followed by a standard `for(...)` loop
+> - Must be placed inside a `parallel` region
+> - Distributes loop iterations among threads
+> - Iterations must be **independent**
+>  
+> **~={purple}Constraints=~**
+> - Loop must follow the form: `for (var = a; var logical-op b; incr-exp)`
+> - **~={blue}Allowed=~** `logical-op`: `<`, `<=`, `>`, `>=`
+> - **~={blue}Allowed=~** `incr-exp`: `var = var +/- incr` or `var++`
+> - Loop variable must **not** be modified inside the loop body
+> 
+> **~={purple}Scheduling=~**
+> - Controls how iterations are split across threads
+> - **~={blue}Clause format=~**: `schedule(kind[, chunk_size])`
+> - **~={red}Example=~**: `#pragma omp for schedule(static, 2)`
+> - **~={green}Types=~**: `static`, `dynamic`, `guided`, `runtime`
+> 	- Chunk Size is an optional positive integer
+> 		- Not specified → iteration space divided equally (block style)
+> 		- Specified → split into chunks of `chunk_size` and **cycled across threads**
+
+>[!Note]- `schedule(static)`
+> <!-- Multiline -->
+> - Iteration distribution is **decided before loop executes**
+> - Procedure:
+>   1. Determine `chunk_size`
+>   2. Assign `chunk_size` iterations cyclically to threads (round-robin)
+
+>[!Note]- `schedule(dynamic)`
+> <!-- Multiline -->
+> - Iteration distribution is **decided during loop execution**
+> - Procedure:
+>   1. Determine `chunk_size`
+>   2. Repeat until all iterations are done:
+>      - Each thread grabs a `chunk_size` batch
+>      - Executes it, then repeats
+
+>[!Note]- `schedule(runtime)`
+> <!-- Multiline -->
+> - Scheduling kind is provided at **runtime via environment variable**
+> - No `chunk_size` parameter in the code
+> - Useful for testing different scheduling kinds without recompiling
+> - Example:
+>   ```bash
+>   export OMP_SCHEDULE="dynamic, 4"
+>   ```
+>   - kind: `dynamic`
+>   - chunk size: `4`
+
+## Sections Construct
+
+>[!Note]- `sections` construct
+> <!-- Multiline -->
+> - Work sharing construct for MIMD programming
+> - Each section is executed by a different thread. This allows each thread to execute different code.
+> - Not suitable for many small tasks (**~={green}course grain=~**)
+> ```cpp
+> #pragma omp sections
+> {
+> 	#pragma omp section
+> 	structured_block
+> 	#pragma omp section
+> 	structured_block
+> 	...
+> }
+>```
+
+## Single/Master Construct
+
+>[!Note]- `single & master` construct
+> <!-- Multiline -->
+> `#pragma omp single` then `structured_block`
+> * Structured block is executed by only one thread
+> 	* all other threads wait until it is finished (**~={red}blocking=~**)
+> 	* remember, by default everything within a parallel region is executed by all threads
+> 	
+> `#pragma omp master` then `structured_block`
+> * Structured block is only executed by master thread
+> 	* all other threads ignore it and continue without waiting
+
+## Synchronisation
+
+>[!Note]- How to Synchronise Between Threads
+> <!-- Multiline -->
+> Sometimes it is necessary to synchronise between the threads. Mainly to synchronise data access. We can use 2 constructs:
+> * `critical`
+> * `barrier`
+
+### Critical Region
+
+>[!Note]- `crtical` region
+> <!-- Multiline -->
+> It is an OpenMP directive used to prevent multiple threads from running a block of code at the same time.
+> * Only 1 thread can be in the critical section
+> * Other threads must wait their turn before entering
+> 
+> **~={purple}How to use it?=~**
+>```cpp
+>int total{0};
+>#pragma omp parallel {
+>	#pragma omp critical {
+>		total += 1;
+>	}
+>}
+>``` 
+
+### Barrier Region
+
+>[!Note]- `barrier` region
+> <!-- Multiline -->
+> It is an OpenMP directive that creates a synchronisation point. All threads must reach the barrier before any of them can move forward,
+> 
+> **~={purple}How to use it?=~**
+> ```cpp
+> #pragma omp parallel{
+    // Each thread does some work
+    #pragma omp barrier  // <- All threads wait here
+    // No thread goes past this point until all threads have hit the barrier
+}
+>```
+
+## Data Clauses
+
+>[!Note]- Shared vs Private Variables
+> <!-- Multiline -->
+> In OpenMP, variables must be declared as either **shared** (accessible by all threads) or **private** (each thread has its own copy). Correct classification prevents race conditions and is essential for writing correct and efficient parallel code.
+> * **~={purple}Private=~**: Best for thread-local computations (e.g., loop indices, scratch space). No interference between threads.
+> * ~={purple}**Shared**=~: Used when threads must read/write common data (e.g., input arrays or result containers).
+
+>[!Note]- Where to Place Data Clauses
+> <!-- Multiline -->
+> * `#pragma omp <directive> [clauses...]` 
+> * **~={red}No Loop=~**: `#pragma omp parallel private(id) shared(data)`
+> * **~={red}Loop=~**: `#pragma omp parallel for private(id) shared(data)`
+> 
+
+>[!Note]- Core Data Clauses
+> <!-- Multiline -->
+> * `private(var1, var2, ...)`
+> 	* Each thread gets an uninitialised private copy
+> 	* Avoids race conditions and cache-line contention (false sharing)
+> 	* Use for per-thread temporary variables
+> 	* **~={red}If possible set everything to private=~**
+> * `shared(var1, var2, ...)`
+> 	* All threads references the **~={green}same memory=~**
+> 	* Needed for shared data structures or global communication
+> * `default(shared | none)`
+> 	* Sets the default for unspecified variables
+> 		* `shared`: variables are assumed to be `shared` unless stated otherwise
+> 		* `none`: forces explicit declaration of sharing status
+
+>[!Note]- Reduction Syntax
+> <!-- Multiline -->
+> * **~={green}When does Reduction Work=~**: When you are **accumulating or combining values** into a single variable across threads (e.g., summing, counting, finding min/max).
+> * **~={purple}Template=~**: `reduction(operator: var1, var2, ...)`
+> * **~={purple}Supported Operations=~**: +, *, -, &, |, ^, &&, ||, min, max
+
+>[!Note]- What and How does Reduction work?
+> <!-- Multiline -->
+> **~={purple}What is Reduction=~**?
+> Gives each thread it's own local variable. Once it's done accumulating that local variable, all the local variables gets accumulated.
+> 
+> **~={purple}How does Reduction Work?=~**
+> 
+> ```cpp
+> int a[4] = {1, 2, 3, 4};
+> int sum = 0;
+> #pragma omp parallel for reduction(+:sum)
+> for (int i = 0; i < 4; i++) {
+> 	sum += a[i];
+> }
+>```
+>
+>**~={red}Assuming 2 threads are used=~**:
+>1. Thread 0 processes `i = 0` and `i = 1`
+>* Adds `a[0] + a[1] = 1 + 2 = 3`
+>* Stores `local_sum = 3`
+>2. Thread 1 processes `i = 2` and `i = 3`
+>* Adds `a[2] + a[3] = 3 + 4 = 7`
+>* Stores `local_sum = 7`
+>3. After the loop, OpenMP reduces the local results:
+>* `sum = 3 (Thread 0) + 7 (Thread 1)` 
+
+>[!Info]- How to implement Reduction using Critical
+> <!-- Multiline -->
+> Let's say we had the following code snippet:
+> ```cpp
+> int sum{0};
+> for (int i{0}; i < n; ++i) {
+> 	sum += a[i];
+> }
+>```
+>Recall the idea of reduction is that each thread get's their own local variable, they accumulate (sum in this case), and at the end we accumulate every thread's local variable.
+>
+>```cpp
+>int sum{0};
+>#pragma omp parallel private(localSum) shared(a, sum) {
+>	int localSum{0};
+>	#pragma omp for
+>	for (int i{0}; i < n; ++i) {
+>		localSum += a[i];
+>	}
+>	#pragma omp critical
+>	sum += localSum;
+>}
+>```
+
+>[!Note]- Why Reduction is better than Critical/Locking
+> <!-- Multiline -->
+> **~={red}Problem=~**
+> * Threads may simultaneously read/modify/write to `sum`
+> ```cpp
+> int sum{0};
+> #pragma omp parallel for shared(sum)
+> for (int i = 0; i < N; i++) {
+> 	sum += a[i];  // Multiple threads writing to 'sum' causes races
+> }
+>```
+>
+>**~={green}Naive Solution=~**
+>* Prevents races but kills performance — threads **serialize** at the critical section.
+>* High overhead due to frequent locking.
+>
+> ```cpp
+> int sum{0};
+> #pragma omp parallel for shared(sum)
+> for (int i = 0; i < N; i++) {
+> 	#pragma omp critical
+> 	sum += a[i];
+> }
+
+>[!Note]- `firstprivate` vs `lastprivate`
+> <!-- Multiline -->
+> `firstprivate`
+> * Thread-private variable initialised with its original value before entering the parallel region.
+> 
+> ```cpp
+> int t{5};
+> #pragma omp parallel firstprivate(t) {
+> 	t *= 2; // Each thread starts with t = 5
+> }
+>```
+>
+> `lastprivate`
+> * Thread-private during execution, but after the region ends, the original variable is updated with the last logical iteration's value.
+
+# Benchmarking
 
 
 
