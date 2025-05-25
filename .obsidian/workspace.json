@@ -21,54 +21,6 @@
               "icon": "lucide-file",
               "title": "5 - High Performance Computing"
             }
-          },
-          {
-            "id": "89f608885310e43c",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "5 - Resources/Excalidraw/Drawing 2025-05-25 15.43.36.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2025-05-25 15.43.36.excalidraw"
-            }
-          },
-          {
-            "id": "c5fcd9578a0c53ca",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "5 - Resources/Excalidraw/Drawing 2025-05-25 12.38.29.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2025-05-25 12.38.29.excalidraw"
-            }
-          },
-          {
-            "id": "5d505fcfd8295d20",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "5 - Resources/Excalidraw/Drawing 2025-05-25 12.40.01.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2025-05-25 12.40.01.excalidraw"
-            }
-          },
-          {
-            "id": "6e1b044988d3d3c4",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "5 - Resources/Excalidraw/Drawing 2025-05-25 12.42.15.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2025-05-25 12.42.15.excalidraw"
-            }
           }
         ]
       }
@@ -306,11 +258,11 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "5 - Resources/Home.md",
+    "3 - OS/5 - High Performance Computing.md",
     "5 - Resources/Attachements/Pasted image 20250525181430.png",
     "5 - Resources/Attachements/Pasted image 20250525180748.png",
     "5 - Resources/Excalidraw/Drawing 2025-05-25 17.55.48.excalidraw.md",
-    "5 - Resources/Home.md",
-    "3 - OS/5 - High Performance Computing.md",
     "5 - Resources/Excalidraw/Drawing 2025-05-25 17.07.47.excalidraw.md",
     "5 - Resources/Excalidraw/Drawing 2025-05-25 15.43.36.excalidraw.md",
     "5 - Resources/Attachements/Pasted image 20250525151445.png",
@@ -341,7 +293,6 @@
     "5 - Resources/Attachements/Pasted Image 20250427004812_683.png",
     "5 - Resources/Attachements/Pasted Image 20250427004358_271.png",
     "5 - Resources/Attachements/Pasted image 20250419231513.png",
-    "5 - Resources/Attachements/Pasted Image 20250419224420_164.png",
     "2 - DSA/Patterns/Intervals",
     "1 - Languages/C++/Design Patterns/Behavioural",
     "1 - Languages/C++/Design Patterns/Structural",
