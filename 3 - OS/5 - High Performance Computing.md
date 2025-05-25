@@ -1593,6 +1593,6 @@ Thread A: resumes via `.get()` or callback
 
 # Parallel Rust Implementation of Multi-Dimensional Quadrature
 
-
+![[Pasted image 20250525181430.png]]
 
 #flashcards/os/highperformancecomputing

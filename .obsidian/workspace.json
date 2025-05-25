@@ -23,30 +23,6 @@
             }
           },
           {
-            "id": "e872e72fd9c2cf0d",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "5 - Resources/Excalidraw/Drawing 2025-05-25 17.55.48.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2025-05-25 17.55.48.excalidraw"
-            }
-          },
-          {
-            "id": "d83bf887c5d745f7",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "5 - Resources/Excalidraw/Drawing 2025-05-25 17.07.47.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2025-05-25 17.07.47.excalidraw"
-            }
-          },
-          {
             "id": "89f608885310e43c",
             "type": "leaf",
             "state": {
@@ -330,6 +306,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "5 - Resources/Attachements/Pasted image 20250525181430.png",
     "5 - Resources/Attachements/Pasted image 20250525180748.png",
     "5 - Resources/Excalidraw/Drawing 2025-05-25 17.55.48.excalidraw.md",
     "5 - Resources/Home.md",
@@ -365,7 +342,6 @@
     "5 - Resources/Attachements/Pasted Image 20250427004358_271.png",
     "5 - Resources/Attachements/Pasted image 20250419231513.png",
     "5 - Resources/Attachements/Pasted Image 20250419224420_164.png",
-    "5 - Resources/Attachements/Pasted image 20250419222758.png",
     "2 - DSA/Patterns/Intervals",
     "1 - Languages/C++/Design Patterns/Behavioural",
     "1 - Languages/C++/Design Patterns/Structural",
