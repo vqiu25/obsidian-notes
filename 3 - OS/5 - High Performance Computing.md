@@ -195,6 +195,14 @@
 > 
 > ![[Drawing 2025-03-09 07.59.45.excalidraw | center | 700]]
 
+>[!Note]- Dangers of NUMA Architecture
+> <!-- Multiline -->
+> From the perspective of the programmer, when a CPU requires data from remote memory, that is something they will be unaware of. This is not great as remote memory usage is much slower. To be more explicit with remote memory usage, Message passing could be used.
+
+>[!Note]- What are Memory Hierarchies, and why are they used?
+> <!-- Multiline -->
+> They are used so that system can be modular, and thus scalable. The idea is that we have nodes of of cpus, with a shared centralised memory that is fast to access. These nodes are connected with one another, where the caveat of communication between these nodes being slower.
+
 >[!Note]- What is Thread Pinning?
 > <!-- Multiline -->
 > **~={green}Definition=~**: is the technique of binding a thread to a specific CPU core so that it always runs on the same processor.
@@ -268,9 +276,13 @@
 > 		* False sharing of cache lines. There are caches in each processor. The caches are buffer for main memory, so processes don't always have to go back to main memory. Cache are organised in cache lines, so when 1 byte of the cache line is loaded in, the remaining bytes in the cache line are also loaded in. In multithreaded programs, 2 threads could be working on 2 items, but these items are in the same cache line. However, one processor has to have ownership of the cache line, requiring all other processors to delete what they have loaded in for consistency purposes.
 > 		* Data is concurrently modified (race condition)
 
+>[!Note]- Shared Memory Architecture vs Message Passing Architecture and Share Memory Programming Model vs Message Passing Programming Model
+> <!-- Multiline -->
+> ![[Drawing 2025-04-26 20.07.13.excalidraw | center | 700]]
+
 ### Practical Parallelisation Approach
 
->[!Note]- Communication Costs
+>[!Note]- Parallelisation Approach
 > <!-- Multiline -->
 > 1. Consider target platform
 > 2. Choose parallelisable algorithm
@@ -394,9 +406,9 @@
 > <!-- Multiline -->
 > ![[Pasted image 20250419142747.png | center | 600]]
 
->[!Note]- When can we sap loop order
+>[!Note]- When can we swap loop order
 > <!-- Multiline -->
-> When there is no flow dependence.
+> When there are no flow dependence which have a distance vector that is both positive and negative.
 
 ### Loop Transformations
 
@@ -1053,8 +1065,8 @@
  >[!Note]- Why does every object in Java have a monitor? What is it?
 > <!-- Multiline -->
 > * **~={purple}What is a monitor=~**: A monitor is a synchronisation construct that allows threads to have mutual exclusion and the ability to wait (block) and be notified. It's effectively a **~={purple}flag=~**.
-> * **~={green}If it is true=~**: The monitor is owned/locked by a thread, meaning another thread trying to synchronized on the object will be blocked.
-> * **~={red}If it is false=~**: The monitor is unlocked, and any thread can acquire it via a synchronized block.
+> * **~={green}If it is true=~**: The monitor is owned/locked by a thread, meaning another thread trying to enter a synchronised block on the object will be blocked.
+> * **~={red}If it is false=~**: The monitor is unlocked, and any thread can acquire it via a synchronised block.
 
 > [!Note]- `synchronized(this)` vs. Fine-Grained Locking
 > <!-- Multiline -->
@@ -1100,7 +1112,7 @@
 > [!Note]- Lock vs Monitor
 > <!-- Multiline -->
 > * **~={purple}Monitor=~**: Built into every object. Using synchronized(obj) loads object metadata (like the object header: identity hash, GC info, lock state, and monitor pointers) into CPU caches. Also includes support for wait(), notify(), notifyAll() → heavier on instruction/data cache.
-> * **~={purple}Lock=~**: ReentrantLock is a standalone object. Internally just an atomic counter and a queue. ~={green}It's just a simple counter=~ → lightweight and cache-friendly.
+> * **~={purple}Lock=~**: `ReentrantLock` is a standalone object. Internally just an atomic counter and a queue. ~={green}It's just a simple counter=~ → lightweight and cache-friendly.
 > * **~={purple}Lock vs Monitor=~**: Prefer Lock for high-performance or advanced features (timeouts, try-lock, fairness). Use Monitor (synchronized) for simplicity in low-contention cases.
 
 > [!Note]- Concurrent Data Structures (TODO)
@@ -1135,6 +1147,452 @@
 > [!Note]- Parallelising Recursive Functions
 > <!-- Multiline -->
 > ![[Pasted image 20250411214700.png | center | 500]]
+
+# Parallelisation of Graph Algorithms in Java
+
+> [!Note]- Why are Graph Algorithms more difficult to Parallelise compared to Linear Algebra?
+> <!-- Multiline -->
+> They always have dependencies, requiring the results of the previous step. Whereas in some linear-algebra problems, memory access for matrices is predictable, and they can be divided into independent blocks without the need for synchronisation.
+
+> [!Note]- Why is Djisktra hard to parallelise?
+> <!-- Multiline -->
+> * Dijkstra always expands the closest unvisited node. 
+> * This step must be done sequentially to ensure correctness — you can't skip ahead.
+> * Concurrent access leads to lock contention or complex lock-free data structures regarding the priority queue.
+
+> [!Note]- Java Concepts
+> <!-- Multiline -->
+> * `ExecutorService pool = Executors.newFixedThreadPool(numThreads);` - Creates a pool of threads
+> * `CyclicBarrier barrier = new CyclicBarrier (numThreads);` - Reusable barrier
+> * `CountDownLatch latch = new CountDownLatch(numThreads);` - One time barrier
+
+> [!Note]- SSSP How to Parallelise Bellman Ford $O(V \cdot E)$
+> <!-- Multiline -->
+> **~={purple}Sequential Bellmanford=~**
+> * We have a single distances array
+> * **~={green}Initialise=~**:
+> 	* `dist[v] = ∞`, `dist[src] = 0`
+> * For $V - 1$ iterations:
+> 	* We go through each vertex, and check if we can reach every other node in a shorter distance. The equation for this is, `d[v] = min(d[v], d[u] + w(u, v))`
+>
+> ![[Drawing 2025-05-24 10.13.32.excalidraw | center | 300]]
+> 
+> **~={purple}Parallel Bellmanford=~** 
+> * We have 2 distances arrays
+> 	* `distOld[]` holds the snapshot of distances from the previous iteration (we read from this)
+> 	* `distNew[]` for the current iteration (we write to this). This needs to be an `AtomicIntegerArray`. Java doesn't provide an atomic `min` operation, so you'd have to use `updateAndGet` in addition with `Math.min`
+> * **~={green}Initialise=~**:
+> 	* `dist[v] = ∞`, `dist[src] = 0`
+> * For $V-1$ iterations:
+> 	* We don't have to visit the vertices in the same order in every iteration, so we can just create threads, and split up the edges among threads for edge relaxation. Operations are atomic so no race conditions.
+> 	* We block the next iteration with a barrier `countDownLatch`. Synchronisation does slow down these algorithms
+> 	
+> ![[Drawing 2025-05-24 10.34.26.excalidraw | center | 500]]
+
+> [!Note]- APSP How to Parallelise Floyd Warhshalls $O(V^3)$
+> <!-- Multiline -->
+> **~={purple}Sequential Floyd Warshall=~**
+> * We use a 2D distance matrix `dist[v][v]`
+> * **~={green}Initliase=~**:
+> 	* `dist[i][j] = weight (i → j )` if edge exists, otherwise `∞`
+> 	* `dist[i][i] = 0`
+> * For every node $k$ (intermediate node)
+> 	* For every pair of nodes $(i, j)$
+> 		* `dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])`
+> 		* (Checks if the path from `i` to `j` is shorter if we do `i -> k -> j` instead)
+> 
+> **~={purple}Parallel Floyd Warshall=~**
+> * **~={red}This line=~**: For every pair of nodes $(i, j)$
+> 	* Is independent. I.e. within an iteration, there are non `write-write` or `read-write` conflicts. Therefore, it's safe to divide the (i, j ) matrix into submatrices (rows or blocks) and let each thread process part of the matrix concurrently.
+
+> [!Note]- MST How to Parallelise Boruvkas $O(ElogV)$
+> <!-- Multiline -->
+> * You should know. Every iteration we go through all $E$ edges. There should be around $log(V)$ iterations, since in each round, components are merged, roughly halving the number of components.
+> * Each thread processes a subset of edges. To avoid race conditions when identifying the cheapest edge per component, **each thread maintains its own local `minEdge[]` array**. When copying to the global array, we perform min operations.
+
+# Synchronisation Methods and their use in thread-safe Priority Queue in Java
+
+> [!Note]- What is Synchronisation?
+> <!-- Multiline -->
+> Enforces correct order of execution
+
+> [!Note]- Types of Synchronisation
+> <!-- Multiline -->
+> * **~={red}Blocking=~**: Blocking methods are those which only allow one thread to access a section of code at a time. Threads that want to access that section are forcefully blocked until they are granted access to it.
+> 	* Mutex
+> 	* Semaphores
+> 	* Monitors
+> 	* Barriers
+> * **~={green}Non Blocking=~**: Non-blocking methods avoid forcing threads to wait; instead, threads keep making progress without being suspended, even when accessing shared resources. More efficient.
+> 	* Wait-Free
+> 	* Lock-Free
+> 	* Obstruction-Free
+
+> [!Note]- Obstruction Free (Weakest) vs Lock Free vs Wait Free (Strongest)
+> <!-- Multiline -->
+> ![[Pasted image 20250524114651.png]]
+
+### Blocking Methods
+
+> [!Note]- Mutex
+> <!-- Multiline -->
+> Allows only one thread to enter a critical section at once
+
+> [!Note]- Semaphore
+> <!-- Multiline -->
+> Allows up to $x$ number of threads to enter a critical section at once
+
+> [!Note]- Read & Write Locks
+> <!-- Multiline -->
+> * Multiple threads can acquire this as a read lock, but only 1 thread can acquire it as a write lock.
+> * Write locks can be downgraded to read locks but not vice versa
+> * Good to use when you might require lots of reads but few writes
+
+ >[!Note]- Monitor
+> <!-- Multiline -->
+> * **~={purple}What is a monitor=~**: A monitor is a synchronisation construct that allows threads to have mutual exclusion and the ability to wait (block) and be notified. It's effectively a **~={purple}flag=~**.
+> * **~={green}If it is true=~**: The monitor is owned/locked by a thread, meaning another thread trying to enter a synchronised block on the object will be blocked.
+> * **~={red}If it is false=~**: The monitor is unlocked, and any thread can acquire it via a synchronised block.
+
+ >[!Note]- Barriers
+> <!-- Multiline -->
+> Prevents threads from continuing until they have all reached a "barrier" in the execution. Threads will block at a barrier until all active threads have reached it before resuming execution.
+> * **~={purple}Latches=~**: 1 time use
+> * **~={purple}Phasers=~**: Can be used multiple times
+
+### Non-Blocking Methods
+
+> [!Note]- Compare and Swap
+> <!-- Multiline -->
+> * Seems to be good. Hard to say if it's better than a mutex or worse. Need to benchmark. May mean you have to re-check very often.
+> 
+> ![[Drawing 2025-05-24 12.36.41.excalidraw | center | 700]]
+
+> [!Note]- Test and Set
+> <!-- Multiline -->
+> 1. Threads will check a memory location before accessing a shared resource. 
+> 2. The thread will set the a flag in the location to 1 to acquire it if it is available (mutex like)
+> 3. Other threads will keep polling/waiting the memory location to try enter the critical section
+> 
+> This is different to a mutex as:
+> * When a lock is already held, any new threads requesting to access is put to sleep by the OS and placed in a wait queue. When the lock is released, the OS wakes up the waiting thread, resulting in less wasteful CPU usage.
+
+> [!Note]- Atomic Variables
+> <!-- Multiline -->
+> * Thread-safe objects (e.g., AtomicInteger, AtomicBoolean, AtomicReference)
+> * Provide lock-free synchronisation for single variables
+> * **~={purple}Under the hood=~**:
+> 	* `incrementAndGet()`, `compareAndSet()`, `get()`, `set ()`
+> 	* Actually backed by a hardware instruction using CAS
+> 	* If it's not an integer, boolean or long, atomic is just a software lock, akin to a database transaction, where the entire thing goes through, or none of it
+
+### Conditional Methods
+
+> [!Note]- Futures and Promises
+> <!-- Multiline -->
+> * **~={green}Promise=~**: holds the completed result
+> * **~={red}Future=~**: will wait for the completed result 
+> 
+> **~={purple}Process=~**:
+> 1. Producer thread creates a `Promise` that is shared with consumer threads
+> 2. Once successful, it fulfils a `Promise` and will notify the consumer threads
+> 3. Consumer threads perform other work or is blocked until the promise is fulfilled
+> 4. Consumer will access or receive the future object, but not modify
+
+> [!Note]- Condition Variables
+> <!-- Multiline -->
+> Blocking synchronisation primitive allows threads to wait until a particular condition occurs. Effectively, once a condition is true, it'll allow the thread to enter the critical section blocked off by the mutex.
+
+### Methods to make Priority Queue Thread Safe
+
+> [!Note]- Atomic Variable Approach
+> <!-- Multiline -->
+> 1. **~={purple}AtomicReference for entire PQ=~**
+> 	* **~={green}Thread safe=~**
+> 	* **~={red}But as CAS is being used, threads would be making copies of the entire PQ, which is expensive (optimistic)=~**
+> 2. **~={purple}AtomicReference for all elements=~**
+> 	* **~={red}Not thread-safe, since heapify is a multi-step operation that must be atomic—this approach doesn’t ensure that=~**
+> 3. **~={purple}AtomicReference for head element=~**
+> 	* **~={red}Doesn't work for the same reason as number 2=~**
+
+> [!Note]- Batch Processing Approach
+> <!-- Multiline -->
+> * So if $n$ threads each want to perform an operation on the PQ, they all queue their operation into the **operation queue** `ConcurrentLinkedQueue`. Then **one thread** calls `combine()` and runs all 10 of those operations (including its own), **one after another**, while holding the lock.
+> 1. When `combine()` is called, that thread acquires a mutex lock on the PQ.
+> 2. Processes all pending operations in the operation queue.
+> 3. Fulfills each Future tied to those operations.
+> ```
+> Thread A: creates `CompletableFuture`, puts it in queue, and holds on to it
+↓
+Combiner thread: completes the future later
+↓
+Thread A: resumes via `.get()` or callback
+>```
+
+# Parallel Iterators in C++
+
+> [!Note]- What is an Iterator?
+> <!-- Multiline -->
+> Iterators provide a standard way to access different types of data structures. For example, you can use the same iterator interface to loop through a simple array or a more complex tree without changing how you write your code.
+
+### Java
+
+> [!Note]- Parallel Iterators in Java
+> <!-- Multiline -->
+> When a thread in Java calls `it.hasNext()` on a data structure, it reserves the next element for it's own thread. Other threads are blocked off, and cannot proceed with their own `next()` call if they try access the same location. Thus this serves as a synchronisation point.
+
+> [!Note]- Random Access Collections
+> <!-- Multiline -->
+> **~={blue}What are Random Access Collections=~**: Arrays
+> 
+> **~={purple}Static (Cyclic)=~**
+> * Each thread is assigned a fixed stride.
+> * Threads know in advance which indices to access
+> * Just need a simple boundary check to avoid going out of bounds
+> * **~={red}No locks needed, but less adaptive to workload imbalances=~**
+> 
+> **~={purple}Dynamic/Guided=~**
+> * Threads pull work from a shared index. This index marks the next chunk that needs to be worked on.
+> * Requires locking to ensure only one thread claims a chunk at a time
+> * After taking a chunk, thread updates index and releases the lock.
+> * **~={red}Better for uneven workloads, but slower due to locking overhead.=~**
+> * The chunks are still processed in the order of indices. But total output order is not guaranteed.
+> 
+
+> [!Note]- Inherently Sequential Collections
+> <!-- Multiline -->
+> **~={blue}What are Random Access Collections=~**: Linked Lists, Trees, Hash Maps
+> 
+> **~={purple}Static (Cyclic)=~**
+> * Each thread is assigned a fixed stride. Each thread maintains a private subarray of references to the elements it needs to access.
+> 
+> **~={purple}Dynamic/Guided=~**
+> * Threads pull work from a shared iterator. This iterator marks the next chunk that needs to be worked on.
+> * Requires locking to ensure only one thread claims a chunk at a time
+> * After taking a chunk, thread updates the iterator and releases the lock.
+> 
+
+> [!Note]- Reductions
+> <!-- Multiline -->
+> Thread Local Storage: Reductions are implemented using thread local storage which gives each thread its own copy of a variable. 
+> 1. A ThreadLocal variable is declared to hold each thread's intermediate result.
+> 2. Each thread updates its local value during computation.
+> 3. After all threads complete, the main thread combines the results
+
+> [!Note]- Loop Breaks
+> <!-- Multiline -->
+> **~={purple}Global Breaks=~**
+> * A global break stops the entire parallel loop for all threads.
+> * Once the condition is met, all threads must stop processing, even if they haven't finished their chunk. (Their `.hasNext()` will stop working)
+> 
+> **~={purple}Local Breaks=~**
+> * A local break only stops execution within the current thread's chunk or loop.
+> * Other threads continue processing their own data.
+> 
+
+### C++
+
+> [!Note]- Sequence Containers
+> <!-- Multiline -->
+> **~={blue}What are Sequence Containers=~**: Arrays, Vectors, List
+
+> [!Note]- Associative Containers
+> <!-- Multiline -->
+> **~={blue}What are Sequence Containers=~**: Sets
+
+> [!Note]- Parallel Iterator Implementation
+> <!-- Multiline -->
+> **~={purple}Properties=~**
+> * **~={blue}Scheduling Policy=~**: Static (Block, Cyclic), Dynamic
+> * **~={blue}Block Size=~**:
+> * **~={blue}Container=~**: What container to take in
+> * **~={blue}Number of Threads=~**:
+> 
+> **~={purple}General Implementation=~**
+> 
+> ![[Drawing 2025-05-25 12.38.29.excalidraw | center | 300]]
+> 
+> * Each thread will have it's own queue
+> * Objects in the container will be allocated (as a reference) to the threads queue
+> * Policy and block size determine allocation
+> * Iterating complete when all objects have been allocated and queues are empty
+
+> [!Note]- Static Block Policy
+> <!-- Multiline -->
+> ![[Drawing 2025-05-25 12.40.01.excalidraw | center | 300]]
+
+> [!Note]- Static Cycle Policy
+> <!-- Multiline -->
+> ![[Drawing 2025-05-25 12.42.15.excalidraw | center | 300]]
+> 
+> **~={purple}Copy on Demand=~**
+> * A copy on demand approach can also be used, you only perform the copying from the container when it's needed rather than doing it upfront
+
+> [!Note]- Dynamic Policy
+> <!-- Multiline -->
+> There is a mutex on the shared container's iterator. When a thread wants to allocate a chunk to itself, it will enter the critical section, make a copy of references to its local queue, and move the iterator forward, leaving the critical section.
+
+# Co-routines in C++
+
+> [!Note]- Concurrency vs Parallelism
+> <!-- Multiline -->
+> * **~={blue}Concurrency=~**: Multiple tasks are in progress at the same time, but not necessarily running at the same instant.
+> * **~={blue}Parallelsim=~**: Multiple tasks are executing simultaneously, usually on multiple cores.
+
+> [!Note]- Cooperative vs Non-cooperative multitasking
+> <!-- Multiline -->
+> * **~={green}Cooperative=~**: Threads or co-routines voluntarily yield control of the CPU. Only 1 task runs at a time. Tasks yield control explicitly, so you know exactly when context switches can happen.
+> * **~={red}Non-cooperative=~**: The system/OS decides which threads or co-routines pause and switch between them automatically. Requires synchronisation to prevent race conditions.
+
+> [!Note]- What is a Sub-routine?
+> <!-- Multiline -->
+> Standard functions. A calls B. Needs to wait for B to return for A to resume.
+
+> [!Note]- What is a Co-routine?
+> <!-- Multiline -->
+> Co-routines (a function that can pause and resume its execution.) allow for concurrency without parallelism. This is called cooperative multitasking. Basically async functions.
+> 1. Coroutine A can start coroutine B. Coroutine B may yield, transferring control back to A. A must then explicitly resume B. This allows functions to pause and resume, enabling controlled switching between them.
+
+> [!Note]- Structured vs Non-Structured Concurrency
+> <!-- Multiline -->
+> If nested co-routines conclude before the outer nested co-routine, then it is structured.
+> 
+> ![[Pasted image 20250525151445.png | center | 500]]
+
+> [!Note]- Stackless Co-routines
+> <!-- Multiline -->
+> * C++ co-routines are stackless. This means a coroutine does not have the full call stack, only it's own local frame (variables, and instruction pointer). The programmer must explicitly manage relationships and control flow between coroutines.
+> 	* You must explicitly pass values back up the coroutine chain. For example, if A → B → C, and C wants to yield a value to A, it must pass that value through B manually.
+> 	* In Go, goroutines are stackful and independently scheduled. Any goroutine can communicate with any other (e.g., via channels), so C can effectively send a value directly to A without going through B.
+
+> [!Note]- What are Go Channels?
+> <!-- Multiline -->
+> Don't communicate by sharing memory, share memory by communicating!
+> * **~={purple}Unbuffered Channels=~**: No capacity to hold values. Effectively requires a handshake between two go routines to communicate a value.
+> * **~={purple}Buffered Channels=~**: Has a finite queue to temporarily store values.
+> 	* Sends blocks of data only if the buffer is full
+> 	* Receives blocks only if the buffer is empty
+
+> [!Note]- Go Scheduler
+> <!-- Multiline -->
+> The Go scheduler follows the GMP model, comprising three main components: Goroutines (G), OS Threads (M), and Processors (P). The scheduler maps goroutines onto available threads and processors, with support for work stealing to improve load balancing.
+> * **~={purple}Queue of Goroutines=~**: Each processor in Go has it's own queue of gorotuines. When a queue is empty, it tries to steal from the queues of other processors
+> 
+> ![[Drawing 2025-05-25 17.07.47.excalidraw | center | 400]]
+
+> [!Note]- `co_yield` (Suspend & Return Value)
+> <!-- Multiline -->
+> 2. When a coroutine is first made, it is initially suspended. Thus we need to first resume it.
+> 3. When resumed, it will run it's function. If it runs `co_yield(5)` it'll return back to where it was called, returning 5 to the coroutine object
+> 
+> ![[Drawing 2025-05-25 15.43.36.excalidraw | center | 300]]
+
+> [!Note]- `co_await` (Suspend & Wait)
+> <!-- Multiline -->
+> `co_await doSomething()`: Waits here until the function returns
+
+> [!Note]- `co_return` (Return Value & Complete)
+> <!-- Multiline -->
+> Returns a final value, and concludes the coroutine.
+
+# Image Processing in Halide
+
+> [!Note]- What is Halide
+> <!-- Multiline -->
+> Halide allows you to describe the algorithm separately from how it is executed, giving you fine-grained control over performance through a separate scheduling phase. Halide has 2 phases:
+> 1. **~={green}Algorithm Definition=~**: How the algorithm works
+> 2. **~={green}Scheduling Phase=~**: Whether to use tiling, vectorisation etc for performance enhancements
+
+> [!Note]- JIT vs AOT
+> <!-- Multiline -->
+> **JIT (Just-In-Time) compiles code at runtime, offering flexibility but with a performance cost, while AOT (Ahead-Of-Time) compiles code before execution, leading to better performance and portability.**
+
+> [!Note]- Why we don't parallelise across the X axis / columns
+> <!-- Multiline -->
+> We parallelise across rows rather than columns, as each row is stored in a different `vector`, so parallelising across columns will make us load and reload in `vectors` which is expensive. So each thread gets its own row.
+
+> [!Note]- What is Convolution
+> <!-- Multiline -->
+> A moving sliding window stencil across an image
+
+### Image Denoising
+
+> [!Note]- Median Filter
+> <!-- Multiline -->
+> * **~={red}Difficulty to Parallelise=~**: Harder (Has a sorting step which has a sorting cost, but still independent)
+> * **~={blue}Description=~**: Takes in neighbouring values, sorts it and take the middle value.
+
+> [!Note]- Gaussian Filter
+> <!-- Multiline -->
+> * **~={green}Difficulty to Parallelise=~**: Easy/Medium (similar to mean filter)
+> * **~={blue}Description=~**: Copy to new 2d matrix. Borders remain the same.
+>
+>![[Pasted image 20250524163049.png | center | 300]]
+
+> [!Note]- Mean Filter
+> <!-- Multiline -->
+> * **~={green}Difficulty to Parallelise=~**: Easy
+> * **~={blue}Description=~**: Loop through the image, for each pixel, compute the average of it's neighbour values and itself, and copy the pixel value to a new 2d matrix
+
+#### Parallelisation Strategies
+
+* **<font color="#b4befe">Parallelisation</font>**: Giving each thread a seperate row to perform the algorithm on
+* **<font color="#b4befe">Tiling</font>**: Helps improve cache locality by processing sections all at once
+* <font color="#b4befe">Vectorisation</font>: Give the compiler "Blocks" of pixels to process all at once using SIMD
+
+> [!Note]- Tiling & Parallelising
+> <!-- Multiline -->
+> Divides the image into submatrics:
+> 
+> ![[tiling.png | center | 300]]
+> 
+> * **~={green}Tiling=~**: These tiles can be worked on independently, and doing this helps with data locality with faster cache access, because each thread will now repeatedly accesses nearby memory addresses within its tile **~={blue}(By using tiling, we improve the cache locality since a large image cannot fit into the cache, but a small segment of it can)=~**. 
+> * **~={green}Parallel=~**: With the parallel directive, each tile can be assigned a thread, where multiple rows can be computed simultaneously using threads.
+> 
+
+> [!Note]- SIMD Vectorisation
+> <!-- Multiline -->
+> The Halide vectorise directive will allow Halide to process multiple pixels in a single instruction. Treats a vector as a single pixel.
+
+### Deconvolution
+
+> [!Note]- Richardson-Lucy
+> <!-- Multiline -->
+> Tries to undo the blur on an image.
+> * **~={purple}Parallelism within Iteration=~**: All steps (convolutions and pixel-wise division operation) are parallelisable since they operate independently over pixels.
+> * **~={purple}Parallelism across iterations=~**: Not parallelisable due to loop-carried dependencies — each new estimate (2d matrix) depends on the result of the previous iteration.
+
+# Accelerating ML on Raspberry Pi with NPU
+
+> [!Note]- What is an NPU
+> <!-- Multiline -->
+> Is a specialised processor to efficiently run AI inference tasks.
+> 
+> ![[Drawing 2025-05-25 17.55.48.excalidraw | center | 500]]
+
+> [!Note]- What does MAC do?
+> <!-- Multiline -->
+> * **~={purple}GPU=~**: We compute a bunch of dot products for matrix multiplication, and store intermediate results back to the cache, and then retrieve from cache again to compute next set of dot products.
+> * **~={purple}NPU=~**: Has MAC which can multiply, add and then accumulate in one step. This avoids the need to send intermediate results back to the cache. It is however only good at matrix multiplications.
+> 
+> ![[Pasted image 20250525180748.png | center | 400]]
+
+> [!Note]- CPU vs GPU vs NPU
+> <!-- Multiline -->
+> **~={purple}CPU=~**
+> * SIMD
+> * Is good at multi-tasking
+> 
+> **~={purple}GPU=~**
+> * MIMD
+> * Is good for graphics and parallel processing. It has very high throughput and is ideal for training large AI models
+> 
+> **~={purple}NPU=~**
+> * Good for machine learning inference (not training) on devices like phones, as it consumers little power. Capable of being real-time.
+
+
+# Parallel Rust Implementation of Multi-Dimensional Quadrature
+
 
 
 #flashcards/os/highperformancecomputing

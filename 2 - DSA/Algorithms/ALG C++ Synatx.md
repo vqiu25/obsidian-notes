@@ -85,7 +85,7 @@ for (int i{1}; i <= sqrt(20); ++i) {
 **When One is Involved**
 
 * GCD(1, b) = 1
-* LCM(a, b) = b
+* LCM(1, b) = b
 
 ## Convert Decimal to Base X
 

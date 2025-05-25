@@ -21,6 +21,78 @@
               "icon": "lucide-file",
               "title": "5 - High Performance Computing"
             }
+          },
+          {
+            "id": "e872e72fd9c2cf0d",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "5 - Resources/Excalidraw/Drawing 2025-05-25 17.55.48.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-05-25 17.55.48.excalidraw"
+            }
+          },
+          {
+            "id": "d83bf887c5d745f7",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "5 - Resources/Excalidraw/Drawing 2025-05-25 17.07.47.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-05-25 17.07.47.excalidraw"
+            }
+          },
+          {
+            "id": "89f608885310e43c",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "5 - Resources/Excalidraw/Drawing 2025-05-25 15.43.36.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-05-25 15.43.36.excalidraw"
+            }
+          },
+          {
+            "id": "c5fcd9578a0c53ca",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "5 - Resources/Excalidraw/Drawing 2025-05-25 12.38.29.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-05-25 12.38.29.excalidraw"
+            }
+          },
+          {
+            "id": "5d505fcfd8295d20",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "5 - Resources/Excalidraw/Drawing 2025-05-25 12.40.01.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-05-25 12.40.01.excalidraw"
+            }
+          },
+          {
+            "id": "6e1b044988d3d3c4",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "5 - Resources/Excalidraw/Drawing 2025-05-25 12.42.15.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-05-25 12.42.15.excalidraw"
+            }
           }
         ]
       }
@@ -54,7 +126,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "inorder",
+                "query": "cycle",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -258,42 +330,42 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "5 - Resources/Attachements/Pasted image 20250525180748.png",
+    "5 - Resources/Excalidraw/Drawing 2025-05-25 17.55.48.excalidraw.md",
     "5 - Resources/Home.md",
-    "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
-    "5 - Resources/Excalidraw/Drawing 2025-04-21 14.42.33.excalidraw.md",
-    "2 - DSA/Patterns/Union Find/Minimum Spanning Tree.md",
-    "5 - Resources/Excalidraw/Drawing 2025-04-19 15.41.49.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-04-19 12.25.04.excalidraw.md",
     "3 - OS/5 - High Performance Computing.md",
+    "5 - Resources/Excalidraw/Drawing 2025-05-25 17.07.47.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-05-25 15.43.36.excalidraw.md",
+    "5 - Resources/Attachements/Pasted image 20250525151445.png",
+    "5 - Resources/Excalidraw/Drawing 2025-05-25 12.42.15.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-05-25 12.40.01.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-05-25 12.38.29.excalidraw.md",
+    "5 - Resources/Attachements/Pasted image 20250524194057.png",
+    "5 - Resources/Attachements/Pasted image 20250524163049.png",
+    "5 - Resources/Attachements/tiling.png",
+    "5 - Resources/Excalidraw/Drawing 2025-05-24 12.36.41.excalidraw.md",
+    "5 - Resources/Attachements/Pasted image 20250524114651.png",
+    "5 - Resources/Excalidraw/Drawing 2025-05-24 10.13.32.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-05-24 10.34.26.excalidraw.md",
     "2 - DSA/Patterns/Trees & Graphs/BT DFS.md",
-    "2 - DSA/Patterns/Trees & Graphs/BST.md",
     "2 - DSA/Patterns/Trees & Graphs/BT BFS.md",
+    "1 - Languages/MERN/Node.js & Express.md",
     "1 - Languages/MERN/React.md",
-    "2 - DSA/Data Structures/Union Find.md",
-    "2 - DSA/Patterns/Union Find/Union Find.md",
-    "2 - DSA/Data Structures/DS C++ Syntax.md",
+    "1 - Languages/MERN/MongoDB.md",
+    "2 - DSA/Patterns/Trees & Graphs/Graph Terminology.md",
+    "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md",
+    "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md",
+    "2 - DSA/Data Structures/Heap/Binary Heap.md",
+    "2 - DSA/Data Structures/Heap/Priority Queue.md",
+    "2 - DSA/Patterns/Fenwick Trees/Fenwick Trees.md",
+    "3 - OS/1 - Process & Threads.md",
+    "3 - OS/2 - CPU Scheduling.md",
+    "3 - OS/3 - Concurrency.md",
+    "5 - Resources/Attachements/Pasted Image 20250427004812_683.png",
+    "5 - Resources/Attachements/Pasted Image 20250427004358_271.png",
     "5 - Resources/Attachements/Pasted image 20250419231513.png",
-    "5 - Resources/Excalidraw/Drawing 2025-04-19 22.43.59.excalidraw.md",
     "5 - Resources/Attachements/Pasted Image 20250419224420_164.png",
     "5 - Resources/Attachements/Pasted image 20250419222758.png",
-    "5 - Resources/Attachements/Pasted image 20250419222636.png",
-    "5 - Resources/Attachements/Pasted image 20250419221108.png",
-    "5 - Resources/Excalidraw/Drawing 2025-04-19 21.49.37.excalidraw.md",
-    "5 - Resources/Attachements/Pasted image 20250419211354.png",
-    "5 - Resources/Attachements/Pasted image 20250419211016.png",
-    "5 - Resources/Attachements/Pasted image 20250419210035.png",
-    "5 - Resources/Attachements/Pasted image 20250419205643.png",
-    "5 - Resources/Attachements/Pasted image 20250419202822.png",
-    "5 - Resources/Excalidraw/Drawing 2025-04-19 12.28.58.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-04-19 12.11.12.excalidraw.md",
-    "3 - OS/4 - Memory.md",
-    "3 - OS/3 - Concurrency.md",
-    "3 - OS/2 - CPU Scheduling.md",
-    "3 - OS/1 - Process & Threads.md",
-    "5 - Resources/Excalidraw/Drawing 2025-04-12 12.31.41.excalidraw.md",
-    "4 - System Design/Concepts/1.3 - Databases (SQL & NoSQL).md",
-    "4 - System Design/Component Problems/1 - Server Side Rate Limiter (Layer 7 HTTP).md",
-    "4 - System Design/Concepts/1.4 - Networks.md",
     "2 - DSA/Patterns/Intervals",
     "1 - Languages/C++/Design Patterns/Behavioural",
     "1 - Languages/C++/Design Patterns/Structural",

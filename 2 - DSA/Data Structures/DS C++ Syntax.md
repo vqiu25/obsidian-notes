@@ -277,6 +277,13 @@ is
 |                    Erase a Pair                    | `s.erase(value)`                      |                             |
 | Count Number of Elements<br>Associated with<br>Key | `s.count(value)`                      |                             |
 |                 Convert to Vector                  | `vector<int>(set.begin(), set.end())` | $O(n)$                      |
+Ordered Set Unique Methods:
+
+|                   Operation                    | Syntax                                                           | Comment |
+| :--------------------------------------------: | ---------------------------------------------------------------- | ------- |
+|      Find if Larger Value than $x$ exists      | `s.upper_bound(x) != s.end()`                                    |         |
+| Find if Smaller or Equal Value than $x$ exists | `s.lower_bound(x) != s.end()`                                    |         |
+|     Find if Smaller Value than $x$ exists      | `it = s.lower_bound(currX);`<br><br>`if (it != s.begin()) --it;` |         |
 
 # Stack
 ## Initialisation
