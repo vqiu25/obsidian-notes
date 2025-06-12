@@ -76,6 +76,10 @@
 >
 > ![[Drawing 2024-12-14 22.02.48.excalidraw | 600 | center]]
 
+>[!Note]- Floyd Cycle Detection
+> <!-- Multiline -->
+> * https://www.youtube.com/watch?v=wjYnzkAhcNk&t=336s
+
 # Templates
 
 >[!Info]- Inward Traversal
@@ -343,5 +347,16 @@
 > [!Question]- Remove Duplicates from Sorted Array II - Slow/Fast Pointers
 > <!-- Multiline -->
 > ![[Drawing 2025-02-24 08.27.19.excalidraw | center | 500]]
+
+## Floyd Cycle Detection
+
+> [!Question]- Shortest Word Distance II
+> <!-- Multiline -->
+> **~={red}Question=~:**
+> - Find the duplicate number in the array
+> 
+> **~={red}Solution=~:**
+> ![[Drawing 2025-05-27 11.31.11.excalidraw | center | 700]]
+> 
 
 #flashcards/dsa/patterns/twopointers

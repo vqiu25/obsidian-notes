@@ -1218,12 +1218,12 @@
 
 > [!Note]- Types of Synchronisation
 > <!-- Multiline -->
-> * **~={red}Blocking=~**: Blocking methods are those which only allow one thread to access a section of code at a time. Threads that want to access that section are forcefully blocked until they are granted access to it.
+> * **~={red}Blocking=~**: Blocking methods are those which only allow one thread to access a section of code at a time. Threads that want to access that section are forcefully blocked until they are granted access to it. Thread goes to sleep and is context switched out potentially.
 > 	* Mutex
 > 	* Semaphores
 > 	* Monitors
 > 	* Barriers
-> * **~={green}Non Blocking=~**: Non-blocking methods avoid forcing threads to wait; instead, threads keep making progress without being suspended, even when accessing shared resources. More efficient.
+> * **~={green}Non Blocking=~**: Non-blocking methods avoid forcing threads to wait; instead, threads keep making progress without being suspended, even when accessing shared resources. More efficient as it never sleeps or yields.
 > 	* Wait-Free
 > 	* Lock-Free
 > 	* Obstruction-Free
@@ -1274,7 +1274,7 @@
 > 2. The thread will set the a flag in the location to 1 to acquire it if it is available (mutex like)
 > 3. Other threads will keep polling/waiting the memory location to try enter the critical section
 > 
-> This is different to a mutex as:
+> This is different to a mutex as, a mutex does this:
 > * When a lock is already held, any new threads requesting to access is put to sleep by the OS and placed in a wait queue. When the lock is released, the OS wakes up the waiting thread, resulting in less wasteful CPU usage.
 
 > [!Note]- Atomic Variables
@@ -1326,8 +1326,10 @@
 ↓
 Combiner thread: completes the future later
 ↓
-Thread A: resumes via `.get()` or callback
+Thread A: resumes via `.get()` or callback. It gets the value it request for (i.e. top value).
 >```
+
+* 1 lock vs multiple locks and unlocks
 
 # Parallel Iterators in C++
 
@@ -1487,6 +1489,8 @@ Thread A: resumes via `.get()` or callback
 > 
 > ![[Drawing 2025-05-25 15.43.36.excalidraw | center | 300]]
 
+* Go: when a thing is blocked, scheduler handles it
+
 > [!Note]- `co_await` (Suspend & Wait)
 > <!-- Multiline -->
 > `co_await doSomething()`: Waits here until the function returns
@@ -1534,6 +1538,8 @@ Thread A: resumes via `.get()` or callback
 > * **~={green}Difficulty to Parallelise=~**: Easy
 > * **~={blue}Description=~**: Loop through the image, for each pixel, compute the average of it's neighbour values and itself, and copy the pixel value to a new 2d matrix
 
+3x3 Kernel -> 9 Operations
+1x3 and 3x1 Kernels -> 6 Operations
 #### Parallelisation Strategies
 
 * **<font color="#b4befe">Parallelisation</font>**: Giving each thread a seperate row to perform the algorithm on
@@ -1590,9 +1596,91 @@ Thread A: resumes via `.get()` or callback
 > **~={purple}NPU=~**
 > * Good for machine learning inference (not training) on devices like phones, as it consumers little power. Capable of being real-time.
 
+> [!Note]- Processing Pipieline (Pipeline Parallelism)
+> <!-- Multiline -->
+> 1. 🎥 **~={purple}Video Input=~**: **Video frames are captured** and transferred into the system. This is fetched by the DMA.
+> 2. 🧹 **~={purple}Pre-process Frames=~**: Resize and normalise the frames where needed.
+> 3. ⚙️ **~={purple}Run Inference=~**: Inference using MACs
+> 4. 🛠️ **~={purple}Post Process Frames=~**: Any post processing
+> 5. 🖥️ **~={purple}Overlay Results=~**: DMA write output back to RAM
+> 
+> ![[Drawing 2025-05-25 20.11.27.excalidraw | center | 250]]
+
+> [!Note]- CPU vs NPU
+> <!-- Multiline -->
+> The CPU approach follows a Consumer and Producer paradigm, where we have an input queue and an output queue.
+> 
+> **~={green}Input Queue=~**:
+> * **~={purple}Producer=~**: A preprocessing thread captures frames and normalises it, putting it into the queue
+> * **~={purple}Consumer=~**: The inference thread pulls from the queue and runs the ML model on it
+> 
+> **~={red}Output Queue=~**:
+> * **~={purple}Producer=~**: When the inference thread finishes, it passes the results to the output queue
+> * **~={purple}Consumer=~**: A post processing thread will dequeue and draw the overaly
+> 
+> The math computation is more difficult for the CPU, and has more clear bottleneckes.
 
 # Parallel Rust Implementation of Multi-Dimensional Quadrature
 
-![[Pasted image 20250525181430.png]]
+> [!Note]- What is Quadrature
+> <!-- Multiline -->
+> Integration using numerical methods
+
+> [!Note]- What is the curse of dimensionality?
+> <!-- Multiline -->
+> As the number of dimensions increases, the number of points needed to adequately cover the space grows exponentially.
+> 1. In 1d (0 to 1): 10 points
+> 2. In 2D ((0, 0) to (1, 1)): 100 points
+
+> [!Note]- Cuhre Algorithm
+> <!-- Multiline -->
+> 1. Integrate by sampling $x$ points, and effectively drawing a rectangle below it, weighting it according to weights
+> 2. Divide the region in half
+> 3. Integrate the two sub regions, which ever sub region is has the largest estimated error, we perform the above for it (continue until error is within acceptable tolerence)
+
+> [!Note]- Vegas
+> <!-- Multiline -->
+> 1. Same as Cuhre, but initially you start with a uniform distribution. After sampling, area's that are more higher, you mark more important in your distribution, as you want to sample there more (Peaks) } Important sampling
+> 	1. Getting these wrong near higher points means will be more off
+
+> [!Note]- Const Generics
+> <!-- Multiline -->
+> Parameters that are fixed at compile time. Thus, this allows the compiler to aggressively optimise (loop unrolling, SIMD etc).
+> * Fixed the number of dimensions & integrands
+
+> [!Note]- Compile Time Polymorphism
+> <!-- Multiline -->
+> * If the full type of an object or the return type of a function is known at compile time, the compiler can inline the entire function body rather than performing a function call. This enables aggressive optimisations like loop unrolling, SIMD vectorisation, and removal of dynamic dispatch, resulting in fast, zero-cost abstractions.
+> * It can know this cause Rust of Rust's type system, at least on generics.
+> * This removes the overhead of calling functions a bunch of times
+
+> [!Note]- Sequential vs Parallel Rust Implementation
+> <!-- Multiline -->
+> **~={blue}Sequential=~**
+> * Loop evaluates each point one by one, sequentially on a single thread
+> 
+> **~={blue}Parallel=~**
+> * Rayon can be used to create a parallel iterator over the input points. Each thread has it's own queue and does some work stealing.
+> 
+> ![[Drawing 2025-05-25 22.13.07.excalidraw | center | 700]]
+
+> [!Note]- Ahmdahls Law
+> <!-- Multiline -->
+> Cost of parallelism becomes less significant as we make the integrands more complicated
+
+> [!Note]- Vegas vs Cuhre
+> <!-- Multiline -->
+> VEGAS is better for high-dimensional integrals because it uses random sampling with adaptive weighting, which scales more gracefully and efficiently in high dimensions, whereas Cuhre’s grid-based method suffers from the curse of dimensionality.
+
+Cuhre Parallelisation:
+1. Heap on error values
+2. Each thread will pull subregions from the heap
+	1. Sample it, and compute integration and error
+	2. If error high enough, bisect and put in queue
+
+> [!Note]- What do the `Send` and `Sync` traits do?
+> <!-- Multiline -->
+> * **~={purple}Send=~**: If a type implements the `Send` trait, it can be moved to another thread.
+> * **~={purple}Sync=~**: If we want multiple threads to be able to read and access the same bit of data via a reference
 
 #flashcards/os/highperformancecomputing

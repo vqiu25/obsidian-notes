@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3 - OS/5 - High Performance Computing.md",
+                "file": "1 - Languages/C++/COMP6771/1. C++ Basics.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "5 - High Performance Computing"
+              "title": "1. C++ Basics"
             }
           }
         ]
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "cycle",
+                "query": "lambda",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +85,8 @@
               "title": "Recent Files"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -258,41 +259,43 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "3 - OS/3 - Concurrency.md",
+    "1 - Languages/C++/COMP6771/1. C++ Basics.md",
+    "1 - Languages/C++/COMP6771/4. Class Types.md",
+    "1 - Languages/C++/COMP6771/3. STL Algorithms.md",
+    "1 - Languages/C++/COMP6771/2. STL Containers.md",
+    "1 - Languages/C++/Design Patterns/Creational/Singleton 🖨️.md",
+    "1 - Languages/C++/COMP6771",
+    "1 - Languages/C++/Design Patterns/Creational/Factory 🏭.md",
+    "1 - Languages/C++/Design Patterns/Creational/Builder 🔨.md",
+    "1 - Languages/C++/Design Patterns/Behavioural/Strategy.md",
+    "1 - Languages/C++/Design Patterns/Behavioural/Observer.md",
+    "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md",
     "5 - Resources/Home.md",
-    "3 - OS/5 - High Performance Computing.md",
+    "2 - DSA/Patterns/Dynamic Programming/1D Dynamic Programming.md",
+    "2 - DSA/Patterns/Dynamic Programming/Multidimensional DP.md",
+    "2 - DSA/Patterns/Dynamic Programming/Unbounded Counting and Minimisation.md",
+    "2 - DSA/Patterns/Dynamic Programming/Paths in a Grid.md",
+    "2 - DSA/Patterns/Dynamic Programming/0-1 Knapsack.md",
+    "5 - Resources/Excalidraw/Drawing 2025-06-08 14.39.11.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-06-08 13.10.21.excalidraw.md",
+    "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md",
+    "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md",
+    "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md",
+    "5 - Resources/Excalidraw/Drawing 2025-06-06 14.42.37.excalidraw.md",
+    "5 - Resources/Excalidraw/Drawing 2025-06-02 10.04.24.excalidraw.md",
+    "1 - Languages/HTML & CSS & JS/CSS Summary.md",
+    "5 - Resources/Excalidraw/Drawing 2025-06-02 10.44.48.excalidraw.md",
+    "5 - Resources/Attachements/Pasted image 20250526003456.png",
     "5 - Resources/Attachements/Pasted image 20250525181430.png",
     "5 - Resources/Attachements/Pasted image 20250525180748.png",
-    "5 - Resources/Excalidraw/Drawing 2025-05-25 17.55.48.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-05-25 17.07.47.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-05-25 15.43.36.excalidraw.md",
     "5 - Resources/Attachements/Pasted image 20250525151445.png",
-    "5 - Resources/Excalidraw/Drawing 2025-05-25 12.42.15.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-05-25 12.40.01.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-05-25 12.38.29.excalidraw.md",
     "5 - Resources/Attachements/Pasted image 20250524194057.png",
     "5 - Resources/Attachements/Pasted image 20250524163049.png",
     "5 - Resources/Attachements/tiling.png",
-    "5 - Resources/Excalidraw/Drawing 2025-05-24 12.36.41.excalidraw.md",
     "5 - Resources/Attachements/Pasted image 20250524114651.png",
-    "5 - Resources/Excalidraw/Drawing 2025-05-24 10.13.32.excalidraw.md",
-    "5 - Resources/Excalidraw/Drawing 2025-05-24 10.34.26.excalidraw.md",
-    "2 - DSA/Patterns/Trees & Graphs/BT DFS.md",
-    "2 - DSA/Patterns/Trees & Graphs/BT BFS.md",
-    "1 - Languages/MERN/Node.js & Express.md",
-    "1 - Languages/MERN/React.md",
-    "1 - Languages/MERN/MongoDB.md",
-    "2 - DSA/Patterns/Trees & Graphs/Graph Terminology.md",
-    "2 - DSA/Patterns/Trees & Graphs/Graphs BFS.md",
-    "2 - DSA/Patterns/Trees & Graphs/Graphs DFS.md",
-    "2 - DSA/Data Structures/Heap/Binary Heap.md",
-    "2 - DSA/Data Structures/Heap/Priority Queue.md",
-    "2 - DSA/Patterns/Fenwick Trees/Fenwick Trees.md",
-    "3 - OS/1 - Process & Threads.md",
-    "3 - OS/2 - CPU Scheduling.md",
-    "3 - OS/3 - Concurrency.md",
     "5 - Resources/Attachements/Pasted Image 20250427004812_683.png",
     "5 - Resources/Attachements/Pasted Image 20250427004358_271.png",
-    "5 - Resources/Attachements/Pasted image 20250419231513.png",
     "2 - DSA/Patterns/Intervals",
     "1 - Languages/C++/Design Patterns/Behavioural",
     "1 - Languages/C++/Design Patterns/Structural",
@@ -302,7 +305,6 @@
     "2 - DSA/Patterns/Tries",
     "2 - DSA/Patterns/Other Trees",
     "2 - DSA/Patterns/Union Find",
-    "2 - DSA/Patterns/Tries",
     "Untitled.canvas",
     "2 - DSA/Data Structures/DS Map.canvas"
   ]

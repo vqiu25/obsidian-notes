@@ -151,6 +151,60 @@
 >```
 >````
 
+>[!Info]- Binary Search (New Approach :O)
+><!-- Multiline -->
+><u>**Explanation**</u>
+>* **~={purple}What Left and Right Mean=~**:
+>	* **~={red}Left=~**: Last value of "before"
+>	* **~={green}Right=~**: First value of "after"
+>* **~={purple}Virtual Boundaries=~**: We define `left = -1` and `right = arr.size()`. This is so that the invariant can be maintained.
+>* **~={purple}isBefore and isAfter=~**:
+>	* **~={green}isBefore=~**: T T F F
+>	* **~={red}isAfter=~**: F F T T
+>		* If we establish our invariant to this, then we'll need to swap where `left = mid` with `right = mid`
+>
+><u>**C++ Code**</u>
+>```cpp
+>int binarySearch(vector<int​>& arr, int target) {
+>	// (4) isBefore Lambda
+>	isBefore = [&](int mid) -> bool {
+>		// If in the before region, return true
+>		// else return false
+>	};
+>	
+>	// (1) Define Search Space
+>	int left = -1;
+>	int right = arr.size();
+>	
+>	// (2) Exit Condition
+>	while (right - left > 1) {
+>		int mid = left + (right - left) / 2;
+>		
+>		// (3) Narrow Search Space Based on a Condition
+>		if (isBefore(mid)) {
+>			left = mid;
+>		} else {
+>			right = mid;
+>		}
+>	}
+>	return left or right;
+>}
+>```
+><u>**Visual Explanation**</u>
+>
+>**~={green}In Range=~**
+> ![[Drawing 2025-06-02 10.04.24.excalidraw | center | 500]]
+> 
+> **~={orange}Border=~**
+> ![[Drawing 2025-06-02 10.31.38.excalidraw | center | 500]]
+> 
+> **~={red}Out of Range (If values may not exist)=~**
+> ![[Drawing 2025-06-02 10.44.48.excalidraw | center | 500]]
+> 
+> **~={purple}On Solution Space=~**
+> ![[Drawing 2025-06-06 14.42.37.excalidraw | center | 500]]
+> 
+
 # Example Problems
 
 > [!question]- Successful Pairs of Spells and Potions
