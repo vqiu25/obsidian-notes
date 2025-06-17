@@ -145,19 +145,19 @@ priority_queue<CustomObject*, vector<CustomObject*>, CustomObjectPtrCompare> min
 
 ## Methods
 
-|                Operation                 | Syntax                                                                              | Complexity | Comments     |
-| :--------------------------------------: | ----------------------------------------------------------------------------------- | ---------- | ------------ |
-|                1D Access                 | `v.at(index) / v[index]`<br><br>`v.front() / v.back()`                              | $O(1)$     |              |
-|                2D Access                 | `v.at(rowIndex).at(colIndex) /`<br><br>`v[rowIndex][colIndex]`                      | $O(1)$     |              |
-|                  Insert                  | `v.insert(v.begin() + index, value)`                                                | $O(n)$     |              |
-|              Insert at End               | `v.push_back(value)`                                                                | $O(1)^A$   |              |
-| Erase an Element or<br>Range of Elements | `v.erase(v.begin() + index)` <br><br>`v.erase(v.begin() + index, v.begin() + index` | <br>$O(n)$ |              |
-|          Remove and Return End           | `v.pop_back()`                                                                      | $O(1)^A$   |              |
-|                   Sort                   | `sort(v.begin(), v.end())`                                                          | $O(nlogn)$ |              |
-|                 Reverse                  | `reverse(v.begin(), v.end())`                                                       | $O(n/2)$   |              |
-|                 Min/Max                  | `*min_element(v.begin(), v.end())`                                                  | $O(n)$     |              |
-|                   Swap                   | `swap(v[i], v[j])`                                                                  | $O(1)$     |              |
-|             Check if Sorted              | `is_sorted(v.begin(), v.end())`                                                     | $O(n)$     | Returns bool |
+|                Operation                 | Syntax                                                                               | Complexity | Comments     |
+| :--------------------------------------: | ------------------------------------------------------------------------------------ | ---------- | ------------ |
+|                1D Access                 | `v.at(index) / v[index]`<br><br>`v.front() / v.back()`                               | $O(1)$     |              |
+|                2D Access                 | `v.at(rowIndex).at(colIndex) /`<br><br>`v[rowIndex][colIndex]`                       | $O(1)$     |              |
+|                  Insert                  | `v.insert(v.begin() + index, value)`                                                 | $O(n)$     |              |
+|              Insert at End               | `v.push_back(value)`                                                                 | $O(1)^A$   |              |
+| Erase an Element or<br>Range of Elements | `v.erase(v.begin() + index)` <br><br>`v.erase(v.begin() + index, v.begin() + index)` | <br>$O(n)$ |              |
+|          Remove and Return End           | `v.pop_back()`                                                                       | $O(1)^A$   |              |
+|                   Sort                   | `sort(v.begin(), v.end())`                                                           | $O(nlogn)$ |              |
+|                 Reverse                  | `reverse(v.begin(), v.end())`                                                        | $O(n/2)$   |              |
+|                 Min/Max                  | `*min_element(v.begin(), v.end())`                                                   | $O(n)$     |              |
+|                   Swap                   | `swap(v[i], v[j])`                                                                   | $O(1)$     |              |
+|             Check if Sorted              | `is_sorted(v.begin(), v.end())`                                                      | $O(n)$     | Returns bool |
 
 # Strings
 ## Initialisation
@@ -279,11 +279,11 @@ is
 |                 Convert to Vector                  | `vector<int>(set.begin(), set.end())` | $O(n)$                      |
 Ordered Set Unique Methods:
 
-|                   Operation                    | Syntax                                                           | Comment |
-| :--------------------------------------------: | ---------------------------------------------------------------- | ------- |
-|      Find if Larger Value than $x$ exists      | `s.upper_bound(x) != s.end()`                                    |         |
-| Find if Smaller or Equal Value than $x$ exists | `s.lower_bound(x) != s.end()`                                    |         |
-|     Find if Smaller Value than $x$ exists      | `it = s.lower_bound(currX);`<br><br>`if (it != s.begin()) --it;` |         |
+|                   Operation                    | Syntax                                                           | Comment                                                  |
+| :--------------------------------------------: | ---------------------------------------------------------------- | -------------------------------------------------------- |
+|      Find if Larger Value than $x$ exists      | `s.upper_bound(x) != s.end()`                                    | Finds the first value that is greater than x             |
+| Find if Smaller or Equal Value than $x$ exists | `s.lower_bound(x) != s.end()`                                    | Finds the first value that is greater than or equal to x |
+|     Find if Smaller Value than $x$ exists      | `it = s.lower_bound(currX);`<br><br>`if (it != s.begin()) --it;` |                                                          |
 
 # Stack
 ## Initialisation
