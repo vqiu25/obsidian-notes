@@ -1,6 +1,42 @@
 {
   "recentFiles": [
     {
+      "basename": "Monotonic",
+      "path": "2 - DSA/Patterns/Stacks and Queues/Monotonic.md"
+    },
+    {
+      "basename": "Drawing 2025-07-03 14.03.45.excalidraw",
+      "path": "5 - Resources/Excalidraw/Drawing 2025-07-03 14.03.45.excalidraw.md"
+    },
+    {
+      "basename": "Home",
+      "path": "5 - Resources/Home.md"
+    },
+    {
+      "basename": "5 - High Performance Computing",
+      "path": "3 - OS/5 - High Performance Computing.md"
+    },
+    {
+      "basename": "1. C++ Basics",
+      "path": "1 - Languages/C++/COMP6771/1. C++ Basics.md"
+    },
+    {
+      "basename": "0. C++ Style Guide",
+      "path": "1 - Languages/C++/COMP6771/0. C++ Style Guide.md"
+    },
+    {
+      "basename": "Binary Search on Arrays",
+      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
+    },
+    {
+      "basename": "Node.js & Express",
+      "path": "1 - Languages/MERN/Node.js & Express.md"
+    },
+    {
+      "basename": "React",
+      "path": "1 - Languages/MERN/React.md"
+    },
+    {
       "basename": "5. Class Types",
       "path": "1 - Languages/C++/COMP6771/5. Class Types.md"
     },
@@ -13,10 +49,6 @@
       "path": "1 - Languages/C++/COMP6771/3. STL Iterators.md"
     },
     {
-      "basename": "1. C++ Basics",
-      "path": "1 - Languages/C++/COMP6771/1. C++ Basics.md"
-    },
-    {
       "basename": "DS C++ Syntax",
       "path": "2 - DSA/Data Structures/DS C++ Syntax.md"
     },
@@ -27,10 +59,6 @@
     {
       "basename": "Drawing 2025-06-19 21.01.30.excalidraw",
       "path": "5 - Resources/Excalidraw/Drawing 2025-06-19 21.01.30.excalidraw.md"
-    },
-    {
-      "basename": "Home",
-      "path": "5 - Resources/Home.md"
     },
     {
       "basename": "Drawing 2025-06-19 20.45.10.excalidraw",
@@ -95,10 +123,6 @@
     {
       "basename": "2. STL Containers",
       "path": "1 - Languages/C++/COMP6771/2. STL Containers.md"
-    },
-    {
-      "basename": "0. C++ Style Guide",
-      "path": "1 - Languages/C++/COMP6771/0. C++ Style Guide.md"
     },
     {
       "basename": "Drawing 2025-06-16 22.49.05.excalidraw",
@@ -175,30 +199,6 @@
     {
       "basename": "Sliding Windows",
       "path": "2 - DSA/Patterns/Arrays & Strings/Sliding Windows.md"
-    },
-    {
-      "basename": "Paths in a Grid",
-      "path": "2 - DSA/Patterns/Dynamic Programming/Paths in a Grid.md"
-    },
-    {
-      "basename": "Drawing 2025-06-08 14.39.11.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-06-08 14.39.11.excalidraw.md"
-    },
-    {
-      "basename": "Drawing 2025-06-08 13.10.21.excalidraw",
-      "path": "5 - Resources/Excalidraw/Drawing 2025-06-08 13.10.21.excalidraw.md"
-    },
-    {
-      "basename": "Prefix Sums",
-      "path": "2 - DSA/Patterns/Arrays & Strings/Prefix Sums.md"
-    },
-    {
-      "basename": "Binary Search on Solution Spaces",
-      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Solution Spaces.md"
-    },
-    {
-      "basename": "Binary Search on Arrays",
-      "path": "2 - DSA/Patterns/Binary Search/Binary Search on Arrays.md"
     }
   ],
   "omittedPaths": [],

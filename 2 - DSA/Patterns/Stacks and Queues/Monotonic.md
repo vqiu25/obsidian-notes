@@ -47,6 +47,16 @@
 >
 > ![[Drawing 2024-12-26 22.41.35.excalidraw | 700 | center]]
 
+>[!Info]- Revamped Monotonic Stack
+><!-- Multiline -->
+>There are 4 key ways to have a monotonic stack:
+>* Find the **~={red}left=~** nearest **~={red}smaller=~** element for every element
+>* Find the **~={red}left=~** nearest **~={green}greater=~** element for every element
+>* Find the **~={green}right=~** nearest **~={red}smaller=~** element of every element
+>* Find the **~={green}right=~** nearest **~={green}greater=~** element of every element
+>
+> ![[Drawing 2025-07-03 14.03.45.excalidraw | center | 700]]
+
 # Example Problems
 
 > [!Question]- Daily Temperatures
